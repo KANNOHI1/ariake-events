@@ -6,61 +6,59 @@
 
 ## 1. ワークフロー設定
 
--   **ワークフローファイル**: `.github/workflows/scraper.yml`
+-   **ワークフローファイル**: `.github/workflows/scrape.yml`
 
 ```yaml
-name: Daily Scraper
-
+name: Scrape Events
 on:
   schedule:
-    - cron: "0 17 * * *"
-  workflow_dispatch:
-
+    # 毎日午前9時（JST）= UTC 0:00 に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行も可能
 permissions:
-  contents: write
-
+  contents: write # リポジトリへのコミット・プッシュに必要
 jobs:
-  run-scraper:
+  scrape:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Tokyo
-      GMAIL_USER: ${{ secrets.GMAIL_USER }}
-      GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-      NOTIFICATION_TO: ${{ secrets.NOTIFICATION_TO }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          persist-credentials: true
-      - uses: pnpm/action-setup@v3
+          node-version: '20'
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          version: 9
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: pnpm
+          version: 8
       - name: Install dependencies
         run: pnpm install
-      - name: Install Playwright Chromium
+      - name: Install Playwright browsers
         run: pnpm --filter scraper exec playwright install --with-deps chromium
       - name: Run scraper
-        run: pnpm --filter scraper dev
-      - name: Commit events.json
+        run: pnpm --filter scraper start
+      - name: Check for changes
+        id: check_changes
         run: |
-          if git diff --quiet -- packages/web/public/events.json; then
-            echo "No changes to commit"
-            exit 0
+          if git diff --exit-code packages/web/public/events.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
           git add packages/web/public/events.json
-          git commit -m "chore: update events.json"
+          git commit -m "chore: Update events.json [skip ci]"
           git push
 ```
 
 ## 2. 実行スケジュール
 
 -   **実行頻度**: 毎日1回
--   **実行時刻**: 日本時間 午前2時（`0 17 * * *` UTC）
+-   **実行時刻**: 日本時間 午前9時（`0 0 * * *` UTC）
 
 ## 3. シークレット設定
 
@@ -77,8 +75,8 @@ jobs:
 ## 4. ログの確認方法
 
 1.  リポジトリの `Actions` タブにアクセスします。
-2.  `Daily Scraper` ワークフローの実行履歴が表示されます。
-3.  各実行の `run-scraper` ジョブをクリックすると、詳細なログ（各施設のスクレイピング結果、エラーメッセージなど）を確認できます。
+2.  `Scrape Events` ワークフローの実行履歴が表示されます。
+3.  各実行の `scrape` ジョブをクリックすると、詳細なログ（各施設のスクレイピング結果、エラーメッセージなど）を確認できます。
 
 ## 5. エラー時の対応手順
 
@@ -92,7 +90,7 @@ jobs:
 ## 6. 手動実行の方法
 
 1.  リポジトリの `Actions` タブにアクセスします。
-2.  左側のサイドバーから `Daily Scraper` ワークフローを選択します。
+2.  左側のサイドバーから `Scrape Events` ワークフローを選択します。
 3.  `Run workflow` ボタンをクリックすると、手動でワークフローを実行できます。
 
 **用途**:
