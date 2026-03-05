@@ -1,0 +1,15 @@
+﻿{
+  "name": "ariake-events",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.12.3",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "scraper:dev": "pnpm --filter scraper dev",
+    "scraper:run": "pnpm --filter scraper start",
+    "build": "pnpm -r build"
+  }
+}
+
