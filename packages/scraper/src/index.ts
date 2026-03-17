@@ -110,22 +110,58 @@ const main = async (): Promise<void> => {
   writeFileSync(OUTPUT_PATH, JSON.stringify(finalEvents, null, 2), "utf-8");
   console.log(`[scraper] Written to ${OUTPUT_PATH}`);
 
-  // Summary
+  // Summary per facility
   const facilityCounts = new Map<string, number>();
   for (const e of finalEvents) {
     facilityCounts.set(e.facility, (facilityCounts.get(e.facility) ?? 0) + 1);
   }
-  for (const [facility, count] of facilityCounts) {
-    console.log(`[scraper]   ${facility}: ${count} events`);
+
+  // Build summary table for console + GitHub Actions
+  const summaryRows: Array<{ facility: string; events: number; status: string }> = [];
+  for (const r of results) {
+    const count = facilityCounts.get(r.facility) ?? 0;
+    const hasErrors = r.errors.length > 0;
+    const status = hasErrors && count === 0 ? "FAIL" : count === 0 ? "WARN" : "OK";
+    summaryRows.push({ facility: r.facility, events: count, status });
+    console.log(`[scraper]   ${status} ${r.facility}: ${count} events`);
   }
 
-  const failedFacilities = results.filter(
-    (r) => r.events.length === 0 && r.errors.length > 0,
-  );
+  const failedFacilities = summaryRows.filter((r) => r.status === "FAIL");
+  const warnFacilities = summaryRows.filter((r) => r.status === "WARN");
+
   if (failedFacilities.length > 0) {
     console.error(
       `[scraper] ${failedFacilities.length}/${SCRAPERS.length} facilities failed`,
     );
+  }
+  if (warnFacilities.length > 0) {
+    console.warn(
+      `[scraper] ${warnFacilities.length}/${SCRAPERS.length} facilities returned 0 events`,
+    );
+  }
+
+  // Write GitHub Actions Job Summary (GITHUB_STEP_SUMMARY)
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (summaryPath) {
+    const dateRange = finalEvents.length > 0
+      ? `${finalEvents[0].startDate} ~ ${finalEvents[finalEvents.length - 1].startDate}`
+      : "N/A";
+    const md = [
+      `## Scrape Results`,
+      ``,
+      `| Facility | Events | Status |`,
+      `|---|---:|---|`,
+      ...summaryRows.map(
+        (r) => `| ${r.facility} | ${r.events} | ${r.status === "OK" ? "OK" : r.status === "WARN" ? "⚠ 0件" : "✗ FAIL"} |`,
+      ),
+      `| **Total** | **${finalEvents.length}** | |`,
+      ``,
+      `Date range: ${dateRange}`,
+      `Validation errors: ${validationErrors.length}`,
+      ``,
+    ].join("\n");
+    const { appendFileSync } = await import("node:fs");
+    appendFileSync(summaryPath, md, "utf-8");
   }
 
   // Exit code: 1 only if zero total events collected
