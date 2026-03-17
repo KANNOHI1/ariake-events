@@ -10,14 +10,6 @@
 - **Context:** 現在は全5施設でPlaywright経由。有明ガーデン（`time[datetime]`属性あり）、東京ビッグサイト（`article.lyt-event-01`）、有明アリーナ（WordPress）はサーバーサイドレンダリングでJS実行不要。TOYOTA ARENA TOKYO（Next.js）と東京ガーデンシアター（要検証）のみPlaywright必須
 - **Depends on:** Phase 1リビルド完了、CI安定稼働の確認
 
-### TOYOTA ARENA TOKYO 月ナビのデバッグ
-- **What:** 月切り替えボタンのPlaywrightクリックが動いていない（0 future month buttons found）。当月分14件のみ取得中
-- **Why:** Next.jsのReactハイドレーション後のDOM構造が`page.evaluate`内の検索パターンと不一致の可能性
-- **Pros:** 修正すれば14件→数十件に増加する見込み
-- **Cons:** ライブサイトのDOM構造変更に依存するためメンテコスト
-- **Context:** SSR HTMLには月ボタンが含まれず、クライアントサイドでのみレンダリングされる。3秒waitでは不十分か、ボタンのテキスト形式が`/\d{4}年/`にマッチしない可能性。CIログに`page.content()`のスニペットを出力するデバッグモードを入れて調査が必要
-- **Depends on:** なし（独立タスク）
-
 ## Phase 2 準備
 
 ### カテゴリ分類の拡充
