@@ -78,10 +78,9 @@ export const toyotaArenaTokyoScraper: FacilityScraper = {
     const page = await ctx.newPage();
     try {
       await page.goto(LIST_URL, {
-        waitUntil: "domcontentloaded",
-        timeout: 30_000,
+        waitUntil: "networkidle",
+        timeout: 60_000,
       });
-      await page.waitForTimeout(3000); // Wait for React hydration
 
       // Parse current month (SSR + hydrated)
       allEvents.push(
@@ -95,7 +94,7 @@ export const toyotaArenaTokyoScraper: FacilityScraper = {
         const buttons = Array.from(document.querySelectorAll("button"));
         const monthButtons = buttons.filter((btn) => {
           const text = btn.textContent ?? "";
-          return /\d{4}年/.test(text) && /\d{1,2}月/.test(text);
+          return /\d{4}\D*\d{1,2}月/.test(text);
         });
 
         let foundActive = false;
@@ -124,7 +123,7 @@ export const toyotaArenaTokyoScraper: FacilityScraper = {
             const buttons = Array.from(document.querySelectorAll("button"));
             const monthButtons = buttons.filter((btn) => {
               const text = btn.textContent ?? "";
-              return /\d{4}年/.test(text) && /\d{1,2}月/.test(text);
+              return /\d{4}\D*\d{1,2}月/.test(text);
             });
             const btn = monthButtons[targetIdx];
             if (btn) {
