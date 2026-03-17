@@ -29,8 +29,9 @@
 ## コマンド
 
 ```bash
-pnpm --filter scraper test        # テスト実行
-pnpm --filter scraper start       # スクレイパー実行（要Playwright）
+pnpm --filter scraper test              # テスト実行
+pnpm --filter scraper start             # スクレイパー実行（要Playwright）
+pnpm --filter scraper update-fixtures   # HTMLフィクスチャ更新（セレクタ変更検知用）
 ```
 
 ## セッション開始時
@@ -104,4 +105,4 @@ CTAボタン（M）     : inline-flex items-center justify-center gap-2 h-10 px-
 | 色だけで情報伝達 | アイコン/テキストを併用 |
 
 ---
-最終更新: 2026-03-17
+最終更新: 2026-03-18
