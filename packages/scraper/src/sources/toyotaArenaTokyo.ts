@@ -1,94 +1,98 @@
-﻿import cheerio from "cheerio";
-import { DateTime } from "luxon";
-import { fetchPageContent } from "../lib/browser.js";
-import { toISODate } from "../lib/date.js";
+import * as cheerio from "cheerio";
+import { parseDateRange } from "../lib/date.js";
 import { makeEventId, mapCategory, normalizeWhitespace } from "../lib/normalize.js";
-import type { FacilityScraper, ScrapeContext, ScrapeResult } from "../types.js";
+import type {
+  EventItem,
+  FacilityScraper,
+  ScrapeContext,
+  ScrapeResult,
+} from "../types.js";
 
-const BASE_URL = "https://www.toyota-arena-tokyo.jp";
+const FACILITY = "TOYOTA ARENA TOKYO";
+const BASE_URL = "https://toyota-arena-tokyo.jp";
 const LIST_URL = `${BASE_URL}/events/`;
-const pad2 = (value: number) => value.toString().padStart(2, "0");
+
+export const parseToyotaArenaTokyoEvents = (
+  html: string,
+  nowISO: string,
+): EventItem[] => {
+  const $ = cheerio.load(html);
+  const events: EventItem[] = [];
+
+  $("li.bg-gray-f5").each((_, el) => {
+    const $li = $(el);
+
+    // Title: from img[alt] (most reliable) or first substantial text
+    const imgAlt = $li.find("img[alt]").first().attr("alt") ?? "";
+    const title = normalizeWhitespace(imgAlt);
+    if (!title || title.length < 3) return;
+
+    // Date: look for YYYY.M.D pattern in spans or any descendant
+    let dateText = "";
+    $li.find("span, p, div").each((_, el) => {
+      const text = $(el).text().trim();
+      if (/\d{4}\.\d{1,2}\.\d{1,2}/.test(text) && text.length < 60) {
+        dateText = text;
+        return false; // break
+      }
+    });
+
+    const range = parseDateRange(dateText);
+    if (!range) return;
+
+    // Event detail URL
+    const eventHref =
+      $li.find("a[href^='/events/']").first().attr("href") ?? "";
+    const sourceURL =
+      eventHref && eventHref !== "/events/"
+        ? `${BASE_URL}${eventHref}`
+        : LIST_URL;
+
+    events.push({
+      id: makeEventId(FACILITY, title, range.start, sourceURL),
+      eventName: title,
+      facility: FACILITY,
+      category: mapCategory(title),
+      startDate: range.start,
+      endDate: range.end,
+      peakTimeStart: null,
+      peakTimeEnd: null,
+      estimatedAttendees: null,
+      congestionRisk: null,
+      sourceURL,
+      lastUpdated: nowISO,
+    });
+  });
+
+  return events;
+};
 
 export const toyotaArenaTokyoScraper: FacilityScraper = {
-  facility: "TOYOTA ARENA TOKYO",
+  facility: FACILITY,
+  sourceURL: LIST_URL,
   run: async (ctx: ScrapeContext): Promise<ScrapeResult> => {
     const warnings: string[] = [];
     const errors: string[] = [];
-    const events = [];
+    let allEvents: EventItem[] = [];
 
-    const base = DateTime.fromJSDate(ctx.nowDate, { zone: ctx.timezone }).startOf("month");
-    for (let i = 0; i < 6; i += 1) {
-      const targetDate = base.plus({ months: i });
-      const year = targetDate.year;
-      const month = targetDate.month;
-      const url = `${LIST_URL}?year=${year}&month=${pad2(month)}`;
+    // The page shows one month at a time, defaulting to current month.
+    // Fetch current month page (contains all visible events via SSR).
+    try {
+      const html = await ctx.fetchHtml(LIST_URL);
+      allEvents = parseToyotaArenaTokyoEvents(html, ctx.nowISO);
+      ctx.log(`${FACILITY}: ${allEvents.length} events from main page`);
 
-      try {
-        const html = await fetchPageContent(ctx.browser, url);
-        const $ = cheerio.load(html);
-        const monthEvents = [];
-
-        $("li").each((_, el) => {
-          const dateSpan = $(el)
-            .find("span")
-            .filter((_, span) => /20\d{2}\.\d{1,2}\.\d{1,2}/.test($(span).text()))
-            .first();
-          const dateText = normalizeWhitespace(dateSpan.text());
-          const dateMatch = dateText.match(/(20\d{2})\.(\d{1,2})\.(\d{1,2})/);
-          if (!dateMatch) return;
-
-          const titleNode = $(el)
-            .find("p")
-            .filter((_, p) => $(p).text().trim().length > 0)
-            .first();
-          let title = normalizeWhitespace(titleNode.text());
-          if (!title) return;
-          if (title.includes("アーティスト")) {
-            title = normalizeWhitespace(title.split("アーティスト")[0]);
-          }
-
-          const href = $(el).find("a").first().attr("href") || "";
-          const sourceURL = href.startsWith("http") ? href : `${BASE_URL}${href}`;
-
-          const startDate = toISODate({
-            year: Number(dateMatch[1]),
-            month: Number(dateMatch[2]),
-            day: Number(dateMatch[3]),
-          });
-
-          const event = {
-            id: makeEventId("TOYOTA ARENA TOKYO", title, startDate, sourceURL),
-            eventName: title,
-            facility: "TOYOTA ARENA TOKYO",
-            category: mapCategory(title),
-            startDate,
-            endDate: startDate,
-            peakTimeStart: null,
-            peakTimeEnd: null,
-            estimatedAttendees: null,
-            congestionRisk: null,
-            sourceURL,
-            lastUpdated: ctx.nowISO,
-          };
-
-          monthEvents.push(event);
-        });
-
-        if (monthEvents.length === 0) {
-          ctx.log(`TOYOTA ARENA TOKYO ${year}年${month}月: イベントなし`);
-        } else {
-          ctx.log(`TOYOTA ARENA TOKYO ${year}年${month}月: ${monthEvents.length}件`);
-          events.push(...monthEvents);
-        }
-      } catch (error) {
-        errors.push(`Failed to scrape ${url}: ${(error as Error).message}`);
+      if (allEvents.length === 0) {
+        warnings.push("No events found on main page");
       }
+    } catch (error) {
+      errors.push(`Failed: ${(error as Error).message}`);
     }
 
     return {
-      facility: "TOYOTA ARENA TOKYO",
+      facility: FACILITY,
       sourceURL: LIST_URL,
-      events,
+      events: allEvents,
       warnings,
       errors,
     };

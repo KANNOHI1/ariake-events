@@ -1,165 +1,140 @@
-﻿import fs from "fs/promises";
-import path from "path";
-import dotenv from "dotenv";
-import { chromium } from "playwright";
-import { DateTime } from "luxon";
+import { writeFileSync, mkdirSync } from "node:fs";
+import path from "node:path";
 
-import { OUTPUT_PATH, PACKAGE_ROOT, TIMEZONE } from "./config.js";
-import { createLogger } from "./lib/logger.js";
-import { detectCountDrops } from "./lib/diff.js";
-import { dedupeEvents, sortEvents, validateEvents } from "./lib/validate.js";
-import { getEmailConfig, sendEmail } from "./lib/email.js";
+import { OUTPUT_PATH, TIMEZONE } from "./config.js";
+import { launchBrowser, closeBrowser, fetchHtml } from "./lib/browser.js";
+import { validateEvents, dedupeEvents, sortEvents } from "./lib/validate.js";
 import type { FacilityScraper, ScrapeContext, ScrapeResult } from "./types.js";
+
 import {
-  ariakeArenaScraper,
   ariakeGardenScraper,
   tokyoBigSightScraper,
-  tokyoGardenTheaterScraper,
+  ariakeArenaScraper,
   toyotaArenaTokyoScraper,
+  tokyoGardenTheaterScraper,
 } from "./sources/index.js";
 
 const SCRAPERS: FacilityScraper[] = [
   ariakeGardenScraper,
-  tokyoGardenTheaterScraper,
+  tokyoBigSightScraper,
   ariakeArenaScraper,
   toyotaArenaTokyoScraper,
-  tokyoBigSightScraper,
+  tokyoGardenTheaterScraper,
 ];
 
-dotenv.config({ path: path.join(PACKAGE_ROOT, ".env") });
+const TIMEOUT_MS = 120_000; // 2 minutes per scraper
 
-const readPreviousEvents = async () => {
-  try {
-    const data = await fs.readFile(OUTPUT_PATH, "utf-8");
-    return JSON.parse(data) as unknown[];
-  } catch {
-    return [];
-  }
-};
+const withTimeout = <T>(
+  promise: Promise<T>,
+  ms: number,
+  label: string,
+): Promise<T> =>
+  Promise.race([
+    promise,
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label}: timeout after ${ms}ms`)), ms),
+    ),
+  ]);
 
-const runWithRetries = async (scraper: FacilityScraper, ctx: ScrapeContext, retries = 3): Promise<ScrapeResult> => {
-  for (let attempt = 1; attempt <= retries; attempt += 1) {
-    try {
-      ctx.log(`Scraping ${scraper.facility} (attempt ${attempt}/${retries})`);
-      return await scraper.run(ctx);
-    } catch (error) {
-      ctx.log(`Error on ${scraper.facility} attempt ${attempt}: ${(error as Error).message}`);
-      if (attempt === retries) {
-        return {
-          facility: scraper.facility,
-          sourceURL: "",
-          events: [],
-          warnings: [],
-          errors: [`Failed after ${retries} attempts: ${(error as Error).message}`],
-        };
-      }
-    }
-  }
-  return {
-    facility: scraper.facility,
-    sourceURL: "",
-    events: [],
-    warnings: [],
-    errors: ["Unknown retry failure"],
-  };
-};
+const main = async (): Promise<void> => {
+  const nowISO = new Date().toISOString();
 
-const formatReport = (results: ScrapeResult[], warnings: string[], errors: string[]) => {
-  const lines: string[] = [];
-  lines.push("Ariake Events Scraper Report");
-  lines.push(`Generated: ${new Date().toISOString()}`);
-  lines.push("");
-  for (const result of results) {
-    lines.push(`${result.facility}: ${result.events.length} events`);
-    if (result.errors.length > 0) {
-      lines.push(`  Errors: ${result.errors.join(" | ")}`);
-    }
-    if (result.warnings.length > 0) {
-      lines.push(`  Warnings: ${result.warnings.join(" | ")}`);
-    }
-  }
-  if (warnings.length > 0) {
-    lines.push("");
-    lines.push("Global warnings:");
-    warnings.forEach((warning) => lines.push(`- ${warning}`));
-  }
-  if (errors.length > 0) {
-    lines.push("");
-    lines.push("Global errors:");
-    errors.forEach((error) => lines.push(`- ${error}`));
-  }
-  return lines.join("\n");
-};
-
-const main = async () => {
-  const log = createLogger();
-  const now = DateTime.now().setZone(TIMEZONE);
-  const nowISO = now.toUTC().toISO({ suppressMilliseconds: true }) ?? new Date().toISOString();
-
-  const browser = await chromium.launch({ headless: true });
   const ctx: ScrapeContext = {
     nowISO,
-    nowDate: now.toJSDate(),
     timezone: TIMEZONE,
-    browser,
-    log,
+    fetchHtml,
+    log: (msg: string) => console.log(`[scraper] ${msg}`),
   };
 
+  console.log(`[scraper] Starting at ${nowISO}`);
+  console.log(`[scraper] Running ${SCRAPERS.length} scrapers`);
+
+  await launchBrowser();
+
   const results: ScrapeResult[] = [];
-  for (const scraper of SCRAPERS) {
-    const result = await runWithRetries(scraper, ctx, 3);
-    results.push(result);
+
+  try {
+    for (const scraper of SCRAPERS) {
+      try {
+        const result = await withTimeout(
+          scraper.run(ctx),
+          TIMEOUT_MS,
+          scraper.facility,
+        );
+        results.push(result);
+
+        if (result.warnings.length > 0) {
+          for (const w of result.warnings) {
+            console.warn(`[scraper] ⚠ ${scraper.facility}: ${w}`);
+          }
+        }
+        if (result.errors.length > 0) {
+          for (const e of result.errors) {
+            console.error(`[scraper] ✗ ${scraper.facility}: ${e}`);
+          }
+        }
+      } catch (error) {
+        console.error(
+          `[scraper] ✗ ${scraper.facility}: ${(error as Error).message}`,
+        );
+        results.push({
+          facility: scraper.facility,
+          sourceURL: scraper.sourceURL,
+          events: [],
+          warnings: [],
+          errors: [(error as Error).message],
+        });
+      }
+    }
+  } finally {
+    await closeBrowser();
   }
 
-  await browser.close();
+  // Aggregate all events
+  const allRawEvents = results.flatMap((r) => r.events);
+  console.log(`[scraper] Total raw events: ${allRawEvents.length}`);
 
-  const collected = results.flatMap((result) => result.events);
-  const deduped = dedupeEvents(collected);
-  const { valid, errors: validationErrors } = validateEvents(deduped);
-  const sorted = sortEvents(valid);
+  // Validate
+  const { valid, errors: validationErrors } = validateEvents(allRawEvents);
+  for (const e of validationErrors) {
+    console.warn(`[scraper] ⚠ validation: ${e}`);
+  }
 
-  const previousEvents = (await readPreviousEvents()) as typeof sorted;
-  const diffWarnings = detectCountDrops(previousEvents, sorted);
+  // Dedupe and sort
+  const finalEvents = sortEvents(dedupeEvents(valid));
+  console.log(`[scraper] Final events after validation/dedupe: ${finalEvents.length}`);
 
-  const facilityErrors = results.flatMap((result) =>
-    result.errors.map((error) => `${result.facility}: ${error}`)
+  // Write output
+  mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
+  writeFileSync(OUTPUT_PATH, JSON.stringify(finalEvents, null, 2), "utf-8");
+  console.log(`[scraper] Written to ${OUTPUT_PATH}`);
+
+  // Summary
+  const facilityCounts = new Map<string, number>();
+  for (const e of finalEvents) {
+    facilityCounts.set(e.facility, (facilityCounts.get(e.facility) ?? 0) + 1);
+  }
+  for (const [facility, count] of facilityCounts) {
+    console.log(`[scraper]   ${facility}: ${count} events`);
+  }
+
+  const failedFacilities = results.filter(
+    (r) => r.events.length === 0 && r.errors.length > 0,
   );
-
-  const globalWarnings = [...diffWarnings];
-  const globalErrors = [...validationErrors, ...facilityErrors];
-
-  if (globalErrors.length > 0) {
-    log(`Errors detected: ${globalErrors.length}`);
+  if (failedFacilities.length > 0) {
+    console.error(
+      `[scraper] ${failedFacilities.length}/${SCRAPERS.length} facilities failed`,
+    );
   }
 
-  await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await fs.writeFile(OUTPUT_PATH, `${JSON.stringify(sorted, null, 2)}\n`, "utf-8");
-
-  const emailConfig = getEmailConfig();
-  const reportText = formatReport(results, globalWarnings, globalErrors);
-
-  if (emailConfig) {
-    const hasErrors = globalErrors.length > 0;
-    if (hasErrors) {
-      await sendEmail(emailConfig, "[Ariake Events] Scraper Errors", reportText);
-    }
-
-    const isWeekly = now.weekday === 1;
-    if (isWeekly) {
-      await sendEmail(emailConfig, "[Ariake Events] Weekly Summary", reportText);
-    }
-  } else {
-    log("Email config missing. Skipping notifications.");
-  }
-
-  if (globalErrors.length > 0) {
-    process.exitCode = 1;
+  // Exit code: 1 only if zero total events collected
+  if (finalEvents.length === 0) {
+    console.error("[scraper] FATAL: No events collected from any facility");
+    process.exit(1);
   }
 };
 
 main().catch((error) => {
-  // eslint-disable-next-line no-console
-  console.error(error);
-  process.exitCode = 1;
+  console.error(`[scraper] Fatal error: ${(error as Error).message}`);
+  process.exit(1);
 });
-

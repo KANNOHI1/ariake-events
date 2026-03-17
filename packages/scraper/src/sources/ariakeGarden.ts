@@ -1,79 +1,77 @@
-﻿import cheerio from "cheerio";
-import { fetchPageContent } from "../lib/browser.js";
-import { parseDateRangeFromText, toISODate } from "../lib/date.js";
-import { makeEventId, mapCategory, normalizeWhitespace } from "../lib/normalize.js";
-import type { FacilityScraper, ScrapeContext, ScrapeResult } from "../types.js";
+import * as cheerio from "cheerio";
+import { parseDateRange } from "../lib/date.js";
+import {
+  makeEventId,
+  mapCategory,
+  normalizeWhitespace,
+} from "../lib/normalize.js";
+import { makeScraper } from "../lib/scraper-factory.js";
+import type { EventItem } from "../types.js";
 
+const FACILITY = "有明ガーデン";
 const LIST_URL = "https://www.shopping-sumitomo-rd.com/ariake/event/";
 const BASE_URL = "https://www.shopping-sumitomo-rd.com";
 
-export const ariakeGardenScraper: FacilityScraper = {
-  facility: "有明ガーデン",
-  run: async (ctx: ScrapeContext): Promise<ScrapeResult> => {
-    const warnings: string[] = [];
-    const errors: string[] = [];
-    const events = [];
+export const parseAriakeGardenEvents = (
+  html: string,
+  nowISO: string,
+): EventItem[] => {
+  const $ = cheerio.load(html);
+  const events: EventItem[] = [];
 
-    const listHtml = await fetchPageContent(ctx.browser, LIST_URL);
-    const $list = cheerio.load(listHtml);
-    const linkSet = new Set<string>();
-    $list("a[href^='/ariake/event/detail/']").each((_, el) => {
-      const href = $list(el).attr("href");
-      if (!href) return;
-      const full = href.startsWith("http") ? href : `${BASE_URL}${href}`;
-      linkSet.add(full);
+  $("a.card_wrap").each((_, el) => {
+    const $el = $(el);
+    const title = normalizeWhitespace(
+      $el.find("h3.font_gothic.leader_01").first().text(),
+    );
+    if (!title) return;
+
+    const href = $el.attr("href") ?? "";
+    const sourceURL = href.startsWith("http") ? href : `${BASE_URL}${href}`;
+
+    // Extract dates from time[datetime] elements
+    const times = $el.find("time[datetime]");
+    const startRaw = times.eq(0).attr("datetime") ?? "";
+    const endRaw =
+      times.length > 1
+        ? (times.eq(1).attr("datetime") ?? startRaw)
+        : startRaw;
+
+    const startRange = parseDateRange(startRaw);
+    const endRange = parseDateRange(endRaw);
+    if (!startRange || !endRange) return;
+
+    const startDate = startRange.start;
+    const endDate = endRange.start;
+
+    // Categories from data-eventlabel spans
+    const labels: string[] = [];
+    $el.find("span[data-eventlabel]").each((_, span) => {
+      labels.push($(span).attr("data-eventlabel") ?? "");
     });
+    const category = mapCategory(labels.join(" "));
 
-    for (const url of Array.from(linkSet)) {
-      try {
-        const html = await fetchPageContent(ctx.browser, url);
-        const $ = cheerio.load(html);
-        const title = normalizeWhitespace($("div.event_title").first().text());
-        const dateText = normalizeWhitespace($("div.date").first().text());
-        const categoryRaw = normalizeWhitespace($("div.genre span.active").first().text()) ||
-          normalizeWhitespace($("div.genre span").first().text());
+    events.push({
+      id: makeEventId(FACILITY, title, startDate, sourceURL),
+      eventName: title,
+      facility: FACILITY,
+      category,
+      startDate,
+      endDate,
+      peakTimeStart: null,
+      peakTimeEnd: null,
+      estimatedAttendees: null,
+      congestionRisk: null,
+      sourceURL,
+      lastUpdated: nowISO,
+    });
+  });
 
-        if (!title) {
-          warnings.push(`Missing title: ${url}`);
-          continue;
-        }
-
-        const range = parseDateRangeFromText(dateText);
-        if (!range) {
-          warnings.push(`Unable to parse date: ${title} (${url})`);
-          continue;
-        }
-
-        const startDate = toISODate(range.start);
-        const endDate = toISODate(range.end);
-
-        const event = {
-          id: makeEventId("有明ガーデン", title, startDate, url),
-          eventName: title,
-          facility: "有明ガーデン",
-          category: mapCategory(categoryRaw),
-          startDate,
-          endDate,
-          peakTimeStart: null,
-          peakTimeEnd: null,
-          estimatedAttendees: null,
-          congestionRisk: null,
-          sourceURL: url,
-          lastUpdated: ctx.nowISO,
-        };
-        events.push(event);
-      } catch (error) {
-        errors.push(`Failed to scrape ${url}: ${(error as Error).message}`);
-      }
-    }
-
-    return {
-      facility: "有明ガーデン",
-      sourceURL: LIST_URL,
-      events,
-      warnings,
-      errors,
-    };
-  },
+  return events;
 };
 
+export const ariakeGardenScraper = makeScraper(
+  FACILITY,
+  LIST_URL,
+  parseAriakeGardenEvents,
+);

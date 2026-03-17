@@ -1,16 +1,16 @@
-﻿export type EventItem = {
+export type EventItem = {
   id: string;
   eventName: string;
   facility: string;
   category: string;
-  startDate: string;
-  endDate: string;
+  startDate: string; // YYYY-MM-DD
+  endDate: string; // YYYY-MM-DD
   peakTimeStart: string | null;
   peakTimeEnd: string | null;
   estimatedAttendees: number | null;
   congestionRisk: number | null;
   sourceURL: string;
-  lastUpdated: string;
+  lastUpdated: string; // ISO 8601
 };
 
 export type ScrapeResult = {
@@ -21,16 +21,15 @@ export type ScrapeResult = {
   errors: string[];
 };
 
-export type ScrapeContext = {
-  nowISO: string;
-  nowDate: Date;
-  timezone: string;
-  browser: import('playwright').Browser;
-  log: (message: string) => void;
-};
-
 export type FacilityScraper = {
   facility: string;
+  sourceURL: string;
   run: (ctx: ScrapeContext) => Promise<ScrapeResult>;
 };
 
+export type ScrapeContext = {
+  nowISO: string;
+  timezone: string;
+  fetchHtml: (url: string) => Promise<string>;
+  log: (message: string) => void;
+};
