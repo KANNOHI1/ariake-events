@@ -20,6 +20,14 @@
 - **Context:** 有明ガーデンは`data-eventlabel`属性（kids, food, exhibition等）を持っている。他施設はタイトルベースのキーワードマッチのみ。施設間で分類精度に差が出る
 - **Depends on:** Phase 1完了、Phase 2 UI設計
 
+### 過去の混雑度データの蓄積
+- **What:** 日次cronで収集したイベントデータから混雑度を推定し、日別の混雑度スコアを蓄積する仕組みを作る
+- **Why:** 「去年のコミケ時期はどうだった？」のような年次比較ができるようになる。過去のイベント情報自体は不要だが、混雑度の推移は有用
+- **Pros:** 前年同時期比較で混雑予測の精度が向上、季節パターンの学習が可能
+- **Cons:** 蓄積先のストレージ設計が必要（JSON? DB?）、推定ロジックが先に必要
+- **Context:** 現在events.jsonは最新スナップショットのみ上書き。過去データは自然蓄積されない。congestionRisk推定ロジック実装後に、日別集計+蓄積の仕組みを追加する
+- **Depends on:** congestionRisk推定ロジックの実装
+
 ## Phase 3 基盤
 
 ### congestionRisk / estimatedAttendees 推定ロジック

@@ -2,7 +2,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 
 import { OUTPUT_PATH, TIMEZONE } from "./config.js";
-import { launchBrowser, closeBrowser, fetchHtml } from "./lib/browser.js";
+import { launchBrowser, closeBrowser, fetchHtml, newPage } from "./lib/browser.js";
 import { validateEvents, dedupeEvents, sortEvents } from "./lib/validate.js";
 import type { FacilityScraper, ScrapeContext, ScrapeResult } from "./types.js";
 
@@ -43,6 +43,7 @@ const main = async (): Promise<void> => {
     nowISO,
     timezone: TIMEZONE,
     fetchHtml,
+    newPage,
     log: (msg: string) => console.log(`[scraper] ${msg}`),
   };
 

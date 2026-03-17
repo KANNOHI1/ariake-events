@@ -75,18 +75,87 @@ export const toyotaArenaTokyoScraper: FacilityScraper = {
     const errors: string[] = [];
     let allEvents: EventItem[] = [];
 
-    // The page shows one month at a time, defaulting to current month.
-    // Fetch current month page (contains all visible events via SSR).
+    const page = await ctx.newPage();
     try {
-      const html = await ctx.fetchHtml(LIST_URL);
-      allEvents = parseToyotaArenaTokyoEvents(html, ctx.nowISO);
-      ctx.log(`${FACILITY}: ${allEvents.length} events from main page`);
+      await page.goto(LIST_URL, {
+        waitUntil: "domcontentloaded",
+        timeout: 30_000,
+      });
+      await page.waitForTimeout(3000); // Wait for React hydration
+
+      // Parse current month (SSR + hydrated)
+      allEvents.push(
+        ...parseToyotaArenaTokyoEvents(await page.content(), ctx.nowISO),
+      );
+
+      // Find future month buttons: all month buttons after the active one
+      // Active month has bg-black class, future months have bg-gray-f5
+      // Buttons contain spans with year (opacity-70) and month text
+      const futureButtons = await page.evaluate(() => {
+        const buttons = Array.from(document.querySelectorAll("button"));
+        const monthButtons = buttons.filter((btn) => {
+          const text = btn.textContent ?? "";
+          return /\d{4}年/.test(text) && /\d{1,2}月/.test(text);
+        });
+
+        let foundActive = false;
+        const futureIndices: number[] = [];
+        monthButtons.forEach((btn, idx) => {
+          if (btn.className.includes("bg-black")) {
+            foundActive = true;
+            return;
+          }
+          if (foundActive) {
+            futureIndices.push(idx);
+          }
+        });
+        return futureIndices;
+      });
+
+      ctx.log(
+        `${FACILITY}: ${futureButtons.length} future month buttons found`,
+      );
+
+      // Click each future month button and collect events
+      for (let i = 0; i < futureButtons.length; i++) {
+        try {
+          // Re-query buttons each time (DOM may change after click)
+          const clicked = await page.evaluate((targetIdx) => {
+            const buttons = Array.from(document.querySelectorAll("button"));
+            const monthButtons = buttons.filter((btn) => {
+              const text = btn.textContent ?? "";
+              return /\d{4}年/.test(text) && /\d{1,2}月/.test(text);
+            });
+            const btn = monthButtons[targetIdx];
+            if (btn) {
+              btn.click();
+              return true;
+            }
+            return false;
+          }, futureButtons[i]);
+
+          if (!clicked) break;
+
+          // Wait for content to update
+          await page.waitForTimeout(2000);
+          const html = await page.content();
+          const events = parseToyotaArenaTokyoEvents(html, ctx.nowISO);
+          allEvents.push(...events);
+        } catch {
+          warnings.push(`Failed to click month button ${i + 1}`);
+          break;
+        }
+      }
 
       if (allEvents.length === 0) {
-        warnings.push("No events found on main page");
+        warnings.push("No events found");
       }
+
+      ctx.log(`${FACILITY}: ${allEvents.length} events total`);
     } catch (error) {
       errors.push(`Failed: ${(error as Error).message}`);
+    } finally {
+      await page.close();
     }
 
     return {

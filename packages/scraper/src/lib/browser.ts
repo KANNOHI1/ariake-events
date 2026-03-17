@@ -2,6 +2,7 @@ import {
   chromium,
   type Browser,
   type BrowserContext,
+  type Page,
 } from "playwright";
 
 let browser: Browser | null = null;
@@ -35,4 +36,15 @@ export const fetchHtml = async (url: string): Promise<string> => {
   } finally {
     await page.close();
   }
+};
+
+/**
+ * Create a new Page from the shared BrowserContext.
+ * Caller is responsible for closing the page.
+ * Used by scrapers that need direct Playwright interaction (e.g. clicking month buttons).
+ */
+export const newPage = async (): Promise<Page> => {
+  if (!context)
+    throw new Error("Browser not launched. Call launchBrowser() first.");
+  return context.newPage();
 };

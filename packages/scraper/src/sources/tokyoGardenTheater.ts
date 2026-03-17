@@ -76,29 +76,72 @@ export const parseTokyoGardenTheaterEvents = (
   return events;
 };
 
+/** Extract available month URLs from the navigation links on the page */
+export const extractMonthUrls = (html: string): string[] => {
+  const $ = cheerio.load(html);
+  const urls: string[] = [];
+  $("ul.nav_scheduleMonthLink a[href*='?date=']").each((_, el) => {
+    const href = $(el).attr("href") ?? "";
+    if (href) {
+      const url = href.startsWith("http") ? href : `${BASE_URL}${href.replace(/#.*$/, "")}`;
+      if (!urls.includes(url)) urls.push(url);
+    }
+  });
+  // Also check the "次の期間" (next period) link
+  $("li.-monthNext a[href*='?date=']").each((_, el) => {
+    const href = $(el).attr("href") ?? "";
+    if (href) {
+      const url = href.startsWith("http") ? href : `${BASE_URL}${href.replace(/#.*$/, "")}`;
+      if (!urls.includes(url)) urls.push(url);
+    }
+  });
+  return urls;
+};
+
 export const tokyoGardenTheaterScraper: FacilityScraper = {
   facility: FACILITY,
   sourceURL: LIST_URL,
   run: async (ctx: ScrapeContext): Promise<ScrapeResult> => {
     const warnings: string[] = [];
     const errors: string[] = [];
+    let allEvents: EventItem[] = [];
 
     const now = new Date(ctx.nowISO);
     const baseYear = now.getFullYear();
 
     try {
-      const html = await ctx.fetchHtml(LIST_URL);
-      const events = parseTokyoGardenTheaterEvents(html, ctx.nowISO, baseYear);
+      // Fetch first page to get events + discover available month URLs
+      const firstHtml = await ctx.fetchHtml(LIST_URL);
+      allEvents.push(
+        ...parseTokyoGardenTheaterEvents(firstHtml, ctx.nowISO, baseYear),
+      );
 
-      if (events.length === 0) {
-        warnings.push("No events found on schedule page");
+      // Find all future month URLs from navigation
+      const monthUrls = extractMonthUrls(firstHtml);
+      const firstUrl = `${BASE_URL}/tokyo_garden_theater/schedule/`;
+      const additionalUrls = monthUrls.filter((u) => u !== firstUrl);
+
+      for (const url of additionalUrls) {
+        try {
+          const html = await ctx.fetchHtml(url);
+          const events = parseTokyoGardenTheaterEvents(html, ctx.nowISO, baseYear);
+          allEvents.push(...events);
+        } catch (e) {
+          warnings.push(`${url}: ${(e as Error).message}`);
+        }
       }
 
-      ctx.log(`${FACILITY}: ${events.length} events`);
-      return { facility: FACILITY, sourceURL: LIST_URL, events, warnings, errors };
+      if (allEvents.length === 0) {
+        warnings.push("No events found across all month pages");
+      }
+
+      ctx.log(
+        `${FACILITY}: ${allEvents.length} events from ${additionalUrls.length + 1} pages`,
+      );
+      return { facility: FACILITY, sourceURL: LIST_URL, events: allEvents, warnings, errors };
     } catch (error) {
       errors.push(`Failed: ${(error as Error).message}`);
-      return { facility: FACILITY, sourceURL: LIST_URL, events: [], warnings, errors };
+      return { facility: FACILITY, sourceURL: LIST_URL, events: allEvents, warnings, errors };
     }
   },
 };

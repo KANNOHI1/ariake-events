@@ -27,9 +27,13 @@ export type FacilityScraper = {
   run: (ctx: ScrapeContext) => Promise<ScrapeResult>;
 };
 
+import type { Page } from "playwright";
+
 export type ScrapeContext = {
   nowISO: string;
   timezone: string;
   fetchHtml: (url: string) => Promise<string>;
+  /** Create a Playwright Page for direct browser interaction */
+  newPage: () => Promise<Page>;
   log: (message: string) => void;
 };
