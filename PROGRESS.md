@@ -90,7 +90,7 @@
 ### 2026-03-19（第6セッション）
 - Phase 4 M1: congestionRisk アルゴリズム設計確定（brainstorming + writing-plans）
   - spec: `docs/archive/specs/2026-03-19-phase4-congestion-design.md`
-  - plan: `docs/superpowers/plans/2026-03-19-phase4-congestion-risk.md`
+  - plan: `docs/archive/plans/2026-03-19-phase4-congestion-risk.md`
 - Phase 4 M2: congestionRisk計算実装（subagent-driven-development）
   - Task1〜6完了、6コミット、push済み（7b9b971）
   - 実装: `packages/scraper/src/lib/congestion.ts`（calcFacilityScore, applyCongestionRisk）
