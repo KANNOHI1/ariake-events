@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { EventItem } from '../types'
 import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS } from '../lib/colorMap'
 import { getTodayString, toDateStr } from '../lib/dateUtils'
@@ -35,6 +35,16 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   const [year, setYear] = useState(() => parseInt(todayStr.slice(0, 4)))
   const [month, setMonth] = useState(() => parseInt(todayStr.slice(5, 7)) - 1)
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
+
+  // Swipe down to close
+  const swipeStartY = useRef<number | null>(null)
+  const onTouchStart = (e: React.TouchEvent) => { swipeStartY.current = e.touches[0].clientY }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (swipeStartY.current !== null && e.changedTouches[0].clientY - swipeStartY.current > 60) {
+      setSelectedDate(null)
+    }
+    swipeStartY.current = null
+  }
 
   const daysInMonth = getDaysInMonth(year, month)
   const firstDayOfWeek = getFirstDayOfWeek(year, month)
@@ -160,12 +170,18 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           <div
             className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[70vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           >
+            {/* Drag handle */}
+            <div className="flex justify-center pt-2 pb-1">
+              <div className="w-10 h-1 rounded-full bg-slate-300" />
+            </div>
             <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
               <h3 className="text-sm font-bold text-slate-900">{selectedLabel}のイベント</h3>
               <button
                 onClick={() => setSelectedDate(null)}
-                className="text-slate-400 hover:text-slate-600 cursor-pointer text-lg leading-none"
+                className="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-100 cursor-pointer text-xl leading-none"
                 aria-label="閉じる"
               >
                 ×
