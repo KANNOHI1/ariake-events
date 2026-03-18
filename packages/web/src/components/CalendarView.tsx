@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import type { EventItem } from '../types'
 import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS } from '../lib/colorMap'
 import { getTodayString, toDateStr } from '../lib/dateUtils'
@@ -35,6 +35,12 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   const [year, setYear] = useState(() => parseInt(todayStr.slice(0, 4)))
   const [month, setMonth] = useState(() => parseInt(todayStr.slice(5, 7)) - 1)
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = selectedDate ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [selectedDate])
 
   // Swipe down to close
   const swipeStartY = useRef<number | null>(null)
