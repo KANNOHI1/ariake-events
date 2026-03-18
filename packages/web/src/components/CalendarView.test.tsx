@@ -88,4 +88,28 @@ describe('CalendarView', () => {
     fireEvent.click(screen.getByLabelText('前月'))
     expect(screen.getByText('2025年12月')).toBeInTheDocument()
   })
+
+  it('congestionRisk が 0.5 のイベントがある日にカラーバーが表示される', () => {
+    const events = [makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18', congestionRisk: 0.5 })]
+    const { container } = render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+    // bg-amber-400 クラスを持つ要素が存在する（やや混雑）
+    const bar = container.querySelector('.bg-amber-400')
+    expect(bar).not.toBeNull()
+  })
+
+  it('congestionRisk が null のイベントのみの日はカラーバーが表示されない', () => {
+    const events = [makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18', congestionRisk: null })]
+    const { container } = render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+    expect(container.querySelector('.bg-amber-400')).toBeNull()
+    expect(container.querySelector('.bg-emerald-400')).toBeNull()
+    expect(container.querySelector('.bg-orange-400')).toBeNull()
+    expect(container.querySelector('.bg-rose-500')).toBeNull()
+  })
+
+  it('congestionRisk が 0.85 のイベントがある日に rose バーが表示される', () => {
+    const events = [makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18', congestionRisk: 0.85 })]
+    const { container } = render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+    const bar = container.querySelector('.bg-rose-500')
+    expect(bar).not.toBeNull()
+  })
 })

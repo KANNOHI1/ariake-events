@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import type { EventItem } from '../types'
-import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS } from '../lib/colorMap'
+import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS, getCongestionInfo } from '../lib/colorMap'
 import { getTodayString, toDateStr } from '../lib/dateUtils'
 
 interface Props {
@@ -28,6 +28,16 @@ function getCategoriesForDate(events: EventItem[], dateStr: string): string[] {
 
 function getEventsForDate(events: EventItem[], dateStr: string): EventItem[] {
   return events.filter((e) => e.startDate <= dateStr && e.endDate >= dateStr)
+}
+
+function getMaxCongestionRiskForDate(events: EventItem[], dateStr: string): number {
+  let max = 0
+  for (const e of events) {
+    if (e.startDate <= dateStr && e.endDate >= dateStr && e.congestionRisk != null) {
+      max = Math.max(max, e.congestionRisk)
+    }
+  }
+  return max
 }
 
 export default function CalendarView({ events, onResetFilters }: Props) {
@@ -141,6 +151,8 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           const isToday = dateStr === todayStr
           const categories = getCategoriesForDate(events, dateStr)
           const hasEvents = categories.length > 0
+          const maxRisk = getMaxCongestionRiskForDate(events, dateStr)
+          const congestionInfo = getCongestionInfo(maxRisk)
 
           return (
             <button
@@ -167,6 +179,9 @@ export default function CalendarView({ events, onResetFilters }: Props) {
                   />
                 ))}
               </div>
+              {congestionInfo && (
+                <div className={`h-0.5 rounded-full mt-0.5 ${congestionInfo.barClass}`} />
+              )}
             </button>
           )
         })}
