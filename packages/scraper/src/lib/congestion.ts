@@ -40,3 +40,40 @@ export const isHolidayOrWeekend = (dateStr: string): boolean => {
   if (dow === 0 || dow === 6) return true;
   return hd.isHoliday(d) !== false;
 };
+
+/**
+ * 1施設の1日分の施設スコアを計算する。
+ * @param facility  event.facility の文字列値
+ * @param category  event.category
+ * @param startDate イベント開始日 YYYY-MM-DD
+ * @param endDate   イベント終了日 YYYY-MM-DD
+ * @returns 施設スコア（未正規化）。未知施設は 0。
+ */
+export const calcFacilityScore = (
+  facility: string,
+  category: string,
+  startDate: string,
+  endDate: string,
+): number => {
+  const config = FACILITY_CONFIG[facility];
+  if (!config) return 0;
+
+  const capacityScore = config.capacity / TOTAL_CAPACITY;
+  const catMultiplier = CATEGORY_MULTIPLIER[category] ?? DEFAULT_CATEGORY_MULTIPLIER;
+
+  // 来場パターン係数
+  let timePatternFactor: number;
+  if (config.pattern === "concentrated") {
+    timePatternFactor = 1.0;
+  } else {
+    const start = new Date(startDate + "T00:00:00Z");
+    const end   = new Date(endDate   + "T00:00:00Z");
+    const n = Math.round((end.getTime() - start.getTime()) / 86_400_000) + 1;
+    timePatternFactor = Math.max(0.7 / n, 0.3);
+  }
+
+  // dayTypeBonus: startDate の曜日/祝日で判定
+  const bonus = isHolidayOrWeekend(startDate) ? config.dayTypeBonus : 1.0;
+
+  return capacityScore * catMultiplier * timePatternFactor * bonus;
+};
