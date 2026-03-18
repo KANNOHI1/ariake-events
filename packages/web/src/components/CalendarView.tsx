@@ -42,14 +42,27 @@ export default function CalendarView({ events, onResetFilters }: Props) {
     return () => { document.body.style.overflow = '' }
   }, [selectedDate])
 
-  // Swipe down to close
-  const swipeStartY = useRef<number | null>(null)
-  const onTouchStart = (e: React.TouchEvent) => { swipeStartY.current = e.touches[0].clientY }
+  // Drag-to-dismiss
+  const dragStartY = useRef<number | null>(null)
+  const [dragY, setDragY] = useState(0)
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    dragStartY.current = e.touches[0].clientY
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    if (dragStartY.current === null) return
+    const dy = e.touches[0].clientY - dragStartY.current
+    if (dy > 0) setDragY(dy)
+  }
   const onTouchEnd = (e: React.TouchEvent) => {
-    if (swipeStartY.current !== null && e.changedTouches[0].clientY - swipeStartY.current > 60) {
-      setSelectedDate(null)
+    if (dragStartY.current !== null) {
+      const dy = e.changedTouches[0].clientY - dragStartY.current
+      if (dy > 80) {
+        setSelectedDate(null)
+      }
     }
-    swipeStartY.current = null
+    dragStartY.current = null
+    setDragY(0)
   }
 
   const daysInMonth = getDaysInMonth(year, month)
@@ -175,8 +188,10 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           {/* Panel */}
           <div
             className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[70vh] flex flex-col"
+            style={{ transform: `translateY(${dragY}px)`, transition: dragY === 0 ? 'transform 0.2s ease' : 'none' }}
             onClick={(e) => e.stopPropagation()}
             onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
             onTouchEnd={onTouchEnd}
           >
             {/* Drag handle */}
