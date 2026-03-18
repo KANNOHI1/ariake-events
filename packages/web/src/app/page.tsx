@@ -6,6 +6,7 @@ import FilterBar from '../components/FilterBar'
 import ViewTabs from '../components/ViewTabs'
 import TodayView from '../components/TodayView'
 import WeekView from '../components/WeekView'
+import CalendarView from '../components/CalendarView'
 import type { ViewType } from '../components/ViewTabs'
 import type { EventItem } from '../types'
 import type { FilterState } from '../lib/filter'
@@ -83,6 +84,12 @@ function HomeContent() {
     [events, filters, weekStart, weekEnd]
   )
 
+  // Calendar shows all events matching facility/category filters (no date range restriction)
+  const calendarEvents = useMemo(
+    () => filterEvents(events, filters, '1900-01-01', '2999-12-31'),
+    [events, filters]
+  )
+
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen text-slate-500">
@@ -116,7 +123,7 @@ function HomeContent() {
           <WeekView events={weekEvents} onResetFilters={resetFilters} />
         )}
         {activeView === 'calendar' && (
-          <div className="p-8 text-center text-slate-500">カレンダービューは準備中です</div>
+          <CalendarView events={calendarEvents} onResetFilters={resetFilters} />
         )}
       </main>
     </div>
