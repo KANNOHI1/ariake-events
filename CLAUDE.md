@@ -47,10 +47,11 @@ pnpm --filter web dev                   # Web開発サーバー起動
 
 - [ ] `docs/ROADMAP.md` のステータスを `✅ 完了 (YYYY-MM-DD)` に更新
 - [ ] `PROGRESS.md` の「現在地」「完了済み」「次にやること」を更新
-- [ ] `~/.claude/projects/.../memory/project_status.md` の現在フェーズを更新
-- [ ] 3点まとめて 1 コミット + push
+- [ ] 2点まとめて 1 コミット + push
 
-**過去の失敗:** ROADMAP.md と project_status.md の更新漏れが複数回発生。「作った/完了した」で終わりにせず、「記憶システム全体が整合しているか」を毎回確認すること。
+> `project_status.md` は Stop フックが PROGRESS.md から自動生成するため手動更新不要（SSoT）。
+
+**過去の失敗:** ROADMAP.md の更新漏れが複数回発生。「作った/完了した」で終わりにせず、ROADMAP.md と PROGRESS.md が整合しているかを毎回確認すること。
 
 ## ⚠️ 新しい仕組みを追加したとき（必須）
 

@@ -59,8 +59,7 @@
 - [ ] CalendarView モーダル内のイベント詳細に混雑度バッジが未表示（M3仕様外）
 - [ ] TOYOTA ARENA TOKYOのHTMLフィクスチャは月ボタン押下後の状態を再現できていない（テストの制約として既知）
 - [x] ~~ogp.png は1×1プレースホルダー~~ → 2026-03-19 ogp.png・favicon一式を実装済み
-- [ ] Phase 4 M3: congestionRisk のUI表示（EventCard バッジ + カレンダー日別色）未着手
-- [ ] Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み 未着手
+- [x] ~~Phase 4 M3: congestionRisk のUI表示~~ → 2026-03-19 完了（EventCard バッジ + CalendarView カラーバー）
 
 ---
 
