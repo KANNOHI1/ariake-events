@@ -1,135 +1,114 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import FilterBar from './FilterBar'
-import { getDefaultFilters } from '../lib/filter'
 import { CATEGORY_LABELS } from '../lib/colorMap'
 
-const defaultFilters = getDefaultFilters()
+const defaultFilters = { facility: null, category: null }
 
 describe('FilterBar', () => {
-  it('renders all 5 facility names', () => {
+  it('renders facility dropdown with "すべての施設" default', () => {
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
       />
     )
-    expect(screen.getByText('有明ガーデン')).toBeInTheDocument()
-    expect(screen.getByText('東京ガーデンシアター')).toBeInTheDocument()
-    expect(screen.getByText('有明アリーナ')).toBeInTheDocument()
-    expect(screen.getByText('TOYOTA ARENA TOKYO')).toBeInTheDocument()
-    expect(screen.getByText('東京ビッグサイト')).toBeInTheDocument()
+    expect(screen.getByText('すべての施設')).toBeInTheDocument()
   })
 
-  it('renders all 8 category labels', () => {
+  it('renders category dropdown with "すべてのカテゴリ" default', () => {
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
       />
     )
-    expect(screen.getByText(CATEGORY_LABELS.music)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.sports)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.exhibition)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.kids)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.food)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.fashion)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.anime)).toBeInTheDocument()
-    expect(screen.getByText(CATEGORY_LABELS.other)).toBeInTheDocument()
+    expect(screen.getByText('すべてのカテゴリ')).toBeInTheDocument()
   })
 
-  it('calls onToggleFacility when facility chip is clicked', () => {
-    const onToggleFacility = vi.fn()
+  it('renders all 5 facilities as options', () => {
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={onToggleFacility}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
       />
     )
-    fireEvent.click(screen.getByText('有明ガーデン'))
-    expect(onToggleFacility).toHaveBeenCalledWith('有明ガーデン')
+    expect(screen.getByRole('option', { name: '有明ガーデン' })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: '東京ガーデンシアター' })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: '有明アリーナ' })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: 'TOYOTA ARENA TOKYO' })).toBeInTheDocument()
+    expect(screen.getByRole('option', { name: '東京ビッグサイト' })).toBeInTheDocument()
   })
 
-  it('calls onToggleCategory when category chip is clicked', () => {
-    const onToggleCategory = vi.fn()
+  it('renders all 8 categories as options', () => {
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={onToggleCategory}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
       />
     )
-    fireEvent.click(screen.getByText(CATEGORY_LABELS.music))
-    expect(onToggleCategory).toHaveBeenCalledWith('music')
+    Object.values(CATEGORY_LABELS).forEach((label) => {
+      expect(screen.getByRole('option', { name: label })).toBeInTheDocument()
+    })
   })
 
-  it('shows facility chip as active (aria-pressed=true) when selected', () => {
+  it('calls onSetFacility with facility name when selected', () => {
+    const onSetFacility = vi.fn()
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        onSetFacility={onSetFacility}
+        onSetCategory={vi.fn()}
       />
     )
-    const chip = screen.getByText('有明ガーデン').closest('button')
-    expect(chip).toHaveAttribute('aria-pressed', 'true')
+    const selects = screen.getAllByRole('combobox')
+    fireEvent.change(selects[0], { target: { value: '有明ガーデン' } })
+    expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
   })
 
-  it('shows facility chip as inactive (aria-pressed=false) when deselected', () => {
-    const filters = { ...defaultFilters, facilities: [] }
+  it('calls onSetFacility with null when "すべての施設" is selected', () => {
+    const onSetFacility = vi.fn()
     render(
       <FilterBar
-        filters={filters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={vi.fn()}
+        filters={{ facility: '有明ガーデン', category: null }}
+        onSetFacility={onSetFacility}
+        onSetCategory={vi.fn()}
       />
     )
-    const chip = screen.getByText('有明ガーデン').closest('button')
-    expect(chip).toHaveAttribute('aria-pressed', 'false')
+    const selects = screen.getAllByRole('combobox')
+    fireEvent.change(selects[0], { target: { value: '' } })
+    expect(onSetFacility).toHaveBeenCalledWith(null)
   })
 
-  it('calls onSelectAll when "すべて選択" is clicked', () => {
-    const onSelectAll = vi.fn()
-    render(
-      <FilterBar
-        filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={onSelectAll}
-        onDeselectAll={vi.fn()}
-      />
-    )
-    fireEvent.click(screen.getByText('すべて選択'))
-    expect(onSelectAll).toHaveBeenCalledTimes(1)
-  })
-
-  it('calls onDeselectAll when "すべて解除" is clicked', () => {
-    const onDeselectAll = vi.fn()
+  it('calls onSetCategory with category key when selected', () => {
+    const onSetCategory = vi.fn()
     render(
       <FilterBar
         filters={defaultFilters}
-        onToggleFacility={vi.fn()}
-        onToggleCategory={vi.fn()}
-        onSelectAll={vi.fn()}
-        onDeselectAll={onDeselectAll}
+        onSetFacility={vi.fn()}
+        onSetCategory={onSetCategory}
       />
     )
-    fireEvent.click(screen.getByText('すべて解除'))
-    expect(onDeselectAll).toHaveBeenCalledTimes(1)
+    const selects = screen.getAllByRole('combobox')
+    fireEvent.change(selects[1], { target: { value: 'music' } })
+    expect(onSetCategory).toHaveBeenCalledWith('music')
+  })
+
+  it('calls onSetCategory with null when "すべてのカテゴリ" is selected', () => {
+    const onSetCategory = vi.fn()
+    render(
+      <FilterBar
+        filters={{ facility: null, category: 'music' }}
+        onSetFacility={vi.fn()}
+        onSetCategory={onSetCategory}
+      />
+    )
+    const selects = screen.getAllByRole('combobox')
+    fireEvent.change(selects[1], { target: { value: '' } })
+    expect(onSetCategory).toHaveBeenCalledWith(null)
   })
 })

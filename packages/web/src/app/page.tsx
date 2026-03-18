@@ -8,7 +8,7 @@ import TodayView from '../components/TodayView'
 import WeekView from '../components/WeekView'
 import CalendarView from '../components/CalendarView'
 import type { ViewType } from '../components/ViewTabs'
-import type { EventItem } from '../types'
+import type { EventItem, EventCategory } from '../types'
 import type { FilterState } from '../lib/filter'
 import {
   getDefaultFilters,
@@ -43,28 +43,12 @@ function HomeContent() {
     window.history.replaceState(null, '', qs || window.location.pathname)
   }, [filters])
 
-  const toggleFacility = useCallback((facility: string) => {
-    setFilters((prev) =>
-      prev.facilities.includes(facility)
-        ? { ...prev, facilities: prev.facilities.filter((f) => f !== facility) }
-        : { ...prev, facilities: [...prev.facilities, facility] }
-    )
+  const setFacility = useCallback((facility: string | null) => {
+    setFilters((prev) => ({ ...prev, facility }))
   }, [])
 
-  const toggleCategory = useCallback((category: string) => {
-    setFilters((prev) =>
-      prev.categories.includes(category as any)
-        ? { ...prev, categories: prev.categories.filter((c) => c !== category) }
-        : { ...prev, categories: [...prev.categories, category as any] }
-    )
-  }, [])
-
-  const selectAll = useCallback(() => {
-    setFilters(getDefaultFilters())
-  }, [])
-
-  const deselectAll = useCallback(() => {
-    setFilters({ facilities: [], categories: [] })
+  const setCategory = useCallback((category: EventCategory | null) => {
+    setFilters((prev) => ({ ...prev, category }))
   }, [])
 
   const resetFilters = useCallback(() => {
@@ -107,10 +91,8 @@ function HomeContent() {
 
       <FilterBar
         filters={filters}
-        onToggleFacility={toggleFacility}
-        onToggleCategory={toggleCategory}
-        onSelectAll={selectAll}
-        onDeselectAll={deselectAll}
+        onSetFacility={setFacility}
+        onSetCategory={setCategory}
       />
 
       <ViewTabs activeView={activeView} onChangeView={setActiveView} />

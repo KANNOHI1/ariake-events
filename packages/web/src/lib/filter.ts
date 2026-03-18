@@ -2,16 +2,13 @@ import { FACILITIES, CATEGORIES, type EventCategory, type EventItem } from '../t
 import { isInRange } from './dateUtils'
 
 export interface FilterState {
-  facilities: string[]
-  categories: EventCategory[]
+  facility: string | null     // null = すべての施設
+  category: EventCategory | null  // null = すべてのカテゴリ
 }
 
-/** Default state: all facilities and categories selected */
+/** Default state: no filter applied (show all) */
 export function getDefaultFilters(): FilterState {
-  return {
-    facilities: [...FACILITIES],
-    categories: [...CATEGORIES],
-  }
+  return { facility: null, category: null }
 }
 
 /** Filter events by facility, category, and date range */
@@ -22,8 +19,8 @@ export function filterEvents(
   rangeEnd: string
 ): EventItem[] {
   return events.filter((e) => {
-    if (!filters.facilities.includes(e.facility)) return false
-    if (!filters.categories.includes(e.category)) return false
+    if (filters.facility !== null && e.facility !== filters.facility) return false
+    if (filters.category !== null && e.category !== filters.category) return false
     if (!isInRange(e.startDate, e.endDate, rangeStart, rangeEnd)) return false
     return true
   })
@@ -31,7 +28,7 @@ export function filterEvents(
 
 /**
  * Parse FilterState from URL search params.
- * e.g. ?facility=ariakeGarden,ariakeArena&category=music,sports
+ * e.g. ?facility=ariakeGarden&category=music
  *
  * Note: URL params use facility keys (e.g. 'ariakeGarden') but EventItem.facility
  * stores Japanese names (e.g. '有明ガーデン'). This mapping is applied here.
@@ -52,48 +49,33 @@ export function parseFiltersFromParams(params: URLSearchParams): FilterState {
   const facilityParam = params.get('facility')
   const categoryParam = params.get('category')
 
-  const facilities = facilityParam
-    ? facilityParam
-        .split(',')
-        .map((k) => FACILITY_KEY_MAP[k])
-        .filter(Boolean)
-    : [...FACILITIES]
+  const facility = facilityParam ? (FACILITY_KEY_MAP[facilityParam] ?? null) : null
 
   const validCategories = new Set<EventCategory>(CATEGORIES)
-  const categories = categoryParam
-    ? (categoryParam
-        .split(',')
-        .filter((c): c is EventCategory => validCategories.has(c as EventCategory)))
-    : [...CATEGORIES]
+  const category =
+    categoryParam && validCategories.has(categoryParam as EventCategory)
+      ? (categoryParam as EventCategory)
+      : null
 
-  return { facilities, categories }
+  return { facility, category }
 }
 
 /**
  * Serialize FilterState to URL search params string.
- * Returns empty string if state equals default (all selected).
+ * Returns empty string if default (no filter applied).
  */
 export function filtersToParams(filters: FilterState): string {
-  const allFacilitiesSelected =
-    filters.facilities.length === FACILITIES.length &&
-    FACILITIES.every((f) => filters.facilities.includes(f))
-  const allCategoriesSelected =
-    filters.categories.length === CATEGORIES.length &&
-    CATEGORIES.every((c) => filters.categories.includes(c))
-
-  if (allFacilitiesSelected && allCategoriesSelected) return ''
+  if (filters.facility === null && filters.category === null) return ''
 
   const params = new URLSearchParams()
 
-  if (!allFacilitiesSelected) {
-    const keys = filters.facilities
-      .map((name) => FACILITY_NAME_TO_KEY[name])
-      .filter(Boolean)
-    if (keys.length > 0) params.set('facility', keys.join(','))
+  if (filters.facility !== null) {
+    const key = FACILITY_NAME_TO_KEY[filters.facility]
+    if (key) params.set('facility', key)
   }
 
-  if (!allCategoriesSelected) {
-    if (filters.categories.length > 0) params.set('category', filters.categories.join(','))
+  if (filters.category !== null) {
+    params.set('category', filters.category)
   }
 
   const qs = params.toString()
