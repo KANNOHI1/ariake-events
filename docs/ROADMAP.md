@@ -70,10 +70,17 @@
 
 | # | マイルストーン | 状態 |
 |---|---|---|
-| M1 | 施設キャパシティデータ整備 + 推定ロジック設計 | 未着手 |
-| M2 | congestionRisk計算実装（スクレイパー側） | 未着手 |
-| M3 | WEBサイトに混雑度表示UI追加 | 未着手 |
+| M1 | 施設キャパシティデータ整備 + 推定ロジック設計 | ✅ 完了 (2026-03-19) |
+| M2 | congestionRisk計算実装（スクレイパー側） | ✅ 完了 (2026-03-19) |
+| M3 | WEBサイトに混雑度表示UI追加 | ✅ 完了 (2026-03-19) |
 | M4 | 過去データ蓄積の仕組み（履歴JSON） | 未着手 |
+
+**M1-M3 成果物 (2026-03-19):**
+- 設計spec: `docs/archive/specs/2026-03-19-phase4-congestion-design.md`
+- `packages/scraper/src/lib/congestion.ts` — calcFacilityScore, applyCongestionRisk（5施設・8カテゴリ）
+- EventCard: 混雑度バッジ（空いている/やや混雑/混雑/非常に混雑）
+- CalendarView: 日別カラーバー（emerald/amber/orange/rose）
+- テスト: 90/90 passing
 
 **Phase 4 設計メモ（ドメイン知識）:**
 - 混雑インパクトは時間帯で異なる
