@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 4 M2 完了 — congestionRisk計算実装 push済み、CI自動実行待ち**
+**Phase 4 M3 完了 — EventCard混雑度バッジ + CalendarView カラーバー push済み**
 
 ---
 
@@ -22,6 +22,11 @@
 - **Phase 4 M1** (完了 2026-03-19): congestionRisk アルゴリズム設計確定
   - 設計spec: `docs/archive/specs/2026-03-19-phase4-congestion-design.md`
   - 施設定数5施設・カテゴリ係数8種・MAX_POSSIBLE_SCORE=0.74確定
+- **Phase 4 M3** (完了 2026-03-19): Web UI に混雑度表示追加
+  - EventCard: 混雑度バッジ（空いている/やや混雑/混雑/非常に混雑）
+  - CalendarView: 日別カラーバー（emerald/amber/orange/rose）
+  - getCongestionInfo() を colorMap.ts に追加（一元管理）
+  - 90テスト全 PASS、push済み（6dd9b36）
 - **Phase 4 M2** (完了 2026-03-19): スクレイパー側 congestionRisk 計算実装
   - `packages/scraper/src/lib/congestion.ts` 新規（calcFacilityScore, applyCongestionRisk）
   - 71テスト全 PASS、push済み（7b9b971）
@@ -38,20 +43,20 @@
 
 ## 次にやること
 
-**Phase 4 M3: WebサイトにcongestionRisk表示UI追加**
-- イベントカードに混雑度バッジ表示
-- カレンダービューに日別スコア表示（emerald/amber/orange/rose）
-- 設計: `docs/archive/specs/2026-03-19-phase4-congestion-design.md` のUIマッピング参照
+**Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み** — 未着手
 
-**その前に確認（任意）:**
-- CI実行後に events.json を確認し congestionRisk スコアが正しく付いているか検証
+**または CalendarView モーダル内バッジ追加（M3補完）:**
+- モーダル内のイベント詳細カードに混雑度バッジが未表示（M3スコープ外だったため）
+- 必要であれば単独タスクとして対応可能
 
 ---
 
 ## 未解決の問題・懸案
 
 - [ ] `other` 20件のうち一部（レディースアパレル販売等）は ariakeGarden がラベルのみを mapCategory に渡す設計上の制約。タイトルフォールバックで解消できるがPhase 2スコープ外
-- [ ] Phase 4の混雑度推定ロジックは設計が未確定（施設キャパ × イベント種別 × 時間帯）
+- [x] ~~Phase 4の混雑度推定ロジックは設計が未確定~~ → M1-M3で完了
+- [ ] Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み 未着手
+- [ ] CalendarView モーダル内のイベント詳細に混雑度バッジが未表示（M3仕様外）
 - [ ] TOYOTA ARENA TOKYOのHTMLフィクスチャは月ボタン押下後の状態を再現できていない（テストの制約として既知）
 - [x] ~~ogp.png は1×1プレースホルダー~~ → 2026-03-19 ogp.png・favicon一式を実装済み
 - [ ] Phase 4 M3: congestionRisk のUI表示（EventCard バッジ + カレンダー日別色）未着手
@@ -73,6 +78,14 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-19（第7セッション）
+- Phase 4 M3: Web UI 混雑度表示実装（subagent-driven-development）
+  - Task1〜4完了、push済み（6dd9b36）
+  - getCongestionInfo() を colorMap.ts に追加
+  - EventCard 混雑度バッジ追加
+  - CalendarView 日別カラーバー追加
+  - 90テスト全 PASS
 
 ### 2026-03-19（第6セッション）
 - Phase 4 M1: congestionRisk アルゴリズム設計確定（brainstorming + writing-plans）
