@@ -58,6 +58,8 @@ pnpm --filter web dev                   # Web開発サーバー起動
 3. このファイルを最新状態に確認する
 4. 作業内容を1〜2行でサマリしてから開始
 
+> **クラッシュ・文脈喪失からの復帰時:** PROGRESS.md が古い場合は `~/.claude/projects/C--Users-c6341-Documents-Projects-ariake-events/memory/session_state.md` も確認する（Stop フック自動保存）。
+
 ---
 
 ## UI デザインルール
