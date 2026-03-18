@@ -67,6 +67,19 @@
 
 ## セッション履歴（直近3件）
 
+### 2026-03-18（第5セッション）
+- CalendarView drag-to-dismiss: fly-off アニメーション修正（80px超で画面外まで滑り出てから閉じる）
+- docs/ 整理: Phase 1時代の古いドキュメント4件削除（PROJECT_OVERVIEW / TECHNICAL_SPEC / SETUP / CONTRIBUTING）
+  - 完了済み plans/specs を docs/archive/ に移動
+  - docs/melta-ui.md → docs/design/melta-ui.md に移動
+  - README / TROUBLESHOOTING / GITHUB_ACTIONS_GUIDE / CLAUDE.md のパス参照を更新
+  - packages/web/.gitignore に .next/ out/ を追加
+- push済み（ee6acf2）
+
+### 2026-03-18（第4セッション）
+- drag-to-dismiss モーダル実装（isTouching フラグ + transition制御）
+- push済み（c181a42）
+
 ### 2026-03-18（第3セッション）
 - Phase 3 全12タスク実装完了（subagent-driven-development）
   - Task 1-5: セットアップ + データ層（types, dateUtils, filter, events, layout）
