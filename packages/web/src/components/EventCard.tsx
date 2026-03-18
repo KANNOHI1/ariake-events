@@ -1,11 +1,13 @@
 import type { EventItem } from '../types'
 import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS } from '../lib/colorMap'
+import ShareButton from './ShareButton'
 
 interface Props {
   event: EventItem
 }
 
 export default function EventCard({ event }: Props) {
+  const shareUrl = `https://kannohi1.github.io/ariake-events?event=${event.id}`
   const facilityClass = FACILITY_COLORS[event.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
@@ -36,6 +38,11 @@ export default function EventCard({ event }: Props) {
       >
         公式サイト →
       </a>
+      <ShareButton
+        title={event.eventName}
+        text={`${event.facility} | ${event.startDate}`}
+        url={shareUrl}
+      />
     </article>
   )
 }
