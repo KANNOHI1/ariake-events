@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isHolidayOrWeekend, calcFacilityScore, applyCongestionRisk } from "../../src/lib/congestion.js";
+import { isHolidayOrWeekend, calcFacilityScore, applyCongestionRisk, getDailyScores } from "../../src/lib/congestion.js";
 import type { EventItem } from "../../src/types.js";
 
 describe("isHolidayOrWeekend", () => {
@@ -106,3 +106,40 @@ describe("applyCongestionRisk", () => {
     }
   });
 });
+
+describe("getDailyScores", () => {
+  it("イベントのある日の日別スコアを返す", () => {
+    const events: EventItem[] = [
+      makeEvent({
+        facility: "有明アリーナ",
+        category: "music",
+        startDate: "2026-03-19",
+        endDate: "2026-03-19",
+      }),
+    ]
+    const scores = getDailyScores(events)
+    expect(scores["2026-03-19"]).toBeGreaterThan(0)
+    expect(scores["2026-03-19"]).toBeLessThanOrEqual(1)
+  })
+
+  it("イベントがない日のキーは含まれない", () => {
+    const events: EventItem[] = [
+      makeEvent({ startDate: "2026-03-19", endDate: "2026-03-19" }),
+    ]
+    const scores = getDailyScores(events)
+    expect(scores["2026-03-20"]).toBeUndefined()
+  })
+
+  it("applyCongestionRisk と同じスコアを返す", () => {
+    const events: EventItem[] = [
+      makeEvent({ startDate: "2026-03-19", endDate: "2026-03-19" }),
+    ]
+    const withRisk = applyCongestionRisk(events)
+    const scores = getDailyScores(events)
+    expect(scores["2026-03-19"]).toBeCloseTo(withRisk[0].congestionRisk ?? 0, 5)
+  })
+
+  it("空配列は空オブジェクトを返す", () => {
+    expect(getDailyScores([])).toEqual({})
+  })
+})
