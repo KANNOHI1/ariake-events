@@ -1,8 +1,18 @@
+export type EventCategory =
+  | "music"
+  | "sports"
+  | "exhibition"
+  | "kids"
+  | "food"
+  | "fashion"
+  | "anime"
+  | "other";
+
 export type EventItem = {
   id: string;
   eventName: string;
   facility: string;
-  category: string;
+  category: EventCategory;
   startDate: string; // YYYY-MM-DD
   endDate: string; // YYYY-MM-DD
   peakTimeStart: string | null;
