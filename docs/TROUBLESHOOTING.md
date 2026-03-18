@@ -1,109 +1,76 @@
-﻿# トラブルシューティングガイド
-
-## 概要
-
-このドキュメントは、開発・運用中に発生する可能性のある一般的な問題とその解決策をまとめたものです。
+# トラブルシューティングガイド
 
 ---
 
 ## 1. スクレイピング関連
 
-### 問題: イベント情報が取得できない、または一部欠落する
+### イベント情報が取得できない／一部欠落する
 
--   **原因**: サイトのHTML構造（セレクタ）が変更された可能性があります。
--   **解決策**:
-    1.  対象施設の公式サイトをブラウザで開きます。
-    2.  デベロッパーツール（F12）を使い、イベント情報を囲む要素のセレクタが変更されていないか確認します。
-    3.  `packages/scraper/src/sources/*.ts` を開き、古いセレクタを新しいものに修正します。
-    4.  `SCRAPING_GUIDE.md` も忘れずに更新します。
+- **原因**: 施設サイトのHTML構造（セレクタ）が変更された
+- **対応**:
+  1. 対象施設の公式サイトをブラウザで開き、DevToolsでセレクタを確認
+  2. `packages/scraper/src/sources/*.ts` のセレクタを修正
+  3. `pnpm --filter scraper update-fixtures` でHTMLフィクスチャを更新
+  4. `pnpm --filter scraper test` でテストを通す
 
-### 問題: 新しいイベントが `events.json` に反映されない
+### TOYOTA ARENA TOKYOのイベントが少ない
 
--   **原因1**: スクレイピングロジックが新しい形式のイベントに対応できていない可能性があります。
--   **原因2**: サイトが動的コンテンツ（JavaScriptでの読み込み）に変更された可能性があります。
--   **解決策**:
-    1.  対象サイトのソースコードを確認し、イベント情報が静的HTMLに含まれているか確認します。
-    2.  動的に読み込まれている場合は、Playwrightの待機条件やセレクタを調整します。
-    3.  `packages/scraper/src/sources/*.ts` のデータ抽出ロジックをデバッグし、問題箇所を特定・修正します。
+- **既知の制約**: HTMLフィクスチャは月ボタン押下後の状態を再現できない
+- Playwright実行時は正常取得される。テストの制約として許容済み
 
 ---
 
 ## 2. GitHub Actions関連
 
-### 問題: ワークフローの実行が失敗する
+### ワークフローが失敗する
 
--   **原因**: 
-    -   一時的なネットワークエラー
-    -   サイト構造の変更によるスクレイピングエラー
-    -   依存関係の解決エラー
--   **解決策**:
-    1.  リポジトリの `Actions` タブから、失敗したワークフローのログを確認します。
-    2.  エラーメッセージを読み、原因を特定します。
-    3.  一時的なエラーの場合は、手動でワークフローを再実行します。
-    4.  スクレイピングエラーの場合は、上記「1. スクレイピング関連」を参照してコードを修正します。
+1. Actions タブから失敗ジョブのログを確認
+2. 原因別対応:
+   - **スクレイピングエラー**: セクション1を参照してコードを修正
+   - **一時的なネットワークエラー**: 手動で `workflow_dispatch` から再実行
+   - **権限不足**: `scrape.yml` に `permissions: contents: write` があるか確認
 
-### 問題: `events.json` がコミットされない
+### events.json がコミットされない
 
--   **原因1**: スクレイピング結果が前回と全く同じで、差分がない。
--   **原因2**: `GITHUB_TOKEN` に書き込み権限が無い。
--   **解決策**:
-    -   **原因1**: 正常動作です。ログで `No changes to commit` を確認してください。
-    -   **原因2**: `.github/workflows/scraper.yml` に `permissions: contents: write` があるか確認してください。
+- 前回と差分なし → 正常動作。ログで `No changes to commit` を確認
 
 ---
 
 ## 3. 開発環境関連
 
-### 問題: `pnpm install` が失敗する
+### `pnpm install` が失敗する
 
--   **原因**: Node.jsのバージョンが古い、またはネットワークの問題が考えられます。
--   **解決策**:
-    1.  `node -v` でバージョンを確認し、`v18` 以降であることを確認します。
-    2.  `pnpm store prune` でキャッシュを整理します。
+- `node -v` でv22以降であることを確認
+- `pnpm store prune` でキャッシュを整理して再試行
 
-### 問題: Playwrightのインストールが失敗する (`self-signed certificate in certificate chain`)
+### Playwrightのインストールが失敗する（証明書エラー）
 
--   **原因**: 会社のプロキシやファイアウォールが自己署名証明書を使っているため、Node.jsが安全な接続と判断できずに失敗しています。
--   **解決策**:
+```bash
+# 方法A: 一時的に証明書検証を無効化（非推奨）
+set NODE_TLS_REJECT_UNAUTHORIZED=0
+pnpm --filter scraper exec playwright install --with-deps chromium
+set NODE_TLS_REJECT_UNAUTHORIZED=1
 
-    **方法A: 証明書検証を一時的に無効化（非推奨）**
-    ```bash
-    # 環境変数を設定して、証明書の検証を一時的に無効にする
-    set NODE_TLS_REJECT_UNAUTHORIZED=0
+# 方法B: 社内CA証明書を指定（推奨）
+set NODE_EXTRA_CA_CERTS="C:\path\to\company-ca.crt"
+pnpm --filter scraper exec playwright install --with-deps chromium
+```
 
-    # インストールコマンドを再実行
-    pnpm --filter scraper exec playwright install --with-deps chromium
+### Webビルドが失敗する
 
-    # 必ず元に戻す
-    set NODE_TLS_REJECT_UNAUTHORIZED=1
-    ```
-
-    **方法B: 社内CA証明書を設定（推奨）**
-    1. 社内IT部門からルート証明書（`.crt`）を取得
-    2. 環境変数に指定
-
-    ```bash
-    set NODE_EXTRA_CA_CERTS="C:\path\to\your\company-ca.crt"
-    pnpm --filter scraper exec playwright install --with-deps chromium
-    ```
-
-    追加で必要な場合:
-    ```bash
-    pnpm config set cafile "C:\path\to\your\company-ca.crt"
-    ```
+```bash
+# basePath付きでビルド確認
+NEXT_PUBLIC_BASE_PATH=/ariake-events pnpm --filter web build
+```
 
 ---
 
-## FAQ
-
-### Q: 新しい施設を追加したい
-
-**A**: `SCRAPING_GUIDE.md` の「新しい施設の追加手順」セクションを参照してください。
-
-### Q: スクレイピング対象の期間を変更したい
-
-**A**: `packages/scraper/src/sources/toyotaArenaTokyo.ts` の月別ループなど、期間を制御している箇所を修正してください。
+## 4. よくある質問
 
 ### Q: ローカルでPlaywrightが動かない
 
-**A**: 会社ネットワーク環境では証明書エラーが発生することがあります。GitHub Actionsを主経路として運用し、ローカルは必要時のみ実行する運用を推奨します。
+会社ネットワーク環境では証明書エラーが発生することがある。GitHub Actionsを主経路として運用し、ローカルは必要時のみ実行する運用を推奨。
+
+### Q: `other` カテゴリのイベントが多い
+
+`packages/scraper/src/lib/normalize.ts` の `mapCategory` にキーワードを追加することで分類できる。ただし有明ガーデンのラベルのみ渡す設計上、一部はタイトルフォールバックが必要（既知の制約）。

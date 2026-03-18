@@ -1,98 +1,59 @@
-﻿# GitHub Actions 運用ガイド
+# GitHub Actions 運用ガイド
 
-## 概要
+## ワークフロー概要
 
-このプロジェクトでは、GitHub Actionsを利用して毎日1回、イベント情報のスクレイピングを自動実行します。
+`.github/workflows/scrape.yml` が以下を一括実行する:
 
-## 1. ワークフロー設定
+1. スクレイパーテスト（Vitest）
+2. 5施設スクレイピング → `events.json` 更新・コミット
+3. Next.js ビルド → GitHub Pages デプロイ
 
--   **ワークフローファイル**: `.github/workflows/scrape.yml`
+**実行スケジュール**: 毎日 JST 09:00（UTC 00:00）および手動実行（`workflow_dispatch`）
 
-```yaml
-name: Scrape Events
-on:
-  schedule:
-    # 毎日午前9時（JST）= UTC 0:00 に実行
-    - cron: '0 0 * * *'
-  workflow_dispatch: # 手動実行も可能
-permissions:
-  contents: write # リポジトリへのコミット・プッシュに必要
-jobs:
-  scrape:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install dependencies
-        run: pnpm install
-      - name: Install Playwright browsers
-        run: pnpm --filter scraper exec playwright install --with-deps chromium
-      - name: Run scraper
-        run: pnpm --filter scraper start
-      - name: Check for changes
-        id: check_changes
-        run: |
-          if git diff --exit-code packages/web/public/events.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          git add packages/web/public/events.json
-          git commit -m "chore: Update events.json [skip ci]"
-          git push
-```
+---
 
-## 2. 実行スケジュール
+## 環境
 
--   **実行頻度**: 毎日1回
--   **実行時刻**: 日本時間 午前9時（`0 0 * * *` UTC）
+- Node.js: v22
+- pnpm: workspace設定（`pnpm-workspace.yaml`）
+- GitHub Pages: `gh-pages` ブランチ、`peaceiris/actions-gh-pages@v4`
 
-## 3. シークレット設定
+---
 
-スクレイピングは公開サイトを対象としているため認証は不要ですが、**メール通知を有効にする場合は以下のシークレットが必要**です。
+## 手動実行
 
--   `GMAIL_USER`
--   `GMAIL_APP_PASSWORD`
--   `NOTIFICATION_TO`
-
-設定場所: `Settings` → `Secrets and variables` → `Actions`
-
-未設定でも実行は継続します（通知はスキップされます）。
-
-## 4. ログの確認方法
-
-1.  リポジトリの `Actions` タブにアクセスします。
-2.  `Scrape Events` ワークフローの実行履歴が表示されます。
-3.  各実行の `scrape` ジョブをクリックすると、詳細なログ（各施設のスクレイピング結果、エラーメッセージなど）を確認できます。
-
-## 5. エラー時の対応手順
-
-1.  **通知**: ワークフローの実行が失敗すると、リポジトリの管理者に通知メールが届きます。
-2.  **ログ確認**: 上記「4. ログの確認方法」に従い、エラーの原因を特定します。
-3.  **原因分析**: 
-    -   **サイト構造の変更**: `SCRAPING_GUIDE.md` と `TROUBLESHOOTING.md` を参照し、セレクタやロジックを修正します。
-    -   **一時的なネットワークエラー**: 手動でワークフローを再実行します。
-    -   **権限不足**: `permissions: contents: write` が設定されているか確認します。
-
-## 6. 手動実行の方法
-
-1.  リポジトリの `Actions` タブにアクセスします。
-2.  左側のサイドバーから `Scrape Events` ワークフローを選択します。
-3.  `Run workflow` ボタンをクリックすると、手動でワークフローを実行できます。
+1. Actions タブ → `Scrape Events` → `Run workflow`
 
 **用途**:
--   サイト構造の変更後、すぐに動作確認したい場合
--   定期実行が失敗した後の再実行
+- セレクタ修正後の即時確認
+- 定期実行が失敗した後の再実行
+
+---
+
+## ログ確認
+
+Actions タブ → `Scrape Events` → 対象実行 → `scrape` ジョブ
+
+各施設の取得件数・警告・エラーが GitHub Actions Summary に出力される。
+
+---
+
+## エラー時の対応
+
+| エラー種別 | 対応 |
+|:---|:---|
+| スクレイピング失敗 | `docs/TROUBLESHOOTING.md` セクション1を参照 |
+| 一時的なネットワークエラー | 手動で再実行 |
+| Webビルド失敗 | `NEXT_PUBLIC_BASE_PATH=/ariake-events pnpm --filter web build` でローカル確認 |
+| デプロイ失敗 | `permissions: pages: write` が設定されているか確認 |
+
+---
+
+## permissions
+
+```yaml
+permissions:
+  contents: write   # events.json のコミット・プッシュ
+  pages: write      # GitHub Pages デプロイ
+  id-token: write   # OIDC認証（peaceiris/actions-gh-pages）
+```
