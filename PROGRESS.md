@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 3 / 実装完了 — GitHub Pages デプロイ待ち（手動設定1回）**
+**Phase 4 M2 完了 — congestionRisk計算実装 push済み、CI自動実行待ち**
 
 ---
 
@@ -19,6 +19,13 @@
   - 既存拡張: music +12, sports +18, exhibition +12
   - other: 73件 → 20件
   - CI確認済み ✅
+- **Phase 4 M1** (完了 2026-03-19): congestionRisk アルゴリズム設計確定
+  - 設計spec: `docs/archive/specs/2026-03-19-phase4-congestion-design.md`
+  - 施設定数5施設・カテゴリ係数8種・MAX_POSSIBLE_SCORE=0.74確定
+- **Phase 4 M2** (完了 2026-03-19): スクレイパー側 congestionRisk 計算実装
+  - `packages/scraper/src/lib/congestion.ts` 新規（calcFacilityScore, applyCongestionRisk）
+  - 71テスト全 PASS、push済み（7b9b971）
+  - 次 CI 実行時に events.json の全イベントに congestionRisk が付く
 - **Phase 3** (完了 2026-03-18): Web MVP 全12タスク実装完了
   - Next.js 15 静的エクスポート + Tailwind CSS 3 + Vitest 3
   - 3ビュー: 今日 / 今週 / カレンダー（月グリッド）
@@ -31,15 +38,13 @@
 
 ## 次にやること
 
-**GitHub Pages 有効化（1回限りの手動操作）:**
+**Phase 4 M3: WebサイトにcongestionRisk表示UI追加**
+- イベントカードに混雑度バッジ表示
+- カレンダービューに日別スコア表示（emerald/amber/orange/rose）
+- 設計: `docs/archive/specs/2026-03-19-phase4-congestion-design.md` のUIマッピング参照
 
-1. GitHub リポジトリ → Settings → Pages
-2. Source: "Deploy from a branch" → branch: `gh-pages` → `/`
-3. Save → 次回 CI 実行時に `kannohi1.github.io/ariake-events` でサイト公開
-
-**その後 Phase 4 (混雑度可視化) へ:**
-- 設計メモ: `docs/ROADMAP.md` の Phase 4 セクション参照
-- 推定ロジック設計が先決（施設キャパ × イベント種別 × 時間帯）
+**その前に確認（任意）:**
+- CI実行後に events.json を確認し congestionRisk スコアが正しく付いているか検証
 
 ---
 
@@ -48,7 +53,9 @@
 - [ ] `other` 20件のうち一部（レディースアパレル販売等）は ariakeGarden がラベルのみを mapCategory に渡す設計上の制約。タイトルフォールバックで解消できるがPhase 2スコープ外
 - [ ] Phase 4の混雑度推定ロジックは設計が未確定（施設キャパ × イベント種別 × 時間帯）
 - [ ] TOYOTA ARENA TOKYOのHTMLフィクスチャは月ボタン押下後の状態を再現できていない（テストの制約として既知）
-- [ ] ogp.png は1×1プレースホルダー — Phase 3後半またはPhase 4で実デザイン画像に差替え推奨
+- [x] ~~ogp.png は1×1プレースホルダー~~ → 2026-03-19 ogp.png・favicon一式を実装済み
+- [ ] Phase 4 M3: congestionRisk のUI表示（EventCard バッジ + カレンダー日別色）未着手
+- [ ] Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み 未着手
 
 ---
 
@@ -66,6 +73,17 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-19（第6セッション）
+- Phase 4 M1: congestionRisk アルゴリズム設計確定（brainstorming + writing-plans）
+  - spec: `docs/archive/specs/2026-03-19-phase4-congestion-design.md`
+  - plan: `docs/superpowers/plans/2026-03-19-phase4-congestion-risk.md`
+- Phase 4 M2: congestionRisk計算実装（subagent-driven-development）
+  - Task1〜6完了、6コミット、push済み（7b9b971）
+  - 実装: `packages/scraper/src/lib/congestion.ts`（calcFacilityScore, applyCongestionRisk）
+  - 全71テスト PASS
+- ogp.png・favicon一式追加（web-asset-generator）
+- docs/整理（archive/specs, archive/plans 構造化）
 
 ### 2026-03-18（第5セッション）
 - CalendarView drag-to-dismiss: fly-off アニメーション修正（80px超で画面外まで滑り出てから閉じる）
