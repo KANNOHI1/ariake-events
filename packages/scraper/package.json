@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0",
+    "date-holidays": "^3.26.11",
     "luxon": "^3.5.0",
     "playwright": "^1.49.1"
   },
