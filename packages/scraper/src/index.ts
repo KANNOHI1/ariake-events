@@ -4,6 +4,7 @@ import path from "node:path";
 import { OUTPUT_PATH, TIMEZONE } from "./config.js";
 import { launchBrowser, closeBrowser, fetchHtml, newPage } from "./lib/browser.js";
 import { validateEvents, dedupeEvents, sortEvents } from "./lib/validate.js";
+import { applyCongestionRisk } from "./lib/congestion.js";
 import type { FacilityScraper, ScrapeContext, ScrapeResult } from "./types.js";
 
 import {
@@ -102,7 +103,10 @@ const main = async (): Promise<void> => {
   }
 
   // Dedupe and sort
-  const finalEvents = sortEvents(dedupeEvents(valid));
+  const deduped = sortEvents(dedupeEvents(valid));
+
+  // Assign congestionRisk scores
+  const finalEvents = applyCongestionRisk(deduped);
   console.log(`[scraper] Final events after validation/dedupe: ${finalEvents.length}`);
 
   // Write output
