@@ -112,4 +112,26 @@ describe('CalendarView', () => {
     const bar = container.querySelector('.bg-rose-500')
     expect(bar).not.toBeNull()
   })
+
+  it('モーダル内のイベントに混雑度バッジが表示される', () => {
+    const events = [
+      makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18', congestionRisk: 0.5 }),
+    ]
+    render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+    const cell = document.querySelector('[data-date="2026-03-18"]')
+    expect(cell).not.toBeNull()
+    fireEvent.click(cell!)
+    expect(screen.getByText('やや混雑')).toBeInTheDocument()
+  })
+
+  it('congestionRisk が null のイベントはモーダル内にバッジが表示されない', () => {
+    const events = [
+      makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18', congestionRisk: null }),
+    ]
+    render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+    const cell = document.querySelector('[data-date="2026-03-18"]')
+    fireEvent.click(cell!)
+    expect(screen.queryByText('やや混雑')).toBeNull()
+    expect(screen.queryByText('混雑')).toBeNull()
+  })
 })

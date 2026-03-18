@@ -160,6 +160,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
               onClick={() => hasEvents ? setSelectedDate(dateStr) : undefined}
               className={`bg-white min-h-[60px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
               data-today={isToday || undefined}
+              data-date={hasEvents ? dateStr : undefined}
             >
               <span
                 className={`text-xs font-medium block text-center leading-5 w-5 mx-auto rounded-full ${
@@ -244,6 +245,14 @@ export default function CalendarView({ events, onResetFilters }: Props) {
                       <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${CATEGORY_DOT_COLORS[e.category] ? `bg-slate-100 text-slate-700` : 'bg-slate-100 text-slate-600'}`}>
                         {CATEGORY_LABELS[e.category] ?? e.category}
                       </span>
+                      {(() => {
+                        const info = getCongestionInfo(e.congestionRisk)
+                        return info ? (
+                          <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${info.badgeClass}`}>
+                            {info.label}
+                          </span>
+                        ) : null
+                      })()}
                     </div>
                     <p className="text-sm font-bold text-slate-900 leading-snug mb-1">{e.eventName}</p>
                     <p className="text-xs text-slate-500 mb-1.5">
