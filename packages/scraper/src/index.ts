@@ -1,10 +1,10 @@
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 import { OUTPUT_PATH, TIMEZONE } from "./config.js";
 import { launchBrowser, closeBrowser, fetchHtml, newPage } from "./lib/browser.js";
 import { validateEvents, dedupeEvents, sortEvents } from "./lib/validate.js";
-import { applyCongestionRisk } from "./lib/congestion.js";
+import { applyCongestionRisk, getDailyScores } from "./lib/congestion.js";
 import type { FacilityScraper, ScrapeContext, ScrapeResult } from "./types.js";
 
 import {
@@ -118,6 +118,29 @@ const main = async (): Promise<void> => {
   mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   writeFileSync(OUTPUT_PATH, JSON.stringify(finalEvents, null, 2), "utf-8");
   console.log(`[scraper] Written to ${OUTPUT_PATH}`);
+
+  // 履歴 JSON に今日のスコアを追記（過去 90 日分を保持）
+  const HISTORY_PATH = path.join(path.dirname(OUTPUT_PATH), "history", "congestion-scores.json");
+  const todayScores = getDailyScores(finalEvents);
+  let history: Record<string, number> = {};
+  if (existsSync(HISTORY_PATH)) {
+    try {
+      history = JSON.parse(readFileSync(HISTORY_PATH, "utf-8"));
+    } catch {
+      console.warn("[scraper] ⚠ Failed to read history JSON, starting fresh");
+    }
+  }
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 90);
+  const cutoffStr = cutoff.toISOString().slice(0, 10);
+  const merged = Object.fromEntries(
+    Object.entries({ ...history, ...todayScores })
+      .filter(([date]) => date >= cutoffStr)
+      .sort(([a], [b]) => a.localeCompare(b)),
+  );
+  mkdirSync(path.dirname(HISTORY_PATH), { recursive: true });
+  writeFileSync(HISTORY_PATH, JSON.stringify(merged, null, 2), "utf-8");
+  console.log(`[scraper] Written history (${Object.keys(merged).length} days) to ${HISTORY_PATH}`);
 
   // Summary per facility
   const facilityCounts = new Map<string, number>();
