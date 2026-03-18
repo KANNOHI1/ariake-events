@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { EventItem } from '../types'
-import { CATEGORY_DOT_COLORS } from '../lib/colorMap'
+import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS } from '../lib/colorMap'
 import { getTodayString, toDateStr } from '../lib/dateUtils'
 
 interface Props {
@@ -16,7 +16,6 @@ function getFirstDayOfWeek(year: number, month: number): number {
   return new Date(year, month, 1).getDay() // 0=Sun
 }
 
-/** Returns unique categories for events on a given date string */
 function getCategoriesForDate(events: EventItem[], dateStr: string): string[] {
   const categories = new Set<string>()
   for (const e of events) {
@@ -27,10 +26,15 @@ function getCategoriesForDate(events: EventItem[], dateStr: string): string[] {
   return Array.from(categories)
 }
 
+function getEventsForDate(events: EventItem[], dateStr: string): EventItem[] {
+  return events.filter((e) => e.startDate <= dateStr && e.endDate >= dateStr)
+}
+
 export default function CalendarView({ events, onResetFilters }: Props) {
   const todayStr = getTodayString()
   const [year, setYear] = useState(() => parseInt(todayStr.slice(0, 4)))
-  const [month, setMonth] = useState(() => parseInt(todayStr.slice(5, 7)) - 1) // 0-indexed
+  const [month, setMonth] = useState(() => parseInt(todayStr.slice(5, 7)) - 1)
+  const [selectedDate, setSelectedDate] = useState<string | null>(null)
 
   const daysInMonth = getDaysInMonth(year, month)
   const firstDayOfWeek = getFirstDayOfWeek(year, month)
@@ -48,11 +52,15 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   const monthLabel = `${year}年${month + 1}月`
   const weekdays = ['日', '月', '火', '水', '木', '金', '土']
 
-  // Build calendar cells: leading empty cells + day cells
   const cells: (number | null)[] = [
     ...Array(firstDayOfWeek).fill(null),
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ]
+
+  const selectedEvents = selectedDate ? getEventsForDate(events, selectedDate) : []
+  const selectedLabel = selectedDate
+    ? `${parseInt(selectedDate.slice(5, 7))}月${parseInt(selectedDate.slice(8, 10))}日`
+    : ''
 
   return (
     <div className="p-4 max-w-2xl mx-auto">
@@ -95,18 +103,18 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           const dateStr = toDateStr(d)
           const isToday = dateStr === todayStr
           const categories = getCategoriesForDate(events, dateStr)
+          const hasEvents = categories.length > 0
 
           return (
-            <div
+            <button
               key={dateStr}
-              className={`bg-white min-h-[60px] p-1 ${isToday ? 'bg-primary-50' : ''}`}
+              onClick={() => hasEvents ? setSelectedDate(dateStr) : undefined}
+              className={`bg-white min-h-[60px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
               data-today={isToday || undefined}
             >
               <span
                 className={`text-xs font-medium block text-center leading-5 w-5 mx-auto rounded-full ${
-                  isToday
-                    ? 'bg-primary-500 text-white'
-                    : 'text-slate-700'
+                  isToday ? 'bg-primary-500 text-white' : 'text-slate-700'
                 }`}
               >
                 {day}
@@ -122,7 +130,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
                   />
                 ))}
               </div>
-            </div>
+            </button>
           )
         })}
       </div>
@@ -136,6 +144,64 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           >
             フィルタをリセット
           </button>
+        </div>
+      )}
+
+      {/* Modal */}
+      {selectedDate && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          onClick={() => setSelectedDate(null)}
+        >
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/40" />
+
+          {/* Panel */}
+          <div
+            className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[70vh] flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200">
+              <h3 className="text-sm font-bold text-slate-900">{selectedLabel}のイベント</h3>
+              <button
+                onClick={() => setSelectedDate(null)}
+                className="text-slate-400 hover:text-slate-600 cursor-pointer text-lg leading-none"
+                aria-label="閉じる"
+              >
+                ×
+              </button>
+            </div>
+            <div className="overflow-y-auto p-4 flex flex-col gap-3">
+              {selectedEvents.length === 0 ? (
+                <p className="text-sm text-slate-500 text-center py-4">イベントなし</p>
+              ) : (
+                selectedEvents.map((e) => (
+                  <div key={e.id} className="border border-slate-200 rounded-xl p-3">
+                    <div className="flex flex-wrap gap-1.5 mb-1.5">
+                      <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${FACILITY_COLORS[e.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'}`}>
+                        {e.facility}
+                      </span>
+                      <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${CATEGORY_DOT_COLORS[e.category] ? `bg-slate-100 text-slate-700` : 'bg-slate-100 text-slate-600'}`}>
+                        {CATEGORY_LABELS[e.category] ?? e.category}
+                      </span>
+                    </div>
+                    <p className="text-sm font-bold text-slate-900 leading-snug mb-1">{e.eventName}</p>
+                    <p className="text-xs text-slate-500 mb-1.5">
+                      {e.startDate === e.endDate ? e.startDate : `${e.startDate} 〜 ${e.endDate}`}
+                    </p>
+                    <a
+                      href={e.sourceURL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-primary-500 hover:text-primary-700"
+                    >
+                      公式サイト →
+                    </a>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
         </div>
       )}
     </div>
