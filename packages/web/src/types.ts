@@ -41,5 +41,5 @@ export interface EventItem {
   peakTimeStart?: null
   peakTimeEnd?: null
   estimatedAttendees?: null
-  congestionRisk?: null
+  congestionRisk?: number | null
 }
