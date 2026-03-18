@@ -111,7 +111,7 @@ const main = async (): Promise<void> => {
 
   // congestionRisk summary
   const scored = finalEvents.filter((e) => e.congestionRisk !== null && e.congestionRisk > 0);
-  const maxRisk = finalEvents.reduce((m, e) => Math.max(m, e.congestionRisk ?? 0), 0);
+  const maxRisk = scored.reduce((m, e) => Math.max(m, e.congestionRisk ?? 0), 0);
   console.log(`[scraper] congestionRisk: ${scored.length}/${finalEvents.length} events scored, max=${maxRisk.toFixed(3)}`);
 
   // Write output
