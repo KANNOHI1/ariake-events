@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 4 M3 完了 — EventCard混雑度バッジ + CalendarView カラーバー push済み**
+**Phase 4 全完了 — M3補完（CalendarViewモーダルバッジ）+ M4（履歴JSON蓄積）push済み**
 
 ---
 
@@ -27,6 +27,14 @@
   - CalendarView: 日別カラーバー（emerald/amber/orange/rose）
   - getCongestionInfo() を colorMap.ts に追加（一元管理）
   - 90テスト全 PASS、push済み（6dd9b36）
+- **Phase 4 M3補完** (完了 2026-03-19): CalendarViewモーダル内に混雑度バッジ追加
+  - data-date 属性追加、getCongestionInfo() バッジをモーダル内イベント行に表示
+  - 92テスト全 PASS、push済み（2bd03b5）
+- **Phase 4 M4** (完了 2026-03-19): 過去データ蓄積（履歴JSON）
+  - getDailyScores() を congestion.ts に追加（buildDailyFacilityMap + normalizeDailyScores 抽出）
+  - index.ts で congestion-scores.json に日次スコア追記（90日ローリング）
+  - scrape.yml: history/ ディレクトリをコミット対象に追加
+  - 75スクレイパーテスト全 PASS、push済み（4928812）
 - **Phase 4 M2** (完了 2026-03-19): スクレイパー側 congestionRisk 計算実装
   - `packages/scraper/src/lib/congestion.ts` 新規（calcFacilityScore, applyCongestionRisk）
   - 71テスト全 PASS、push済み（7b9b971）
@@ -43,11 +51,10 @@
 
 ## 次にやること
 
-**Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み** — 未着手
-
-**または CalendarView モーダル内バッジ追加（M3補完）:**
-- モーダル内のイベント詳細カードに混雑度バッジが未表示（M3スコープ外だったため）
-- 必要であれば単独タスクとして対応可能
+**Phase 4 全完了。次フェーズの検討候補:**
+- 履歴データを使った混雑度推移グラフ（Web UI 拡張）
+- 交通オプション情報（りんかい線・ゆりかもめ混雑目安）
+- 有明ガーデン駐車場・フードコートの混雑予報
 
 ---
 
@@ -55,8 +62,8 @@
 
 - [ ] `other` 20件のうち一部（レディースアパレル販売等）は ariakeGarden がラベルのみを mapCategory に渡す設計上の制約。タイトルフォールバックで解消できるがPhase 2スコープ外
 - [x] ~~Phase 4の混雑度推定ロジックは設計が未確定~~ → M1-M3で完了
-- [ ] Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み 未着手
-- [ ] CalendarView モーダル内のイベント詳細に混雑度バッジが未表示（M3仕様外）
+- [x] ~~Phase 4 M4: 過去データ蓄積（履歴JSON）の仕組み~~ → 2026-03-19 完了
+- [x] ~~CalendarView モーダル内のイベント詳細に混雑度バッジが未表示~~ → 2026-03-19 完了
 - [ ] TOYOTA ARENA TOKYOのHTMLフィクスチャは月ボタン押下後の状態を再現できていない（テストの制約として既知）
 - [x] ~~ogp.png は1×1プレースホルダー~~ → 2026-03-19 ogp.png・favicon一式を実装済み
 - [x] ~~Phase 4 M3: congestionRisk のUI表示~~ → 2026-03-19 完了（EventCard バッジ + CalendarView カラーバー）
