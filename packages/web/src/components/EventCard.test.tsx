@@ -52,4 +52,27 @@ describe('EventCard', () => {
     const badge = screen.getByText('有明アリーナ')
     expect(badge.className).toContain('bg-sky-100')
   })
+
+  it('congestionRisk が 0.5 のとき「やや混雑」バッジを表示する', () => {
+    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0.5 }} />)
+    expect(screen.getByText('やや混雑')).toBeInTheDocument()
+  })
+
+  it('congestionRisk が 0.1 のとき「空いている」バッジを表示する', () => {
+    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0.1 }} />)
+    expect(screen.getByText('空いている')).toBeInTheDocument()
+  })
+
+  it('congestionRisk が null のときバッジを表示しない', () => {
+    render(<EventCard event={{ ...sampleEvent, congestionRisk: null }} />)
+    expect(screen.queryByText('空いている')).toBeNull()
+    expect(screen.queryByText('やや混雑')).toBeNull()
+    expect(screen.queryByText('混雑')).toBeNull()
+    expect(screen.queryByText('非常に混雑')).toBeNull()
+  })
+
+  it('congestionRisk が 0 のときバッジを表示しない', () => {
+    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0 }} />)
+    expect(screen.queryByText('空いている')).toBeNull()
+  })
 })

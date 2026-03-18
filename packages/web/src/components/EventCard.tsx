@@ -1,5 +1,5 @@
 import type { EventItem } from '../types'
-import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS } from '../lib/colorMap'
+import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
 import ShareButton from './ShareButton'
 
 interface Props {
@@ -11,6 +11,7 @@ export default function EventCard({ event }: Props) {
   const facilityClass = FACILITY_COLORS[event.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
+  const congestionInfo = getCongestionInfo(event.congestionRisk)
 
   return (
     <article className="bg-white rounded-xl border border-slate-200 p-4 shadow-sm hover:shadow-md transition-shadow duration-150">
@@ -21,6 +22,11 @@ export default function EventCard({ event }: Props) {
         <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${categoryClass}`}>
           {categoryLabel}
         </span>
+        {congestionInfo && (
+          <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${congestionInfo.badgeClass}`}>
+            {congestionInfo.label}
+          </span>
+        )}
       </div>
       <h2 className="text-base font-bold text-slate-900 leading-snug mb-1">
         {event.eventName}
