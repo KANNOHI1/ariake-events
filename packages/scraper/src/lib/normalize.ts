@@ -21,7 +21,7 @@ export const mapCategory = (raw: string | null | undefined): EventCategory => {
 
   // Music: concerts, live shows, tours
   // Note: フェス(?!タ) excludes フェスタ (which is a festival/event suffix, not a music fest)
-  if (/ライブ|コンサート|フェス(?!タ)|ショー|live|music|concert/.test(s))
+  if (/ライブ|コンサート|フェス(?!タ)|live|music|concert/.test(s))
     return "music";
   if (/ツアー|tour/.test(s)) return "music";
 
@@ -47,7 +47,7 @@ export const mapCategory = (raw: string | null | undefined): EventCategory => {
   if (/\bfashion\b|ファッション|アパレル/.test(s)) return "fashion";
 
   // Anime/Comic: otaku culture events (comic markets, doll shows)
-  if (/\bcomic\b|\bdoll\b/.test(s)) return "anime";
+  if (/\bcomic\b|\bdoll\b|コミック|アニメ|同人|コスプレ/.test(s)) return "anime";
 
   return "other";
 };

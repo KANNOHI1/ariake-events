@@ -109,12 +109,19 @@ describe("mapCategory", () => {
   it("maps Japanese fashion keywords", () => {
     expect(mapCategory("ファッションワールド春")).toBe("fashion");
     expect(mapCategory("レディースアパレル販売")).toBe("fashion");
+    expect(mapCategory("ファッションショー")).toBe("fashion");
   });
 
   // --- anime ---
   it("maps comic/doll events", () => {
     expect(mapCategory("HARU COMIC CITY 35")).toBe("anime");
     expect(mapCategory("I・Doll VOL.76")).toBe("anime");
+  });
+  it("maps Japanese anime keywords", () => {
+    expect(mapCategory("コミックマーケット")).toBe("anime");
+    expect(mapCategory("同人誌即売会")).toBe("anime");
+    expect(mapCategory("アニメジャパン2026")).toBe("anime");
+    expect(mapCategory("コスプレイベント")).toBe("anime");
   });
 
   // --- other ---
