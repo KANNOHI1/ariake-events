@@ -109,6 +109,11 @@ const main = async (): Promise<void> => {
   const finalEvents = applyCongestionRisk(deduped);
   console.log(`[scraper] Final events after validation/dedupe: ${finalEvents.length}`);
 
+  // congestionRisk summary
+  const scored = finalEvents.filter((e) => e.congestionRisk !== null && e.congestionRisk > 0);
+  const maxRisk = finalEvents.reduce((m, e) => Math.max(m, e.congestionRisk ?? 0), 0);
+  console.log(`[scraper] congestionRisk: ${scored.length}/${finalEvents.length} events scored, max=${maxRisk.toFixed(3)}`);
+
   // Write output
   mkdirSync(path.dirname(OUTPUT_PATH), { recursive: true });
   writeFileSync(OUTPUT_PATH, JSON.stringify(finalEvents, null, 2), "utf-8");
