@@ -41,6 +41,16 @@ pnpm --filter web dev                   # Web開発サーバー起動
 
 - 5ファイル超の変更や独立タスクが複数ある場合、GPT-Codexを呼び出すSkills（subagent-driven-development, dispatching-parallel-agents等）を常に意識し、積極的に活用すること
 
+## ⚠️ フェーズ・マイルストーン完了時チェックリスト（必須）
+
+マイルストーン完了を宣言する前に、以下を **必ず** 実施してコミットすること:
+
+- [ ] `docs/ROADMAP.md` のステータスを `✅ 完了 (YYYY-MM-DD)` に更新
+- [ ] `PROGRESS.md` の「現在地」「完了済み」「次にやること」を更新
+- [ ] 両方まとめて 1 コミット + push
+
+**過去の失敗:** M2・M3完了時に PROGRESS.md は更新したが ROADMAP.md を見落とした。記憶喪失状態で戻ると現在地を誤認する。
+
 ## セッション開始時
 
 1. **`PROGRESS.md` を読む**（現在地・次のアクション・未解決問題を把握）
