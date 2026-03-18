@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { isHolidayOrWeekend, calcFacilityScore } from "../../src/lib/congestion.js";
+import { isHolidayOrWeekend, calcFacilityScore, applyCongestionRisk } from "../../src/lib/congestion.js";
+import type { EventItem } from "../../src/types.js";
 
 describe("isHolidayOrWeekend", () => {
   it("土曜日を祝日/週末と判定する", () => {
@@ -40,5 +41,68 @@ describe("calcFacilityScore", () => {
     // (15000/86000) * 0.6 * 1.0 * 1.0 = 0.10465...
     const score = calcFacilityScore("有明アリーナ", "unknown_category" as any, "2026-03-19", "2026-03-19");
     expect(score).toBeCloseTo(0.1047, 3);
+  });
+});
+
+const makeEvent = (overrides: Partial<EventItem>): EventItem => ({
+  id: "test-id",
+  eventName: "テストイベント",
+  facility: "有明アリーナ",
+  category: "music",
+  startDate: "2026-03-19",
+  endDate: "2026-03-19",
+  peakTimeStart: null,
+  peakTimeEnd: null,
+  estimatedAttendees: null,
+  congestionRisk: null,
+  sourceURL: "https://example.com",
+  lastUpdated: "2026-03-19T00:00:00.000Z",
+  ...overrides,
+});
+
+describe("applyCongestionRisk", () => {
+  it("単一イベントのcongestionRiskを埋める", () => {
+    const events = [makeEvent({ facility: "有明アリーナ", category: "music", startDate: "2026-03-19", endDate: "2026-03-19" })];
+    const result = applyCongestionRisk(events);
+    expect(result[0].congestionRisk).not.toBeNull();
+    expect(result[0].congestionRisk).toBeGreaterThan(0);
+    expect(result[0].congestionRisk).toBeLessThanOrEqual(1.0);
+  });
+
+  it("同日に複数施設のイベントがあればスコアが加算される", () => {
+    const events = [
+      makeEvent({ id: "a", facility: "有明アリーナ",         category: "music", startDate: "2026-03-19", endDate: "2026-03-19" }),
+      makeEvent({ id: "b", facility: "東京ガーデンシアター", category: "music", startDate: "2026-03-19", endDate: "2026-03-19" }),
+    ];
+    const result = applyCongestionRisk(events);
+    const singleEvent = applyCongestionRisk([events[0]]);
+    expect(result[0].congestionRisk!).toBeGreaterThan(singleEvent[0].congestionRisk!);
+    // 同日の2イベントは同じスコアを持つ
+    expect(result[0].congestionRisk).toBeCloseTo(result[1].congestionRisk!, 5);
+  });
+
+  it("複数日イベントはすべての期間日に同スコアが割り当てられる", () => {
+    const events = [
+      makeEvent({ id: "c", facility: "東京ビッグサイト", category: "exhibition", startDate: "2026-03-19", endDate: "2026-03-21" }),
+    ];
+    const result = applyCongestionRisk(events);
+    // 単一イベントなのでスコアは1件のみ
+    expect(result[0].congestionRisk).not.toBeNull();
+    expect(result[0].congestionRisk).toBeGreaterThan(0);
+  });
+
+  it("スコアは常に0.0〜1.0の範囲に収まる", () => {
+    const events = [
+      makeEvent({ id: "d1", facility: "有明アリーナ",         category: "music", startDate: "2026-03-21", endDate: "2026-03-21" }),
+      makeEvent({ id: "d2", facility: "東京ガーデンシアター", category: "music", startDate: "2026-03-21", endDate: "2026-03-21" }),
+      makeEvent({ id: "d3", facility: "TOYOTA ARENA TOKYO",  category: "music", startDate: "2026-03-21", endDate: "2026-03-21" }),
+      makeEvent({ id: "d4", facility: "東京ビッグサイト",     category: "exhibition", startDate: "2026-03-21", endDate: "2026-03-21" }),
+      makeEvent({ id: "d5", facility: "有明ガーデン",         category: "music", startDate: "2026-03-21", endDate: "2026-03-21" }),
+    ];
+    const result = applyCongestionRisk(events);
+    for (const e of result) {
+      expect(e.congestionRisk).toBeGreaterThanOrEqual(0);
+      expect(e.congestionRisk).toBeLessThanOrEqual(1.0);
+    }
   });
 });

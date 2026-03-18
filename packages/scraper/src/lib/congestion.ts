@@ -77,3 +77,55 @@ export const calcFacilityScore = (
 
   return capacityScore * catMultiplier * timePatternFactor * bonus;
 };
+
+/**
+ * イベント配列に congestionRisk スコアを付与して返す。
+ * 元の配列は変更しない（immutable）。
+ *
+ * アルゴリズム:
+ * 1. 各イベントの開催期間（startDate〜endDate）を1日ずつ展開して「日付→施設スコアMap」を構築
+ * 2. 同一日・同一施設のイベントが複数ある場合は最大施設スコアを使う（同施設二重加算を防ぐ）
+ * 3. 日別スコア = 施設スコアの合計 / MAX_POSSIBLE_SCORE（0〜1 にクランプ）
+ * 4. 各イベントの congestionRisk = そのイベントの startDate の日別スコア
+ */
+export const applyCongestionRisk = (events: EventItem[]): EventItem[] => {
+  // date -> facility -> max facilityScore
+  const dailyFacilityMap = new Map<string, Map<string, number>>();
+
+  for (const event of events) {
+    const start = new Date(event.startDate + "T00:00:00Z");
+    const end   = new Date(event.endDate   + "T00:00:00Z");
+    const facilityScore = calcFacilityScore(
+      event.facility,
+      event.category,
+      event.startDate,
+      event.endDate,
+    );
+
+    // startDate〜endDate の各日に対して記録
+    const cursor = new Date(start);
+    while (cursor <= end) {
+      const dateKey = cursor.toISOString().slice(0, 10);
+      if (!dailyFacilityMap.has(dateKey)) {
+        dailyFacilityMap.set(dateKey, new Map());
+      }
+      const facilityMap = dailyFacilityMap.get(dateKey)!;
+      const existing = facilityMap.get(event.facility) ?? 0;
+      facilityMap.set(event.facility, Math.max(existing, facilityScore));
+      cursor.setUTCDate(cursor.getUTCDate() + 1);
+    }
+  }
+
+  // 日別スコアを合算・正規化
+  const dailyScore = new Map<string, number>();
+  for (const [date, facilityMap] of dailyFacilityMap) {
+    const raw = [...facilityMap.values()].reduce((sum, s) => sum + s, 0);
+    dailyScore.set(date, Math.min(raw / MAX_POSSIBLE_SCORE, 1.0));
+  }
+
+  // 各イベントに startDate のスコアを設定
+  return events.map((event) => ({
+    ...event,
+    congestionRisk: dailyScore.get(event.startDate) ?? 0,
+  }));
+};
