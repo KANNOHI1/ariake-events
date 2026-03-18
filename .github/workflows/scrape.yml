@@ -8,6 +8,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   scrape:
@@ -55,3 +57,15 @@ jobs:
           git add packages/web/public/events.json
           git commit -m "chore: update events.json [skip ci]"
           git push
+
+      - name: Build Next.js
+        run: pnpm --filter web build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /ariake-events
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: packages/web/out
+          cname: ''
