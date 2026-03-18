@@ -45,9 +45,11 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   // Drag-to-dismiss
   const dragStartY = useRef<number | null>(null)
   const [dragY, setDragY] = useState(0)
+  const [isTouching, setIsTouching] = useState(false)
 
   const onTouchStart = (e: React.TouchEvent) => {
     dragStartY.current = e.touches[0].clientY
+    setIsTouching(true)
   }
   const onTouchMove = (e: React.TouchEvent) => {
     if (dragStartY.current === null) return
@@ -55,14 +57,20 @@ export default function CalendarView({ events, onResetFilters }: Props) {
     if (dy > 0) setDragY(dy)
   }
   const onTouchEnd = (e: React.TouchEvent) => {
+    setIsTouching(false)
     if (dragStartY.current !== null) {
       const dy = e.changedTouches[0].clientY - dragStartY.current
+      dragStartY.current = null
       if (dy > 80) {
-        setSelectedDate(null)
+        setDragY(window.innerHeight)
+        setTimeout(() => {
+          setSelectedDate(null)
+          setDragY(0)
+        }, 300)
+      } else {
+        setDragY(0)
       }
     }
-    dragStartY.current = null
-    setDragY(0)
   }
 
   const daysInMonth = getDaysInMonth(year, month)
@@ -188,7 +196,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           {/* Panel */}
           <div
             className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[70vh] flex flex-col"
-            style={{ transform: `translateY(${dragY}px)`, transition: dragY === 0 ? 'transform 0.2s ease' : 'none' }}
+            style={{ transform: `translateY(${dragY}px)`, transition: isTouching ? 'none' : 'transform 0.3s ease' }}
             onClick={(e) => e.stopPropagation()}
             onTouchStart={onTouchStart}
             onTouchMove={onTouchMove}
