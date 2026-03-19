@@ -16,7 +16,7 @@ export type { ViewType }
 
 export default function ViewTabs({ activeView, onChangeView }: Props) {
   return (
-    <div className="flex border-b border-slate-200 bg-white px-4">
+    <div className="flex border-b border-slate-200/60 px-4">
       {TABS.map((tab) => {
         const active = activeView === tab.id
         return (

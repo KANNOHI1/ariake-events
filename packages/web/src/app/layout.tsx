@@ -1,5 +1,20 @@
 import type { Metadata } from 'next'
+import { Public_Sans, Noto_Sans_JP } from 'next/font/google'
 import './globals.css'
+
+const publicSans = Public_Sans({
+  subsets: ['latin'],
+  variable: '--font-public-sans',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+})
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  variable: '--font-noto-sans-jp',
+  display: 'swap',
+  weight: ['400', '500', '700'],
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kannohi1.github.io'),
@@ -32,7 +47,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
-      <body className="bg-gray-50 font-sans antialiased">
+      <body className={`${publicSans.variable} ${notoSansJP.variable} bg-[#f8f6f6] font-sans antialiased`}>
         {children}
       </body>
     </html>

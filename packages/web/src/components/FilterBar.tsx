@@ -11,34 +11,59 @@ interface Props {
 
 export default function FilterBar({ filters, onSetFacility, onSetCategory }: Props) {
   return (
-    <div className="sticky top-0 z-10 bg-white border-b border-slate-200 px-4 py-3 shadow-sm">
-      <div className="flex flex-wrap gap-3">
-        <div className="flex items-center gap-2">
-          <label className="text-xs font-medium text-slate-500 shrink-0">施設</label>
-          <select
-            value={filters.facility ?? ''}
-            onChange={(e) => onSetFacility(e.target.value || null)}
-            className="text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white text-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500/50"
+    <div className="bg-[#f8f6f6] pt-3 pb-2 space-y-2">
+      {/* Venue chips */}
+      <div className="flex overflow-x-auto hide-scrollbar px-4 gap-2">
+        <button
+          onClick={() => onSetFacility(null)}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+            filters.facility == null
+              ? 'bg-primary-500 text-white'
+              : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+          }`}
+        >
+          すべての施設
+        </button>
+        {FACILITIES.map((f) => (
+          <button
+            key={f}
+            onClick={() => onSetFacility(f)}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+              filters.facility === f
+                ? 'bg-primary-500 text-white'
+                : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+            }`}
           >
-            <option value="">すべての施設</option>
-            {FACILITIES.map((f) => (
-              <option key={f} value={f}>{f}</option>
-            ))}
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label className="text-xs font-medium text-slate-500 shrink-0">カテゴリ</label>
-          <select
-            value={filters.category ?? ''}
-            onChange={(e) => onSetCategory((e.target.value as EventCategory) || null)}
-            className="text-sm border border-slate-200 rounded-lg px-3 py-1.5 bg-white text-slate-700 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500/50"
+            {f}
+          </button>
+        ))}
+      </div>
+
+      {/* Category chips */}
+      <div className="flex overflow-x-auto hide-scrollbar px-4 gap-2">
+        <button
+          onClick={() => onSetCategory(null)}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer border ${
+            filters.category == null
+              ? 'border-primary-500 bg-primary-50 text-primary-500'
+              : 'border-slate-300 text-slate-600 hover:bg-slate-100'
+          }`}
+        >
+          すべて
+        </button>
+        {CATEGORIES.map((c) => (
+          <button
+            key={c}
+            onClick={() => onSetCategory(c)}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer border ${
+              filters.category === c
+                ? 'border-primary-500 bg-primary-50 text-primary-500'
+                : 'border-slate-300 text-slate-600 hover:bg-slate-100'
+            }`}
           >
-            <option value="">すべてのカテゴリ</option>
-            {CATEGORIES.map((c) => (
-              <option key={c} value={c}>{CATEGORY_LABELS[c]}</option>
-            ))}
-          </select>
-        </div>
+            {CATEGORY_LABELS[c]}
+          </button>
+        ))}
       </div>
     </div>
   )

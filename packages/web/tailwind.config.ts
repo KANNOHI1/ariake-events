@@ -6,19 +6,18 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f5ff',
-          100: '#dde8ff',
-          400: '#6492ff',
-          500: '#2b70ef',
-          700: '#1a40b5',
+          50: '#fff4ee',
+          100: '#ffe0cc',
+          400: '#f57c3a',
+          500: '#ec5b13',
+          700: '#c94d0e',
         },
       },
       fontFamily: {
         sans: [
-          'Inter',
+          'var(--font-public-sans)',
+          'var(--font-noto-sans-jp)',
           'Hiragino Sans',
-          'Hiragino Kaku Gothic ProN',
-          'Noto Sans JP',
           'sans-serif',
         ],
       },

@@ -84,11 +84,21 @@ export default function HomeContent() {
     )
   }
 
+  const dateLabel = new Date().toLocaleDateString('ja-JP', {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'short',
+  })
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-white border-b border-slate-200 px-4 py-4">
-        <h1 className="text-xl font-bold text-slate-900">有明イベント情報</h1>
-        <p className="text-xs text-slate-500 mt-0.5">有明エリア5施設のイベントをまとめて確認</p>
+    <div className="min-h-screen bg-[#f8f6f6]">
+      {/* Sticky header with glassmorphism */}
+      <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60">
+        <div className="px-4 pt-4 pb-2 flex items-center justify-between">
+          <h1 className="text-xl font-bold text-primary-500 tracking-tight">有明イベント</h1>
+          <p className="text-sm font-medium text-slate-500">{dateLabel}</p>
+        </div>
+        <ViewTabs activeView={activeView} onChangeView={setActiveView} />
       </header>
 
       {activeView !== 'transport' && (
@@ -98,8 +108,6 @@ export default function HomeContent() {
           onSetCategory={setCategory}
         />
       )}
-
-      <ViewTabs activeView={activeView} onChangeView={setActiveView} />
 
       <main className="max-w-6xl mx-auto">
         {activeView === 'today' && (

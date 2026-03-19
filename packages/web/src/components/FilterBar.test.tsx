@@ -6,7 +6,7 @@ import { CATEGORY_LABELS } from '../lib/colorMap'
 const defaultFilters = { facility: null, category: null }
 
 describe('FilterBar', () => {
-  it('renders facility dropdown with "すべての施設" default', () => {
+  it('renders "すべての施設" chip', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -14,10 +14,10 @@ describe('FilterBar', () => {
         onSetCategory={vi.fn()}
       />
     )
-    expect(screen.getByText('すべての施設')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'すべての施設' })).toBeInTheDocument()
   })
 
-  it('renders category dropdown with "すべてのカテゴリ" default', () => {
+  it('renders "すべて" category chip', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -25,10 +25,10 @@ describe('FilterBar', () => {
         onSetCategory={vi.fn()}
       />
     )
-    expect(screen.getByText('すべてのカテゴリ')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'すべて' })).toBeInTheDocument()
   })
 
-  it('renders all 5 facilities as options', () => {
+  it('renders all 5 facility chips', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -36,14 +36,14 @@ describe('FilterBar', () => {
         onSetCategory={vi.fn()}
       />
     )
-    expect(screen.getByRole('option', { name: '有明ガーデン' })).toBeInTheDocument()
-    expect(screen.getByRole('option', { name: '東京ガーデンシアター' })).toBeInTheDocument()
-    expect(screen.getByRole('option', { name: '有明アリーナ' })).toBeInTheDocument()
-    expect(screen.getByRole('option', { name: 'TOYOTA ARENA TOKYO' })).toBeInTheDocument()
-    expect(screen.getByRole('option', { name: '東京ビッグサイト' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '有明ガーデン' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '東京ガーデンシアター' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '有明アリーナ' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'TOYOTA ARENA TOKYO' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '東京ビッグサイト' })).toBeInTheDocument()
   })
 
-  it('renders all 8 categories as options', () => {
+  it('renders all 8 category chips', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -52,11 +52,11 @@ describe('FilterBar', () => {
       />
     )
     Object.values(CATEGORY_LABELS).forEach((label) => {
-      expect(screen.getByRole('option', { name: label })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: label })).toBeInTheDocument()
     })
   })
 
-  it('calls onSetFacility with facility name when selected', () => {
+  it('calls onSetFacility with facility name when chip is clicked', () => {
     const onSetFacility = vi.fn()
     render(
       <FilterBar
@@ -65,12 +65,11 @@ describe('FilterBar', () => {
         onSetCategory={vi.fn()}
       />
     )
-    const selects = screen.getAllByRole('combobox')
-    fireEvent.change(selects[0], { target: { value: '有明ガーデン' } })
+    fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
     expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
   })
 
-  it('calls onSetFacility with null when "すべての施設" is selected', () => {
+  it('calls onSetFacility with null when "すべての施設" chip is clicked', () => {
     const onSetFacility = vi.fn()
     render(
       <FilterBar
@@ -79,12 +78,11 @@ describe('FilterBar', () => {
         onSetCategory={vi.fn()}
       />
     )
-    const selects = screen.getAllByRole('combobox')
-    fireEvent.change(selects[0], { target: { value: '' } })
+    fireEvent.click(screen.getByRole('button', { name: 'すべての施設' }))
     expect(onSetFacility).toHaveBeenCalledWith(null)
   })
 
-  it('calls onSetCategory with category key when selected', () => {
+  it('calls onSetCategory with category key when chip is clicked', () => {
     const onSetCategory = vi.fn()
     render(
       <FilterBar
@@ -93,12 +91,11 @@ describe('FilterBar', () => {
         onSetCategory={onSetCategory}
       />
     )
-    const selects = screen.getAllByRole('combobox')
-    fireEvent.change(selects[1], { target: { value: 'music' } })
+    fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
     expect(onSetCategory).toHaveBeenCalledWith('music')
   })
 
-  it('calls onSetCategory with null when "すべてのカテゴリ" is selected', () => {
+  it('calls onSetCategory with null when "すべて" chip is clicked', () => {
     const onSetCategory = vi.fn()
     render(
       <FilterBar
@@ -107,8 +104,7 @@ describe('FilterBar', () => {
         onSetCategory={onSetCategory}
       />
     )
-    const selects = screen.getAllByRole('combobox')
-    fireEvent.change(selects[1], { target: { value: '' } })
+    fireEvent.click(screen.getByRole('button', { name: 'すべて' }))
     expect(onSetCategory).toHaveBeenCalledWith(null)
   })
 })

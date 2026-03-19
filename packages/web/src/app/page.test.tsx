@@ -65,7 +65,7 @@ describe('Home page', () => {
   it('renders page header', async () => {
     render(<Home />)
     await waitFor(() => {
-      expect(screen.getByText('有明イベント情報')).toBeInTheDocument()
+      expect(screen.getByText('有明イベント')).toBeInTheDocument()
     })
   })
 
