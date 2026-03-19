@@ -22,7 +22,7 @@ jobs:
             await github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: `🚉 [定期] ${season}ダイヤ改正の確認をしてください`,
+              title: `🚉 [定期] ${season}ダイヤ改正の確認 (りんかい線・ゆりかもめ・都バス・BRT)`,
               body: [
                 '## ダイヤ改正リマインダー',
                 '',
