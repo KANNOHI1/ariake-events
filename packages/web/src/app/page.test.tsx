@@ -14,6 +14,11 @@ vi.mock('../lib/events', () => ({
   fetchEvents: vi.fn(),
 }))
 
+// Mock TransportView to isolate routing logic
+vi.mock('../components/TransportView', () => ({
+  default: () => <div>りんかい線</div>,
+}))
+
 // Mock dateUtils to return stable dates
 vi.mock('../lib/dateUtils', () => ({
   getTodayString: () => '2026-03-18',
