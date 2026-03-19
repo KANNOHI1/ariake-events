@@ -96,7 +96,7 @@ describe('Home page', () => {
     render(<Home />)
     await waitFor(() => expect(screen.queryByText('読み込み中...')).not.toBeInTheDocument())
     fireEvent.click(screen.getByText('交通'))
-    expect(screen.getByText('りんかい線')).toBeInTheDocument()
+    await waitFor(() => expect(screen.getByText('りんかい線')).toBeInTheDocument())
   })
 
   it('hides FilterBar when transport tab is active', async () => {
