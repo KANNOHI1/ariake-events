@@ -1,5 +1,5 @@
 // packages/web/src/lib/timetableUtils.test.ts
-import { describe, it, expect, vi, afterEach } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { isHoliday, filterUpcoming, toMinutes } from './timetableUtils'
 
 describe('toMinutes', () => {
