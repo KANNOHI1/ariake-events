@@ -16,10 +16,10 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
       <div className="flex overflow-x-auto hide-scrollbar px-4 gap-2">
         <button
           onClick={() => onSetFacility(null)}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+          className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
             filters.facility == null
               ? 'bg-primary-500 text-white'
-              : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
           }`}
         >
           すべての施設
@@ -28,10 +28,10 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
           <button
             key={f}
             onClick={() => onSetFacility(f)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
+            className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
               filters.facility === f
                 ? 'bg-primary-500 text-white'
-                : 'bg-slate-200 text-slate-700 hover:bg-slate-300'
+                : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
           >
             {f}
@@ -43,10 +43,10 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
       <div className="flex overflow-x-auto hide-scrollbar px-4 gap-2">
         <button
           onClick={() => onSetCategory(null)}
-          className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer border ${
+          className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
             filters.category == null
-              ? 'border-primary-500 bg-primary-50 text-primary-500'
-              : 'border-slate-300 text-slate-600 hover:bg-slate-100'
+              ? 'bg-primary-500/10 text-primary-500 border border-primary-500/20 font-bold'
+              : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
           }`}
         >
           すべて
@@ -55,10 +55,10 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
           <button
             key={c}
             onClick={() => onSetCategory(c)}
-            className={`px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer border ${
+            className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
               filters.category === c
-                ? 'border-primary-500 bg-primary-50 text-primary-500'
-                : 'border-slate-300 text-slate-600 hover:bg-slate-100'
+                ? 'bg-primary-500/10 text-primary-500 border border-primary-500/20 font-bold'
+                : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
           >
             {CATEGORY_LABELS[c]}

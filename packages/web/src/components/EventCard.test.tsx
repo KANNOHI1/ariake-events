@@ -50,7 +50,7 @@ describe('EventCard', () => {
   it('renders facility badge with sky color class for 有明アリーナ', () => {
     render(<EventCard event={sampleEvent} />)
     const badge = screen.getByText('有明アリーナ')
-    expect(badge.className).toContain('bg-sky-600')
+    expect(badge.className).toContain('bg-sky-50')
   })
 
   it('congestionRisk が 0.5 のとき「やや混雑」バッジを表示する', () => {

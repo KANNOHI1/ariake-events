@@ -1,6 +1,4 @@
 // packages/web/src/components/TransportView.tsx
-'use client'
-
 import { useMemo, useState, useEffect } from 'react'
 import { timetable } from '../data/timetable'
 import { isHoliday, filterUpcoming } from '../lib/timetableUtils'

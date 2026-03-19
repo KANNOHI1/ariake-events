@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import FilterBar from '../components/FilterBar'
-import ViewTabs from '../components/ViewTabs'
+import BottomNav from '../components/BottomNav'
 import TodayView from '../components/TodayView'
 import WeekView from '../components/WeekView'
 import CalendarView from '../components/CalendarView'
@@ -31,7 +31,6 @@ export default function HomeContent() {
   const [activeView, setActiveView] = useState<ViewType>('today')
   const [loading, setLoading] = useState(true)
 
-  // Load events on mount
   useEffect(() => {
     fetchEvents()
       .then(setEvents)
@@ -39,7 +38,6 @@ export default function HomeContent() {
       .finally(() => setLoading(false))
   }, [])
 
-  // Sync filter state to URL (side effect)
   useEffect(() => {
     const qs = filtersToParams(filters)
     window.history.replaceState(null, '', qs || window.location.pathname)
@@ -70,11 +68,16 @@ export default function HomeContent() {
     [events, filters, weekStart, weekEnd]
   )
 
-  // Calendar shows all events matching facility/category filters (no date range restriction)
   const calendarEvents = useMemo(
     () => filterEvents(events, filters, '1900-01-01', '2999-12-31'),
     [events, filters]
   )
+
+  const dateLabel = new Date().toLocaleDateString('ja-JP', {
+    month: 'long',
+    day: 'numeric',
+    weekday: 'short',
+  })
 
   if (loading) {
     return (
@@ -84,21 +87,14 @@ export default function HomeContent() {
     )
   }
 
-  const dateLabel = new Date().toLocaleDateString('ja-JP', {
-    month: 'long',
-    day: 'numeric',
-    weekday: 'short',
-  })
-
   return (
-    <div className="min-h-screen bg-[#f8f6f6]">
+    <div className="min-h-screen bg-[#f8f6f6] pb-20">
       {/* Sticky header with glassmorphism */}
-      <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60">
-        <div className="px-4 pt-4 pb-2 flex items-center justify-between">
-          <h1 className="text-xl font-bold text-primary-500 tracking-tight">有明イベント</h1>
-          <p className="text-sm font-medium text-slate-500">{dateLabel}</p>
+      <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
+        <div className="flex items-center justify-between px-4 py-4">
+          <h1 className="text-xl font-bold tracking-tight text-slate-900">有明イベント</h1>
+          <p className="text-sm font-medium text-primary-500">{dateLabel}</p>
         </div>
-        <ViewTabs activeView={activeView} onChangeView={setActiveView} />
       </header>
 
       {activeView !== 'transport' && (
@@ -121,6 +117,8 @@ export default function HomeContent() {
         )}
         {activeView === 'transport' && <TransportView />}
       </main>
+
+      <BottomNav activeView={activeView} onChangeView={setActiveView} />
     </div>
   )
 }
