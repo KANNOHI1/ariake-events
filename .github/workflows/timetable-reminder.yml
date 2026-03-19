@@ -1,0 +1,50 @@
+# .github/workflows/timetable-reminder.yml
+name: Timetable Update Reminder
+
+on:
+  schedule:
+    # 毎年3月1日 09:00 JST (UTC 00:00)
+    - cron: '0 0 1 3 *'
+    # 毎年10月1日 09:00 JST (UTC 00:00)
+    - cron: '0 0 1 10 *'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  create-reminder-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create timetable reminder issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const month = new Date().getMonth() + 1
+            const season = month === 3 ? '春' : '秋'
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🚉 [定期] ${season}ダイヤ改正の確認をしてください`,
+              body: [
+                '## ダイヤ改正リマインダー',
+                '',
+                'このIssueはGitHub Actionsによって自動作成されました。',
+                '以下の路線のダイヤ改正を確認し、必要であれば `packages/web/src/data/timetable.ts` を更新してください。',
+                '',
+                '## 確認先',
+                '',
+                '| 路線 | 公式サイト | 改正時期 |',
+                '|---|---|---|',
+                '| りんかい線 | https://www.twr.co.jp/ | 3月（JR連動） |',
+                '| ゆりかもめ | https://www.yurikamome.co.jp/ | 3月 or 10月 |',
+                '| 都バス | https://www.kotsu.metro.tokyo.jp/bus/ | 3〜4月・9〜10月 |',
+                '| BRT | https://tokyo-brt.co.jp/ | 随時 |',
+                '',
+                '## 対応手順',
+                '',
+                '1. 各公式サイトで時刻表の変更有無を確認',
+                '2. 変更があれば `packages/web/src/data/timetable.ts` を更新',
+                '3. `pnpm --filter web test` で全テストが通ることを確認',
+                '4. commit & push',
+                '5. このIssueをcloseする',
+              ].join('\n'),
+              labels: ['maintenance'],
+            })
