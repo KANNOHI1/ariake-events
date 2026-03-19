@@ -28,6 +28,8 @@ describe('TransportView', () => {
     expect(screen.getByText('新木場方面')).toBeInTheDocument()
     expect(screen.getAllByText('新橋方面').length).toBeGreaterThan(0)
     expect(screen.getByText('豊洲方面')).toBeInTheDocument()
+    expect(screen.getByText('晴海方面')).toBeInTheDocument()
+    expect(screen.getByText('門前仲町方面（都05-2）')).toBeInTheDocument()
   })
 
   it('renders station name and walk time', () => {
