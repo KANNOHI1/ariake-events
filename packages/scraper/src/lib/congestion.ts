@@ -35,8 +35,9 @@ const MAX_POSSIBLE_SCORE = 0.74;
 const hd = new Holidays("JP");
 
 export const isHolidayOrWeekend = (dateStr: string): boolean => {
-  const d = new Date(dateStr + "T00:00:00+09:00");
-  const dow = d.getDay(); // 0=Sun, 6=Sat
+  const [y, m, day] = dateStr.split('-').map(Number);
+  const d = new Date(Date.UTC(y, m - 1, day));
+  const dow = d.getUTCDay(); // 0=Sun, 6=Sat — timezone-independent
   if (dow === 0 || dow === 6) return true;
   return hd.isHoliday(d) !== false;
 };
