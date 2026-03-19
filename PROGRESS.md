@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 4 全完了 — M3補完（CalendarViewモーダルバッジ）+ M4（履歴JSON蓄積）push済み**
+**Phase 5 M1 完了 — 交通タブ実装・push済み (b7a1a14)**
 
 ---
 
@@ -49,12 +49,21 @@
 
 ---
 
+## 完了済み（追記）
+
+- **Phase 5 M1** (完了 2026-03-19): 交通タブ実装
+  - 4路線（りんかい線・ゆりかもめ・都バス・BRT）静的時刻表
+  - 現在時刻以降を自動フィルタ、平日/土休日自動判定
+  - next/dynamic ssr:false でNext.js 15 RSC bundlerバグ回避
+  - .github/workflows/timetable-reminder.yml: 毎年3/1・10/1にダイヤ改正Issue自動作成
+  - 107テスト全 PASS、push済み (b7a1a14)
+
 ## 次にやること
 
-**Phase 4 全完了。次フェーズの検討候補:**
+**Phase 5 M1 完了。次フェーズの検討候補:**
 - 履歴データを使った混雑度推移グラフ（Web UI 拡張）
-- 交通オプション情報（りんかい線・ゆりかもめ混雑目安）
 - 有明ガーデン駐車場・フードコートの混雑予報
+- 交通タブへの遅延情報追加（ODPT API）
 
 ---
 
@@ -84,6 +93,13 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-19（第8セッション）
+- Phase 5 M1: 交通タブ実装（brainstorming → writing-plans → subagent-driven-development）
+  - timetable.ts・timetableUtils.ts・TransportView.tsx 新規
+  - next/dynamic ssr:false でCI build failure (RSC bundlerバグ) を解消
+  - page.test.tsx: waitFor 追加でdynamic importの非同期解決に対応
+  - 107テスト全 PASS、push済み (b7a1a14)
 
 ### 2026-03-19（第7セッション）
 - Phase 4 M3: Web UI 混雑度表示実装（subagent-driven-development）

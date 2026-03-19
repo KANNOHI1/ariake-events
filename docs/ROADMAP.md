@@ -92,6 +92,24 @@
   - 有明ガーデン駐車場・フードコートの混雑予報
   - 混雑時の退避場所候補（エリア内のカフェ・公園等）
 
+### Phase 5: 交通タブ ✅ 完了 (2026-03-19)
+
+**完了基準**: 有明エリア共通の交通時刻表タブ表示、現在時刻以降の便を自動フィルタ
+
+| # | マイルストーン | 状態 |
+|---|---|---|
+| M1 | 交通タブ設計・実装（りんかい線・ゆりかもめ・都バス・BRT） | ✅ 完了 (2026-03-19) |
+
+**M1 成果物 (2026-03-19):**
+- 設計spec: `docs/archive/specs/2026-03-19-transport-tab-design.md`
+- 実装plan: `docs/archive/plans/2026-03-19-transport-tab.md`
+- `packages/web/src/data/timetable.ts` — 4路線・平日/土休日静的データ
+- `packages/web/src/lib/timetableUtils.ts` — 平日/土休日判定・時刻フィルタ
+- `packages/web/src/components/TransportView.tsx` — 横スクロールテーブル（next/dynamic ssr:false）
+- `packages/web/src/components/ViewTabs.tsx` — 「交通」タブ追加
+- `.github/workflows/timetable-reminder.yml` — 毎年3/1・10/1にダイヤ改正Issueを自動作成
+- テスト: 107/107 passing
+
 ---
 
 ## 設計上の確定判断
