@@ -1,4 +1,4 @@
-type ViewType = 'today' | 'week' | 'calendar'
+type ViewType = 'today' | 'week' | 'calendar' | 'transport'
 
 interface Props {
   activeView: ViewType
@@ -9,6 +9,7 @@ const TABS: { id: ViewType; label: string }[] = [
   { id: 'today', label: '今日' },
   { id: 'week', label: '今週' },
   { id: 'calendar', label: 'カレンダー' },
+  { id: 'transport', label: '交通' },
 ]
 
 export type { ViewType }

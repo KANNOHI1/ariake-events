@@ -7,6 +7,7 @@ import ViewTabs from '../components/ViewTabs'
 import TodayView from '../components/TodayView'
 import WeekView from '../components/WeekView'
 import CalendarView from '../components/CalendarView'
+import TransportView from '../components/TransportView'
 import type { ViewType } from '../components/ViewTabs'
 import type { EventItem, EventCategory } from '../types'
 import type { FilterState } from '../lib/filter'
@@ -89,11 +90,13 @@ function HomeContent() {
         <p className="text-xs text-slate-500 mt-0.5">有明エリア5施設のイベントをまとめて確認</p>
       </header>
 
-      <FilterBar
-        filters={filters}
-        onSetFacility={setFacility}
-        onSetCategory={setCategory}
-      />
+      {activeView !== 'transport' && (
+        <FilterBar
+          filters={filters}
+          onSetFacility={setFacility}
+          onSetCategory={setCategory}
+        />
+      )}
 
       <ViewTabs activeView={activeView} onChangeView={setActiveView} />
 
@@ -107,6 +110,7 @@ function HomeContent() {
         {activeView === 'calendar' && (
           <CalendarView events={calendarEvents} onResetFilters={resetFilters} />
         )}
+        {activeView === 'transport' && <TransportView />}
       </main>
     </div>
   )

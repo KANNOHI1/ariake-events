@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import Home from './page'
 import type { EventItem } from '../types'
@@ -85,5 +85,19 @@ describe('Home page', () => {
     await waitFor(() => {
       expect(screen.getByText('今日のコンサート')).toBeInTheDocument()
     })
+  })
+
+  it('renders TransportView when transport tab is active', async () => {
+    render(<Home />)
+    await waitFor(() => expect(screen.queryByText('読み込み中...')).not.toBeInTheDocument())
+    fireEvent.click(screen.getByText('交通'))
+    expect(screen.getByText('りんかい線')).toBeInTheDocument()
+  })
+
+  it('hides FilterBar when transport tab is active', async () => {
+    render(<Home />)
+    await waitFor(() => expect(screen.queryByText('読み込み中...')).not.toBeInTheDocument())
+    fireEvent.click(screen.getByText('交通'))
+    expect(screen.queryByText('有明ガーデン')).not.toBeInTheDocument()
   })
 })

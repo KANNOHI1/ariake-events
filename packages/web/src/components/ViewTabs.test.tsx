@@ -3,11 +3,12 @@ import { describe, it, expect, vi } from 'vitest'
 import ViewTabs from './ViewTabs'
 
 describe('ViewTabs', () => {
-  it('renders 3 tabs', () => {
+  it('renders 4 tabs', () => {
     render(<ViewTabs activeView="today" onChangeView={vi.fn()} />)
     expect(screen.getByText('今日')).toBeInTheDocument()
     expect(screen.getByText('今週')).toBeInTheDocument()
     expect(screen.getByText('カレンダー')).toBeInTheDocument()
+    expect(screen.getByText('交通')).toBeInTheDocument()
   })
 
   it('marks active tab with aria-selected=true', () => {
@@ -23,5 +24,12 @@ describe('ViewTabs', () => {
     render(<ViewTabs activeView="today" onChangeView={onChange} />)
     fireEvent.click(screen.getByText('カレンダー'))
     expect(onChange).toHaveBeenCalledWith('calendar')
+  })
+
+  it('calls onChangeView with transport view id', () => {
+    const onChange = vi.fn()
+    render(<ViewTabs activeView="today" onChangeView={onChange} />)
+    fireEvent.click(screen.getByText('交通'))
+    expect(onChange).toHaveBeenCalledWith('transport')
   })
 })
