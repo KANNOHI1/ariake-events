@@ -9,9 +9,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.010182275298554366,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2151/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260205-6212a360",
@@ -23,9 +23,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.010182275298554366,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2876/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260228-58d11740",
@@ -37,9 +37,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.25766813324952864,
     "sourceURL": "https://da-ice.jp/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260301-962cce1e",
@@ -51,9 +51,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4226587052168448,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2259/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260301-99669314",
@@ -65,9 +65,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4226587052168448,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/5sd17mj79",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260303-88dc0fba",
@@ -79,9 +79,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.2458830923947203,
     "sourceURL": "https://d-lite-official.jp",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260306-414b38fa",
@@ -93,9 +93,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/k-omj--aqaj",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260307-9729164e",
@@ -107,9 +107,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38141106222501575,
     "sourceURL": "https://jp.rizinff.com/_ct/17813445",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260307-aafc7d9a",
@@ -121,9 +121,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38141106222501575,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/w8wp5ies7p",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260308-e2d7e969",
@@ -135,9 +135,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38141106222501575,
     "sourceURL": "https://tubc.tokyo/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260308-81c06661",
@@ -149,9 +149,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38141106222501575,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/tab5c9tm8",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260311-56773ead",
@@ -163,23 +163,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "ariake-garden-20260312-72d90310",
-    "eventName": "｜POP-UP｜OUTLET販売「ユニ･ケアー」",
-    "facility": "有明ガーデン",
-    "category": "other",
-    "startDate": "2026-03-12",
-    "endDate": "2026-03-18",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2913/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260313-f156239b",
@@ -191,9 +177,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2938/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260313-e8b3e858",
@@ -205,13 +191,13 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/fs71-9zut",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
-    "id": "ariake-garden-20260314-2f554b1b",
-    "eventName": "＜3/11更新＞｜ありあけ乗り物ガーデン｜ミニ電車に乗ろう！",
+    "id": "ariake-garden-20260314-3b0ff216",
+    "eventName": "＜3/20更新＞｜ありあけ乗り物ガーデン｜ミニ電車に乗ろう！",
     "facility": "有明ガーデン",
     "category": "kids",
     "startDate": "2026-03-14",
@@ -219,9 +205,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2851/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260314-c25efd3f",
@@ -233,9 +219,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2885/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260314-65f4d2f9",
@@ -247,9 +233,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2849/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260314-e225ece4",
@@ -261,9 +247,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2845/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260314-d0ce26eb",
@@ -275,9 +261,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/7s-06mlv37mf",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260315-6ed4140d",
@@ -289,9 +275,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1637649277184161,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/w6eoquudjo",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260316-941906b6",
@@ -303,163 +289,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.015273412947831553,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2895/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-2d3da7f2",
-    "eventName": "BATTERY JAPAN【春】～第20回 [国際] 二次電池展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/bj.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-4c3f9c0a",
-    "eventName": "BIOMASS EXPO～第11回 [国際] バイオマス展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/bm.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-6c4d71cf",
-    "eventName": "H2 & FC EXPO【春】～第25回 [国際] 水素・燃料電池展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/fc.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-79fca882",
-    "eventName": "PV EXPO【春】～第22回 [国際] 太陽光発電展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/pv.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-b9e3ddaa",
-    "eventName": "SMART ENERGY WEEK ～スマートエネルギー WEEK～【春】2026",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/spring/ja-jp.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-7b2bf989",
-    "eventName": "SMART GRID EXPO【春】～第19回 [国際] スマートグリッド展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/sg.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-d3b7501f",
-    "eventName": "WIND EXPO【春】～第17回 [国際] 風力発電展～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/wd.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-65b98f6b",
-    "eventName": "ZERO-E THERMAL EXPO～第10回 ゼロエミッション火力発電 EXPO～",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.wsew.jp/hub/ja-jp/about/zet.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-f8699f76",
-    "eventName": "サステナブル経営 WEEK【春】2026",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.decarbonization-expo.jp/spring/ja-jp.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-9975fc3f",
-    "eventName": "第6回 サーキュラー・エコノミー EXPO【春】 [CE JAPAN]",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.decarbonization-expo.jp/hub/ja-jp/about/ce.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-big-sight-20260317-76428562",
-    "eventName": "第8回 脱炭素経営 EXPO【春】",
-    "facility": "東京ビッグサイト",
-    "category": "exhibition",
-    "startDate": "2026-03-17",
-    "endDate": "2026-03-19",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.decarbonization-expo.jp/hub/ja-jp/about/dcm.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260318-658472d2",
@@ -471,37 +303,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.2509742300439975,
     "sourceURL": "https://clubgnu.com/central_tour2026/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "tokyo-garden-theater-20260318-8f45e8d5",
-    "eventName": "ハンブレッダーズ ハンブレッダーズ ワンマンツアー “2026年 銀河の旅”",
-    "facility": "東京ガーデンシアター",
-    "category": "music",
-    "startDate": "2026-03-18",
-    "endDate": "2026-03-18",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3404/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
-  },
-  {
-    "id": "ariake-garden-20260320-f03725e0",
-    "eventName": "〈3/18更新〉｜乗り物ガーデン｜トミカ キッズチャレンジ",
-    "facility": "有明ガーデン",
-    "category": "kids",
-    "startDate": "2026-03-20",
-    "endDate": "2026-03-22",
-    "peakTimeStart": null,
-    "peakTimeEnd": null,
-    "estimatedAttendees": null,
-    "congestionRisk": null,
-    "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2852/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260320-3bf9ca9d",
@@ -513,9 +317,23 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2922/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "ariake-garden-20260320-adaeef90",
+    "eventName": "＜3/18更新＞｜乗り物ガーデン｜トミカ キッズチャレンジ",
+    "facility": "有明ガーデン",
+    "category": "kids",
+    "startDate": "2026-03-20",
+    "endDate": "2026-03-22",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.8402262727844124,
+    "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2852/",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260320-ca29f185",
@@ -527,9 +345,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2898/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260320-063fefc4",
@@ -541,9 +359,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2733/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260320-6e8dde49",
@@ -555,9 +373,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.akaboo.jp/event/item/20202915.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260320-322bb817",
@@ -569,9 +387,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/55l4pnhqcl",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260320-0921164a",
@@ -583,9 +401,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3760/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260320-f1250607",
@@ -597,9 +415,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.8402262727844124,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2930/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260321-f64e4f8f",
@@ -611,9 +429,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.988717787554997,
     "sourceURL": "https://www.idollweb.net/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260321-cc1e0eb5",
@@ -625,9 +443,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.988717787554997,
     "sourceURL": "https://www.jkc.or.jp/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260321-eb494d38",
@@ -639,9 +457,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.988717787554997,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/oeeg20z9vz",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260321-da31bab0",
@@ -653,9 +471,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.988717787554997,
     "sourceURL": "https://rage-esports.jp/2026/vsposhowdown/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260321-c1d2560f",
@@ -667,9 +485,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.988717787554997,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3438/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260322-d8e2dae8",
@@ -681,9 +499,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6587366436203645,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/mza57dfh8tr",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260322-5629ba78",
@@ -695,9 +513,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6587366436203645,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4063/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260323-ad94a5f4",
@@ -709,9 +527,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3452545568824638,
     "sourceURL": "https://job.mynavi.jp/conts/event/2027/10426/index.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260324-aa411f18",
@@ -723,9 +541,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1802639849151477,
     "sourceURL": "https://expo.ipros.jp/event/14277",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260325-c261c3f2",
@@ -737,9 +555,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.32168447517284726,
     "sourceURL": "https://chanmina.com/feature/area_of_diamond_4",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260327-a506f381",
@@ -751,9 +569,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38925204274041486,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4509/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260327-1191ea6d",
@@ -765,9 +583,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38925204274041486,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/fe4rv8gyzyj",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260327-364e085c",
@@ -779,9 +597,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38925204274041486,
     "sourceURL": "https://www.motorcycleshow.org/index.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260328-81ca66f7",
@@ -793,9 +611,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2954/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260328-8c01b285",
@@ -807,9 +625,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2950/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260328-cb0eafff",
@@ -821,9 +639,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3808/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260328-50d13431",
@@ -835,9 +653,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2953/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260328-d0de2100",
@@ -849,9 +667,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260328-c056dfbb",
@@ -863,9 +681,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2944/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260329-25361678",
@@ -877,9 +695,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3812/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260329-2a6818fa",
@@ -891,9 +709,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4397234443746072,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260330-8d83976d",
@@ -905,9 +723,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.14098051539912004,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4220/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260331-f528ed17",
@@ -919,9 +737,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.376681332495286,
     "sourceURL": "https://vs.bullettrain.live",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260331-c9709fa3",
@@ -933,9 +751,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.376681332495286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4133/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260402-ca3cea43",
@@ -947,9 +765,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15669390320553112,
     "sourceURL": "https://interpets.jp.messefrankfurt.com/tokyo/ja.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260403-2b862171",
@@ -961,9 +779,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.2824010056568196,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3977/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260404-9b7ab84f",
@@ -975,9 +793,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.55267127592709,
     "sourceURL": "https://www.akglive.com/30th/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260404-fd004749",
@@ -989,9 +807,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.55267127592709,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260405-a9273ddf",
@@ -1003,9 +821,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.55267127592709,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-d1e7a86a",
@@ -1017,9 +835,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/designer.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-5a082661",
@@ -1031,9 +849,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/about/ec-storeweek.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-9ae9d2eb",
@@ -1045,9 +863,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/about/dxweek.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-3b102dab",
@@ -1059,9 +877,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/about/itweek.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260408-85d4c29d",
@@ -1073,9 +891,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-b4f14cb2",
@@ -1087,9 +905,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/about/sales-marketingweek.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260408-b79447b0",
@@ -1101,9 +919,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://avex.jp/ayu/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-fe519bf3",
@@ -1115,9 +933,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/sus.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-4508f480",
@@ -1129,9 +947,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/office.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-b662c416",
@@ -1143,9 +961,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/sysad.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-6dd5c2ee",
@@ -1157,9 +975,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/web.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-08da81cd",
@@ -1171,9 +989,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/oem.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-d7aeebab",
@@ -1185,9 +1003,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/textile.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-e55c1759",
@@ -1199,9 +1017,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/ist.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-85a27094",
@@ -1213,9 +1031,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/spring/ja-jp.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-1759a640",
@@ -1227,9 +1045,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/ifa.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-7c11b615",
@@ -1241,9 +1059,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/jfa.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-d790c0f3",
@@ -1255,9 +1073,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/esec.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-02fb5eb8",
@@ -1269,9 +1087,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/ecui.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-4faa74c8",
@@ -1283,9 +1101,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/ec.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-ce6f6726",
@@ -1297,9 +1115,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/ith.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-d602334a",
@@ -1311,9 +1129,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/dse.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-030eeffe",
@@ -1325,9 +1143,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/reuse.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-4849251c",
@@ -1339,9 +1157,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/sth.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-c75cec95",
@@ -1353,9 +1171,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/storex.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-cdf0283d",
@@ -1367,9 +1185,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/deskless.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-deced9be",
@@ -1381,9 +1199,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/sdx.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-339cecc9",
@@ -1395,9 +1213,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/sodec.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-903c800f",
@@ -1409,9 +1227,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/sports.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-879a4154",
@@ -1423,9 +1241,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/data.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-405d3aa6",
@@ -1437,9 +1255,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/wef.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-c9f9936e",
@@ -1451,9 +1269,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.japan-it.jp/hub/ja-jp/visit/ai.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260408-4d29dfd7",
@@ -1465,9 +1283,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.6045254556882463,
     "sourceURL": "https://www.fashion-tokyo.jp/hub/ja-jp/about/fdx.html",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260410-bcf05359",
@@ -1479,9 +1297,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38453802639849155,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/gww_cli5lsve",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-garden-20260410-e7ba4f90",
@@ -1493,9 +1311,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.38453802639849155,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/ariake/event/detail/2949/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-big-sight-20260411-30c28a35",
@@ -1507,9 +1325,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040227,
     "sourceURL": "https://www.gakujo.ne.jp/campus/events/evt_dtl?p1=evt1146&area=tokyo",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260411-d29b219b",
@@ -1521,9 +1339,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040227,
     "sourceURL": "https://meychan.com/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260411-d7986734",
@@ -1535,9 +1353,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040227,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260411-28a71837",
@@ -1549,9 +1367,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040227,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4040/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260412-a1db76ca",
@@ -1563,9 +1381,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040226,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4449/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260412-ceba3908",
@@ -1577,9 +1395,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.7412319296040226,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260414-28f23fed",
@@ -1591,9 +1409,23 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.08560653676932746,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4527/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-6363b72a",
+    "eventName": "NexTech Week 2026【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260415-8a2a733b",
@@ -1605,9 +1437,149 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.34802011313639225,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3833/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-633c5ce3",
+    "eventName": "スポーツチーム・アスリート向け 総合展 2026 - Japan Sports Week -",
+    "facility": "東京ビッグサイト",
+    "category": "sports",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.sportsexpo.jp/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-2acf3b03",
+    "eventName": "第10回 AI・人工知能 EXPO【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp/visit/ai.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-d9e7f838",
+    "eventName": "第1回 ヒューマノイドロボット EXPO【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp/visit/hr.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-cd617d6d",
+    "eventName": "第5回 AI時代の人材・組織改革EXPO【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp/visit/dxh.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-fbc7ee22",
+    "eventName": "第5回 アスリートパフォーマンス EXPO",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.sportsexpo.jp/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-03b70cfd",
+    "eventName": "第5回 スタジアム・アリーナ EXPO",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.sportsexpo.jp/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-61419d16",
+    "eventName": "第5回 チーム運営支援 EXPO",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.sportsexpo.jp/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-8a814466",
+    "eventName": "第6回 量子コンピューティング EXPO【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp/visit/qc.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-8609eaf5",
+    "eventName": "第7回 ブロックチェーン EXPO【春】",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.nextech-week.jp/hub/ja-jp/visit/bc.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-big-sight-20260415-44b47668",
+    "eventName": "第9回 ファンエンゲージメント＆マーケティング EXPO",
+    "facility": "東京ビッグサイト",
+    "category": "exhibition",
+    "startDate": "2026-04-15",
+    "endDate": "2026-04-17",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.34802011313639225,
+    "sourceURL": "https://www.sportsexpo.jp/ja-jp.html",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260418-0e3bd601",
@@ -1619,9 +1591,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.25766813324952864,
     "sourceURL": "https://www.jvcmusic.co.jp/maaya/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260419-81c622f6",
@@ -1633,9 +1605,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4226587052168448,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/1rg-f6xrndm",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260422-ed21ed60",
@@ -1647,9 +1619,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/iadsrrrqz",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260423-ae7f416e",
@@ -1661,9 +1633,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/yngdbgcdpd",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260424-dc6aac8f",
@@ -1675,9 +1647,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15160276555625393,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/89t26ittp",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260425-f7842b3b",
@@ -1689,9 +1661,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4061596480201132,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/hpus1t80ad",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260425-ec9e0fa2",
@@ -1703,9 +1675,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4061596480201132,
     "sourceURL": "https://urashimasakatasen.com/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260426-1e8351bc",
@@ -1717,9 +1689,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4061596480201132,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/5fb9-07mda",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260429-95e0999a",
@@ -1731,9 +1703,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.15867379006913893,
     "sourceURL": "https://www.onefc.com/jp/events/one-samurai-1/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260501-915243e7",
@@ -1745,9 +1717,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.2458830923947203,
     "sourceURL": "https://fanksintelligence.com/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260502-300801e3",
@@ -1759,9 +1731,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4768698931489629,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/gwey51p9jx",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260502-37cd808f",
@@ -1773,9 +1745,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4768698931489629,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3826/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260503-1a1d370d",
@@ -1787,9 +1759,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.25766813324952864,
     "sourceURL": "https://bang-dream.com/events/ppp-roselia2026",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260504-a1ef0f74",
@@ -1801,9 +1773,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.10917661847894405,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/yzwszo228u",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260505-aa765f1b",
@@ -1815,9 +1787,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.5546511627906977,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4283/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260505-69705d95",
@@ -1829,9 +1801,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.5546511627906977,
     "sourceURL": "https://idolmaster-official.jp/live_event/million13th/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260505-b1094653",
@@ -1843,9 +1815,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.5546511627906977,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/rrmykxthiyks",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260506-64656488",
@@ -1857,9 +1829,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4226587052168448,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/lz-x9rch34nf",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260509-9b464ebd",
@@ -1871,9 +1843,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.25766813324952864,
     "sourceURL": "https://tour2026.dreamscometrue.com/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260513-4472b067",
@@ -1885,9 +1857,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4443/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260516-40a9a241",
@@ -1899,9 +1871,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1421747328724073,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4171/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260518-b8d2cf55",
@@ -1913,9 +1885,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4402/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260520-daa7448a",
@@ -1927,9 +1899,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4386/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260522-82ab4d05",
@@ -1941,9 +1913,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.167316153362665,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/uojahrigbxw",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260523-6031bc02",
@@ -1955,9 +1927,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.30716530483972343,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/hgfe0cmg9a0",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260523-f6ac2d11",
@@ -1969,9 +1941,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.30716530483972343,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4213/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260524-72467368",
@@ -1983,9 +1955,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.30716530483972343,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4074/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260524-4c7470c3",
@@ -1997,9 +1969,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.30716530483972343,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/02shez9yb1pe",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260525-76ee1d0d",
@@ -2011,9 +1983,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4195/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260530-f00cbf60",
@@ -2025,9 +1997,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3896605908233815,
     "sourceURL": "https://paradoxlive.jp/event/dopeshow_2026/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260530-7e24ce12",
@@ -2039,9 +2011,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3896605908233815,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3553/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260531-e132cf35",
@@ -2053,9 +2025,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.4061596480201132,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/z2-m7w0rtx7",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260605-e1ca1ff2",
@@ -2067,9 +2039,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4488/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260606-225c79d4",
@@ -2081,9 +2053,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3896605908233816,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3066/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260606-923f5159",
@@ -2095,9 +2067,23 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3896605908233816,
     "sourceURL": "https://www.seikomatsuda.co.jp/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "tokyo-garden-theater-20260612-3ebcf128",
+    "eventName": "M-1グランプリ2025 スペシャルツアーファイナル M-1グランプリ2025 スペシャルツアーファイナル",
+    "facility": "東京ガーデンシアター",
+    "category": "music",
+    "startDate": "2026-06-12",
+    "endDate": "2026-06-12",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.13588937774984286,
+    "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4514/",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260616-affdac2f",
@@ -2109,9 +2095,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.2458830923947203,
     "sourceURL": "https://cutiestreet.asobisystem.com/live_information/detail/30859",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260620-c99d11ef",
@@ -2123,9 +2109,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1421747328724073,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4345/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260627-e92bb674",
@@ -2137,9 +2123,23 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1421747328724073,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3183/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
+  },
+  {
+    "id": "ariake-arena-20260707-97845148",
+    "eventName": "THE YELLOW MONKEY FAN CLUB 10th Anniversary THE YELLOW MONKEY TOUR 2026 THE COUNTDOWN 〜Are you a BELIEVER.?〜追加公演",
+    "facility": "有明アリーナ",
+    "category": "music",
+    "startDate": "2026-07-07",
+    "endDate": "2026-07-07",
+    "peakTimeStart": null,
+    "peakTimeEnd": null,
+    "estimatedAttendees": null,
+    "congestionRisk": 0.3715901948460088,
+    "sourceURL": "http://theyellowmonkeysuper.jp/",
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260707-613f8e0c",
@@ -2151,9 +2151,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3715901948460088,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3955/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "ariake-arena-20260710-6be80358",
@@ -2165,9 +2165,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3715901948460088,
     "sourceURL": "https://jr-official.starto.jp/s/jr/live/10146?tab=schedule",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260710-c304c6e9",
@@ -2179,9 +2179,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3715901948460088,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4128/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260711-fa8dfc60",
@@ -2193,9 +2193,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.3778755499685732,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3863/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260717-0b6f2b2c",
@@ -2207,9 +2207,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.23016970458830924,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/kh8cqshhtj",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260717-463b0603",
@@ -2221,9 +2221,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.23016970458830924,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3968/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260718-1f3ba7b3",
@@ -2235,9 +2235,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.10917661847894405,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/iqv0thlkl033",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260719-f53f8bd3",
@@ -2249,9 +2249,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.10917661847894405,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/u-grvv04c",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260720-60b6fb26",
@@ -2263,9 +2263,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.17517284726587054,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/2izio11bp-y",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260722-6c0db184",
@@ -2277,9 +2277,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4011/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260723-3caf2ada",
@@ -2291,9 +2291,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.167316153362665,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/18k0cyh2qh9y",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260725-d62197f2",
@@ -2305,9 +2305,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.17517284726587054,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/2ght6kxc5",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260726-f3fbcf9e",
@@ -2319,9 +2319,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.17517284726587054,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/9s79czh78u",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260727-d5a55e10",
@@ -2333,9 +2333,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4226/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260729-7ebdc03b",
@@ -2347,9 +2347,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.167316153362665,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/7v44cw_z3",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260731-ac8c11ff",
@@ -2361,9 +2361,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.167316153362665,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/zbizlmbug",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "toyota-arena-tokyo-20260801-d17ca1af",
@@ -2375,9 +2375,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.17517284726587054,
     "sourceURL": "https://toyota-arena-tokyo.jp/events/fo7_1dn159g",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260810-de316264",
@@ -2389,9 +2389,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4434/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260905-2ca06a84",
@@ -2403,9 +2403,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1421747328724073,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4178/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260906-badeb787",
@@ -2417,9 +2417,9 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.1421747328724073,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4270/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   },
   {
     "id": "tokyo-garden-theater-20260925-dccbc596",
@@ -2431,8 +2431,8 @@
     "peakTimeStart": null,
     "peakTimeEnd": null,
     "estimatedAttendees": null,
-    "congestionRisk": null,
+    "congestionRisk": 0.13588937774984286,
     "sourceURL": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4474/",
-    "lastUpdated": "2026-03-18T07:25:59.396Z"
+    "lastUpdated": "2026-03-20T01:23:22.649Z"
   }
 ]
