@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 6 M3 完了 — FilterBar/Views 刷新・push済み。次: Phase 6 M4（検証・デプロイ）**
+**Phase 6 完了 — UI リデザイン全マイルストーン完了・push済み。次: Phase 7 以降を検討**
 
 ---
 
@@ -60,10 +60,9 @@
 
 ## 次にやること
 
-**Phase 6 M4: 検証・デプロイ**
-- デプロイ確認（GitHub Pages）
-- モバイル実機確認（横長カード・FilterBar・BottomNav）
-- 完了後: Phase 6 完了
+**Phase 7 以降を検討（未定）**
+- Phase 6 完全クローズ済み
+- 次フェーズ候補: パフォーマンス改善 / 新施設追加 / 通知機能 等
 
 ---
 
@@ -93,6 +92,12 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-30（第12セッション）
+- Phase 6 M4: 検証・デプロイ（GitHub Pages 実機確認）
+  - Playwright でデスクトップ（1280px）・モバイル（390px iPhone相当）確認
+  - 横長カード・FilterBar チップ・BottomNav・URL同期すべて正常
+  - ROADMAP.md: Phase 6 ✅ 完了、PROGRESS.md 更新・push済み
 
 ### 2026-03-30（第11セッション）
 - Phase 6 M3: FilterBar/Views 全体刷新
