@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 6 M2 完了 — EventCard 横長カード実装・push済み。次: Phase 6 M3 FilterBar / BottomNav / Views 刷新**
+**Phase 6 M3 完了 — FilterBar/Views 刷新・push済み。次: Phase 6 M4（検証・デプロイ）**
 
 ---
 
@@ -60,13 +60,10 @@
 
 ## 次にやること
 
-**Phase 6 M3: FilterBar / BottomNav / Views 全体刷新**
-- `writing-plans` → `subagent-driven-development` で実装
-- 実装対象:
-  - `packages/web/src/components/FilterBar.tsx` — アクティブチップ `bg-primary text-white`
-  - `packages/web/src/components/BottomNav.tsx` — アクティブ状態 `text-[#ec5b13]`
-  - `packages/web/src/components/TodayView.tsx` / `WeekView.tsx` — カード間 `gap-3` でリスト表示
-- 完了後: Phase 6 M4（検証・デプロイ）
+**Phase 6 M4: 検証・デプロイ**
+- デプロイ確認（GitHub Pages）
+- モバイル実機確認（横長カード・FilterBar・BottomNav）
+- 完了後: Phase 6 完了
 
 ---
 
@@ -96,6 +93,12 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-30（第11セッション）
+- Phase 6 M3: FilterBar/Views 全体刷新
+  - FilterBar.tsx: category chip active → `bg-primary-500 text-white`（venue chips と統一）
+  - TodayView.tsx / WeekView.tsx: `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4` → `flex flex-col gap-3`
+  - 110テスト全PASS、push済み
 
 ### 2026-03-29（第10セッション）
 - Phase 6 M2: EventCard 横長カード実装
