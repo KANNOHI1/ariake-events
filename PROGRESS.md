@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 6 M0 進行中 — UIリデザイン（Stitch準拠）ハウスキーピング完了後 M1（デザイン確定）へ**
+**Phase 6 M1 完了 — デザインシステム確定・push済み (93cc807)。次: Phase 6 M2 EventCard 横長カード実装**
 
 ---
 
@@ -60,10 +60,16 @@
 
 ## 次にやること
 
-**Phase 6 M1: デザイン確定**
-- `brainstorming` → 横長カード（施設カラー×カテゴリアイコン）詳細決定
-- `docs/design/design-system.md` 作成（Stitch準拠・新デザインシステム定義書）
-- フォント・施設カラー・混雑バッジカラー確定
+**Phase 6 M2: EventCard 横長カード実装**
+- `writing-plans` → `subagent-driven-development` で実装
+- 実装対象:
+  - `packages/web/src/lib/imageMap.ts` 新規作成（Unsplash URL定数 + getImageUrl()）
+  - `packages/web/src/components/EventCard.tsx` 横長カード化（左40%画像/右60%テキスト）
+  - `packages/web/src/lib/colorMap.ts` FACILITY_GRADIENTS 削除
+  - `packages/web/src/app/layout.tsx` Google Fonts（Public Sans + Noto Sans JP）追加
+  - `packages/web/tailwind.config.ts` primary色・フォント更新
+  - `packages/web/src/components/EventCard.test.tsx` テスト更新（7境界条件）
+- 完了後: Phase 6 M3（FilterBar / BottomNav / Views 全体刷新）
 
 ---
 
@@ -93,6 +99,17 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-29（第9セッション）
+- Phase 6 M0: ハウスキーピング完了
+  - output/ を .gitignore に追加
+  - 旧デザインドキュメント削除（melta-ui.md / color-system.md / design-tokens.md）
+  - CLAUDE.md・ROADMAP.md・PROGRESS.md 更新、push済み（a633b23）
+- Phase 6 M1: デザインシステム確定
+  - `docs/design/design-system.md` 新規作成（カラーパレット・EventCard構造・imageMap戦略）
+  - brainstorming スキルで全デザイン決定（Stitch RIGHT準拠・横長カード・アプローチA）
+  - colorMap.ts の imageBadgeClass に text-white 追加
+  - spec review ループ通過、107テスト全PASS、push済み（93cc807）
 
 ### 2026-03-19（第8セッション）
 - Phase 5 M1: 交通タブ実装（brainstorming → writing-plans → subagent-driven-development）
