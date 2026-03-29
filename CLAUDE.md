@@ -75,7 +75,7 @@ pnpm --filter web dev                   # Web開発サーバー起動
 
 ## UI デザインルール
 
-Web UI を生成・修正するときのみ参照: `docs/design/melta-ui.md`
+Web UI を生成・修正するときのみ参照: `docs/design/design-system.md`
 
 ---
-最終更新: 2026-03-19
+最終更新: 2026-03-29
