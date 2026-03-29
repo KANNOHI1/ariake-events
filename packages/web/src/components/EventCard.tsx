@@ -49,7 +49,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
           {categoryLabel}
         </span>
       </div>
-      <h3 className="text-sm font-bold leading-snug text-slate-900">
+      <h3 className="text-sm font-bold leading-snug text-slate-900 line-clamp-2">
         {event.eventName}
       </h3>
       <p className="text-xs text-slate-500">📅 {dateRange}</p>
@@ -63,7 +63,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
       rel="noopener noreferrer"
       className="block"
     >
-      <article className={`rounded-xl bg-white shadow-sm overflow-hidden ${viewMode === 'grid' ? 'flex flex-col' : 'flex'}`}>
+      <article className={`rounded-xl bg-white shadow-sm overflow-hidden ${viewMode === 'grid' ? 'flex flex-col' : 'flex h-28'}`}>
         {imageArea}
         {textArea}
       </article>
