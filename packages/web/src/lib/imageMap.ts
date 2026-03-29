@@ -1,12 +1,14 @@
 import type { EventItem, FacilityName } from '../types'
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 /** 施設名 → 静的施設写真パス */
 const FACILITY_PHOTOS: Record<FacilityName, string> = {
-  '有明ガーデン': '/facilities/ariake-garden.jpg',
-  '東京ガーデンシアター': '/facilities/tokyo-garden-theater.webp',
-  '有明アリーナ': '/facilities/ariake-arena.jpg',
-  'TOYOTA ARENA TOKYO': '/facilities/toyota-arena.jpg',
-  '東京ビッグサイト': '/facilities/tokyo-bigsight.jpg',
+  '有明ガーデン': `${BASE_PATH}/facilities/ariake-garden.jpg`,
+  '東京ガーデンシアター': `${BASE_PATH}/facilities/tokyo-garden-theater.webp`,
+  '有明アリーナ': `${BASE_PATH}/facilities/ariake-arena.jpg`,
+  'TOYOTA ARENA TOKYO': `${BASE_PATH}/facilities/toyota-arena.jpg`,
+  '東京ビッグサイト': `${BASE_PATH}/facilities/tokyo-bigsight.jpg`,
 }
 
 /**
@@ -21,5 +23,5 @@ export function getImageUrl(event: EventItem): string {
 
 /** 施設写真のパスを返す（onError フォールバック用にも使用） */
 export function getFacilityPhoto(facility: FacilityName): string {
-  return FACILITY_PHOTOS[facility] ?? '/facilities/ariake-garden.jpg'
+  return FACILITY_PHOTOS[facility] ?? `${BASE_PATH}/facilities/ariake-garden.jpg`
 }
