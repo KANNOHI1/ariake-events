@@ -37,7 +37,7 @@ export default function TodayView({ events, onResetFilters }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-3 p-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 p-4">
       {sorted.map((event) => (
         <EventCard key={event.id} event={event} />
       ))}

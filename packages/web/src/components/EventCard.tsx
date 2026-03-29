@@ -1,4 +1,6 @@
+'use client'
 // packages/web/src/components/EventCard.tsx
+import { useState } from 'react'
 import type { EventItem } from '../types'
 import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
 import { getImageUrl } from '../lib/imageMap'
@@ -8,6 +10,7 @@ interface Props {
 }
 
 export default function EventCard({ event }: Props) {
+  const [imgError, setImgError] = useState(false)
   const facilityBadgeClass = FACILITY_COLORS[event.facility] ?? 'bg-slate-50 text-slate-700'
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
@@ -29,11 +32,12 @@ export default function EventCard({ event }: Props) {
 
         {/* 左 40%: 画像エリア */}
         <div className="relative w-[40%] shrink-0">
-          {imageUrl ? (
+          {imageUrl && !imgError ? (
             <img
               src={imageUrl}
               alt={event.eventName}
               className="w-full h-full object-cover"
+              onError={() => setImgError(true)}
             />
           ) : (
             <div className="w-full h-full bg-slate-100 flex items-center justify-center">

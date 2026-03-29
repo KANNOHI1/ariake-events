@@ -1,90 +1,88 @@
 import type { EventCategory, FacilityName } from '../types'
 
-const BASE = 'https://images.unsplash.com/photo-'
-const PARAMS = '?w=300&h=200&fit=crop'
-
-/** カテゴリ別画像 (other を除く) */
-const CATEGORY_IMAGES: Record<Exclude<EventCategory, 'other'>, string[]> = {
+/** カテゴリ別シード文字列 (other を除く) — picsum.photos/seed/{seed}/300/200 に使用 */
+const CATEGORY_SEEDS: Record<Exclude<EventCategory, 'other'>, string[]> = {
   music: [
-    '1493225457124-a3eb161ffa5f', // concert crowd
-    '1429962714451-bb934ecdc4ec', // performer on stage
-    '1501386760234-c2f1b64d4d8f', // music festival
-    '23-K-S-jUC0',               // concert hall interior
-    'st8-LqxyaaI',               // theater hall
-    'sAT8-xnZFCA',               // concert venue
+    'ariake-music-concert',
+    'ariake-music-stage',
+    'ariake-music-festival',
+    'ariake-music-hall',
+    'ariake-music-theater',
+    'ariake-music-venue',
   ],
   sports: [
-    'XmYSlYrupL8',   // basketball court with crowd
-    'w28ybVE1lQM',   // basketball court overhead
-    'ggtFONGaWTo',   // basketball court beige/blue
-    'J_tbkGWxCH0',   // basketball gym
-    '4f0AIAtqq7Q',   // basketball game in arena
-    'k7JFRw2keyo',   // arena seating
+    'ariake-sports-basketball',
+    'ariake-sports-arena',
+    'ariake-sports-court',
+    'ariake-sports-gym',
+    'ariake-sports-stadium',
+    'ariake-sports-event',
   ],
   exhibition: [
-    'PmF9EcHvFB0',   // gallery with paintings
-    'vOKvkIf_4QI',   // woman viewing large painting
-    'uJCubgWo-0E',   // museum wall painting
-    'lolqEsxs7Ws',   // sculpture in red room
-    'z572EVhWfeY',   // woman before artwork
-    'TvPo0J7Pjrw',   // spotlight on framed artwork
+    'ariake-exhibition-gallery',
+    'ariake-exhibition-art',
+    'ariake-exhibition-museum',
+    'ariake-exhibition-display',
+    'ariake-exhibition-expo',
+    'ariake-exhibition-show',
   ],
   kids: [
-    '1503454537195-1f28bea0f5cc',
-    '1515488042361-ee00e0ddd4e4',
-    '1476703993599-0035a21b9fc3',
+    'ariake-kids-play',
+    'ariake-kids-fun',
+    'ariake-kids-event',
   ],
   food: [
-    '1414235077428-338989a2e8c0', // food spread
-    '1504674900247-0877df9cc836', // meal
-    '1555396273-367ea4eb4db5',    // food market
-    'g5e7NeX-OaE',               // food stall
-    '464wIqxhDXw',               // restaurant bar
-    'ItUQBmCEKes',               // night market
+    'ariake-food-spread',
+    'ariake-food-meal',
+    'ariake-food-market',
+    'ariake-food-stall',
+    'ariake-food-restaurant',
+    'ariake-food-night',
   ],
   fashion: [
-    '1558769132-cb1aea458c5e',
-    '1509631179647-0177331693ae',
-    '1483985988355-763728e1cdc6',
+    'ariake-fashion-show',
+    'ariake-fashion-style',
+    'ariake-fashion-event',
   ],
   anime: [
-    '1578632767115-351597cf2a57',
-    '1612198188060-c7c2a3b66eae',
-    '1560169897-fc0cdbdfa4d5',
+    'ariake-anime-cosplay',
+    'ariake-anime-convention',
+    'ariake-anime-event',
   ],
 }
 
-/** other カテゴリ用: 施設別画像 */
-const FACILITY_IMAGES: Record<FacilityName, string[]> = {
+/** other カテゴリ用: 施設別シード */
+const FACILITY_SEEDS: Record<FacilityName, string[]> = {
   '有明ガーデン': [
-    'oGhTfu1UrOY', // shopping mall interior
-    '73G3F3VHLQk', // mall atrium
-    'i8u5gz-ZeIc', // shopping complex
+    'ariake-garden-mall-0',
+    'ariake-garden-mall-1',
+    'ariake-garden-mall-2',
   ],
   '東京ガーデンシアター': [
-    '23-K-S-jUC0', // concert hall
-    'st8-LqxyaaI', // theater interior
-    'W41tEgqtjiI', // venue interior
+    'ariake-garden-theater-0',
+    'ariake-garden-theater-1',
+    'ariake-garden-theater-2',
   ],
   '有明アリーナ': [
-    'k7JFRw2keyo', // arena seating
-    '4f0AIAtqq7Q', // arena event
-    'XmYSlYrupL8', // court interior
+    'ariake-arena-0',
+    'ariake-arena-1',
+    'ariake-arena-2',
   ],
   'TOYOTA ARENA TOKYO': [
-    'XmYSlYrupL8', // basketball court
-    'ggtFONGaWTo', // basketball court
-    'J_tbkGWxCH0', // basketball gym
+    'ariake-toyota-arena-0',
+    'ariake-toyota-arena-1',
+    'ariake-toyota-arena-2',
   ],
   '東京ビッグサイト': [
-    'PmF9EcHvFB0', // exhibition hall
-    'uJCubgWo-0E', // gallery interior
-    'lolqEsxs7Ws', // exhibit room
+    'ariake-bigsight-0',
+    'ariake-bigsight-1',
+    'ariake-bigsight-2',
   ],
 }
 
 /**
- * イベントカテゴリ・ID・施設名から Unsplash 画像 URL を決定論的に返す。
+ * イベントカテゴリ・ID・施設名から画像 URL を決定論的に返す。
+ * picsum.photos のシードベース URL を使用（認証不要・常時安定）。
  * other カテゴリは施設画像を使用。施設不明の場合は null。
  */
 export function getImageUrl(
@@ -92,15 +90,17 @@ export function getImageUrl(
   eventId: string,
   facility?: FacilityName,
 ): string | null {
-  const seed = [...eventId].reduce((sum, c) => sum + c.charCodeAt(0), 0)
+  const numericSeed = [...eventId].reduce((sum, c) => sum + c.charCodeAt(0), 0)
 
   if (category === 'other') {
     if (!facility) return null
-    const photos = FACILITY_IMAGES[facility]
-    if (!photos) return null
-    return `${BASE}${photos[seed % photos.length]}${PARAMS}`
+    const seeds = FACILITY_SEEDS[facility]
+    if (!seeds) return null
+    const seed = seeds[numericSeed % seeds.length]
+    return `https://picsum.photos/seed/${seed}/300/200`
   }
 
-  const photos = CATEGORY_IMAGES[category]
-  return `${BASE}${photos[seed % photos.length]}${PARAMS}`
+  const seeds = CATEGORY_SEEDS[category]
+  const seed = seeds[numericSeed % seeds.length]
+  return `https://picsum.photos/seed/${seed}/300/200`
 }

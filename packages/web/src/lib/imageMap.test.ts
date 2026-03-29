@@ -3,9 +3,9 @@ import { describe, it, expect } from 'vitest'
 import { getImageUrl } from './imageMap'
 
 describe('getImageUrl', () => {
-  it('music カテゴリで Unsplash URL を返す', () => {
+  it('music カテゴリで picsum URL を返す', () => {
     const url = getImageUrl('music', 'event-001')
-    expect(url).toMatch(/^https:\/\/images\.unsplash\.com\/photo-/)
+    expect(url).toMatch(/^https:\/\/picsum\.photos\/seed\//)
   })
 
   it('同じ eventId は常に同じ URL を返す（決定論的）', () => {
@@ -17,7 +17,7 @@ describe('getImageUrl', () => {
   it('eventId が異なれば異なる URL が返りうる', () => {
     const urls = ['a', 'b', 'c'].map(id => getImageUrl('music', id))
     urls.forEach(url => {
-      expect(url).toMatch(/images\.unsplash\.com/)
+      expect(url).toMatch(/picsum\.photos/)
     })
   })
 
@@ -31,14 +31,12 @@ describe('getImageUrl', () => {
     categories.forEach(cat => {
       const url = getImageUrl(cat, 'test')
       expect(url).not.toBeNull()
-      expect(url).toMatch(/images\.unsplash\.com/)
+      expect(url).toMatch(/picsum\.photos/)
     })
   })
 
-  it('URL に ?w=300&h=200&fit=crop が含まれる', () => {
+  it('URL に /300/200 が含まれる', () => {
     const url = getImageUrl('music', 'test')
-    expect(url).toContain('w=300')
-    expect(url).toContain('h=200')
-    expect(url).toContain('fit=crop')
+    expect(url).toContain('/300/200')
   })
 })

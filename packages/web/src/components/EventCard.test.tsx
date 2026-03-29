@@ -56,14 +56,14 @@ describe('EventCard', () => {
     const otherEvent: EventItem = { ...musicEvent, category: 'other' }
     render(<EventCard event={otherEvent} />)
     const img = screen.getByRole('img') as HTMLImageElement
-    expect(img.src).toContain('images.unsplash.com')
+    expect(img.src).toContain('picsum.photos')
   })
 
   // 7. 非 other カテゴリ: img の src が Unsplash URL
-  it('music カテゴリのとき img src が images.unsplash.com を含む', () => {
+  it('music カテゴリのとき img src が picsum.photos を含む', () => {
     render(<EventCard event={musicEvent} />)
     const img = screen.getByRole('img') as HTMLImageElement
-    expect(img.src).toContain('images.unsplash.com')
+    expect(img.src).toContain('picsum.photos')
   })
 
   // 8. congestionRisk=null のときバッジが表示されない
