@@ -9,14 +9,6 @@ export const FACILITY_COLORS: Record<string, string> = {
   '東京ビッグサイト': 'bg-blue-50 text-blue-700',
 }
 
-/** Gradient classes for EventCard hero image area */
-export const FACILITY_GRADIENTS: Record<string, string> = {
-  '有明ガーデン': 'bg-gradient-to-br from-green-400 to-green-600',
-  '東京ガーデンシアター': 'bg-gradient-to-br from-pink-400 to-rose-600',
-  '有明アリーナ': 'bg-gradient-to-br from-sky-400 to-blue-600',
-  'TOYOTA ARENA TOKYO': 'bg-gradient-to-br from-amber-400 to-orange-500',
-  '東京ビッグサイト': 'bg-gradient-to-br from-blue-500 to-indigo-700',
-}
 
 /** Tailwind soft pastel classes for category badges */
 export const CATEGORY_COLORS: Record<EventCategory, string> = {

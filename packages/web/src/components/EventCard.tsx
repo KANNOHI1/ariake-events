@@ -1,5 +1,7 @@
+// packages/web/src/components/EventCard.tsx
 import type { EventItem } from '../types'
-import { FACILITY_COLORS, FACILITY_GRADIENTS, CATEGORY_COLORS, CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
+import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
+import { getImageUrl } from '../lib/imageMap'
 
 interface Props {
   event: EventItem
@@ -7,53 +9,65 @@ interface Props {
 
 export default function EventCard({ event }: Props) {
   const facilityBadgeClass = FACILITY_COLORS[event.facility] ?? 'bg-slate-50 text-slate-700'
-  const headerGradient = FACILITY_GRADIENTS[event.facility] ?? 'bg-gradient-to-br from-slate-400 to-slate-600'
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
   const congestionInfo = getCongestionInfo(event.congestionRisk)
+  const imageUrl = getImageUrl(event.category, event.id)
+
+  const dateRange = event.startDate === event.endDate
+    ? event.startDate
+    : `${event.startDate} 〜 ${event.endDate}`
 
   return (
-    <article className="bg-white rounded-xl overflow-hidden shadow-sm border border-slate-100">
-      {/* Hero image area (gradient placeholder) */}
-      <div className={`relative h-48 w-full ${headerGradient}`}>
-        {congestionInfo && (
-          <span className={`absolute top-3 right-3 ${congestionInfo.imageBadgeClass} text-white text-[10px] font-bold px-2 py-1 rounded-full backdrop-blur-sm`}>
-            {congestionInfo.label}
-          </span>
-        )}
-      </div>
+    <a
+      href={event.sourceURL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block"
+    >
+      <article className="flex rounded-xl bg-white shadow-sm overflow-hidden">
 
-      {/* Card body */}
-      <div className="p-4">
-        <div className="flex flex-wrap gap-2 mb-2">
-          <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${facilityBadgeClass}`}>
-            {event.facility}
-          </span>
-          <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${categoryClass}`}>
-            {categoryLabel}
-          </span>
+        {/* 左 40%: 画像エリア */}
+        <div className="relative w-[40%] shrink-0">
+          {imageUrl ? (
+            <img
+              src={imageUrl}
+              alt={event.eventName}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-slate-100 flex items-center justify-center">
+              <span className="material-symbols-outlined text-slate-400" style={{ fontSize: '40px' }}>
+                event
+              </span>
+            </div>
+          )}
+
+          {/* 混雑バッジ（congestionRisk > 0 のときのみ） */}
+          {congestionInfo && (
+            <span className={`absolute top-2 right-2 ${congestionInfo.imageBadgeClass} text-[10px] font-bold px-2 py-1 rounded-full backdrop-blur-sm`}>
+              {congestionInfo.label}
+            </span>
+          )}
         </div>
 
-        <h3 className="text-lg font-bold text-slate-900 leading-snug">
-          {event.eventName}
-        </h3>
-
-        <div className="flex items-center gap-1 mt-1 text-slate-500 text-xs">
-          <span className="material-symbols-outlined" style={{ fontSize: '14px' }}>calendar_today</span>
-          {event.startDate === event.endDate
-            ? event.startDate
-            : `${event.startDate} 〜 ${event.endDate}`}
+        {/* 右 60%: テキストエリア */}
+        <div className="p-3 flex flex-col justify-center gap-1.5 min-w-0">
+          <div className="flex flex-wrap gap-1.5">
+            <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${facilityBadgeClass}`}>
+              {event.facility}
+            </span>
+            <span className={`text-[11px] font-bold px-2 py-0.5 rounded ${categoryClass}`}>
+              {categoryLabel}
+            </span>
+          </div>
+          <h3 className="text-sm font-bold leading-snug text-slate-900">
+            {event.eventName}
+          </h3>
+          <p className="text-xs text-slate-500">📅 {dateRange}</p>
         </div>
 
-        <a
-          href={event.sourceURL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-3 inline-block text-primary-500 text-sm font-bold hover:text-primary-700"
-        >
-          公式サイト →
-        </a>
-      </div>
-    </article>
+      </article>
+    </a>
   )
 }

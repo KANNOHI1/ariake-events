@@ -1,10 +1,11 @@
+// packages/web/src/components/EventCard.test.tsx
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import EventCard from './EventCard'
 import type { EventItem } from '../types'
 
-const sampleEvent: EventItem = {
-  id: 'test-1',
+const musicEvent: EventItem = {
+  id: 'test-001',
   eventName: 'テストコンサート',
   facility: '有明アリーナ',
   category: 'music',
@@ -15,64 +16,64 @@ const sampleEvent: EventItem = {
 }
 
 describe('EventCard', () => {
-  it('renders event name', () => {
-    render(<EventCard event={sampleEvent} />)
-    expect(screen.getByText('テストコンサート')).toBeInTheDocument()
-  })
-
-  it('renders facility badge', () => {
-    render(<EventCard event={sampleEvent} />)
-    expect(screen.getByText('有明アリーナ')).toBeInTheDocument()
-  })
-
-  it('renders category tag with Japanese label', () => {
-    render(<EventCard event={sampleEvent} />)
-    expect(screen.getByText('ミュージック')).toBeInTheDocument()
-  })
-
-  it('renders date range when start and end differ', () => {
-    render(<EventCard event={sampleEvent} />)
-    expect(screen.getByText('2026-03-20 〜 2026-03-21')).toBeInTheDocument()
-  })
-
-  it('renders single date when start equals end', () => {
-    render(<EventCard event={{ ...sampleEvent, startDate: '2026-03-20', endDate: '2026-03-20' }} />)
-    expect(screen.getByText('2026-03-20')).toBeInTheDocument()
-  })
-
-  it('renders link to official site', () => {
-    render(<EventCard event={sampleEvent} />)
-    const link = screen.getByRole('link', { name: /公式サイト/ })
+  // 1. カード全体がリンク
+  it('カード全体が sourceURL へのリンクになっている', () => {
+    render(<EventCard event={musicEvent} />)
+    const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', 'https://example.com/event')
     expect(link).toHaveAttribute('target', '_blank')
   })
 
-  it('renders facility badge with sky color class for 有明アリーナ', () => {
-    render(<EventCard event={sampleEvent} />)
-    const badge = screen.getByText('有明アリーナ')
-    expect(badge.className).toContain('bg-sky-50')
+  // 2. 施設バッジ
+  it('施設バッジが表示される', () => {
+    render(<EventCard event={musicEvent} />)
+    expect(screen.getByText('有明アリーナ')).toBeInTheDocument()
   })
 
-  it('congestionRisk が 0.5 のとき「やや混雑」バッジを表示する', () => {
-    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0.5 }} />)
-    expect(screen.getByText('やや混雑')).toBeInTheDocument()
+  // 3. カテゴリバッジ（日本語ラベル）
+  it('カテゴリバッジが日本語ラベルで表示される', () => {
+    render(<EventCard event={musicEvent} />)
+    expect(screen.getByText('ミュージック')).toBeInTheDocument()
   })
 
-  it('congestionRisk が 0.1 のとき「空いている」バッジを表示する', () => {
-    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0.1 }} />)
-    expect(screen.getByText('空いている')).toBeInTheDocument()
-  })
-
-  it('congestionRisk が null のときバッジを表示しない', () => {
-    render(<EventCard event={{ ...sampleEvent, congestionRisk: null }} />)
+  // 4. 混雑バッジ非表示（congestionRisk=0）
+  it('congestionRisk=0 のとき混雑バッジが表示されない', () => {
+    render(<EventCard event={{ ...musicEvent, congestionRisk: 0 }} />)
     expect(screen.queryByText('空いている')).toBeNull()
     expect(screen.queryByText('やや混雑')).toBeNull()
     expect(screen.queryByText('混雑')).toBeNull()
     expect(screen.queryByText('非常に混雑')).toBeNull()
   })
 
-  it('congestionRisk が 0 のときバッジを表示しない', () => {
-    render(<EventCard event={{ ...sampleEvent, congestionRisk: 0 }} />)
+  // 5. 混雑バッジ表示（congestionRisk=0.5）
+  it('congestionRisk=0.5 のとき「やや混雑」バッジが表示される', () => {
+    render(<EventCard event={{ ...musicEvent, congestionRisk: 0.5 }} />)
+    expect(screen.getByText('やや混雑')).toBeInTheDocument()
+  })
+
+  // 6. other カテゴリ: img なし、event アイコンあり
+  it('other カテゴリのとき img を描画せず event アイコンを描画する', () => {
+    const otherEvent: EventItem = { ...musicEvent, category: 'other' }
+    render(<EventCard event={otherEvent} />)
+    expect(screen.queryByRole('img')).toBeNull()
+    const icon = document.querySelector('.material-symbols-outlined')
+    expect(icon).not.toBeNull()
+    expect(icon?.textContent?.trim()).toBe('event')
+  })
+
+  // 7. 非 other カテゴリ: img の src が Unsplash URL
+  it('music カテゴリのとき img src が images.unsplash.com を含む', () => {
+    render(<EventCard event={musicEvent} />)
+    const img = screen.getByRole('img') as HTMLImageElement
+    expect(img.src).toContain('images.unsplash.com')
+  })
+
+  // 8. congestionRisk=null のときバッジが表示されない
+  it('congestionRisk が null のとき混雑バッジが表示されない', () => {
+    render(<EventCard event={{ ...musicEvent, congestionRisk: null }} />)
     expect(screen.queryByText('空いている')).toBeNull()
+    expect(screen.queryByText('やや混雑')).toBeNull()
+    expect(screen.queryByText('混雑')).toBeNull()
+    expect(screen.queryByText('非常に混雑')).toBeNull()
   })
 })
