@@ -4,6 +4,7 @@ import FilterBar from './FilterBar'
 import { CATEGORY_LABELS } from '../lib/colorMap'
 
 const defaultFilters = { facility: null, category: null }
+const defaultViewProps = { viewMode: 'list' as const, onToggleViewMode: vi.fn() }
 
 describe('FilterBar', () => {
   it('renders "すべての施設" chip', () => {
@@ -12,6 +13,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     expect(screen.getByRole('button', { name: 'すべての施設' })).toBeInTheDocument()
@@ -23,6 +25,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     expect(screen.getByRole('button', { name: 'すべて' })).toBeInTheDocument()
@@ -34,6 +37,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     expect(screen.getByRole('button', { name: '有明ガーデン' })).toBeInTheDocument()
@@ -49,6 +53,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     Object.values(CATEGORY_LABELS).forEach((label) => {
@@ -63,6 +68,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={onSetFacility}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
@@ -76,6 +82,7 @@ describe('FilterBar', () => {
         filters={{ facility: '有明ガーデン', category: null }}
         onSetFacility={onSetFacility}
         onSetCategory={vi.fn()}
+        {...defaultViewProps}
       />
     )
     fireEvent.click(screen.getByRole('button', { name: 'すべての施設' }))
@@ -89,6 +96,7 @@ describe('FilterBar', () => {
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={onSetCategory}
+        {...defaultViewProps}
       />
     )
     fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
@@ -102,9 +110,37 @@ describe('FilterBar', () => {
         filters={{ facility: null, category: 'music' }}
         onSetFacility={vi.fn()}
         onSetCategory={onSetCategory}
+        {...defaultViewProps}
       />
     )
     fireEvent.click(screen.getByRole('button', { name: 'すべて' }))
     expect(onSetCategory).toHaveBeenCalledWith(null)
+  })
+
+  it('renders view mode toggle button', () => {
+    render(
+      <FilterBar
+        filters={defaultFilters}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
+        {...defaultViewProps}
+      />
+    )
+    expect(screen.getByRole('button', { name: 'グリッド表示に切り替え' })).toBeInTheDocument()
+  })
+
+  it('calls onToggleViewMode when toggle button is clicked', () => {
+    const onToggleViewMode = vi.fn()
+    render(
+      <FilterBar
+        filters={defaultFilters}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
+        viewMode="list"
+        onToggleViewMode={onToggleViewMode}
+      />
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'グリッド表示に切り替え' }))
+    expect(onToggleViewMode).toHaveBeenCalledOnce()
   })
 })

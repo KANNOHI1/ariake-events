@@ -3,9 +3,10 @@
 import { useState, useEffect, useCallback, useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 import FilterBar from '../components/FilterBar'
+import type { ViewMode } from '../components/FilterBar'
 import BottomNav from '../components/BottomNav'
 import TodayView from '../components/TodayView'
-import WeekView from '../components/WeekView'
+import MonthView from '../components/MonthView'
 import CalendarView from '../components/CalendarView'
 import dynamic from 'next/dynamic'
 const TransportView = dynamic(() => import('../components/TransportView'), { ssr: false })
@@ -19,7 +20,7 @@ import {
   filtersToParams,
 } from '../lib/filter'
 import { fetchEvents } from '../lib/events'
-import { getTodayString, getWeekRange } from '../lib/dateUtils'
+import { getTodayString } from '../lib/dateUtils'
 
 export default function HomeContent() {
   const searchParams = useSearchParams()
@@ -30,6 +31,20 @@ export default function HomeContent() {
   )
   const [activeView, setActiveView] = useState<ViewType>('today')
   const [loading, setLoading] = useState(true)
+  const [viewMode, setViewMode] = useState<ViewMode>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('viewMode') as ViewMode) ?? 'list'
+    }
+    return 'list'
+  })
+
+  const toggleViewMode = useCallback(() => {
+    setViewMode(prev => {
+      const next: ViewMode = prev === 'list' ? 'grid' : 'list'
+      localStorage.setItem('viewMode', next)
+      return next
+    })
+  }, [])
 
   useEffect(() => {
     fetchEvents()
@@ -56,16 +71,10 @@ export default function HomeContent() {
   }, [])
 
   const today = getTodayString()
-  const { start: weekStart, end: weekEnd } = getWeekRange(today)
 
   const todayEvents = useMemo(
     () => filterEvents(events, filters, today, today),
     [events, filters, today]
-  )
-
-  const weekEvents = useMemo(
-    () => filterEvents(events, filters, weekStart, weekEnd),
-    [events, filters, weekStart, weekEnd]
   )
 
   const calendarEvents = useMemo(
@@ -102,15 +111,17 @@ export default function HomeContent() {
           filters={filters}
           onSetFacility={setFacility}
           onSetCategory={setCategory}
+          viewMode={viewMode}
+          onToggleViewMode={toggleViewMode}
         />
       )}
 
       <main className="max-w-6xl mx-auto">
         {activeView === 'today' && (
-          <TodayView events={todayEvents} onResetFilters={resetFilters} />
+          <TodayView events={todayEvents} onResetFilters={resetFilters} viewMode={viewMode} />
         )}
-        {activeView === 'week' && (
-          <WeekView events={weekEvents} onResetFilters={resetFilters} />
+        {activeView === 'month' && (
+          <MonthView events={calendarEvents} onResetFilters={resetFilters} viewMode={viewMode} />
         )}
         {activeView === 'calendar' && (
           <CalendarView events={calendarEvents} onResetFilters={resetFilters} />

@@ -6,14 +6,14 @@ describe('ViewTabs', () => {
   it('renders 4 tabs', () => {
     render(<ViewTabs activeView="today" onChangeView={vi.fn()} />)
     expect(screen.getByText('今日')).toBeInTheDocument()
-    expect(screen.getByText('今週')).toBeInTheDocument()
+    expect(screen.getByText('月')).toBeInTheDocument()
     expect(screen.getByText('カレンダー')).toBeInTheDocument()
     expect(screen.getByText('交通')).toBeInTheDocument()
   })
 
   it('marks active tab with aria-selected=true', () => {
-    render(<ViewTabs activeView="week" onChangeView={vi.fn()} />)
-    const weekTab = screen.getByText('今週').closest('button')
+    render(<ViewTabs activeView="month" onChangeView={vi.fn()} />)
+    const weekTab = screen.getByText('月').closest('button')
     expect(weekTab).toHaveAttribute('aria-selected', 'true')
     const todayTab = screen.getByText('今日').closest('button')
     expect(todayTab).toHaveAttribute('aria-selected', 'false')

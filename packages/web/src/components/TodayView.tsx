@@ -1,10 +1,12 @@
 import EventCard from './EventCard'
 import type { EventItem } from '../types'
 import { FACILITIES } from '../types'
+import type { ViewMode } from './FilterBar'
 
 interface Props {
   events: EventItem[]
   onResetFilters: () => void
+  viewMode: ViewMode
 }
 
 /** Sort order: defined facility order, then by eventName */
@@ -19,7 +21,7 @@ function sortByFacility(events: EventItem[]): EventItem[] {
   })
 }
 
-export default function TodayView({ events, onResetFilters }: Props) {
+export default function TodayView({ events, onResetFilters, viewMode }: Props) {
   const sorted = sortByFacility(events)
 
   if (sorted.length === 0) {
@@ -36,10 +38,14 @@ export default function TodayView({ events, onResetFilters }: Props) {
     )
   }
 
+  const gridClass = viewMode === 'grid'
+    ? 'grid grid-cols-2 lg:grid-cols-3 gap-3 p-4'
+    : 'grid grid-cols-1 lg:grid-cols-2 gap-3 p-4'
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 p-4">
+    <div className={gridClass}>
       {sorted.map((event) => (
-        <EventCard key={event.id} event={event} />
+        <EventCard key={event.id} event={event} viewMode={viewMode} />
       ))}
     </div>
   )

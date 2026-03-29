@@ -80,7 +80,7 @@ describe('Home page', () => {
     render(<Home />)
     await waitFor(() => {
       expect(screen.getByText('今日')).toBeInTheDocument()
-      expect(screen.getByText('今週')).toBeInTheDocument()
+      expect(screen.getByText('月')).toBeInTheDocument()
       expect(screen.getByText('カレンダー')).toBeInTheDocument()
     })
   })
