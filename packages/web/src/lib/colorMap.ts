@@ -78,8 +78,8 @@ export interface CongestionInfo {
  */
 export const getCongestionInfo = (score: number | null | undefined): CongestionInfo | null => {
   if (score == null || score <= 0) return null
-  if (score < 0.3) return { label: '空いている',  imageBadgeClass: 'bg-emerald-500/90', badgeClass: 'bg-emerald-50 text-emerald-700', barClass: 'bg-emerald-400' }
-  if (score < 0.6) return { label: 'やや混雑',    imageBadgeClass: 'bg-amber-500/90',   badgeClass: 'bg-amber-50 text-amber-700',   barClass: 'bg-amber-400'   }
-  if (score < 0.8) return { label: '混雑',        imageBadgeClass: 'bg-orange-600/90',  badgeClass: 'bg-orange-50 text-orange-700', barClass: 'bg-orange-400'  }
-  return               { label: '非常に混雑',  imageBadgeClass: 'bg-rose-600/90',    badgeClass: 'bg-rose-50 text-rose-700',     barClass: 'bg-rose-500'    }
+  if (score < 0.3) return { label: '空いている',  imageBadgeClass: 'bg-emerald-500/90 text-white', badgeClass: 'bg-emerald-50 text-emerald-700', barClass: 'bg-emerald-400' }
+  if (score < 0.6) return { label: 'やや混雑',    imageBadgeClass: 'bg-amber-500/90 text-white',   badgeClass: 'bg-amber-50 text-amber-700',   barClass: 'bg-amber-400'   }
+  if (score < 0.8) return { label: '混雑',        imageBadgeClass: 'bg-orange-600/90 text-white',  badgeClass: 'bg-orange-50 text-orange-700', barClass: 'bg-orange-400'  }
+  return               { label: '非常に混雑',  imageBadgeClass: 'bg-rose-600/90 text-white',    badgeClass: 'bg-rose-50 text-rose-700',     barClass: 'bg-rose-500'    }
 }
