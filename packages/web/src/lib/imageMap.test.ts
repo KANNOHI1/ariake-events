@@ -1,42 +1,50 @@
-// packages/web/src/lib/imageMap.test.ts
 import { describe, it, expect } from 'vitest'
-import { getImageUrl } from './imageMap'
+import { getImageUrl, getFacilityPhoto } from './imageMap'
+import type { EventItem } from '../types'
+
+const baseEvent: EventItem = {
+  id: 'test-001',
+  eventName: 'テストイベント',
+  facility: '有明アリーナ',
+  category: 'music',
+  startDate: '2026-04-01',
+  endDate: '2026-04-01',
+  sourceURL: 'https://example.com',
+  lastUpdated: '2026-03-30',
+}
 
 describe('getImageUrl', () => {
-  it('music カテゴリで picsum URL を返す', () => {
-    const url = getImageUrl('music', 'event-001')
-    expect(url).toMatch(/^https:\/\/picsum\.photos\/seed\//)
+  it('imageUrl があればそれを返す', () => {
+    const event = { ...baseEvent, imageUrl: 'https://example.com/photo.jpg' }
+    expect(getImageUrl(event)).toBe('https://example.com/photo.jpg')
   })
 
-  it('同じ eventId は常に同じ URL を返す（決定論的）', () => {
-    const url1 = getImageUrl('sports', 'abc')
-    const url2 = getImageUrl('sports', 'abc')
-    expect(url1).toBe(url2)
+  it('imageUrl が null なら施設写真を返す', () => {
+    const event = { ...baseEvent, imageUrl: null }
+    expect(getImageUrl(event)).toBe('/facilities/ariake-arena.jpg')
   })
 
-  it('eventId が異なれば異なる URL が返りうる', () => {
-    const urls = ['a', 'b', 'c'].map(id => getImageUrl('music', id))
-    urls.forEach(url => {
-      expect(url).toMatch(/picsum\.photos/)
-    })
+  it('imageUrl が undefined なら施設写真を返す', () => {
+    expect(getImageUrl(baseEvent)).toBe('/facilities/ariake-arena.jpg')
   })
 
-  it('other カテゴリは null を返す', () => {
-    const url = getImageUrl('other', 'event-123')
-    expect(url).toBeNull()
+  it('TOYOTA ARENA の施設写真パスを返す', () => {
+    const event = { ...baseEvent, facility: 'TOYOTA ARENA TOKYO' as const }
+    expect(getImageUrl(event)).toBe('/facilities/toyota-arena.jpg')
   })
 
-  it('すべての非 other カテゴリで URL を返す', () => {
-    const categories = ['music', 'sports', 'exhibition', 'kids', 'food', 'fashion', 'anime'] as const
-    categories.forEach(cat => {
-      const url = getImageUrl(cat, 'test')
-      expect(url).not.toBeNull()
-      expect(url).toMatch(/picsum\.photos/)
-    })
+  it('東京ビッグサイトの施設写真パスを返す', () => {
+    const event = { ...baseEvent, facility: '東京ビッグサイト' as const }
+    expect(getImageUrl(event)).toBe('/facilities/tokyo-bigsight.jpg')
   })
+})
 
-  it('URL に /300/200 が含まれる', () => {
-    const url = getImageUrl('music', 'test')
-    expect(url).toContain('/300/200')
+describe('getFacilityPhoto', () => {
+  it('各施設の写真パスを返す', () => {
+    expect(getFacilityPhoto('有明ガーデン')).toBe('/facilities/ariake-garden.jpg')
+    expect(getFacilityPhoto('東京ガーデンシアター')).toBe('/facilities/tokyo-garden-theater.webp')
+    expect(getFacilityPhoto('有明アリーナ')).toBe('/facilities/ariake-arena.jpg')
+    expect(getFacilityPhoto('TOYOTA ARENA TOKYO')).toBe('/facilities/toyota-arena.jpg')
+    expect(getFacilityPhoto('東京ビッグサイト')).toBe('/facilities/tokyo-bigsight.jpg')
   })
 })

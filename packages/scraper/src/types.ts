@@ -19,6 +19,7 @@ export type EventItem = {
   peakTimeEnd: string | null;
   estimatedAttendees: number | null;
   congestionRisk: number | null;
+  imageUrl: string | null;
   sourceURL: string;
   lastUpdated: string; // ISO 8601
 };

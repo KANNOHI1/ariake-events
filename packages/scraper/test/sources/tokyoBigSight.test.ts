@@ -31,4 +31,15 @@ describe("tokyoBigSight parser", () => {
     expect(smartEnergy!.endDate).toBe("2026-03-19");
     expect(smartEnergy!.sourceURL).toContain("wsew.jp");
   });
+
+  it("extracts imageUrl from img src", () => {
+    const snippet = `<article class="lyt-event-01">
+      <img src="/visitor/event/img/thumbnail/123J.jpg" />
+      <h3 class="hdg-01"><a href="/visitor/event/detail/456">テスト展示会</a></h3>
+      <dl class="list-01"><div><dt>開催期間</dt><dd>2026年4月1日（水）〜4月3日（金）</dd></div></dl>
+    </article>`;
+    const events = parseTokyoBigSightEvents(snippet, "2026-03-17T00:00:00Z");
+    expect(events).toHaveLength(1);
+    expect(events[0].imageUrl).toBe("https://www.bigsight.jp/visitor/event/img/thumbnail/123J.jpg");
+  });
 });

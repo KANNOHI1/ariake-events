@@ -36,6 +36,7 @@ export interface EventItem {
   category: EventCategory
   startDate: string  // "YYYY-MM-DD"
   endDate: string    // "YYYY-MM-DD"
+  imageUrl?: string | null
   sourceURL: string
   lastUpdated: string
   peakTimeStart?: null

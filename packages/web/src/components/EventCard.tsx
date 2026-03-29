@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import type { EventItem } from '../types'
 import { FACILITY_COLORS, CATEGORY_COLORS, CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
-import { getImageUrl } from '../lib/imageMap'
+import { getImageUrl, getFacilityPhoto } from '../lib/imageMap'
 import type { ViewMode } from './FilterBar'
 
 interface Props {
@@ -17,7 +17,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
   const congestionInfo = getCongestionInfo(event.congestionRisk)
-  const imageUrl = getImageUrl(event.category, event.id, event.facility)
+  const imageUrl = getImageUrl(event)
 
   const dateRange = event.startDate === event.endDate
     ? event.startDate
@@ -25,20 +25,12 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
 
   const imageArea = (
     <div className={`relative shrink-0 ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
-      {imageUrl && !imgError ? (
-        <img
-          src={imageUrl}
-          alt={event.eventName}
-          className="w-full h-full object-cover"
-          onError={() => setImgError(true)}
-        />
-      ) : (
-        <div className="w-full h-full bg-slate-100 flex items-center justify-center">
-          <span className="material-symbols-outlined text-slate-400" style={{ fontSize: '40px' }}>
-            event
-          </span>
-        </div>
-      )}
+      <img
+        src={imgError ? getFacilityPhoto(event.facility) : imageUrl}
+        alt={event.eventName}
+        className="w-full h-full object-cover"
+        onError={() => setImgError(true)}
+      />
       {congestionInfo && (
         <span className={`absolute top-2 right-2 ${congestionInfo.imageBadgeClass} text-[10px] font-bold px-2 py-1 rounded-full backdrop-blur-sm`}>
           {congestionInfo.label}

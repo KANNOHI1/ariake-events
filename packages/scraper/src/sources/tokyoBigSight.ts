@@ -57,6 +57,12 @@ export const parseTokyoBigSightEvents = (
       ? rawUrl
       : `https://www.bigsight.jp${rawUrl}`;
 
+    // Image URL from thumbnail
+    const imgSrc = $el.find("img").first().attr("src") ?? "";
+    const imageUrl = imgSrc
+      ? imgSrc.startsWith("http") ? imgSrc : `https://www.bigsight.jp${imgSrc}`
+      : null;
+
     events.push({
       id: makeEventId(FACILITY, title, range.start, sourceURL),
       eventName: title,
@@ -68,6 +74,7 @@ export const parseTokyoBigSightEvents = (
       peakTimeEnd: null,
       estimatedAttendees: null,
       congestionRisk: null,
+      imageUrl,
       sourceURL,
       lastUpdated: nowISO,
     });

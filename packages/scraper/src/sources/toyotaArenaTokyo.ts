@@ -23,9 +23,16 @@ export const parseToyotaArenaTokyoEvents = (
     const $li = $(el);
 
     // Title: from img[alt] (most reliable) or first substantial text
-    const imgAlt = $li.find("img[alt]").first().attr("alt") ?? "";
+    const $img = $li.find("img[alt]").first();
+    const imgAlt = $img.attr("alt") ?? "";
     const title = normalizeWhitespace(imgAlt);
     if (!title || title.length < 3) return;
+
+    // Image URL: resolve relative src to absolute
+    const imgSrc = $img.attr("src") ?? "";
+    const imageUrl = imgSrc
+      ? imgSrc.startsWith("http") ? imgSrc : `${BASE_URL}${imgSrc}`
+      : null;
 
     // Date: look for YYYY.M.D pattern in spans or any descendant
     let dateText = "";
@@ -59,6 +66,7 @@ export const parseToyotaArenaTokyoEvents = (
       peakTimeEnd: null,
       estimatedAttendees: null,
       congestionRisk: null,
+      imageUrl,
       sourceURL,
       lastUpdated: nowISO,
     });

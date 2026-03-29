@@ -28,4 +28,28 @@ describe("toyotaArenaTokyo parser", () => {
     expect(first).toBeDefined();
     expect(first.sourceURL).toContain("toyota-arena-tokyo.jp");
   });
+
+  it("extracts imageUrl from img src", () => {
+    const snippet = `<ul><li class="bg-gray-f5">
+      <a href="/events/abc123">
+        <img src="/images/event-photo.jpg" alt="テストイベント" />
+        <span>2026.4.1</span>
+      </a>
+    </li></ul>`;
+    const events = parseToyotaArenaTokyoEvents(snippet, "2026-03-17T00:00:00Z");
+    expect(events).toHaveLength(1);
+    expect(events[0].imageUrl).toBe("https://toyota-arena-tokyo.jp/images/event-photo.jpg");
+  });
+
+  it("sets imageUrl to null when no img src", () => {
+    const snippet = `<ul><li class="bg-gray-f5">
+      <a href="/events/abc123">
+        <img alt="テストイベント" />
+        <span>2026.4.1</span>
+      </a>
+    </li></ul>`;
+    const events = parseToyotaArenaTokyoEvents(snippet, "2026-03-17T00:00:00Z");
+    expect(events).toHaveLength(1);
+    expect(events[0].imageUrl).toBeNull();
+  });
 });

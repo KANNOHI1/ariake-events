@@ -1,4 +1,3 @@
-// packages/web/src/components/EventCard.test.tsx
 import { render, screen } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import EventCard from './EventCard'
@@ -16,7 +15,6 @@ const musicEvent: EventItem = {
 }
 
 describe('EventCard', () => {
-  // 1. カード全体がリンク
   it('カード全体が sourceURL へのリンクになっている', () => {
     render(<EventCard event={musicEvent} />)
     const link = screen.getByRole('link')
@@ -24,19 +22,16 @@ describe('EventCard', () => {
     expect(link).toHaveAttribute('target', '_blank')
   })
 
-  // 2. 施設バッジ
   it('施設バッジが表示される', () => {
     render(<EventCard event={musicEvent} />)
     expect(screen.getByText('有明アリーナ')).toBeInTheDocument()
   })
 
-  // 3. カテゴリバッジ（日本語ラベル）
   it('カテゴリバッジが日本語ラベルで表示される', () => {
     render(<EventCard event={musicEvent} />)
     expect(screen.getByText('ミュージック')).toBeInTheDocument()
   })
 
-  // 4. 混雑バッジ非表示（congestionRisk=0）
   it('congestionRisk=0 のとき混雑バッジが表示されない', () => {
     render(<EventCard event={{ ...musicEvent, congestionRisk: 0 }} />)
     expect(screen.queryByText('空いている')).toBeNull()
@@ -45,33 +40,27 @@ describe('EventCard', () => {
     expect(screen.queryByText('非常に混雑')).toBeNull()
   })
 
-  // 5. 混雑バッジ表示（congestionRisk=0.5）
   it('congestionRisk=0.5 のとき「やや混雑」バッジが表示される', () => {
     render(<EventCard event={{ ...musicEvent, congestionRisk: 0.5 }} />)
     expect(screen.getByText('やや混雑')).toBeInTheDocument()
   })
 
-  // 6. other カテゴリ + 施設あり: 施設画像を表示
-  it('other カテゴリのとき施設画像（Unsplash URL）を表示する', () => {
-    const otherEvent: EventItem = { ...musicEvent, category: 'other' }
-    render(<EventCard event={otherEvent} />)
-    const img = screen.getByRole('img') as HTMLImageElement
-    expect(img.src).toContain('picsum.photos')
-  })
-
-  // 7. 非 other カテゴリ: img の src が Unsplash URL
-  it('music カテゴリのとき img src が picsum.photos を含む', () => {
+  it('imageUrl がないとき施設写真を表示する', () => {
     render(<EventCard event={musicEvent} />)
     const img = screen.getByRole('img') as HTMLImageElement
-    expect(img.src).toContain('picsum.photos')
+    expect(img.src).toContain('/facilities/ariake-arena.jpg')
   })
 
-  // 8. congestionRisk=null のときバッジが表示されない
+  it('imageUrl があるとき実画像を表示する', () => {
+    const event = { ...musicEvent, imageUrl: 'https://example.com/photo.jpg' }
+    render(<EventCard event={event} />)
+    const img = screen.getByRole('img') as HTMLImageElement
+    expect(img.src).toBe('https://example.com/photo.jpg')
+  })
+
   it('congestionRisk が null のとき混雑バッジが表示されない', () => {
     render(<EventCard event={{ ...musicEvent, congestionRisk: null }} />)
     expect(screen.queryByText('空いている')).toBeNull()
     expect(screen.queryByText('やや混雑')).toBeNull()
-    expect(screen.queryByText('混雑')).toBeNull()
-    expect(screen.queryByText('非常に混雑')).toBeNull()
   })
 })

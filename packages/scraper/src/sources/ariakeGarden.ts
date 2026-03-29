@@ -62,6 +62,7 @@ export const parseAriakeGardenEvents = (
       peakTimeEnd: null,
       estimatedAttendees: null,
       congestionRisk: null,
+      imageUrl: null,
       sourceURL,
       lastUpdated: nowISO,
     });
