@@ -51,14 +51,12 @@ describe('EventCard', () => {
     expect(screen.getByText('やや混雑')).toBeInTheDocument()
   })
 
-  // 6. other カテゴリ: img なし、event アイコンあり
-  it('other カテゴリのとき img を描画せず event アイコンを描画する', () => {
+  // 6. other カテゴリ + 施設あり: 施設画像を表示
+  it('other カテゴリのとき施設画像（Unsplash URL）を表示する', () => {
     const otherEvent: EventItem = { ...musicEvent, category: 'other' }
     render(<EventCard event={otherEvent} />)
-    expect(screen.queryByRole('img')).toBeNull()
-    const icon = document.querySelector('.material-symbols-outlined')
-    expect(icon).not.toBeNull()
-    expect(icon?.textContent?.trim()).toBe('event')
+    const img = screen.getByRole('img') as HTMLImageElement
+    expect(img.src).toContain('images.unsplash.com')
   })
 
   // 7. 非 other カテゴリ: img の src が Unsplash URL

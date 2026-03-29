@@ -12,7 +12,7 @@ export default function EventCard({ event }: Props) {
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
   const congestionInfo = getCongestionInfo(event.congestionRisk)
-  const imageUrl = getImageUrl(event.category, event.id)
+  const imageUrl = getImageUrl(event.category, event.id, event.facility)
 
   const dateRange = event.startDate === event.endDate
     ? event.startDate
