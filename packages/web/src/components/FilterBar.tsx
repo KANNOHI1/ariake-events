@@ -45,7 +45,7 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
           onClick={() => onSetCategory(null)}
           className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
             filters.category == null
-              ? 'bg-primary-500/10 text-primary-500 border border-primary-500/20 font-bold'
+              ? 'bg-primary-500 text-white'
               : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
           }`}
         >
@@ -57,7 +57,7 @@ export default function FilterBar({ filters, onSetFacility, onSetCategory }: Pro
             onClick={() => onSetCategory(c)}
             className={`shrink-0 px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${
               filters.category === c
-                ? 'bg-primary-500/10 text-primary-500 border border-primary-500/20 font-bold'
+                ? 'bg-primary-500 text-white'
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
           >
