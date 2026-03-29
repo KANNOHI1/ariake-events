@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 6 M1 完了 — デザインシステム確定・push済み (93cc807)。次: Phase 6 M2 EventCard 横長カード実装**
+**Phase 6 M2 完了 — EventCard 横長カード実装・push済み。次: Phase 6 M3 FilterBar / BottomNav / Views 刷新**
 
 ---
 
@@ -60,16 +60,13 @@
 
 ## 次にやること
 
-**Phase 6 M2: EventCard 横長カード実装**
+**Phase 6 M3: FilterBar / BottomNav / Views 全体刷新**
 - `writing-plans` → `subagent-driven-development` で実装
 - 実装対象:
-  - `packages/web/src/lib/imageMap.ts` 新規作成（Unsplash URL定数 + getImageUrl()）
-  - `packages/web/src/components/EventCard.tsx` 横長カード化（左40%画像/右60%テキスト）
-  - `packages/web/src/lib/colorMap.ts` FACILITY_GRADIENTS 削除
-  - `packages/web/src/app/layout.tsx` Google Fonts（Public Sans + Noto Sans JP）追加
-  - `packages/web/tailwind.config.ts` primary色・フォント更新
-  - `packages/web/src/components/EventCard.test.tsx` テスト更新（7境界条件）
-- 完了後: Phase 6 M3（FilterBar / BottomNav / Views 全体刷新）
+  - `packages/web/src/components/FilterBar.tsx` — アクティブチップ `bg-primary text-white`
+  - `packages/web/src/components/BottomNav.tsx` — アクティブ状態 `text-[#ec5b13]`
+  - `packages/web/src/components/TodayView.tsx` / `WeekView.tsx` — カード間 `gap-3` でリスト表示
+- 完了後: Phase 6 M4（検証・デプロイ）
 
 ---
 
@@ -99,6 +96,14 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-29（第10セッション）
+- Phase 6 M2: EventCard 横長カード実装
+  - `packages/web/src/lib/imageMap.ts` 新規作成（7カテゴリ×3枚 Unsplash URL、getImageUrl()）
+  - `packages/web/src/components/EventCard.tsx` 横長カード化（左40%写真/右60%テキスト）
+  - `packages/web/src/lib/colorMap.ts` FACILITY_GRADIENTS 削除
+  - EventCard.test.tsx: 8境界条件に刷新（カード全体リンク・other=img無し・Unsplash URL・congestionRisk null/0）
+  - 110テスト全PASS、push済み (de30702)
 
 ### 2026-03-29（第9セッション）
 - Phase 6 M0: ハウスキーピング完了
