@@ -111,10 +111,17 @@ font-family: 'Public Sans', 'Noto Sans JP', sans-serif
 </a>
 ```
 
+### ビューモード
+
+- **リスト表示（デフォルト）**: `flex` 横長カード（左40%画像 / 右60%テキスト）
+- **グリッド表示**: `flex flex-col` 縦型カード（上: aspect-video画像 / 下: テキスト）
+- FilterBar右上の ☰/⊞ トグルで切替。localStorage に保存。
+
 ### 廃止
 
-- `FACILITY_GRADIENTS` — 削除（画像エリアはUnsplash写真に置き換え）
+- `FACILITY_GRADIENTS` — 削除（実画像/施設写真に置き換え）
 - 「公式サイト →」リンク — 削除（カード全体がリンク）
+- Picsum Photos / Unsplash ランダム画像 — 削除（実画像に置き換え）
 
 ### EventCard.test.tsx — 検証要件
 
@@ -125,8 +132,8 @@ font-family: 'Public Sans', 'Noto Sans JP', sans-serif
 3. **カテゴリバッジ表示** — カテゴリラベルがバッジとして表示されること
 4. **混雑バッジ非表示** — `congestionRisk=0` のとき混雑バッジが描画されないこと
 5. **混雑バッジ表示** — `congestionRisk=0.5` のとき適切なラベルが表示されること
-6. **other カテゴリ** — `category="other"` のとき `<img>` を描画せず `event` アイコンを描画すること
-7. **画像 src** — 非 `other` カテゴリのとき `<img>` の `src` が Unsplash URL（`images.unsplash.com` 含む）であること
+6. **施設写真フォールバック** — `imageUrl` なしのとき施設写真パスが `src` に設定されること
+7. **実画像表示** — `imageUrl` ありのとき実画像URLが `src` に設定されること
 
 ---
 
@@ -134,43 +141,40 @@ font-family: 'Public Sans', 'Noto Sans JP', sans-serif
 
 ### 方針
 
-- 7カテゴリ × 3枚の Unsplash URL を定数として管理
-- `other` はカテゴリアイコン（Material Symbols）のみ（画像なし）
-- `getImageUrl(category, eventId)` でイベントIDから決定論的に1枚選択
-  - 同じ eventId → 常に同じ画像（表示の一貫性）
-  - シード: `eventId の文字コード合計 % 3`
+実画像優先・施設写真フォールバックの2段階:
 
-### 画像スタイル
+1. **`event.imageUrl`** — スクレイパーがリスティングページから取得した実画像URL
+2. **施設写真** — `public/facilities/` に配置した各施設の建物写真
 
-ドラマチック系（暗め・高コントラスト・ステージ照明感）の写真。
-将来 Nano Banana Pro で生成した画像に差し替え可能。
+`getImageUrl(event)` でイベントオブジェクトから画像URLを返す。
+`getFacilityPhoto(facility)` で施設写真パスを返す（onErrorフォールバック用）。
+
+### 画像取得状況（施設別）
+
+| 施設 | ソース | 方法 |
+|---|---|---|
+| TOYOTA ARENA TOKYO | リスティングページ実画像 | Cheerio: `li.bg-gray-f5 img` src |
+| 東京ビッグサイト | リスティングページサムネイル | Cheerio: `article.lyt-event-01 img` src |
+| 有明ガーデン | 静的施設写真（Wikimedia Commons） | `/facilities/ariake-garden.jpg` |
+| 東京ガーデンシアター | 静的施設写真（公式サイト） | `/facilities/tokyo-garden-theater.webp` |
+| 有明アリーナ | 静的施設写真（公式サイト） | `/facilities/ariake-arena.jpg` |
 
 ### ファイル配置
 
 ```
-packages/web/src/lib/imageMap.ts   ← URL定数 + getImageUrl()
+packages/web/src/lib/imageMap.ts        ← getImageUrl() + getFacilityPhoto()
+packages/web/public/facilities/         ← 5施設の建物写真
+  ariake-garden.jpg                       Wikimedia Commons (CC)
+  tokyo-garden-theater.webp               公式サイト
+  ariake-arena.jpg                        公式サイト
+  toyota-arena.jpg                        公式サイト OGP
+  tokyo-bigsight.jpg                      公式サイト
 ```
 
-### カテゴリ別 Unsplash URL（各3枚）
+### 画像読み込み失敗時
 
-URLフォーマット: `https://images.unsplash.com/photo-{ID}?w=300&h=200&fit=crop`
-
-例（music 1枚目）: `https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop`
-
-| カテゴリ | 画像1 ID | 画像2 ID | 画像3 ID |
-|---|---|---|---|
-| music | `1493225457124-a3eb161ffa5f` | `1429962714451-bb934ecdc4ec` | `1501386760234-c2f1b64d4d8f` |
-| sports | `1571019613454-1cb2f99b2d8b` | `1461896836934-ffe607ba8211` | `1547347298-4074ad3086f0` |
-| exhibition | `1540575467063-178a50c2df87` | `1578662996442-48f60103fc96` | `1565035010268-a3816f98589a` |
-| kids | `1503454537195-1f28bea0f5cc` | `1515488042361-ee00e0ddd4e4` | `1476703993599-0035a21b9fc3` |
-| food | `1414235077428-338989a2e8c0` | `1504674900247-0877df9cc836` | `1555396273-367ea4eb4db5` |
-| fashion | `1558769132-cb1aea458c5e` | `1509631179647-0177331693ae` | `1483985988355-763728e1cdc6` |
-| anime | `1578632767115-351597cf2a57` | `1612198188060-c7c2a3b66eae` | `1560169897-fc0cdbdfa4d5` |
-
-### `other` カテゴリの画像エリア
-
-左40%エリアを **`bg-slate-100` 背景 + Material Symbols `event` アイコン中央配置** で表示。
-画像なし、Unsplash不使用。幅・高さは他カテゴリと同一（flex で自動伸縮）。
+`onError` で `imgError` state を true にし、`getFacilityPhoto()` にフォールバック。
+全カテゴリ共通で施設写真が表示される（ランダム画像やアイコンプレースホルダーは使用しない）。
 
 ---
 

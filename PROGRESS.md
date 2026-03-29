@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 6 完了 — UI リデザイン全マイルストーン完了・push済み。次: Phase 7 以降を検討**
+**Phase 7 完了 — UX改善（ビュー切替・月リスト・実画像）全マイルストーン完了・push済み。次: Phase 8 以降を検討**
 
 ---
 
@@ -58,10 +58,24 @@
   - .github/workflows/timetable-reminder.yml: 毎年3/1・10/1にダイヤ改正Issue自動作成
   - 107テスト全 PASS、push済み (b7a1a14)
 
+## 完了済み（追記2）
+
+- **Phase 7 M1** (完了 2026-03-30): ビュー切替トグル
+  - FilterBar右上に ☰/⊞ ボタン追加、ViewMode型（list/grid）、localStorage保存
+- **Phase 7 M2** (完了 2026-03-30): 月リストビュー
+  - WeekView廃止 → MonthView新規（← YYYY年M月 → ナビゲーション）
+  - BottomNav/ViewTabs: week→month置換
+- **Phase 7 M3** (完了 2026-03-30): 実画像実装
+  - EventItem に imageUrl フィールド追加（scraper/web両方）
+  - TOYOTA ARENA / ビッグサイト: リスティングページから img src 抽出
+  - 有明ガーデン / ガーデンシアター / 有明アリーナ: 施設建物写真にフォールバック
+  - Picsum Photos 全廃、`public/facilities/` に5施設実写真配置
+  - テスト: 78/78（scraper）、112/112（web）
+
 ## 次にやること
 
-**Phase 7 以降を検討（未定）**
-- Phase 6 完全クローズ済み
+**Phase 8 以降を検討（未定）**
+- Phase 7 完全クローズ済み
 - 次フェーズ候補: パフォーマンス改善 / 新施設追加 / 通知機能 等
 
 ---
@@ -92,6 +106,16 @@
 ---
 
 ## セッション履歴（直近3件）
+
+### 2026-03-30（第13セッション）
+- Phase 7 M1-M3: UX改善（ビュー切替・月リスト・実画像）
+  - FilterBar: ☰/⊞ ビュー切替トグル追加（localStorage保存）
+  - WeekView → MonthView 置換（月ナビゲーション付きリスト）
+  - Picsum全廃 → TOYOTA ARENA/ビッグサイトは実画像スクレイピング、他3施設は施設写真フォールバック
+  - imageUrl フィールド追加（scraper EventItem + web EventItem）
+  - public/facilities/ に5施設の建物写真配置
+  - design-system.md 画像戦略セクション全面更新
+  - テスト: 78/78（scraper）、112/112（web）、push済み（4f76fba）
 
 ### 2026-03-30（第12セッション）
 - Phase 6 M4: 検証・デプロイ（GitHub Pages 実機確認）
