@@ -41,7 +41,7 @@ export default function MonthView({ events, onResetFilters, viewMode }: Props) {
     .sort((a, b) => a.startDate.localeCompare(b.startDate))
 
   const gridClass = viewMode === 'grid'
-    ? 'grid grid-cols-2 lg:grid-cols-3 gap-3 p-4'
+    ? 'columns-2 lg:columns-3 gap-x-3 p-4'
     : 'grid grid-cols-1 lg:grid-cols-2 gap-3 p-4'
 
   return (

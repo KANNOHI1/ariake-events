@@ -63,4 +63,22 @@ describe('EventCard', () => {
     expect(screen.queryByText('空いている')).toBeNull()
     expect(screen.queryByText('やや混雑')).toBeNull()
   })
+  it('grid mode applies break-inside-avoid and mb-3 to link', () => {
+    render(<EventCard event={musicEvent} viewMode="grid" />)
+    const link = screen.getByRole('link')
+    expect(link.className).toContain('break-inside-avoid')
+    expect(link.className).toContain('mb-3')
+  })
+
+  it('grid mode does not apply line-clamp-2 to title', () => {
+    render(<EventCard event={musicEvent} viewMode="grid" />)
+    const title = screen.getByRole('heading', { name: musicEvent.eventName })
+    expect(title.className).not.toContain('line-clamp-2')
+  })
+
+  it('list mode applies line-clamp-2 to title', () => {
+    render(<EventCard event={musicEvent} viewMode="list" />)
+    const title = screen.getByRole('heading', { name: musicEvent.eventName })
+    expect(title.className).toContain('line-clamp-2')
+  })
 })

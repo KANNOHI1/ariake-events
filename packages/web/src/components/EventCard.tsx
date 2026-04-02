@@ -24,7 +24,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
     : `${event.startDate} 〜 ${event.endDate}`
 
   const imageArea = (
-    <div className={`relative shrink-0 ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
+    <div className={`relative shrink-0 ${viewMode === 'grid' ? 'w-full aspect-square' : 'w-[40%]'}`}>
       <img
         src={imgError ? getFacilityPhoto(event.facility) : imageUrl}
         alt={event.eventName}
@@ -49,7 +49,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
           {categoryLabel}
         </span>
       </div>
-      <h3 className="text-sm font-bold leading-snug text-slate-900 line-clamp-2">
+      <h3 className={`text-sm font-bold leading-snug text-slate-900 ${viewMode === 'list' ? 'line-clamp-2' : ''}`}>
         {event.eventName}
       </h3>
       <p className="text-xs text-slate-500">📅 {dateRange}</p>
@@ -61,7 +61,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
       href={event.sourceURL}
       target="_blank"
       rel="noopener noreferrer"
-      className="block"
+      className={`block ${viewMode === 'grid' ? 'break-inside-avoid mb-3' : ''}`}
     >
       <article className={`rounded-xl bg-white shadow-sm overflow-hidden ${viewMode === 'grid' ? 'flex flex-col' : 'flex h-28'}`}>
         {imageArea}
