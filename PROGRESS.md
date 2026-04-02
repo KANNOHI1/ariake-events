@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 7 完了 — UX改善（ビュー切替・月リスト・実画像）全マイルストーン完了・push済み。次: Phase 8 以降を検討**
+**Phase 8 M1 完了 — FilterBar Bottom Sheet化・push済み。次: Playwright実機確認 → Phase 8 M2検討**
 
 ---
 
@@ -72,11 +72,18 @@
   - Picsum Photos 全廃、`public/facilities/` に5施設実写真配置
   - テスト: 78/78（scraper）、112/112（web）
 
+## 完了済み（追記3）
+
+- **Phase 8 M1** (完了 2026-04-02): FilterBar Bottom Sheet化
+  - FilterSheet.tsx 新規作成（createPortal + SSR対応 + CSS transition）
+  - FilterBar.tsx をコンパクトヘッダー化（絞り込みボタン + バッジ + アクティブラベル）
+  - テスト: 16スイート 123/123 PASS、push済み
+  - 計画書: docs/superpowers/plans/2026-04-02-filterbar-bottom-sheet.md
+
 ## 次にやること
 
-**Phase 8 以降を検討（未定）**
-- Phase 7 完全クローズ済み
-- 次フェーズ候補: パフォーマンス改善 / 新施設追加 / 通知機能 等
+- Playwright で GitHub Pages の実機確認（モバイル・デスクトップ）
+- Phase 8 M2 候補: Masonryグリッド（Pretext利用）
 
 ---
 
