@@ -62,7 +62,7 @@ afterEach(() => {
 })
 
 describe('Home page', () => {
-  it('renders split title, date pill, and plain main element', async () => {
+  it('renders split title, date pill, and constrained main element', async () => {
     vi.spyOn(Date.prototype, 'toLocaleDateString').mockImplementation((_locale, options) => {
       const format = options as Intl.DateTimeFormatOptions | undefined
       return format?.year ? '2026年3月18日(水)' : '3月18日(水)'
@@ -80,7 +80,7 @@ describe('Home page', () => {
 
     const main = container.querySelector('main')
     expect(main).not.toBeNull()
-    expect(main?.getAttribute('class')).toBeNull()
+    expect(main).toHaveClass('max-w-5xl', 'mx-auto')
   })
 
   it('renders navigation tabs', async () => {

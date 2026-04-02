@@ -70,6 +70,13 @@ describe('EventCard', () => {
     expect(link.className).toContain('mb-3')
   })
 
+  it('grid mode uses a video aspect ratio for the image area', () => {
+    const { container } = render(<EventCard event={musicEvent} viewMode="grid" />)
+    const imageArea = container.querySelector('.aspect-video')
+    expect(imageArea).not.toBeNull()
+    expect(imageArea?.className).not.toContain('aspect-square')
+  })
+
   it('grid mode does not apply line-clamp-2 to title', () => {
     render(<EventCard event={musicEvent} viewMode="grid" />)
     const title = screen.getByRole('heading', { name: musicEvent.eventName })

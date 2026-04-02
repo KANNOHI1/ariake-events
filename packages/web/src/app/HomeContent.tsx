@@ -121,7 +121,7 @@ export default function HomeContent() {
         />
       )}
 
-      <main>
+      <main className="max-w-5xl mx-auto">
         {activeView === 'today' && (
           <TodayView events={todayEvents} onResetFilters={resetFilters} viewMode={viewMode} />
         )}
