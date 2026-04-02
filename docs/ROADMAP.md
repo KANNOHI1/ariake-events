@@ -153,14 +153,15 @@
 
 ---
 
-### Phase 8: モバイルUX強化 🚧 進行中
+### Phase 8: モバイルUX強化 ✅ 完了 (2026-04-03)
 
-**完了基準**: フィルタUI改善、グリッドビュー高視認性化
+**完了基準**: フィルタUI改善、グリッドビュー高視認性化、UIポリッシュ
 
 | # | マイルストーン | 状態 |
 |---|---|---|
 | M1 | FilterBar Bottom Sheet化 | ✅ 完了 (2026-04-02) |
 | M2 | Masonry グリッドレイアウト | ✅ 完了 (2026-04-03) |
+| M3 | UI Polish（余白・ヘッダー・セクションヘッダー） | ✅ 完了 (2026-04-03) |
 
 **M1 成果物 (2026-04-02):**
 - FilterSheet.tsx 新規作成（createPortal + SSR対応 + CSS transition）
@@ -168,10 +169,17 @@
 - テスト: 16スイート 123/123 PASS
 
 **M2 成果物 (2026-04-03):**
-- TodayView / MonthView: `grid grid-cols-2` → `columns-2 lg:columns-3`（CSS columns）
-- EventCard: `aspect-square`・`break-inside-avoid mb-3`・grid時 `line-clamp-2` 除去
+- TodayView / MonthView: `grid grid-cols-2` → `columns-2 lg:columns-3 xl:columns-4`（CSS columns）
+- EventCard: `break-inside-avoid mb-3`・grid時 `line-clamp-2` 除去
 - ゼロ依存（npm追加なし）、SSR/静的エクスポート完全対応
 - テスト: 16スイート 127/127 PASS
+
+**M3 成果物 (2026-04-03):**
+- HomeContent: `max-w-5xl mx-auto` でデスクトップ余白適正化
+- ヘッダーバイカラー: 「有明」→ primary-500（オレンジ）、「イベント」→ slate-900
+- 日付 pill バッジ: `bg-[#fff3ed] rounded-full px-3 py-1`
+- TodayView セクションヘッダー: 「今日のイベント + 日付」追加
+- テスト: 17スイート 127/127 PASS
 
 ---
 
