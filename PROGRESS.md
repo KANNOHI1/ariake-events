@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 8 M1 完了 — FilterBar Bottom Sheet化・push済み。次: Playwright実機確認 → Phase 8 M2検討**
+**Phase 8 M2 完了 — Masonry グリッドレイアウト実装・push済み。次: Phase 8 M3候補検討**
 
 ---
 
@@ -80,10 +80,15 @@
   - テスト: 16スイート 123/123 PASS、push済み
   - 計画書: docs/superpowers/plans/2026-04-02-filterbar-bottom-sheet.md
 
+- **Phase 8 M2** (完了 2026-04-03): Masonry グリッドレイアウト
+  - TodayView / MonthView: CSS Grid → CSS columns（`columns-2 lg:columns-3 gap-x-3`）
+  - EventCard: `aspect-square`・`break-inside-avoid mb-3`・grid時 `line-clamp-2` 除去
+  - ゼロ依存・SSR/静的エクスポート完全対応
+  - テスト: 16スイート 127/127 PASS、push済み（205a05c）
+
 ## 次にやること
 
-- Playwright で GitHub Pages の実機確認（モバイル・デスクトップ）
-- Phase 8 M2 候補: Masonryグリッド（Pretext利用）
+- Phase 8 M3 候補検討
 
 ---
 

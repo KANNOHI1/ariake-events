@@ -153,6 +153,28 @@
 
 ---
 
+### Phase 8: モバイルUX強化 🚧 進行中
+
+**完了基準**: フィルタUI改善、グリッドビュー高視認性化
+
+| # | マイルストーン | 状態 |
+|---|---|---|
+| M1 | FilterBar Bottom Sheet化 | ✅ 完了 (2026-04-02) |
+| M2 | Masonry グリッドレイアウト | ✅ 完了 (2026-04-03) |
+
+**M1 成果物 (2026-04-02):**
+- FilterSheet.tsx 新規作成（createPortal + SSR対応 + CSS transition）
+- FilterBar.tsx コンパクトヘッダー化（絞り込みボタン + バッジ + アクティブラベル）
+- テスト: 16スイート 123/123 PASS
+
+**M2 成果物 (2026-04-03):**
+- TodayView / MonthView: `grid grid-cols-2` → `columns-2 lg:columns-3`（CSS columns）
+- EventCard: `aspect-square`・`break-inside-avoid mb-3`・grid時 `line-clamp-2` 除去
+- ゼロ依存（npm追加なし）、SSR/静的エクスポート完全対応
+- テスト: 16スイート 127/127 PASS
+
+---
+
 ## 設計上の確定判断
 
 | 決定事項 | 内容 | 理由 |
