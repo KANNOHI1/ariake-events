@@ -72,7 +72,7 @@ describe('Home page', () => {
   it('renders FilterBar', async () => {
     render(<Home />)
     await waitFor(() => {
-      expect(screen.getByText('有明ガーデン')).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /絞り込み/ })).toBeInTheDocument()
     })
   })
 
@@ -103,6 +103,6 @@ describe('Home page', () => {
     render(<Home />)
     await waitFor(() => expect(screen.queryByText('読み込み中...')).not.toBeInTheDocument())
     fireEvent.click(screen.getByText('交通'))
-    expect(screen.queryByText('有明ガーデン')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /絞り込み/ })).not.toBeInTheDocument()
   })
 })
