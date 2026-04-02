@@ -101,8 +101,13 @@ export default function HomeContent() {
       {/* Sticky header with glassmorphism */}
       <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
         <div className="flex items-center justify-between px-4 py-4">
-          <h1 className="text-xl font-bold tracking-tight text-slate-900">有明イベント</h1>
-          <p className="text-sm font-medium text-primary-500">{dateLabel}</p>
+          <h1 className="text-xl font-bold tracking-tight">
+            <span className="text-primary-500">有明</span>
+            <span className="text-slate-900">イベント</span>
+          </h1>
+          <span className="text-sm font-semibold text-primary-500 bg-[#fff3ed] px-3 py-1 rounded-full">
+            {dateLabel}
+          </span>
         </div>
       </header>
 
@@ -116,7 +121,7 @@ export default function HomeContent() {
         />
       )}
 
-      <main className="max-w-6xl mx-auto">
+      <main>
         {activeView === 'today' && (
           <TodayView events={todayEvents} onResetFilters={resetFilters} viewMode={viewMode} />
         )}

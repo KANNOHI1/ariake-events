@@ -23,6 +23,12 @@ function sortByFacility(events: EventItem[]): EventItem[] {
 
 export default function TodayView({ events, onResetFilters, viewMode }: Props) {
   const sorted = sortByFacility(events)
+  const todayLabel = new Date().toLocaleDateString('ja-JP', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    weekday: 'short',
+  })
 
   if (sorted.length === 0) {
     return (
@@ -43,10 +49,16 @@ export default function TodayView({ events, onResetFilters, viewMode }: Props) {
     : 'grid grid-cols-1 lg:grid-cols-2 gap-3 p-4'
 
   return (
-    <div className={gridClass}>
-      {sorted.map((event) => (
-        <EventCard key={event.id} event={event} viewMode={viewMode} />
-      ))}
-    </div>
+    <>
+      <div className="px-4 pt-3 pb-1 flex items-baseline gap-2">
+        <span className="text-base font-semibold text-slate-800">今日のイベント</span>
+        <span className="text-sm text-slate-500">{todayLabel}</span>
+      </div>
+      <div className={gridClass}>
+        {sorted.map((event) => (
+          <EventCard key={event.id} event={event} viewMode={viewMode} />
+        ))}
+      </div>
+    </>
   )
 }
