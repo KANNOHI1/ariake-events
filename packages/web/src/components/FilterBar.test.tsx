@@ -1,13 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import FilterBar from './FilterBar'
-import { CATEGORY_LABELS } from '../lib/colorMap'
 
 const defaultFilters = { facility: null, category: null }
 const defaultViewProps = { viewMode: 'list' as const, onToggleViewMode: vi.fn() }
 
 describe('FilterBar', () => {
-  it('renders "すべての施設" chip', () => {
+  it('「絞り込み」ボタンが表示される', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -16,10 +15,10 @@ describe('FilterBar', () => {
         {...defaultViewProps}
       />
     )
-    expect(screen.getByRole('button', { name: 'すべての施設' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /絞り込み/ })).toBeInTheDocument()
   })
 
-  it('renders "すべて" category chip', () => {
+  it('フィルター未選択時はバッジが表示されない', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -28,96 +27,48 @@ describe('FilterBar', () => {
         {...defaultViewProps}
       />
     )
-    expect(screen.getByRole('button', { name: 'すべて' })).toBeInTheDocument()
+    expect(screen.queryByTestId('filter-badge')).not.toBeInTheDocument()
   })
 
-  it('renders all 5 facility chips', () => {
-    render(
-      <FilterBar
-        filters={defaultFilters}
-        onSetFacility={vi.fn()}
-        onSetCategory={vi.fn()}
-        {...defaultViewProps}
-      />
-    )
-    expect(screen.getByRole('button', { name: '有明ガーデン' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '東京ガーデンシアター' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '有明アリーナ' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'TOYOTA ARENA TOKYO' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '東京ビッグサイト' })).toBeInTheDocument()
-  })
-
-  it('renders all 8 category chips', () => {
-    render(
-      <FilterBar
-        filters={defaultFilters}
-        onSetFacility={vi.fn()}
-        onSetCategory={vi.fn()}
-        {...defaultViewProps}
-      />
-    )
-    Object.values(CATEGORY_LABELS).forEach((label) => {
-      expect(screen.getByRole('button', { name: label })).toBeInTheDocument()
-    })
-  })
-
-  it('calls onSetFacility with facility name when chip is clicked', () => {
-    const onSetFacility = vi.fn()
-    render(
-      <FilterBar
-        filters={defaultFilters}
-        onSetFacility={onSetFacility}
-        onSetCategory={vi.fn()}
-        {...defaultViewProps}
-      />
-    )
-    fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
-    expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
-  })
-
-  it('calls onSetFacility with null when "すべての施設" chip is clicked', () => {
-    const onSetFacility = vi.fn()
+  it('施設のみ選択時にバッジ「1」が表示される', () => {
     render(
       <FilterBar
         filters={{ facility: '有明ガーデン', category: null }}
-        onSetFacility={onSetFacility}
+        onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
         {...defaultViewProps}
       />
     )
-    fireEvent.click(screen.getByRole('button', { name: 'すべての施設' }))
-    expect(onSetFacility).toHaveBeenCalledWith(null)
+    expect(screen.getByTestId('filter-badge')).toHaveTextContent('1')
   })
 
-  it('calls onSetCategory with category key when chip is clicked', () => {
-    const onSetCategory = vi.fn()
+  it('施設+カテゴリ選択時にバッジ「2」が表示される', () => {
+    render(
+      <FilterBar
+        filters={{ facility: '有明ガーデン', category: 'music' }}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
+        {...defaultViewProps}
+      />
+    )
+    expect(screen.getByTestId('filter-badge')).toHaveTextContent('2')
+  })
+
+  it('「絞り込み」ボタンクリックでシートが開く', () => {
     render(
       <FilterBar
         filters={defaultFilters}
         onSetFacility={vi.fn()}
-        onSetCategory={onSetCategory}
+        onSetCategory={vi.fn()}
         {...defaultViewProps}
       />
     )
-    fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
-    expect(onSetCategory).toHaveBeenCalledWith('music')
+    fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
+    expect(screen.getByText('施設')).toBeInTheDocument()
+    expect(screen.getByText('カテゴリ')).toBeInTheDocument()
   })
 
-  it('calls onSetCategory with null when "すべて" chip is clicked', () => {
-    const onSetCategory = vi.fn()
-    render(
-      <FilterBar
-        filters={{ facility: null, category: 'music' }}
-        onSetFacility={vi.fn()}
-        onSetCategory={onSetCategory}
-        {...defaultViewProps}
-      />
-    )
-    fireEvent.click(screen.getByRole('button', { name: 'すべて' }))
-    expect(onSetCategory).toHaveBeenCalledWith(null)
-  })
-
-  it('renders view mode toggle button', () => {
+  it('グリッドトグルボタンが表示される', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -129,18 +80,48 @@ describe('FilterBar', () => {
     expect(screen.getByRole('button', { name: 'グリッド表示に切り替え' })).toBeInTheDocument()
   })
 
-  it('calls onToggleViewMode when toggle button is clicked', () => {
+  it('グリッドトグルクリック → onToggleViewMode が呼ばれる', () => {
     const onToggleViewMode = vi.fn()
     render(
       <FilterBar
         filters={defaultFilters}
         onSetFacility={vi.fn()}
         onSetCategory={vi.fn()}
-        viewMode="list"
+        viewMode='list'
         onToggleViewMode={onToggleViewMode}
       />
     )
     fireEvent.click(screen.getByRole('button', { name: 'グリッド表示に切り替え' }))
     expect(onToggleViewMode).toHaveBeenCalledOnce()
+  })
+
+  it('シート内で施設チップクリック → onSetFacility が呼ばれる', () => {
+    const onSetFacility = vi.fn()
+    render(
+      <FilterBar
+        filters={defaultFilters}
+        onSetFacility={onSetFacility}
+        onSetCategory={vi.fn()}
+        {...defaultViewProps}
+      />
+    )
+    fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
+    fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
+    expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
+  })
+
+  it('シート内でカテゴリチップクリック → onSetCategory が呼ばれる', () => {
+    const onSetCategory = vi.fn()
+    render(
+      <FilterBar
+        filters={defaultFilters}
+        onSetFacility={vi.fn()}
+        onSetCategory={onSetCategory}
+        {...defaultViewProps}
+      />
+    )
+    fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
+    fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
+    expect(onSetCategory).toHaveBeenCalledWith('music')
   })
 })
