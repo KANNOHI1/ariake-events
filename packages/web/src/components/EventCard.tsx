@@ -19,6 +19,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   const congestionInfo = getCongestionInfo(event.congestionRisk)
   const imageUrl = getImageUrl(event)
   const displaySrc = imgError ? getFacilityPhoto(event.facility) : imageUrl
+  const isFacilityPhoto = !event.imageUrl || imgError
 
   const dateRange = event.startDate === event.endDate
     ? event.startDate
@@ -35,7 +36,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
       <img
         src={displaySrc}
         alt={event.eventName}
-        className="relative z-10 w-full h-full object-contain"
+        className={`relative z-10 w-full h-full ${isFacilityPhoto ? 'object-cover' : 'object-contain'}`}
         onError={() => setImgError(true)}
       />
       {congestionInfo && (

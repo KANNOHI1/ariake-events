@@ -90,8 +90,16 @@ describe('EventCard', () => {
     expect(title.className).toContain('line-clamp-2')
   })
 
-  it('image uses object-contain', () => {
-    render(<EventCard event={musicEvent} />)
+  it('施設フォールバック写真は object-cover でビッタビタ表示', () => {
+    render(<EventCard event={musicEvent} />)  // imageUrl なし → 施設写真
+    const img = screen.getByRole('img', { name: musicEvent.eventName })
+    expect(img).toHaveClass('object-cover')
+    expect(img.className).not.toContain('object-contain')
+  })
+
+  it('イベント固有画像は object-contain で全体表示', () => {
+    const eventWithImage = { ...musicEvent, imageUrl: 'https://example.com/banner.jpg' }
+    render(<EventCard event={eventWithImage} />)
     const img = screen.getByRole('img', { name: musicEvent.eventName })
     expect(img).toHaveClass('object-contain')
     expect(img.className).not.toContain('object-cover')
