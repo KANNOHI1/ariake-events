@@ -46,9 +46,9 @@ export default function TransportView() {
         {'\u30c0\u30a4\u30e4'}
       </p>
 
-      <div className="overflow-x-auto -mx-4 px-4">
+      <div className="overflow-auto -mx-4 px-4 max-h-[calc(100dvh-220px)]">
         <table className="w-full border-collapse text-sm whitespace-nowrap">
-          <thead>
+          <thead className="sticky top-0 z-10">
             <tr>
               {routes.map((route) => (
                 <th

@@ -117,4 +117,11 @@ describe('TransportView', () => {
       expect(header).toHaveClass('bg-slate-200')
     }
   })
+
+  it('thead is sticky within the scroll container', () => {
+    const { container } = render(<TransportView />)
+    const thead = container.querySelector('thead')
+
+    expect(thead).toHaveClass('sticky', 'top-0', 'z-10')
+  })
 })
