@@ -51,6 +51,9 @@ export const parseAriakeGardenEvents = (
     });
     const category = mapCategory(labels.join(" "));
 
+    const imgSrc = $el.find('.card_img_area img.lazy').first().attr('data-original') ?? ''
+    const imageUrl = imgSrc ? `${BASE_URL}${imgSrc}` : null
+
     events.push({
       id: makeEventId(FACILITY, title, startDate, sourceURL),
       eventName: title,
@@ -62,7 +65,7 @@ export const parseAriakeGardenEvents = (
       peakTimeEnd: null,
       estimatedAttendees: null,
       congestionRisk: null,
-      imageUrl: null,
+      imageUrl,
       sourceURL,
       lastUpdated: nowISO,
     });

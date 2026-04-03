@@ -21,6 +21,15 @@ describe("ariakeGarden parser", () => {
     }
   });
 
+  it("extracts imageUrl from data-original attribute", () => {
+    const events = parseAriakeGardenEvents(html, "2026-03-17T00:00:00Z");
+    const donutEvent = events.find((e) => e.eventName.includes("JACK IN THE DONUTS"));
+    expect(donutEvent).toBeDefined();
+    expect(donutEvent!.imageUrl).toBe(
+      "https://www.shopping-sumitomo-rd.com/images/event/2876/top_image.jpg",
+    );
+  });
+
   it("parses known event from fixture", () => {
     const events = parseAriakeGardenEvents(html, "2026-03-17T00:00:00Z");
     const kidsEvent = events.find((e) =>
