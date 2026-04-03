@@ -89,4 +89,17 @@ describe('EventCard', () => {
     const title = screen.getByRole('heading', { name: musicEvent.eventName })
     expect(title.className).toContain('line-clamp-2')
   })
+
+  it('image uses object-contain to prevent cropping', () => {
+    const { container } = render(<EventCard event={musicEvent} />)
+    const img = container.querySelector('img')
+    expect(img).toHaveClass('object-contain')
+    expect(img?.className).not.toContain('object-cover')
+  })
+
+  it('image container has bg-slate-100 for letterbox areas', () => {
+    const { container } = render(<EventCard event={musicEvent} />)
+    const imageArea = container.querySelector('.bg-slate-100')
+    expect(imageArea).not.toBeNull()
+  })
 })

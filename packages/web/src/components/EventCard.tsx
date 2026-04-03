@@ -24,11 +24,11 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
     : `${event.startDate} 〜 ${event.endDate}`
 
   const imageArea = (
-    <div className={`relative shrink-0 ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
+    <div className={`relative shrink-0 bg-slate-100 ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
       <img
         src={imgError ? getFacilityPhoto(event.facility) : imageUrl}
         alt={event.eventName}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
         onError={() => setImgError(true)}
       />
       {congestionInfo && (
