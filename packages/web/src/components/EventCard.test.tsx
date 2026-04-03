@@ -90,16 +90,35 @@ describe('EventCard', () => {
     expect(title.className).toContain('line-clamp-2')
   })
 
-  it('image uses object-contain to prevent cropping', () => {
-    const { container } = render(<EventCard event={musicEvent} />)
-    const img = container.querySelector('img')
+  it('image uses object-contain', () => {
+    render(<EventCard event={musicEvent} />)
+    const img = screen.getByRole('img', { name: musicEvent.eventName })
     expect(img).toHaveClass('object-contain')
-    expect(img?.className).not.toContain('object-cover')
+    expect(img.className).not.toContain('object-cover')
   })
 
-  it('image container has bg-slate-100 for letterbox areas', () => {
+  it('image container uses bg-black for blurred backdrop', () => {
     const { container } = render(<EventCard event={musicEvent} />)
-    const imageArea = container.querySelector('.bg-slate-100')
+    const imageArea = container.querySelector('.bg-black')
     expect(imageArea).not.toBeNull()
+    expect(container.querySelector('.bg-slate-100')).toBeNull()
+  })
+
+  it('backdrop image includes blur-2xl opacity-60 and aria-hidden', () => {
+    const { container } = render(<EventCard event={musicEvent} />)
+    const imgs = container.querySelectorAll('img')
+    const backdropImg = imgs[0]
+
+    expect(backdropImg).toHaveAttribute('aria-hidden', 'true')
+    expect(backdropImg).toHaveClass('blur-2xl')
+    expect(backdropImg).toHaveClass('opacity-60')
+    expect(backdropImg).toHaveClass('object-cover')
+  })
+
+  it('backdrop and foreground images use the same src before imgError', () => {
+    const { container } = render(<EventCard event={musicEvent} />)
+    const imgs = container.querySelectorAll('img')
+
+    expect((imgs[0] as HTMLImageElement).src).toBe((imgs[1] as HTMLImageElement).src)
   })
 })

@@ -18,21 +18,28 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   const categoryLabel = CATEGORY_LABELS[event.category] ?? event.category
   const congestionInfo = getCongestionInfo(event.congestionRisk)
   const imageUrl = getImageUrl(event)
+  const displaySrc = imgError ? getFacilityPhoto(event.facility) : imageUrl
 
   const dateRange = event.startDate === event.endDate
     ? event.startDate
     : `${event.startDate} 〜 ${event.endDate}`
 
   const imageArea = (
-    <div className={`relative shrink-0 bg-slate-100 ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
+    <div className={`relative shrink-0 overflow-hidden bg-black ${viewMode === 'grid' ? 'w-full aspect-video' : 'w-[40%]'}`}>
       <img
-        src={imgError ? getFacilityPhoto(event.facility) : imageUrl}
+        src={displaySrc}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60"
+      />
+      <img
+        src={displaySrc}
         alt={event.eventName}
-        className="w-full h-full object-contain"
+        className="relative z-10 w-full h-full object-contain"
         onError={() => setImgError(true)}
       />
       {congestionInfo && (
-        <span className={`absolute top-2 right-2 ${congestionInfo.imageBadgeClass} text-[10px] font-bold px-2 py-1 rounded-full backdrop-blur-sm`}>
+        <span className={`absolute top-2 right-2 z-20 ${congestionInfo.imageBadgeClass} text-[10px] font-bold px-2 py-1 rounded-full backdrop-blur-sm`}>
           {congestionInfo.label}
         </span>
       )}
