@@ -100,10 +100,34 @@
   - ヘッダー・FilterBar内コンテンツも `max-w-5xl mx-auto` に揃える
   - テスト: 17スイート 131/131 PASS、push済み（ab6b4e3）
 
-## 次にやること
+## 完了済み（追記4）
 
-- Phase 8 M5 候補: 絞り込みドロップダウン化（FilterBarのデスクトップUX改善）
-- Phase 8 M6 候補: 「今日」→「日」ページ化（日付ナビゲーション追加）
+- **バグ修正群** (2026-04-03〜04): 複数の未コミット変更・破損ファイルを修正・push
+  - CalendarModal高さ 70vh→85dvh、CSS columns→grid統一、MonthViewナビstickyを解除
+  - ariakeArena認証画像(reserve.ariake-arena.tokyo)をnullに変更
+  - TransportView overflow-x-auto内stickyは効かないため削除（CSS仕様）
+  - 交通ページteadへのsticky実装（overflow-autoコンテナ化）
+  - ariake-arena.jpg破損（1.9KB）を修復（150KB正常画像に復元）
+  - テスト: 17スイート 139/139 PASS（9842172）
+
+- **Phase 8 M5** (完了 2026-04-04): EventCard画像表示改善 Phase 1
+  - `object-cover` → `object-contain` + `bg-slate-100`（レターボックス方式）
+  - Designer's Gate・Japan DX Week・EC店舗Week等のバナー画像が全文表示されるように
+  - Playwright本番検証済み（モバイル390px リスト・グリッド両方）
+  - テスト: 139/139 PASS、push済み（9842172）
+
+- **Phase 8 M6** (完了 2026-04-04): EventCard Blurred Backdrop実装
+  - `displaySrc` 変数追加（imgErrorフォールバックを前景・背景両imgで共有）
+  - コンテナ: `bg-slate-100` → `bg-black overflow-hidden`
+  - 背景img: `aria-hidden="true"` + `absolute inset-0 object-cover scale-110 blur-2xl opacity-60`
+  - 前景img: `relative z-10 object-contain`（onErrorは前景のみ）
+  - 混雑バッジ: `z-20` 追加
+  - テスト: 17スイート 141/141 PASS（+2テスト）、push済み（24528d9）
+
+## 次にやること（最優先）
+
+- Phase 8 M7 候補: 絞り込みドロップダウン化（FilterBarのデスクトップUX改善）
+- Phase 8 M8 候補: 「今日」→「日」ページ化（日付ナビゲーション追加）
 - カレンダーページのグリッド幅問題（内部レイアウト見直し）
 - サイトタイトルデザイン刷新（ユーザー主導でアイデア出し予定）
 
