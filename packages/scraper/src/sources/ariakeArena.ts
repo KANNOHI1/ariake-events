@@ -78,8 +78,9 @@ export const parseAriakeArenaEvents = (
     // URL from official site link
     const officialUrl = $el.find("tr.url_area a").attr("href") ?? "";
     const sourceURL = officialUrl || `${BASE_URL}/event/`;
-    const imgSrc = $el.find("img").not('[src*=".svg"]').first().attr("src") ?? null;
-    const imageUrl = imgSrc ?? null;
+    const rawSrc = $el.find("img").not('[src*=".svg"]').first().attr("src") ?? null;
+    // reserve.ariake-arena.tokyo は Rails Active Storage の認証URL のため公開不可
+    const imageUrl = rawSrc && !rawSrc.includes('reserve.ariake-arena.tokyo') ? rawSrc : null;
 
     const displayName = mainName && subTitle ? `${mainName} ${subTitle}` : title;
 

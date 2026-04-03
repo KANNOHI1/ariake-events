@@ -108,13 +108,13 @@ describe('TransportView', () => {
     expect(table).toHaveClass('w-full')
   })
 
-  it('keeps direction headers sticky below the app header', () => {
+  it('direction headers use slate-200 background', () => {
     const { container } = render(<TransportView />)
     const directionHeaders = Array.from(container.querySelectorAll('thead tr:nth-child(4) th'))
 
     expect(directionHeaders.length).toBeGreaterThan(0)
     for (const header of directionHeaders) {
-      expect(header).toHaveClass('sticky', 'top-[112px]', 'z-10')
+      expect(header).toHaveClass('bg-slate-200')
     }
   })
 })

@@ -37,13 +37,12 @@ describe("ariakeArena parser", () => {
     expect(daice!.endDate).toBe("2026-03-01");
   });
 
-  it("extracts the first non-SVG image URL from each event item", () => {
+  it("returns null imageUrl for reserve.ariake-arena.tokyo (auth-gated URLs)", () => {
     const events = parseAriakeArenaEvents(html, "2026-03-17T00:00:00Z", 2026);
     const daice = events.find((e) => e.eventName.includes("Da-iCE"));
 
     expect(daice).toBeDefined();
-    expect(daice!.imageUrl).toBe(
-      "https://reserve.ariake-arena.tokyo/rails/active_storage/blobs/redirect/xxx/event.jpg",
-    );
+    // reserve.ariake-arena.tokyo は認証URLのため公開不可 → null を返す
+    expect(daice!.imageUrl).toBeNull();
   });
 });
