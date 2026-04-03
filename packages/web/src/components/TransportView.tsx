@@ -1,7 +1,13 @@
-// packages/web/src/components/TransportView.tsx
-import { useMemo, useState, useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { timetable } from '../data/timetable'
-import { isHoliday, filterUpcoming } from '../lib/timetableUtils'
+import { filterUpcoming, isHoliday } from '../lib/timetableUtils'
+
+const ROUTE_LOGOS: Record<string, string> = {
+  [timetable[0].name]: '/transport/rinkai.svg',
+  [timetable[1].name]: '/transport/yurikamome.svg',
+  [timetable[2].name]: '/transport/toei.svg',
+  [timetable[3].name]: '/transport/brt.png',
+}
 
 function getNowString(): string {
   const now = new Date()
@@ -11,7 +17,6 @@ function getNowString(): string {
 }
 
 export default function TransportView() {
-  // 1分ごとに再レンダリングして時刻フィルタを最新に保つ
   const [now, setNow] = useState(getNowString)
   const holiday = isHoliday()
 
@@ -26,10 +31,7 @@ export default function TransportView() {
         ...route,
         directions: route.directions.map((dir) => ({
           ...dir,
-          upcoming: filterUpcoming(
-            holiday ? dir.holiday : dir.weekday,
-            now
-          ),
+          upcoming: filterUpcoming(holiday ? dir.holiday : dir.weekday, now),
         })),
       })),
     [now, holiday]
@@ -37,59 +39,65 @@ export default function TransportView() {
 
   return (
     <div className="p-4">
-      <p className="text-xs text-slate-500 mb-3">
-        {now} 以降の発車便 · {holiday ? '土休日' : '平日'}ダイヤ
+      <p className="mb-3 text-xs text-slate-500">
+        {now} {'\u73fe\u5728\u30fb\u6b21\u767a\u76ee\u5b89'} {holiday ? '\u795d\u4f11\u65e5' : '\u5e73\u65e5'}
+        {'\u30c0\u30a4\u30e4'}
       </p>
 
       <div className="overflow-x-auto -mx-4 px-4">
-        <table className="border-collapse text-sm whitespace-nowrap">
-          {/* 路線名（上位ヘッダー） */}
+        <table className="w-full border-collapse text-sm whitespace-nowrap">
           <thead>
             <tr>
               {routes.map((route) => (
                 <th
                   key={route.name}
                   colSpan={route.directions.length}
-                  className="px-3 py-2 text-center font-bold bg-slate-800 text-white border border-slate-600"
+                  className="border border-slate-200 bg-slate-50 px-3 py-3 text-center"
                 >
-                  {route.name}
+                  <div className="flex flex-col items-center gap-1">
+                    <img
+                      src={ROUTE_LOGOS[route.name]}
+                      alt={route.name}
+                      className="h-7 object-contain"
+                    />
+                    <span className="text-xs font-bold text-slate-800">{route.name}</span>
+                  </div>
                 </th>
               ))}
             </tr>
 
-            {/* 最寄り駅 */}
             <tr>
               {routes.map((route) => (
                 <td
                   key={route.name}
                   colSpan={route.directions.length}
-                  className="px-3 py-1 text-center text-xs text-slate-400 bg-slate-900 border border-slate-700"
+                  className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-500"
                 >
                   {route.station}
                 </td>
               ))}
             </tr>
 
-            {/* 徒歩分数 */}
             <tr>
               {routes.map((route) => (
                 <td
                   key={route.name}
                   colSpan={route.directions.length}
-                  className="px-3 py-1 text-center text-xs text-slate-500 bg-slate-900 border border-slate-700"
+                  className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-400"
                 >
-                  徒歩{route.walkMinutes}分
+                  {'\u5f92\u6b69'}
+                  {route.walkMinutes}
+                  {'\u5206'}
                 </td>
               ))}
             </tr>
 
-            {/* 方面名（下位ヘッダー） */}
             <tr>
               {routes.flatMap((route) =>
                 route.directions.map((dir) => (
                   <th
                     key={`${route.name}-${dir.label}`}
-                    className="px-3 py-1.5 text-center text-xs font-medium bg-slate-700 text-slate-200 border border-slate-600"
+                    className="border border-slate-300 bg-slate-200 px-3 py-1.5 text-center text-xs font-medium text-slate-700"
                   >
                     {dir.label}
                   </th>
@@ -98,10 +106,9 @@ export default function TransportView() {
             </tr>
           </thead>
 
-          {/* 時刻データ */}
           <tbody>
             {Array.from({
-              length: Math.max(0, ...routes.flatMap((r) => r.directions.map((d) => d.upcoming.length))),
+              length: Math.max(0, ...routes.flatMap((route) => route.directions.map((dir) => dir.upcoming.length))),
             }).map((_, rowIndex) => (
               <tr
                 key={rowIndex}
@@ -111,7 +118,7 @@ export default function TransportView() {
                   route.directions.map((dir) => (
                     <td
                       key={`${route.name}-${dir.label}-${rowIndex}`}
-                      className="px-4 py-1.5 text-center border border-slate-200 text-slate-700 tabular-nums"
+                      className="border border-slate-200 px-4 py-1.5 text-center tabular-nums text-slate-700"
                     >
                       {dir.upcoming[rowIndex] ?? ''}
                     </td>
@@ -119,13 +126,13 @@ export default function TransportView() {
                 )}
               </tr>
             ))}
-            {routes.every((r) => r.directions.every((d) => d.upcoming.length === 0)) && (
+            {routes.every((route) => route.directions.every((dir) => dir.upcoming.length === 0)) && (
               <tr>
                 <td
-                  colSpan={routes.reduce((sum, r) => sum + r.directions.length, 0)}
-                  className="px-4 py-8 text-center text-slate-400 text-sm"
+                  colSpan={routes.reduce((sum, route) => sum + route.directions.length, 0)}
+                  className="px-4 py-8 text-center text-sm text-slate-400"
                 >
-                  本日の運行は終了しました
+                  {'\u672c\u65e5\u306e\u7d42\u96fb\u306f\u7d42\u4e86\u3057\u307e\u3057\u305f'}
                 </td>
               </tr>
             )}
