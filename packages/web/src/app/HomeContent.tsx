@@ -100,7 +100,7 @@ export default function HomeContent() {
     <div className="min-h-screen bg-[#f8f6f6] pb-20">
       {/* Sticky header with glassmorphism */}
       <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div className="flex items-center justify-between px-4 py-4">
+        <div className="max-w-5xl mx-auto w-full flex items-center justify-between px-4 py-4">
           <h1 className="text-xl font-bold tracking-tight">
             <span className="text-primary-500">有明</span>
             <span className="text-slate-900">イベント</span>
@@ -112,13 +112,15 @@ export default function HomeContent() {
       </header>
 
       {activeView !== 'transport' && (
-        <FilterBar
-          filters={filters}
-          onSetFacility={setFacility}
-          onSetCategory={setCategory}
-          viewMode={viewMode}
-          onToggleViewMode={toggleViewMode}
-        />
+        <div className="max-w-5xl mx-auto w-full">
+          <FilterBar
+            filters={filters}
+            onSetFacility={setFacility}
+            onSetCategory={setCategory}
+            viewMode={viewMode}
+            onToggleViewMode={toggleViewMode}
+          />
+        </div>
       )}
 
       <main className="max-w-5xl mx-auto">

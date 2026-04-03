@@ -62,7 +62,7 @@ afterEach(() => {
 })
 
 describe('Home page', () => {
-  it('renders split title, date pill, and constrained main element', async () => {
+  it('renders split title, date pill, and constrained header, filter bar, and main wrappers', async () => {
     vi.spyOn(Date.prototype, 'toLocaleDateString').mockImplementation((_locale, options) => {
       const format = options as Intl.DateTimeFormatOptions | undefined
       return format?.year ? '2026年3月18日(水)' : '3月18日(水)'
@@ -77,6 +77,14 @@ describe('Home page', () => {
     const datePill = screen.getByText('3月18日(水)')
     expect(datePill.tagName).toBe('SPAN')
     expect(datePill).toHaveClass('font-semibold', 'bg-[#fff3ed]', 'rounded-full')
+
+    const headerContent = container.querySelector('header > div')
+    expect(headerContent).not.toBeNull()
+    expect(headerContent).toHaveClass('max-w-5xl', 'mx-auto', 'w-full')
+
+    const filterBarWrapper = container.querySelector('header + div')
+    expect(filterBarWrapper).not.toBeNull()
+    expect(filterBarWrapper).toHaveClass('max-w-5xl', 'mx-auto', 'w-full')
 
     const main = container.querySelector('main')
     expect(main).not.toBeNull()
