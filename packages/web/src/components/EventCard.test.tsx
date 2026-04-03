@@ -104,14 +104,14 @@ describe('EventCard', () => {
     expect(container.querySelector('.bg-slate-100')).toBeNull()
   })
 
-  it('backdrop image includes blur-2xl opacity-60 and aria-hidden', () => {
+  it('backdrop image includes blur-2xl opacity-70 and aria-hidden', () => {
     const { container } = render(<EventCard event={musicEvent} />)
     const imgs = container.querySelectorAll('img')
     const backdropImg = imgs[0]
 
     expect(backdropImg).toHaveAttribute('aria-hidden', 'true')
     expect(backdropImg).toHaveClass('blur-2xl')
-    expect(backdropImg).toHaveClass('opacity-60')
+    expect(backdropImg).toHaveClass('opacity-70')
     expect(backdropImg).toHaveClass('object-cover')
   })
 
