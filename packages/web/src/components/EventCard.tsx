@@ -61,7 +61,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
       href={event.sourceURL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`block ${viewMode === 'grid' ? 'break-inside-avoid mb-3' : ''}`}
+      className="block"
     >
       <article className={`rounded-xl bg-white shadow-sm overflow-hidden ${viewMode === 'grid' ? 'flex flex-col' : 'flex h-28'}`}>
         {imageArea}

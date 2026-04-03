@@ -44,13 +44,13 @@ describe('TodayView', () => {
     expect(screen.queryByText('今日のイベント')).not.toBeInTheDocument()
   })
 
-  it('grid mode uses the responsive 4-column masonry layout', () => {
+  it('grid mode uses the responsive CSS grid layout', () => {
     const events: EventItem[] = [makeEvent({ id: '1' })]
     const { container } = render(<TodayView events={events} onResetFilters={vi.fn()} viewMode="grid" />)
 
-    const grid = container.querySelector('.columns-2')
+    const grid = container.querySelector('.grid.grid-cols-2')
     expect(grid).not.toBeNull()
-    expect(grid).toHaveClass('lg:columns-3', 'xl:columns-4', 'gap-x-3', 'p-4')
+    expect(grid).toHaveClass('lg:grid-cols-3', 'xl:grid-cols-4', 'gap-3', 'p-4')
   })
 
   it('shows section header with formatted today label when events exist', () => {

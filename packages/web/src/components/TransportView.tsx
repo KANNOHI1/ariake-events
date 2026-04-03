@@ -99,7 +99,7 @@ export default function TransportView() {
                 route.directions.map((dir) => (
                   <th
                     key={`${route.name}-${dir.label}`}
-                    className="border border-slate-300 bg-slate-200 px-3 py-1.5 text-center text-xs font-medium text-slate-700"
+                    className="sticky top-[112px] z-10 border border-slate-300 bg-slate-200 px-3 py-1.5 text-center text-xs font-medium text-slate-700"
                   >
                     {dir.label}
                   </th>

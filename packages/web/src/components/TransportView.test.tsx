@@ -107,4 +107,14 @@ describe('TransportView', () => {
 
     expect(table).toHaveClass('w-full')
   })
+
+  it('keeps direction headers sticky below the app header', () => {
+    const { container } = render(<TransportView />)
+    const directionHeaders = Array.from(container.querySelectorAll('thead tr:nth-child(4) th'))
+
+    expect(directionHeaders.length).toBeGreaterThan(0)
+    for (const header of directionHeaders) {
+      expect(header).toHaveClass('sticky', 'top-[112px]', 'z-10')
+    }
+  })
 })

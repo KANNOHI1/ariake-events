@@ -41,13 +41,13 @@ export default function MonthView({ events, onResetFilters, viewMode }: Props) {
     .sort((a, b) => a.startDate.localeCompare(b.startDate))
 
   const gridClass = viewMode === 'grid'
-    ? 'columns-2 lg:columns-3 xl:columns-4 gap-x-3 p-4'
+    ? 'grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-4'
     : 'grid grid-cols-1 lg:grid-cols-2 gap-3 p-4'
 
   return (
     <div>
       {/* Month navigation header */}
-      <div className="flex items-center justify-between px-4 py-3 sticky top-[calc(var(--header-h,112px))] z-10 bg-[#f8f6f6]/90 backdrop-blur-sm">
+      <div className="flex items-center justify-between px-4 py-3 bg-[#f8f6f6]">
         <button
           onClick={prevMonth}
           className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"

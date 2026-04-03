@@ -63,11 +63,12 @@ describe('EventCard', () => {
     expect(screen.queryByText('空いている')).toBeNull()
     expect(screen.queryByText('やや混雑')).toBeNull()
   })
-  it('grid mode applies break-inside-avoid and mb-3 to link', () => {
+  it('grid mode keeps the outer link as a plain block', () => {
     render(<EventCard event={musicEvent} viewMode="grid" />)
     const link = screen.getByRole('link')
-    expect(link.className).toContain('break-inside-avoid')
-    expect(link.className).toContain('mb-3')
+    expect(link).toHaveClass('block')
+    expect(link.className).not.toContain('break-inside-avoid')
+    expect(link.className).not.toContain('mb-3')
   })
 
   it('grid mode uses a video aspect ratio for the image area', () => {

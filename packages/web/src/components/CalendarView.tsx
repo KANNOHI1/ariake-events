@@ -211,7 +211,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
 
           {/* Panel */}
           <div
-            className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[70vh] flex flex-col"
+            className="relative bg-white w-full sm:max-w-sm rounded-t-2xl sm:rounded-2xl max-h-[85dvh] flex flex-col"
             style={{ transform: `translateY(${dragY}px)`, transition: isTouching ? 'none' : 'transform 0.3s ease' }}
             onClick={(e) => e.stopPropagation()}
             onTouchStart={onTouchStart}

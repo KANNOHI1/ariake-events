@@ -78,6 +78,8 @@ export const parseAriakeArenaEvents = (
     // URL from official site link
     const officialUrl = $el.find("tr.url_area a").attr("href") ?? "";
     const sourceURL = officialUrl || `${BASE_URL}/event/`;
+    const imgSrc = $el.find("img").not('[src*=".svg"]').first().attr("src") ?? null;
+    const imageUrl = imgSrc ?? null;
 
     const displayName = mainName && subTitle ? `${mainName} ${subTitle}` : title;
 
@@ -92,7 +94,7 @@ export const parseAriakeArenaEvents = (
       peakTimeEnd: null,
       estimatedAttendees: null,
       congestionRisk: null,
-      imageUrl: null,
+      imageUrl,
       sourceURL,
       lastUpdated: nowISO,
     });

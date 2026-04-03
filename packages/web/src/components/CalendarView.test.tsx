@@ -143,4 +143,16 @@ describe('CalendarView', () => {
     expect(screen.queryByText('やや混雑')).toBeNull()
     expect(screen.queryByText('混雑')).toBeNull()
   })
+
+  it('uses the taller modal max height so the bottom remains visible', () => {
+    const events = [makeEvent({ startDate: '2026-03-18', endDate: '2026-03-18' })]
+    const { container } = render(<CalendarView events={events} onResetFilters={vi.fn()} />)
+
+    const cell = document.querySelector('[data-date="2026-03-18"]')
+    fireEvent.click(cell!)
+
+    const panel = container.querySelector('.max-h-\\[85dvh\\]')
+    expect(panel).not.toBeNull()
+    expect(panel?.className).not.toContain('max-h-[70vh]')
+  })
 })
