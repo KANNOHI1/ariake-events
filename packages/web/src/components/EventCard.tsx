@@ -30,7 +30,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
         src={displaySrc}
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover scale-110 blur-2xl opacity-60"
+        className="absolute inset-0 w-full h-full object-cover scale-150 blur-2xl opacity-60"
       />
       <img
         src={displaySrc}
