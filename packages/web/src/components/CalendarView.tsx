@@ -110,7 +110,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
     : ''
 
   return (
-    <div className="p-4 max-w-2xl mx-auto">
+    <div className="p-4">
       {/* Month navigation */}
       <div className="flex items-center justify-between mb-4">
         <button

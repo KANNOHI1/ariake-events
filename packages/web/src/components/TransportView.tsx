@@ -2,11 +2,13 @@ import { useEffect, useMemo, useState } from 'react'
 import { timetable } from '../data/timetable'
 import { filterUpcoming, isHoliday } from '../lib/timetableUtils'
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 const ROUTE_LOGOS: Record<string, string> = {
-  [timetable[0].name]: '/transport/rinkai.svg',
-  [timetable[1].name]: '/transport/yurikamome.svg',
-  [timetable[2].name]: '/transport/toei.svg',
-  [timetable[3].name]: '/transport/brt.png',
+  [timetable[0].name]: `${basePath}/transport/rinkai.svg`,
+  [timetable[1].name]: `${basePath}/transport/yurikamome.svg`,
+  [timetable[2].name]: `${basePath}/transport/toei.svg`,
+  [timetable[3].name]: `${basePath}/transport/brt.png`,
 }
 
 function getNowString(): string {

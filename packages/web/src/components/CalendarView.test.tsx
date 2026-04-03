@@ -27,6 +27,15 @@ const makeEvent = (overrides: Partial<EventItem>): EventItem => ({
 })
 
 describe('CalendarView', () => {
+  it('uses full-width outer padding wrapper without max width centering', () => {
+    const { container } = render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
+    const wrapper = container.firstChild
+
+    expect(wrapper).toHaveClass('p-4')
+    expect(wrapper).not.toHaveClass('max-w-2xl')
+    expect(wrapper).not.toHaveClass('mx-auto')
+  })
+
   it('renders the correct month heading', () => {
     render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
     expect(screen.getByText('2026年3月')).toBeInTheDocument()

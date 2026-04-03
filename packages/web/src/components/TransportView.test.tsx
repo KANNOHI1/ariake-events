@@ -69,6 +69,28 @@ describe('TransportView', () => {
     expect(img).toHaveAttribute('src', '/transport/rinkai.svg')
   })
 
+  it('prefixes logo src with NEXT_PUBLIC_BASE_PATH when configured', async () => {
+    const originalBasePath = process.env.NEXT_PUBLIC_BASE_PATH
+    process.env.NEXT_PUBLIC_BASE_PATH = '/ariake-events'
+    vi.resetModules()
+
+    try {
+      const { default: TransportViewWithBasePath } = await import('./TransportView')
+
+      render(<TransportViewWithBasePath />)
+
+      const img = screen.getByRole('img', { name: timetable[0].name })
+      expect(img).toHaveAttribute('src', '/ariake-events/transport/rinkai.svg')
+    } finally {
+      if (originalBasePath === undefined) {
+        delete process.env.NEXT_PUBLIC_BASE_PATH
+      } else {
+        process.env.NEXT_PUBLIC_BASE_PATH = originalBasePath
+      }
+      vi.resetModules()
+    }
+  })
+
   it('renders header cells with light gray background class', () => {
     const { container } = render(<TransportView />)
     const headerCells = container.querySelectorAll('th')
