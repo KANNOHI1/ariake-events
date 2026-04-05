@@ -36,6 +36,19 @@ describe('CalendarView', () => {
     expect(container.firstChild).not.toHaveClass('mx-auto')
   })
 
+  it('renders the desktop side panel container', () => {
+    const { container } = render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
+    const sidePanel = container.querySelector('.hidden.lg\\:flex')
+
+    expect(sidePanel).not.toBeNull()
+  })
+
+  it('shows placeholder text in the desktop side panel when no date is selected', () => {
+    render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
+
+    expect(screen.getByText('日付を選択するとイベントが表示されます')).toBeInTheDocument()
+  })
+
   it('renders the correct month heading', () => {
     render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
     expect(screen.getByText('2026年3月')).toBeInTheDocument()
@@ -130,7 +143,7 @@ describe('CalendarView', () => {
     const cell = document.querySelector('[data-date="2026-03-18"]')
     expect(cell).not.toBeNull()
     fireEvent.click(cell!)
-    expect(screen.getByText('やや混雑')).toBeInTheDocument()
+    expect(screen.getAllByText('やや混雑').length).toBeGreaterThan(0)
   })
 
   it('congestionRisk が null のイベントはモーダル内にバッジが表示されない', () => {

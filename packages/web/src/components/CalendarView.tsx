@@ -8,6 +8,11 @@ interface Props {
   onResetFilters: () => void
 }
 
+interface EventCardListProps {
+  events: EventItem[]
+  className: string
+}
+
 function getDaysInMonth(year: number, month: number): number {
   return new Date(year, month + 1, 0).getDate()
 }
@@ -40,15 +45,62 @@ function getMaxCongestionRiskForDate(events: EventItem[], dateStr: string): numb
   return max
 }
 
+function EventCardList({ events, className }: EventCardListProps) {
+  return (
+    <div className={className}>
+      {events.length === 0 ? (
+        <p className="text-sm text-slate-500 text-center py-4">イベントなし</p>
+      ) : (
+        events.map((e) => (
+          <div key={e.id} className="border border-slate-200 rounded-xl p-3">
+            <div className="flex flex-wrap gap-1.5 mb-1.5">
+              <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${FACILITY_COLORS[e.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'}`}>
+                {e.facility}
+              </span>
+              <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${CATEGORY_DOT_COLORS[e.category] ? 'bg-slate-100 text-slate-700' : 'bg-slate-100 text-slate-600'}`}>
+                {CATEGORY_LABELS[e.category] ?? e.category}
+              </span>
+              {(() => {
+                const info = getCongestionInfo(e.congestionRisk)
+                return info ? (
+                  <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${info.badgeClass}`}>
+                    {info.label}
+                  </span>
+                ) : null
+              })()}
+            </div>
+            <p className="text-sm font-bold text-slate-900 leading-snug mb-1">{e.eventName}</p>
+            <p className="text-xs text-slate-500 mb-1.5">
+              {e.startDate === e.endDate ? e.startDate : `${e.startDate} 〜 ${e.endDate}`}
+            </p>
+            <a
+              href={e.sourceURL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-primary-500 hover:text-primary-700"
+            >
+              公式サイト →
+            </a>
+          </div>
+        ))
+      )}
+    </div>
+  )
+}
+
 export default function CalendarView({ events, onResetFilters }: Props) {
   const todayStr = getTodayString()
   const [year, setYear] = useState(() => parseInt(todayStr.slice(0, 4)))
   const [month, setMonth] = useState(() => parseInt(todayStr.slice(5, 7)) - 1)
   const [selectedDate, setSelectedDate] = useState<string | null>(null)
 
-  // Lock body scroll when modal is open
+  // Lock body scroll only while the mobile modal is open
   useEffect(() => {
-    document.body.style.overflow = selectedDate ? 'hidden' : ''
+    const isMobileViewport = typeof window.matchMedia === 'function'
+      ? window.matchMedia('(max-width: 1023px)').matches
+      : true
+    const shouldLockBody = Boolean(selectedDate) && isMobileViewport
+    document.body.style.overflow = shouldLockBody ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [selectedDate])
 
@@ -130,81 +182,104 @@ export default function CalendarView({ events, onResetFilters }: Props) {
         </button>
       </div>
 
-      <div className="p-4">
-      {/* Weekday header */}
-      <div className="grid grid-cols-7 mb-1">
-        {weekdays.map((day) => (
-          <div key={day} className="text-center text-xs text-slate-400 py-1">
-            {day}
-          </div>
-        ))}
-      </div>
-
-      {/* Calendar grid */}
-      <div className="grid grid-cols-7 gap-px bg-slate-200">
-        {cells.map((day, i) => {
-          if (day === null) {
-            return <div key={`empty-${i}`} className="bg-white min-h-[60px]" />
-          }
-
-          const d = new Date(year, month, day)
-          const dateStr = toDateStr(d)
-          const isToday = dateStr === todayStr
-          const categories = getCategoriesForDate(events, dateStr)
-          const hasEvents = categories.length > 0
-          const maxRisk = getMaxCongestionRiskForDate(events, dateStr)
-          const congestionInfo = getCongestionInfo(maxRisk)
-
-          return (
-            <button
-              key={dateStr}
-              onClick={() => hasEvents ? setSelectedDate(dateStr) : undefined}
-              className={`bg-white min-h-[60px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
-              data-today={isToday || undefined}
-              data-date={hasEvents ? dateStr : undefined}
-            >
-              <span
-                className={`text-xs font-medium block text-center leading-5 w-5 mx-auto rounded-full ${
-                  isToday ? 'bg-primary-500 text-white' : 'text-slate-700'
-                }`}
-              >
+      <div className="lg:grid lg:grid-cols-[1fr_300px] lg:divide-x lg:divide-slate-200">
+        <div className="p-4">
+          {/* Weekday header */}
+          <div className="grid grid-cols-7 mb-1">
+            {weekdays.map((day) => (
+              <div key={day} className="text-center text-xs text-slate-400 py-1">
                 {day}
-              </span>
-              <div className="flex flex-wrap gap-0.5 mt-0.5 justify-center">
-                {categories.map((cat) => (
-                  <span
-                    key={cat}
-                    className={`w-2 h-2 rounded-full inline-block ${
-                      CATEGORY_DOT_COLORS[cat as keyof typeof CATEGORY_DOT_COLORS] ?? 'bg-slate-400'
-                    }`}
-                    title={cat}
-                  />
-                ))}
               </div>
-              {congestionInfo && (
-                <div className={`h-0.5 rounded-full mt-0.5 ${congestionInfo.barClass}`} />
-              )}
-            </button>
-          )
-        })}
-      </div>
+            ))}
+          </div>
 
-      {events.length === 0 && (
-        <div className="text-center py-8 text-slate-500">
-          <p className="mb-3">条件に一致するイベントがありません</p>
-          <button
-            onClick={onResetFilters}
-            className="text-sm text-primary-500 hover:text-primary-700 cursor-pointer"
-          >
-            フィルタをリセット
-          </button>
+          {/* Calendar grid */}
+          <div className="grid grid-cols-7 gap-px bg-slate-200">
+            {cells.map((day, i) => {
+              if (day === null) {
+                return <div key={`empty-${i}`} className="bg-white min-h-[60px]" />
+              }
+
+              const d = new Date(year, month, day)
+              const dateStr = toDateStr(d)
+              const isToday = dateStr === todayStr
+              const categories = getCategoriesForDate(events, dateStr)
+              const hasEvents = categories.length > 0
+              const maxRisk = getMaxCongestionRiskForDate(events, dateStr)
+              const congestionInfo = getCongestionInfo(maxRisk)
+
+              return (
+                <button
+                  key={dateStr}
+                  onClick={() => hasEvents ? setSelectedDate(dateStr) : undefined}
+                  className={`bg-white min-h-[60px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
+                  data-today={isToday || undefined}
+                  data-date={hasEvents ? dateStr : undefined}
+                >
+                  <span
+                    className={`text-xs font-medium block text-center leading-5 w-5 mx-auto rounded-full ${
+                      isToday ? 'bg-primary-500 text-white' : 'text-slate-700'
+                    }`}
+                  >
+                    {day}
+                  </span>
+                  <div className="flex flex-wrap gap-0.5 mt-0.5 justify-center">
+                    {categories.map((cat) => (
+                      <span
+                        key={cat}
+                        className={`w-2 h-2 rounded-full inline-block ${
+                          CATEGORY_DOT_COLORS[cat as keyof typeof CATEGORY_DOT_COLORS] ?? 'bg-slate-400'
+                        }`}
+                        title={cat}
+                      />
+                    ))}
+                  </div>
+                  {congestionInfo && (
+                    <div className={`h-0.5 rounded-full mt-0.5 ${congestionInfo.barClass}`} />
+                  )}
+                </button>
+              )
+            })}
+          </div>
+
+          {events.length === 0 && (
+            <div className="text-center py-8 text-slate-500">
+              <p className="mb-3">条件に一致するイベントがありません</p>
+              <button
+                onClick={onResetFilters}
+                className="text-sm text-primary-500 hover:text-primary-700 cursor-pointer"
+              >
+                フィルタをリセット
+              </button>
+            </div>
+          )}
         </div>
-      )}
+
+        <div className="hidden lg:flex lg:flex-col min-h-[400px]">
+          {selectedDate ? (
+            <div className="flex flex-col h-full">
+              <div className="px-4 py-3 border-b border-slate-200 bg-slate-50">
+                <h3 className="text-sm font-bold text-slate-900">{selectedLabel}のイベント</h3>
+                <p className="text-xs text-slate-400 mt-0.5">{selectedEvents.length}件</p>
+              </div>
+              <EventCardList
+                events={selectedEvents}
+                className="overflow-y-auto p-3 flex flex-col gap-3 flex-1"
+              />
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center flex-1 text-slate-400 gap-2 p-6">
+              <span className="material-symbols-outlined text-4xl">calendar_today</span>
+              <p className="text-sm">日付を選択するとイベントが表示されます</p>
+            </div>
+          )}
+        </div>
+      </div>
 
       {/* Modal */}
       {selectedDate && (
         <div
-          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          className="lg:hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center"
           onClick={() => setSelectedDate(null)}
         >
           {/* Backdrop */}
@@ -233,48 +308,13 @@ export default function CalendarView({ events, onResetFilters }: Props) {
                 ×
               </button>
             </div>
-            <div className="overflow-y-auto p-4 flex flex-col gap-3">
-              {selectedEvents.length === 0 ? (
-                <p className="text-sm text-slate-500 text-center py-4">イベントなし</p>
-              ) : (
-                selectedEvents.map((e) => (
-                  <div key={e.id} className="border border-slate-200 rounded-xl p-3">
-                    <div className="flex flex-wrap gap-1.5 mb-1.5">
-                      <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${FACILITY_COLORS[e.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'}`}>
-                        {e.facility}
-                      </span>
-                      <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${CATEGORY_DOT_COLORS[e.category] ? `bg-slate-100 text-slate-700` : 'bg-slate-100 text-slate-600'}`}>
-                        {CATEGORY_LABELS[e.category] ?? e.category}
-                      </span>
-                      {(() => {
-                        const info = getCongestionInfo(e.congestionRisk)
-                        return info ? (
-                          <span className={`rounded-md px-1.5 py-0.5 text-xs font-medium ${info.badgeClass}`}>
-                            {info.label}
-                          </span>
-                        ) : null
-                      })()}
-                    </div>
-                    <p className="text-sm font-bold text-slate-900 leading-snug mb-1">{e.eventName}</p>
-                    <p className="text-xs text-slate-500 mb-1.5">
-                      {e.startDate === e.endDate ? e.startDate : `${e.startDate} 〜 ${e.endDate}`}
-                    </p>
-                    <a
-                      href={e.sourceURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-primary-500 hover:text-primary-700"
-                    >
-                      公式サイト →
-                    </a>
-                  </div>
-                ))
-              )}
-            </div>
+            <EventCardList
+              events={selectedEvents}
+              className="overflow-y-auto p-4 flex flex-col gap-3"
+            />
           </div>
         </div>
       )}
-      </div>
     </div>
   )
 }
