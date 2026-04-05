@@ -5,6 +5,12 @@ const config: NextConfig = {
   trailingSlash: true,
   basePath: process.env.NEXT_PUBLIC_BASE_PATH || undefined,
   images: { unoptimized: true },
+  experimental: {
+    cpus: 1,
+    parallelServerBuildTraces: false,
+    parallelServerCompiles: false,
+    webpackBuildWorker: false,
+  },
 }
 
 export default config
