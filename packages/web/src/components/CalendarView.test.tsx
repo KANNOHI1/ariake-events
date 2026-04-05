@@ -27,13 +27,13 @@ const makeEvent = (overrides: Partial<EventItem>): EventItem => ({
 })
 
 describe('CalendarView', () => {
-  it('uses full-width outer padding wrapper without max width centering', () => {
+  it('uses full-width layout without max width centering', () => {
     const { container } = render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
-    const wrapper = container.firstChild
+    const innerPad = container.querySelector('.p-4')
 
-    expect(wrapper).toHaveClass('p-4')
-    expect(wrapper).not.toHaveClass('max-w-2xl')
-    expect(wrapper).not.toHaveClass('mx-auto')
+    expect(innerPad).not.toBeNull()
+    expect(container.firstChild).not.toHaveClass('max-w-2xl')
+    expect(container.firstChild).not.toHaveClass('mx-auto')
   })
 
   it('renders the correct month heading', () => {
@@ -55,13 +55,13 @@ describe('CalendarView', () => {
 
   it('navigates to previous month on prev button click', () => {
     render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
-    fireEvent.click(screen.getByLabelText('前月'))
+    fireEvent.click(screen.getByLabelText('前の月'))
     expect(screen.getByText('2026年2月')).toBeInTheDocument()
   })
 
   it('navigates to next month on next button click', () => {
     render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
-    fireEvent.click(screen.getByLabelText('翌月'))
+    fireEvent.click(screen.getByLabelText('次の月'))
     expect(screen.getByText('2026年4月')).toBeInTheDocument()
   })
 
@@ -92,9 +92,9 @@ describe('CalendarView', () => {
     // Start at 2026-03, go back to Dec, then check year changes
     render(<CalendarView events={[]} onResetFilters={vi.fn()} />)
     // Go back 3 months to Dec 2025
-    fireEvent.click(screen.getByLabelText('前月'))
-    fireEvent.click(screen.getByLabelText('前月'))
-    fireEvent.click(screen.getByLabelText('前月'))
+    fireEvent.click(screen.getByLabelText('前の月'))
+    fireEvent.click(screen.getByLabelText('前の月'))
+    fireEvent.click(screen.getByLabelText('前の月'))
     expect(screen.getByText('2025年12月')).toBeInTheDocument()
   })
 

@@ -60,11 +60,6 @@ describe('DayView', () => {
     expect(grid).toHaveClass('lg:grid-cols-3', 'xl:grid-cols-4', 'gap-3', 'p-4')
   })
 
-  it('shows 今日のイベント header when on today', () => {
-    render(<DayView events={[makeEvent({ id: '1' })]} onResetFilters={vi.fn()} viewMode="list" />)
-    expect(screen.getByText('今日のイベント')).toBeInTheDocument()
-  })
-
   it('filters events to show only those matching the selected date', () => {
     const events: EventItem[] = [
       makeEvent({ id: '1', eventName: 'Today Only', startDate: '2026-04-05', endDate: '2026-04-05' }),
@@ -112,9 +107,9 @@ describe('DayView', () => {
   it('clicking 今日 button returns to today', () => {
     render(<DayView events={[makeEvent({ id: '1' })]} onResetFilters={vi.fn()} viewMode="list" />)
     fireEvent.click(screen.getByRole('button', { name: '次の日' }))
-    expect(screen.queryByText('今日のイベント')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '今日' })).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: '今日' }))
-    expect(screen.getByText('今日のイベント')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '今日' })).not.toBeInTheDocument()
   })
 })

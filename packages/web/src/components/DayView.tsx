@@ -4,7 +4,7 @@ import { useState } from 'react'
 import EventCard from './EventCard'
 import type { EventItem } from '../types'
 import { FACILITIES } from '../types'
-import { getTodayString, addDays, formatDateLabel } from '../lib/dateUtils'
+import { getTodayString, addDays } from '../lib/dateUtils'
 import type { ViewMode } from './FilterBar'
 
 interface Props {
@@ -95,22 +95,10 @@ export default function DayView({ events, onResetFilters, viewMode }: Props) {
           </button>
         </div>
       ) : (
-        <div className="px-4 pt-4 pb-2">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-base font-semibold text-slate-800">
-              {isToday ? '今日のイベント' : `${formatDateLabel(selectedDate)}のイベント`}
-            </span>
-            {isToday && (
-              <span className="bg-[#fff3ed] text-primary-500 text-sm font-medium rounded-full px-3 py-1">
-                {shortLabel}
-              </span>
-            )}
-          </div>
-          <div className={gridClass}>
-            {dayEvents.map((event) => (
-              <EventCard key={event.id} event={event} viewMode={viewMode} />
-            ))}
-          </div>
+        <div className={gridClass}>
+          {dayEvents.map((event) => (
+            <EventCard key={event.id} event={event} viewMode={viewMode} />
+          ))}
         </div>
       )}
     </div>

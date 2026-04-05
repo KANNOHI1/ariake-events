@@ -110,26 +110,27 @@ export default function CalendarView({ events, onResetFilters }: Props) {
     : ''
 
   return (
-    <div className="p-4">
-      {/* Month navigation */}
-      <div className="flex items-center justify-between mb-4">
+    <div>
+      {/* Month navigation header — same pattern as MonthView/DayView */}
+      <div className="flex items-center justify-between px-4 py-3 bg-[#f8f6f6]">
         <button
           onClick={prevMonth}
-          className="px-3 py-1 text-sm text-slate-600 hover:text-slate-900 cursor-pointer"
-          aria-label="前月"
+          className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
+          aria-label="前の月"
         >
-          ‹
+          <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>chevron_left</span>
         </button>
         <h2 className="text-base font-bold text-slate-900">{monthLabel}</h2>
         <button
           onClick={nextMonth}
-          className="px-3 py-1 text-sm text-slate-600 hover:text-slate-900 cursor-pointer"
-          aria-label="翌月"
+          className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
+          aria-label="次の月"
         >
-          ›
+          <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>chevron_right</span>
         </button>
       </div>
 
+      <div className="p-4">
       {/* Weekday header */}
       <div className="grid grid-cols-7 mb-1">
         {weekdays.map((day) => (
@@ -273,6 +274,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }
