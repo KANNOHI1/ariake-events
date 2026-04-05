@@ -54,7 +54,7 @@ export default function DayView({ events, onResetFilters, viewMode }: Props) {
   return (
     <div>
       {/* Day navigation header — same pattern as MonthView */}
-      <div className="flex items-center justify-between px-4 py-3 bg-[#f8f6f6]">
+      <div className="flex items-center justify-between border-b border-slate-100 bg-white px-4 py-3">
         <button
           onClick={prevDay}
           className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
