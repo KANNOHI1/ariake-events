@@ -6,7 +6,7 @@
 
 ## 現在地
 
-**Phase 8 M4 完了 — 交通ページリデザイン（ロゴ・薄グレーヘッダー・w-full）push済み
+**Airbnb 全面リデザイン完了 — primary Rausch Red・混雑バー・白背景統一・push済み（5269a89）**
 
 ---
 
@@ -133,10 +133,33 @@
   - FilterSheet.tsx: backdrop/パネルに `lg:hidden` 追加
   - テスト: 17スイート 143/143 PASS、push済み（e556fc9）
 
+## 完了済み（追記6）
+
+- **Phase 8 M8** (完了 2026-04-05): CalendarView デスクトップ2カラム + 月曜始まり + 各種修正
+  - CalendarView: lg以上で「カレンダー左 + イベント詳細右パネル」2カラムレイアウト
+  - 月曜始まり対応（weekdays配列 + (dayOfWeek+6)%7 オフセット）
+  - 月切替時にサイドパネルを自動リセット
+  - モバイルモーダル z-index 修正（z-50→z-[60]）
+  - scrollbar-gutter: stable でビュー切替時の横ズレ解消
+  - テスト: 17スイート 143/143 PASS、push済み
+
+- **Airbnb 全面リデザイン** (完了 2026-04-06): デザインシステムを Airbnb スタイルに全面刷新
+  - 設計: 9案HTMLプロトタイプ比較（Cal/Airbnb/Notion/Spotify/Linear/Clay/Lovable/Framer/Figma）→Airbnb採用
+  - primary → Rausch Red `#ff385c`、背景 → 白 `#ffffff`
+  - EventCard: rounded-2xl・3層Airbnbシャドウ・混雑 progress bar 新規追加
+  - FilterBar / FilterSheet: Airbnb ピルチップスタイル
+  - ヘッダー: 白背景・Rausch Red ロゴ・高さ拡大
+  - BottomNav: 白背景・Rausch Red アクティブ
+  - CalendarView / MonthView / DayView: 白テーマ統一
+  - colorMap.ts: Airbnb パレット + `barColorClass` 追加
+  - Nunito フォント導入（Airbnb Cereal VF 代替）
+  - テスト: 17スイート 143/143 PASS、push済み（5269a89）
+  - プラン: docs/superpowers/plans/2026-04-05-airbnb-redesign.md
+
 ## 次にやること（最優先）
 
-- カレンダーページのグリッド幅問題（内部レイアウト見直し）
-- サイトタイトルデザイン刷新（ユーザー主導でアイデア出し予定）
+- **交通ページ刷新** — バス停追加（有明小中学校前・有明2丁目・都橋住宅前）、交通機関選択UI、地図検討
+- **カードの並び順改善** — ミュージック最優先、長期開催は低優先
 
 ---
 
