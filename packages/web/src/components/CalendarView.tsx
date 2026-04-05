@@ -279,7 +279,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
       {/* Modal */}
       {selectedDate && (
         <div
-          className="lg:hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center"
+          className="lg:hidden fixed inset-0 z-[60] flex items-end sm:items-center justify-center"
           onClick={() => setSelectedDate(null)}
         >
           {/* Backdrop */}
