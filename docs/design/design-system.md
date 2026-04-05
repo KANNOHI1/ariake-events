@@ -22,11 +22,11 @@
 
 | トークン | 値 | 用途 |
 |---|---|---|
-| `primary` | `#ec5b13` | アクティブ状態・CTA・強調 |
-| `background` | `#f8f6f6` | アプリ背景（ページ全体） |
+| `primary` | `#ff385c` | アクティブ状態・CTA・強調（Rausch Red） |
+| `background` | `#ffffff` | アプリ背景（ページ全体） |
 | `surface` | `#ffffff` | カード・モーダル背景 |
-| `on-surface` | `#1a1a1a` | 本文テキスト |
-| `muted` | `#6b7280` | 補助テキスト（日付など） |
+| `on-surface` | `#222222` | 本文テキスト（near-black） |
+| `muted` | `#6a6a6a` | 補助テキスト |
 
 ### 施設カラー（バッジ用）
 
