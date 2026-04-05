@@ -1,6 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import FilterSheet from './FilterSheet'
+import { CATEGORY_LABELS } from '../lib/colorMap'
+import { FACILITIES } from '../types'
 
 const defaultProps = {
   isOpen: false,
@@ -11,98 +13,96 @@ const defaultProps = {
 }
 
 describe('FilterSheet', () => {
-  it('シートが閉じているとき施設チップが表示されない', () => {
+  it('does not render when closed', () => {
     render(<FilterSheet {...defaultProps} isOpen={false} />)
-    expect(screen.queryByText('有明ガーデン')).not.toBeInTheDocument()
+    expect(screen.queryByText(FACILITIES[0])).not.toBeInTheDocument()
   })
 
-  it('シートが開いているとき「施設」セクションが表示される', () => {
-    render(<FilterSheet {...defaultProps} isOpen={true} />)
-    expect(screen.getByText('施設')).toBeInTheDocument()
+  it('renders the sheet title when open', () => {
+    render(<FilterSheet {...defaultProps} isOpen />)
+    expect(screen.getByText('\u7d5e\u308a\u8fbc\u307f')).toBeInTheDocument()
   })
 
-  it('シートが開いているとき「すべての施設」チップが表示される', () => {
-    render(<FilterSheet {...defaultProps} isOpen={true} />)
-    expect(screen.getByRole('button', { name: 'すべての施設' })).toBeInTheDocument()
+  it('renders the all facilities button when open', () => {
+    render(<FilterSheet {...defaultProps} isOpen />)
+    expect(screen.getByRole('button', { name: '\u3059\u3079\u3066\u306e\u65bd\u8a2d' })).toBeInTheDocument()
   })
 
-  it('シートが開いているとき5施設チップが表示される', () => {
-    render(<FilterSheet {...defaultProps} isOpen={true} />)
-    expect(screen.getByRole('button', { name: '有明ガーデン' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '東京ガーデンシアター' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '有明アリーナ' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'TOYOTA ARENA TOKYO' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '東京ビッグサイト' })).toBeInTheDocument()
+  it('renders facility filter chips', () => {
+    render(<FilterSheet {...defaultProps} isOpen />)
+    for (const facility of FACILITIES) {
+      expect(screen.getByRole('button', { name: facility })).toBeInTheDocument()
+    }
   })
 
-  it('シートが開いているとき「カテゴリ」セクションが表示される', () => {
-    render(<FilterSheet {...defaultProps} isOpen={true} />)
-    expect(screen.getByText('カテゴリ')).toBeInTheDocument()
+  it('renders the category section when open', () => {
+    render(<FilterSheet {...defaultProps} isOpen />)
+    expect(screen.getByText('\u30ab\u30c6\u30b4\u30ea')).toBeInTheDocument()
   })
 
-  it('シートが開いているとき8カテゴリチップが表示される', () => {
-    render(<FilterSheet {...defaultProps} isOpen={true} />)
-    expect(screen.getByRole('button', { name: 'ミュージック' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'スポーツ' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '展示・展覧' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'キッズ' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'フード' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'ファッション' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'アニメ' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'その他' })).toBeInTheDocument()
+  it('renders category filter chips using current labels', () => {
+    render(<FilterSheet {...defaultProps} isOpen />)
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.music })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.sports })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.exhibition })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.kids })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.food })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.fashion })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.anime })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: CATEGORY_LABELS.other })).toBeInTheDocument()
   })
 
-  it('施設チップクリック → onSetFacility が呼ばれる', () => {
+  it('calls onSetFacility when a facility chip is clicked', () => {
     const onSetFacility = vi.fn()
-    render(<FilterSheet {...defaultProps} isOpen={true} onSetFacility={onSetFacility} />)
-    fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
-    expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
+    render(<FilterSheet {...defaultProps} isOpen onSetFacility={onSetFacility} />)
+    fireEvent.click(screen.getByRole('button', { name: FACILITIES[0] }))
+    expect(onSetFacility).toHaveBeenCalledWith(FACILITIES[0])
   })
 
-  it('「すべての施設」クリック → onSetFacility(null) が呼ばれる', () => {
+  it('calls onSetFacility(null) when all facilities is clicked', () => {
     const onSetFacility = vi.fn()
     render(
       <FilterSheet
         {...defaultProps}
-        isOpen={true}
+        isOpen
         onSetFacility={onSetFacility}
-        filters={{ facility: '有明ガーデン', category: null }}
+        filters={{ facility: FACILITIES[0], category: null }}
       />
     )
-    fireEvent.click(screen.getByRole('button', { name: 'すべての施設' }))
+    fireEvent.click(screen.getByRole('button', { name: '\u3059\u3079\u3066\u306e\u65bd\u8a2d' }))
     expect(onSetFacility).toHaveBeenCalledWith(null)
   })
 
-  it('カテゴリチップクリック → onSetCategory が呼ばれる', () => {
+  it('calls onSetCategory when a category chip is clicked', () => {
     const onSetCategory = vi.fn()
-    render(<FilterSheet {...defaultProps} isOpen={true} onSetCategory={onSetCategory} />)
-    fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
+    render(<FilterSheet {...defaultProps} isOpen onSetCategory={onSetCategory} />)
+    fireEvent.click(screen.getByRole('button', { name: CATEGORY_LABELS.music }))
     expect(onSetCategory).toHaveBeenCalledWith('music')
   })
 
-  it('✕ ボタンクリック → onClose が呼ばれる', () => {
+  it('calls onClose when close button is clicked', () => {
     const onClose = vi.fn()
-    render(<FilterSheet {...defaultProps} isOpen={true} onClose={onClose} />)
-    fireEvent.click(screen.getByRole('button', { name: 'シートを閉じる' }))
+    render(<FilterSheet {...defaultProps} isOpen onClose={onClose} />)
+    fireEvent.click(screen.getByRole('button', { name: '\u30b7\u30fc\u30c8\u3092\u9589\u3058\u308b' }))
     expect(onClose).toHaveBeenCalledOnce()
   })
 
-  it('Backdrop クリック → onClose が呼ばれる', () => {
+  it('calls onClose when backdrop is clicked', () => {
     const onClose = vi.fn()
-    render(<FilterSheet {...defaultProps} isOpen={true} onClose={onClose} />)
+    render(<FilterSheet {...defaultProps} isOpen onClose={onClose} />)
     fireEvent.click(screen.getByTestId('filter-sheet-backdrop'))
     expect(onClose).toHaveBeenCalledOnce()
   })
 
-  it('アクティブ施設チップに bg-primary-500 クラスが付く', () => {
+  it('applies active chip styles to the selected facility', () => {
     render(
       <FilterSheet
         {...defaultProps}
-        isOpen={true}
-        filters={{ facility: '有明ガーデン', category: null }}
+        isOpen
+        filters={{ facility: FACILITIES[0], category: null }}
       />
     )
-    const chip = screen.getByRole('button', { name: '有明ガーデン' })
+    const chip = screen.getByRole('button', { name: FACILITIES[0] })
     expect(chip.className).toContain('bg-primary-500')
   })
 })

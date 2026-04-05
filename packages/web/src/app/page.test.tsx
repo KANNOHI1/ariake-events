@@ -65,19 +65,33 @@ describe('Home page', () => {
   it('renders split title, date pill, and constrained header, filter bar, and main wrappers', async () => {
     vi.spyOn(Date.prototype, 'toLocaleDateString').mockImplementation((_locale, options) => {
       const format = options as Intl.DateTimeFormatOptions | undefined
-      return format?.year ? '2026年3月18日(水)' : '3月18日(水)'
+      return format?.year ? '\u0032\u0030\u0032\u0036\u5e743\u670818\u65e5(\u6c34)' : '3\u670818\u65e5(\u6c34)'
     })
 
     const { container } = render(<Home />)
 
-    const heading = await screen.findByRole('heading', { level: 1, name: /有明.*イベント/ })
-    expect(within(heading).getByText('有明')).toHaveClass('text-primary-500')
-    expect(within(heading).getByText('イベント')).toHaveClass('text-slate-900')
+    const heading = await screen.findByRole('heading', { level: 1 })
+    const headingSpans = heading.querySelectorAll('span')
+    expect(headingSpans).toHaveLength(2)
+    expect(headingSpans[0]).toHaveTextContent('\u6709\u660e')
+    expect(headingSpans[0]).toHaveClass('text-primary-500')
+    expect(headingSpans[1]).toHaveTextContent('\u30a4\u30d9\u30f3\u30c8')
+    expect(headingSpans[1]).toHaveClass('text-near-black')
 
-    const header = container.querySelector('header')!
-    const datePill = within(header).getByText('3月18日(水)')
+    const header = container.querySelector('header')
+    expect(header).not.toBeNull()
+    expect(header).toHaveClass('sticky', 'top-0', 'z-50', 'border-b', 'bg-white', 'shadow-sm')
+
+    const datePill = within(header!).getByText('3\u670818\u65e5(\u6c34)')
     expect(datePill.tagName).toBe('SPAN')
-    expect(datePill).toHaveClass('font-semibold', 'bg-[#fff3ed]', 'rounded-full')
+    expect(datePill).toHaveClass(
+      'font-semibold',
+      'rounded-full',
+      'border',
+      'border-primary-100',
+      'bg-primary-50',
+      'text-primary-500'
+    )
 
     const headerContent = container.querySelector('header > div')
     expect(headerContent).not.toBeNull()

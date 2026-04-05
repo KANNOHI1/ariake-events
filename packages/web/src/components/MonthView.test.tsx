@@ -37,7 +37,7 @@ describe('MonthView', () => {
     )
 
     const nav = container.querySelector('div.flex.items-center.justify-between')
-    expect(nav).toHaveClass('bg-[#f8f6f6]')
+    expect(nav).toHaveClass('bg-white')
     expect(nav?.className).not.toContain('sticky')
     expect(nav?.className).not.toContain('top-[')
     expect(nav?.className).not.toContain('z-10')
