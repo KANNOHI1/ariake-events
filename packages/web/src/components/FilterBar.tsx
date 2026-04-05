@@ -18,7 +18,7 @@ interface Props {
 
 const CHIP_BASE = 'shrink-0 rounded-full px-3 py-1 text-sm font-medium transition-colors cursor-pointer'
 const CHIP_ACTIVE = 'bg-primary-500 text-white'
-const CHIP_INACTIVE = 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
+const CHIP_INACTIVE = 'bg-white border border-slate-200 text-slate-600 hover:border-slate-400 hover:bg-white'
 
 function chipClass(active: boolean) {
   return `${CHIP_BASE} ${active ? CHIP_ACTIVE : CHIP_INACTIVE}`
@@ -46,7 +46,7 @@ export default function FilterBar({
 
   return (
     <>
-      <div className='bg-[#f8f6f6] px-4 py-3 flex items-center gap-3'>
+      <div className='bg-white border-b border-slate-100 px-4 py-3 flex items-center gap-3'>
         {/* Trigger button + Desktop Popover */}
         <div className='relative'>
           <button
@@ -55,7 +55,7 @@ export default function FilterBar({
               'flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-colors cursor-pointer',
               activeCount > 0
                 ? 'bg-primary-500 text-white'
-                : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50',
+                : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-400 hover:bg-white',
             ].join(' ')}
           >
             <span className='material-symbols-outlined' style={{ fontSize: '16px' }}>tune</span>
@@ -74,7 +74,7 @@ export default function FilterBar({
           {isOpen && (
             <div
               data-testid='filter-popover'
-              className='hidden lg:block absolute left-0 top-full mt-2 w-[540px] bg-white rounded-2xl shadow-[0_8px_32px_rgba(15,23,42,0.16)] border border-slate-100 p-5 z-50'
+              className='hidden lg:block absolute left-0 top-full mt-2 w-[540px] bg-white rounded-2xl shadow-airbnb-card-hover border border-slate-100 p-5 z-50'
             >
               <section className='mb-5'>
                 <p className='mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wide'>施設</p>
