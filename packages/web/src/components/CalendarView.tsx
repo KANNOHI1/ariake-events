@@ -52,7 +52,7 @@ function EventCardList({ events, className }: EventCardListProps) {
         <p className="text-sm text-slate-500 text-center py-4">イベントなし</p>
       ) : (
         events.map((e) => (
-          <div key={e.id} className="border border-slate-200 rounded-xl p-3">
+          <div key={e.id} className="bg-white border border-slate-200 rounded-xl p-3">
             <div className="flex flex-wrap gap-1.5 mb-1.5">
               <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${FACILITY_COLORS[e.facility] ?? 'bg-slate-100 text-slate-700 border border-slate-200'}`}>
                 {e.facility}
@@ -139,20 +139,25 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   const firstDayOfWeek = getFirstDayOfWeek(year, month)
 
   const prevMonth = () => {
+    setSelectedDate(null)
     if (month === 0) { setYear(y => y - 1); setMonth(11) }
     else setMonth(m => m - 1)
   }
 
   const nextMonth = () => {
+    setSelectedDate(null)
     if (month === 11) { setYear(y => y + 1); setMonth(0) }
     else setMonth(m => m + 1)
   }
 
   const monthLabel = `${year}年${month + 1}月`
-  const weekdays = ['日', '月', '火', '水', '木', '金', '土']
+  const weekdays = ['月', '火', '水', '木', '金', '土', '日']
+
+  // 月曜始まり: 日曜(0)→6、月(1)→0、火(2)→1 ... 土(6)→5
+  const firstDayOfWeekMon = (firstDayOfWeek + 6) % 7
 
   const cells: (number | null)[] = [
-    ...Array(firstDayOfWeek).fill(null),
+    ...Array(firstDayOfWeekMon).fill(null),
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ]
 
