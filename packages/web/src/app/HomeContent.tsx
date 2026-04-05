@@ -82,22 +82,21 @@ export default function HomeContent() {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen text-slate-500">
+      <div className="flex min-h-screen items-center justify-center text-slate-500">
         読み込み中...
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-[#f8f6f6] pb-20">
-      {/* Sticky header with glassmorphism */}
-      <header className="sticky top-0 z-50 bg-[#f8f6f6]/80 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div className="max-w-5xl mx-auto w-full flex items-center justify-between px-4 py-4">
-          <h1 className="text-xl font-bold tracking-tight">
+    <div className="min-h-screen bg-white pb-20">
+      <header className="sticky top-0 z-50 border-b border-slate-100 bg-white shadow-sm">
+        <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-5">
+          <h1 className="text-2xl font-bold tracking-tight">
             <span className="text-primary-500">有明</span>
-            <span className="text-slate-900">イベント</span>
+            <span className="text-near-black">イベント</span>
           </h1>
-          <span className="text-sm font-semibold text-primary-500 bg-[#fff3ed] px-3 py-1 rounded-full">
+          <span className="rounded-full border border-primary-100 bg-primary-50 px-3 py-1 text-sm font-semibold text-primary-500">
             {dateLabel}
           </span>
         </div>
