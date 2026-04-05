@@ -1,0 +1,116 @@
+- generic [active] [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "有明イベント" [level=1] [ref=e6]
+        - generic [ref=e7]: 4月3日(金)
+    - generic [ref=e9]:
+      - button "tune 絞り込み" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: tune
+        - text: 絞り込み
+      - button "グリッド表示に切り替え" [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: grid_view
+    - main [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: 今日のイベント
+        - generic [ref=e18]: 2026年4月3日(金)
+      - generic [ref=e19]:
+        - link [ref=e20] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2151/
+          - article [ref=e21]:
+            - generic [ref=e22]:
+              - img "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [ref=e23]
+              - generic [ref=e24]: 空いている
+            - generic [ref=e25]:
+              - generic [ref=e26]:
+                - generic [ref=e27]: 有明ガーデン
+                - generic [ref=e28]: フード
+              - heading "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [level=3] [ref=e29]
+              - paragraph [ref=e30]: 📅 2024-09-23 〜 2026-12-27
+        - link [ref=e31] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2952/
+          - article [ref=e32]:
+            - generic [ref=e33]:
+              - img "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [ref=e34]
+              - generic [ref=e35]: 空いている
+            - generic [ref=e36]:
+              - generic [ref=e37]:
+                - generic [ref=e38]: 有明ガーデン
+                - generic [ref=e39]: フード
+              - heading "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [level=3] [ref=e40]
+              - paragraph [ref=e41]: 📅 2026-03-28 〜 2026-04-05
+        - link [ref=e42] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2950/
+          - article [ref=e43]:
+            - generic [ref=e44]:
+              - img "April Dream × 有明ガーデン「夢の桜プロジェクト」" [ref=e45]
+              - generic [ref=e46]: 空いている
+            - generic [ref=e47]:
+              - generic [ref=e48]:
+                - generic [ref=e49]: 有明ガーデン
+                - generic [ref=e50]: 展示・展覧
+              - heading "April Dream × 有明ガーデン「夢の桜プロジェクト」" [level=3] [ref=e51]
+              - paragraph [ref=e52]: 📅 2026-03-28 〜 2026-04-12
+        - link [ref=e53] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2876/
+          - article [ref=e54]:
+            - generic [ref=e55]:
+              - img "JACK IN THE DONUTS" [ref=e56]
+              - generic [ref=e57]: 空いている
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: 有明ガーデン
+                - generic [ref=e61]: フード
+              - heading "JACK IN THE DONUTS" [level=3] [ref=e62]
+              - paragraph [ref=e63]: 📅 2026-02-05 〜 2027-01-20
+        - link [ref=e64] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3977/
+          - article [ref=e65]:
+            - generic [ref=e66]:
+              - img "YOSHIKI YOSHIKI CLASSICAL 2026 覚醒前夜 ー Tokyo 3 Nights世界への第一章" [ref=e67]
+              - generic [ref=e68]: やや混雑
+            - generic [ref=e69]:
+              - generic [ref=e70]:
+                - generic [ref=e71]: 東京ガーデンシアター
+                - generic [ref=e72]: ミュージック
+              - heading "YOSHIKI YOSHIKI CLASSICAL 2026 覚醒前夜 ー Tokyo 3 Nights世界への第一章" [level=3] [ref=e73]
+              - paragraph [ref=e74]: 📅 2026-04-03
+        - link [ref=e75] [cursor=pointer]:
+          - /url: https://toyota-arena-tokyo.jp/events/rf77on3c2q2v
+          - article [ref=e76]:
+            - generic [ref=e77]:
+              - img "春休み「無料体験クリニック」Ex.DAY3" [ref=e78]
+              - generic [ref=e79]: やや混雑
+            - generic [ref=e80]:
+              - generic [ref=e81]:
+                - generic [ref=e82]: TOYOTA ARENA TOKYO
+                - generic [ref=e83]: その他
+              - heading "春休み「無料体験クリニック」Ex.DAY3" [level=3] [ref=e84]
+              - paragraph [ref=e85]: 📅 2026-04-03
+        - link [ref=e86] [cursor=pointer]:
+          - /url: https://interpets.jp.messefrankfurt.com/tokyo/ja.html
+          - article [ref=e87]:
+            - generic [ref=e88]:
+              - img "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [ref=e89]
+              - generic [ref=e90]: 空いている
+            - generic [ref=e91]:
+              - generic [ref=e92]:
+                - generic [ref=e93]: 東京ビッグサイト
+                - generic [ref=e94]: 展示・展覧
+              - heading "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [level=3] [ref=e95]
+              - paragraph [ref=e96]: 📅 2026-04-02 〜 2026-04-05
+    - navigation [ref=e97]:
+      - generic [ref=e98]:
+        - tab "calendar_today 今日" [selected] [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]: calendar_today
+          - generic [ref=e101]: 今日
+        - tab "calendar_month 月" [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]: calendar_month
+          - generic [ref=e104]: 月
+        - tab "event_note カレンダー" [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]: event_note
+          - generic [ref=e107]: カレンダー
+        - tab "directions_bus 交通" [ref=e108] [cursor=pointer]:
+          - generic [ref=e109]: directions_bus
+          - generic [ref=e110]: 交通

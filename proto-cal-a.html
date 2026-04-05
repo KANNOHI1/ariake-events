@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>案A: セル拡大 + イベント名</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f6f6; color: #0f172a; }
+.header { background: rgba(248,246,246,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(203,213,225,0.4); padding: 16px; display: flex; align-items: center; justify-content: space-between; max-width: 960px; margin: 0 auto; }
+.header h1 { font-size: 20px; font-weight: 700; }
+.header h1 span:first-child { color: #f97316; }
+.date-pill { background: #fff3ed; color: #f97316; font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; }
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #f8f6f6; max-width: 960px; margin: 0 auto; }
+.nav-btn { width: 36px; height: 36px; border: none; background: none; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #475569; }
+.nav-btn:hover { background: #e2e8f0; }
+.nav-label { font-size: 16px; font-weight: 700; }
+.calendar-wrap { max-width: 960px; margin: 0 auto; padding: 0 16px 16px; }
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 4px; }
+.weekday { text-align: center; font-size: 12px; color: #94a3b8; padding: 4px 0; }
+.grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #cbd5e1; border: 1px solid #cbd5e1; }
+.cell { background: white; min-height: 110px; padding: 6px; display: flex; flex-direction: column; gap: 2px; }
+.cell.empty { background: #f8fafc; }
+.cell.today .day-num { background: #f97316; color: white; }
+.day-num { font-size: 13px; font-weight: 500; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 4px; color: #334155; }
+.event-chip { font-size: 11px; background: #fff3ed; color: #c2410c; border-radius: 3px; padding: 1px 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; line-height: 1.5; }
+.event-chip.music { background: #ede9fe; color: #6d28d9; }
+.event-chip.sports { background: #dcfce7; color: #15803d; }
+.event-chip.exhibition { background: #e0f2fe; color: #0369a1; }
+.event-chip.more { background: #f1f5f9; color: #64748b; }
+.congestion-bar { height: 2px; border-radius: 2px; margin-top: auto; }
+.bar-orange { background: #f97316; }
+.bar-emerald { background: #34d399; }
+.label { background: #f1f5f9; color: #475569; font-size: 11px; padding: 2px 8px; border-radius: 4px; display: inline-block; margin: 8px 0 4px 16px; }
+</style>
+</head>
+<body>
+<header class="header">
+  <h1><span>有明</span><span>イベント</span></h1>
+  <span class="date-pill">4月5日(日)</span>
+</header>
+
+<div style="max-width:960px;margin:0 auto;padding:8px 16px;">
+  <button style="border:none;background:#f1f5f9;color:#475569;padding:8px 14px;border-radius:8px;font-size:14px;cursor:pointer;">☰ 絞り込み</button>
+</div>
+
+<div class="nav">
+  <button class="nav-btn">&#8249;</button>
+  <span class="nav-label">2026年4月</span>
+  <button class="nav-btn">&#8250;</button>
+</div>
+
+<div class="calendar-wrap">
+  <div class="weekdays">
+    <div class="weekday">日</div><div class="weekday">月</div><div class="weekday">火</div>
+    <div class="weekday">水</div><div class="weekday">木</div><div class="weekday">金</div><div class="weekday">土</div>
+  </div>
+  <div class="grid">
+    <!-- Row 1: empty × 3, then 1-4 -->
+    <div class="cell empty"></div><div class="cell empty"></div><div class="cell empty"></div>
+    <div class="cell"><div class="day-num">1</div><div class="event-chip exhibition">ビッグサイト展示会</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">2</div><div class="event-chip music">VS超特急ライブ</div><div class="event-chip exhibition">インターペット</div><div class="event-chip more">他1件</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">3</div><div class="event-chip exhibition">インターペット</div><div class="event-chip sports">3×3スクール</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">4</div><div class="event-chip exhibition">インターペット</div><div class="event-chip music">TAKE THE BATON</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-orange"></div></div>
+    <!-- Row 2: 5-11 -->
+    <div class="cell today"><div class="day-num">5</div><div class="event-chip music">VS超特急 3弾</div><div class="event-chip sports">3×3スクール</div><div class="event-chip more">他3件</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">6</div><div class="event-chip music">VS超特急</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">7</div><div class="event-chip exhibition">春の展示会</div><div class="event-chip sports">スポーツイベント</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">8</div><div class="event-chip music">ライブ公演</div><div class="event-chip exhibition">展示会A</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">9</div><div class="event-chip exhibition">展示会B</div><div class="event-chip sports">体験クリニック</div><div class="event-chip more">他1件</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">10</div><div class="event-chip music">コンサート</div><div class="event-chip exhibition">アート展</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-orange"></div></div>
+    <div class="cell"><div class="day-num">11</div><div class="event-chip exhibition">フェア</div><div class="event-chip sports">大会</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-orange"></div></div>
+    <!-- Row 3: 12-18 -->
+    <div class="cell"><div class="day-num">12</div><div class="event-chip music">ライブ</div><div class="event-chip sports">スポーツ</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">13</div><div class="event-chip exhibition">展示</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">14</div><div class="event-chip music">公演</div><div class="event-chip exhibition">展示会</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">15</div><div class="event-chip music">ライブ</div><div class="event-chip sports">イベント</div><div class="event-chip more">他2件</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">16</div><div class="event-chip exhibition">展</div><div class="event-chip sports">スポーツ大会</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">17</div><div class="event-chip music">ライブ</div><div class="event-chip exhibition">フェア</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">18</div><div class="event-chip music">公演</div><div class="event-chip exhibition">展示</div><div class="congestion-bar bar-emerald"></div></div>
+    <!-- Row 4: 19-25 -->
+    <div class="cell"><div class="day-num">19</div><div class="event-chip exhibition">フェア</div><div class="event-chip sports">大会</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">20</div><div class="event-chip music">ライブ</div><div class="event-chip exhibition">展示</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">21</div><div class="event-chip sports">スポーツ</div><div class="event-chip exhibition">展</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">22</div><div class="event-chip music">公演</div><div class="event-chip sports">体験</div><div class="event-chip more">他1件</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">23</div><div class="event-chip exhibition">展示会</div><div class="event-chip sports">大会</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">24</div><div class="event-chip music">ライブ</div><div class="event-chip sports">イベント</div><div class="event-chip more">他1件</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">25</div><div class="event-chip music">公演</div><div class="event-chip exhibition">フェア</div><div class="congestion-bar bar-emerald"></div></div>
+    <!-- Row 5: 26-30 + empty -->
+    <div class="cell"><div class="day-num">26</div><div class="event-chip exhibition">展示</div><div class="event-chip sports">大会</div><div class="event-chip more">他1件</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">27</div><div class="event-chip music">公演</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">28</div><div class="event-chip music">ライブ</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">29</div><div class="event-chip sports">イベント</div><div class="event-chip exhibition">展示</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell"><div class="day-num">30</div><div class="event-chip sports">大会</div><div class="congestion-bar bar-emerald"></div></div>
+    <div class="cell empty"></div><div class="cell empty"></div>
+  </div>
+</div>
+
+<div style="max-width:960px;margin:12px auto;padding:0 16px;color:#94a3b8;font-size:12px;">
+  ★ 案A: セル拡大 + イベント名表示（Googleカレンダー風）
+</div>
+</body>
+</html>

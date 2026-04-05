@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有明イベント — Cal.com style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #ffffff; color: #242424; }
+
+  /* Header */
+  .header { border-bottom: 1px solid rgba(34,42,53,0.1); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .header-logo { font-family: 'Cal Sans', sans-serif; font-size: 20px; font-weight: 600; color: #111111; letter-spacing: 0; }
+  .header-badge { font-size: 12px; font-weight: 500; color: #898989; background: rgba(34,42,53,0.06); border-radius: 9999px; padding: 2px 10px; }
+
+  /* Filter bar */
+  .filter-bar { padding: 16px 24px; border-bottom: 1px solid rgba(34,42,53,0.08); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .filter-label { font-size: 12px; font-weight: 500; color: #898989; margin-right: 4px; }
+  .chip { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 500; padding: 5px 14px; border-radius: 9999px; border: 1px solid rgba(34,42,53,0.12); background: #fff; color: #242424; cursor: pointer; transition: box-shadow 0.15s; }
+  .chip:hover { box-shadow: 0 0 0 1px rgba(34,42,53,0.2), 0 2px 6px rgba(0,0,0,0.06); }
+  .chip.active { background: #242424; color: #fff; border-color: #242424; }
+
+  /* Main content */
+  .main { padding: 24px; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-family: 'Cal Sans', sans-serif; font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #111111; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 0 0 1px rgba(34,42,53,0.08), 0 2px 6px rgba(0,0,0,0.04), 0 8px 16px rgba(0,0,0,0.03);
+    transition: box-shadow 0.15s;
+  }
+  .card:hover { box-shadow: 0 0 0 1px rgba(34,42,53,0.12), 0 4px 12px rgba(0,0,0,0.08), 0 12px 24px rgba(0,0,0,0.06); }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tag { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 9999px; background: rgba(34,42,53,0.06); color: #242424; }
+  .tag-facility { background: #111111; color: #fff; }
+  .tag-risk { background: rgba(34,42,53,0.08); color: #242424; }
+  .tag-high { background: #242424; color: #fff; }
+  .card-title { font-family: 'Cal Sans', sans-serif; font-size: 15px; font-weight: 600; line-height: 1.3; margin-bottom: 6px; color: #111111; }
+  .card-date { font-size: 12px; color: #898989; margin-bottom: 10px; }
+  .card-link { font-size: 12px; font-weight: 500; color: #0099ff; text-decoration: none; }
+  .card-link:hover { text-decoration: underline; }
+
+  /* Congestion bar */
+  .risk-bar { height: 3px; border-radius: 9999px; background: rgba(34,42,53,0.1); margin-bottom: 10px; }
+  .risk-fill { height: 3px; border-radius: 9999px; background: #242424; }
+
+  /* Design label */
+  .design-label { text-align: center; font-size: 11px; color: #898989; padding: 32px 0 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <span class="header-logo">有明イベント</span>
+  <span class="header-badge">有明エリア5施設</span>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">カテゴリ</span>
+  <button class="chip active">すべて</button>
+  <button class="chip">音楽</button>
+  <button class="chip">スポーツ</button>
+  <button class="chip">展示会</button>
+  <button class="chip">グルメ</button>
+  <span class="filter-label" style="margin-left:12px">施設</span>
+  <button class="chip">有明アリーナ</button>
+  <button class="chip">有明ガーデン</button>
+  <button class="chip">東京ガーデンシアター</button>
+  <button class="chip">東京ビッグサイト</button>
+</div>
+
+<div class="main">
+  <div class="section-title">今月のイベント</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明アリーナ</span>
+        <span class="tag">音楽</span>
+        <span class="tag tag-high">混雑注意</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:75%"></div></div>
+      <div class="card-title">VS.超特急 番組連動ライブ「VS.超特急」第3弾</div>
+      <div class="card-date">2026-03-31 〜 2026-04-01</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:15%"></div></div>
+      <div class="card-title">April Dream × 有明ガーデン「夢の桜プロジェクト」</div>
+      <div class="card-date">2026-03-28 〜 2026-04-12</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ガーデンシアター</span>
+        <span class="tag">音楽</span>
+        <span class="tag tag-high">混雑注意</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:80%"></div></div>
+      <div class="card-title">Hey! Say! JUMP LIVE TOUR 2025-2026</div>
+      <div class="card-date">2026-04-05 〜 2026-04-06</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ビッグサイト</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:40%"></div></div>
+      <div class="card-title">東京インターナショナル・ギフト・ショー</div>
+      <div class="card-date">2026-04-08 〜 2026-04-10</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">グルメ</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:5%"></div></div>
+      <div class="card-title">JACK IN THE DONUTS</div>
+      <div class="card-date">2026-02-05 〜 2027-01-20</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">TOYOTA ARENA</span>
+        <span class="tag">スポーツ</span>
+        <span class="tag tag-high">混雑注意</span>
+      </div>
+      <div class="risk-bar"><div class="risk-fill" style="width:60%"></div></div>
+      <div class="card-title">バスケットボール Bリーグ 東京エクセレンス</div>
+      <div class="card-date">2026-04-12 〜 2026-04-13</div>
+      <a class="card-link" href="#">公式サイト →</a>
+    </div>
+
+  </div>
+</div>
+
+<div class="design-label">Design: Cal.com style — monochrome, Cal Sans + Inter</div>
+</body>
+</html>

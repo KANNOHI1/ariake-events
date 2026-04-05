@@ -1,0 +1,235 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "有明イベント" [level=1] [ref=e6]
+        - generic [ref=e7]: 4月3日(金)
+    - generic [ref=e9]:
+      - button "tune 絞り込み" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: tune
+        - text: 絞り込み
+      - button "リスト表示に切り替え" [ref=e13] [cursor=pointer]:
+        - generic [ref=e14]: view_list
+    - main [ref=e15]:
+      - generic [ref=e121]:
+        - generic [ref=e122]:
+          - button "前月" [ref=e123] [cursor=pointer]: ‹
+          - heading "2026年4月" [level=2] [ref=e124]
+          - button "翌月" [ref=e125] [cursor=pointer]: ›
+        - generic [ref=e126]:
+          - generic [ref=e127]: 日
+          - generic [ref=e128]: 月
+          - generic [ref=e129]: 火
+          - generic [ref=e130]: 水
+          - generic [ref=e131]: 木
+          - generic [ref=e132]: 金
+          - generic [ref=e133]: 土
+        - generic [ref=e134]:
+          - button "1 food exhibition music other" [ref=e138] [cursor=pointer]:
+            - generic [ref=e139]: "1"
+            - generic [ref=e140]:
+              - generic "food" [ref=e141]
+              - generic "exhibition" [ref=e142]
+              - generic "music" [ref=e143]
+              - generic "other" [ref=e144]
+          - button "2 food exhibition other" [ref=e146] [cursor=pointer]:
+            - generic [ref=e147]: "2"
+            - generic [ref=e148]:
+              - generic "food" [ref=e149]
+              - generic "exhibition" [ref=e150]
+              - generic "other" [ref=e151]
+          - button "3 food exhibition music other" [ref=e153] [cursor=pointer]:
+            - generic [ref=e154]: "3"
+            - generic [ref=e155]:
+              - generic "food" [ref=e156]
+              - generic "exhibition" [ref=e157]
+              - generic "music" [ref=e158]
+              - generic "other" [ref=e159]
+          - button "4 food exhibition music sports kids" [ref=e161] [cursor=pointer]:
+            - generic [ref=e162]: "4"
+            - generic [ref=e163]:
+              - generic "food" [ref=e164]
+              - generic "exhibition" [ref=e165]
+              - generic "music" [ref=e166]
+              - generic "sports" [ref=e167]
+              - generic "kids" [ref=e168]
+          - button "5 food exhibition music kids sports" [ref=e170] [cursor=pointer]:
+            - generic [ref=e171]: "5"
+            - generic [ref=e172]:
+              - generic "food" [ref=e173]
+              - generic "exhibition" [ref=e174]
+              - generic "music" [ref=e175]
+              - generic "kids" [ref=e176]
+              - generic "sports" [ref=e177]
+          - button "6 food exhibition" [ref=e179] [cursor=pointer]:
+            - generic [ref=e180]: "6"
+            - generic [ref=e181]:
+              - generic "food" [ref=e182]
+              - generic "exhibition" [ref=e183]
+          - button "7 food exhibition" [ref=e185] [cursor=pointer]:
+            - generic [ref=e186]: "7"
+            - generic [ref=e187]:
+              - generic "food" [ref=e188]
+              - generic "exhibition" [ref=e189]
+          - button "8 food exhibition other sports music fashion" [ref=e191] [cursor=pointer]:
+            - generic [ref=e192]: "8"
+            - generic [ref=e193]:
+              - generic "food" [ref=e194]
+              - generic "exhibition" [ref=e195]
+              - generic "other" [ref=e196]
+              - generic "sports" [ref=e197]
+              - generic "music" [ref=e198]
+              - generic "fashion" [ref=e199]
+          - button "9 food exhibition other fashion sports" [ref=e201] [cursor=pointer]:
+            - generic [ref=e202]: "9"
+            - generic [ref=e203]:
+              - generic "food" [ref=e204]
+              - generic "exhibition" [ref=e205]
+              - generic "other" [ref=e206]
+              - generic "fashion" [ref=e207]
+              - generic "sports" [ref=e208]
+          - button "10 food exhibition other fashion sports music" [ref=e210] [cursor=pointer]:
+            - generic [ref=e211]: "10"
+            - generic [ref=e212]:
+              - generic "food" [ref=e213]
+              - generic "exhibition" [ref=e214]
+              - generic "other" [ref=e215]
+              - generic "fashion" [ref=e216]
+              - generic "sports" [ref=e217]
+              - generic "music" [ref=e218]
+          - button "11 food exhibition other music sports" [ref=e220] [cursor=pointer]:
+            - generic [ref=e221]: "11"
+            - generic [ref=e222]:
+              - generic "food" [ref=e223]
+              - generic "exhibition" [ref=e224]
+              - generic "other" [ref=e225]
+              - generic "music" [ref=e226]
+              - generic "sports" [ref=e227]
+          - button "12 food exhibition other music sports" [ref=e229] [cursor=pointer]:
+            - generic [ref=e230]: "12"
+            - generic [ref=e231]:
+              - generic "food" [ref=e232]
+              - generic "exhibition" [ref=e233]
+              - generic "other" [ref=e234]
+              - generic "music" [ref=e235]
+              - generic "sports" [ref=e236]
+          - button "13 food other" [ref=e238] [cursor=pointer]:
+            - generic [ref=e239]: "13"
+            - generic [ref=e240]:
+              - generic "food" [ref=e241]
+              - generic "other" [ref=e242]
+          - button "14 food other" [ref=e244] [cursor=pointer]:
+            - generic [ref=e245]: "14"
+            - generic [ref=e246]:
+              - generic "food" [ref=e247]
+              - generic "other" [ref=e248]
+          - button "15 food other exhibition music sports" [ref=e250] [cursor=pointer]:
+            - generic [ref=e251]: "15"
+            - generic [ref=e252]:
+              - generic "food" [ref=e253]
+              - generic "other" [ref=e254]
+              - generic "exhibition" [ref=e255]
+              - generic "music" [ref=e256]
+              - generic "sports" [ref=e257]
+          - button "16 food other exhibition sports" [ref=e259] [cursor=pointer]:
+            - generic [ref=e260]: "16"
+            - generic [ref=e261]:
+              - generic "food" [ref=e262]
+              - generic "other" [ref=e263]
+              - generic "exhibition" [ref=e264]
+              - generic "sports" [ref=e265]
+          - button "17 food other exhibition sports" [ref=e267] [cursor=pointer]:
+            - generic [ref=e268]: "17"
+            - generic [ref=e269]:
+              - generic "food" [ref=e270]
+              - generic "other" [ref=e271]
+              - generic "exhibition" [ref=e272]
+              - generic "sports" [ref=e273]
+          - button "18 food other music" [ref=e275] [cursor=pointer]:
+            - generic [ref=e276]: "18"
+            - generic [ref=e277]:
+              - generic "food" [ref=e278]
+              - generic "other" [ref=e279]
+              - generic "music" [ref=e280]
+          - button "19 food other music" [ref=e282] [cursor=pointer]:
+            - generic [ref=e283]: "19"
+            - generic [ref=e284]:
+              - generic "food" [ref=e285]
+              - generic "other" [ref=e286]
+              - generic "music" [ref=e287]
+          - button "20 food other" [ref=e289] [cursor=pointer]:
+            - generic [ref=e290]: "20"
+            - generic [ref=e291]:
+              - generic "food" [ref=e292]
+              - generic "other" [ref=e293]
+          - button "21 food other" [ref=e295] [cursor=pointer]:
+            - generic [ref=e296]: "21"
+            - generic [ref=e297]:
+              - generic "food" [ref=e298]
+              - generic "other" [ref=e299]
+          - button "22 food other sports" [ref=e301] [cursor=pointer]:
+            - generic [ref=e302]: "22"
+            - generic [ref=e303]:
+              - generic "food" [ref=e304]
+              - generic "other" [ref=e305]
+              - generic "sports" [ref=e306]
+          - button "23 food other sports" [ref=e308] [cursor=pointer]:
+            - generic [ref=e309]: "23"
+            - generic [ref=e310]:
+              - generic "food" [ref=e311]
+              - generic "other" [ref=e312]
+              - generic "sports" [ref=e313]
+          - button "24 food other sports" [ref=e315] [cursor=pointer]:
+            - generic [ref=e316]: "24"
+            - generic [ref=e317]:
+              - generic "food" [ref=e318]
+              - generic "other" [ref=e319]
+              - generic "sports" [ref=e320]
+          - button "25 food sports music" [ref=e322] [cursor=pointer]:
+            - generic [ref=e323]: "25"
+            - generic [ref=e324]:
+              - generic "food" [ref=e325]
+              - generic "sports" [ref=e326]
+              - generic "music" [ref=e327]
+          - button "26 food music sports" [ref=e329] [cursor=pointer]:
+            - generic [ref=e330]: "26"
+            - generic [ref=e331]:
+              - generic "food" [ref=e332]
+              - generic "music" [ref=e333]
+              - generic "sports" [ref=e334]
+          - button "27 food" [ref=e336] [cursor=pointer]:
+            - generic [ref=e337]: "27"
+            - generic "food" [ref=e339]
+          - button "28 food" [ref=e341] [cursor=pointer]:
+            - generic [ref=e342]: "28"
+            - generic "food" [ref=e344]
+          - button "29 food other" [ref=e346] [cursor=pointer]:
+            - generic [ref=e347]: "29"
+            - generic [ref=e348]:
+              - generic "food" [ref=e349]
+              - generic "other" [ref=e350]
+          - button "30 food" [ref=e352] [cursor=pointer]:
+            - generic [ref=e353]: "30"
+            - generic "food" [ref=e355]
+    - navigation [ref=e97]:
+      - generic [ref=e98]:
+        - tab "calendar_today 今日" [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]: calendar_today
+          - generic [ref=e101]: 今日
+        - tab "calendar_month 月" [ref=e102] [cursor=pointer]:
+          - generic [ref=e103]: calendar_month
+          - generic [ref=e104]: 月
+        - tab "event_note カレンダー" [active] [selected] [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]: event_note
+          - generic [ref=e107]: カレンダー
+        - tab "directions_bus 交通" [ref=e108] [cursor=pointer]:
+          - generic [ref=e109]: directions_bus
+          - generic [ref=e110]: 交通
+  - status [ref=e111]:
+    - generic [ref=e112]:
+      - img [ref=e114]
+      - generic [ref=e116]:
+        - text: Static route
+        - button "Hide static indicator" [ref=e117] [cursor=pointer]:
+          - img [ref=e118]
+  - alert [ref=e3]

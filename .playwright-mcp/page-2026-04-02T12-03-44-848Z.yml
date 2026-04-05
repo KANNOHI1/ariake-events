@@ -1,0 +1,1782 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "KAWAI" [ref=e4] [cursor=pointer]:
+        - /url: https://kawai-official.pages.dev/
+        - img "KAWAI" [ref=e5]
+      - generic [ref=e7]:
+        - generic [ref=e8]: dashboard
+        - text: UI Design Dictionary
+      - generic [ref=e9]:
+        - generic [ref=e10]: search
+        - textbox "Search patterns..." [ref=e11]
+        - generic [ref=e12]: /
+      - generic [ref=e13]: 108 / 108 patterns
+      - navigation [ref=e14]:
+        - link "X" [ref=e15] [cursor=pointer]:
+          - /url: https://x.com/kawai_design
+        - link "note" [ref=e16] [cursor=pointer]:
+          - /url: https://note.com/kawaidesign
+        - link "MENTA" [ref=e17] [cursor=pointer]:
+          - /url: https://menta.work/plan/16538
+        - link "Vibe Coding" [ref=e18] [cursor=pointer]:
+          - /url: https://kawai-official.pages.dev/
+  - generic [ref=e19]:
+    - navigation [ref=e20]:
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - generic [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: explore
+            - text: Navigation
+            - generic [ref=e25]: "14"
+        - listitem [ref=e26]:
+          - generic [ref=e27] [cursor=pointer]:
+            - generic [ref=e28]: grid_view
+            - text: Layout
+            - generic [ref=e29]: "9"
+        - listitem [ref=e30]:
+          - generic [ref=e31] [cursor=pointer]:
+            - generic [ref=e32]: edit_note
+            - text: Forms & Input
+            - generic [ref=e33]: "17"
+        - listitem [ref=e34]:
+          - generic [ref=e35] [cursor=pointer]:
+            - generic [ref=e36]: bar_chart
+            - text: Data Display
+            - generic [ref=e37]: "13"
+        - listitem [ref=e38]:
+          - generic [ref=e39] [cursor=pointer]:
+            - generic [ref=e40]: chat_bubble_outline
+            - text: Feedback
+            - generic [ref=e41]: "8"
+        - listitem [ref=e42]:
+          - generic [ref=e43] [cursor=pointer]:
+            - generic [ref=e44]: article
+            - text: Content
+            - generic [ref=e45]: "9"
+        - listitem [ref=e46]:
+          - generic [ref=e47] [cursor=pointer]:
+            - generic [ref=e48]: touch_app
+            - text: Actions
+            - generic [ref=e49]: "8"
+        - listitem [ref=e50]:
+          - generic [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]: smartphone
+            - text: Mobile
+            - generic [ref=e53]: "4"
+        - listitem [ref=e54]:
+          - generic [ref=e55] [cursor=pointer]:
+            - generic [ref=e56]: forum
+            - text: Social & Communication
+            - generic [ref=e57]: "5"
+        - listitem [ref=e58]:
+          - generic [ref=e59] [cursor=pointer]:
+            - generic [ref=e60]: school
+            - text: Onboarding & Guidance
+            - generic [ref=e61]: "3"
+        - listitem [ref=e62]:
+          - generic [ref=e63] [cursor=pointer]:
+            - generic [ref=e64]: play_circle_outline
+            - text: Media
+            - generic [ref=e65]: "3"
+        - listitem [ref=e66]:
+          - generic [ref=e67] [cursor=pointer]:
+            - generic [ref=e68]: shopping_cart
+            - text: Commerce
+            - generic [ref=e69]: "3"
+        - listitem [ref=e70]:
+          - generic [ref=e71] [cursor=pointer]:
+            - generic [ref=e72]: settings
+            - text: Advanced Patterns
+            - generic [ref=e73]: "6"
+        - listitem [ref=e74]:
+          - generic [ref=e75] [cursor=pointer]:
+            - generic [ref=e76]: lock_outline
+            - text: Authentication
+            - generic [ref=e77]: "2"
+        - listitem [ref=e78]:
+          - generic [ref=e79] [cursor=pointer]:
+            - generic [ref=e80]: error_outline
+            - text: Error & System
+            - generic [ref=e81]: "4"
+    - main [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]: explore
+          - heading "Navigation" [level=2] [ref=e86]
+          - generic [ref=e87]: 14 patterns
+        - generic [ref=e88]:
+          - generic [ref=e89] [cursor=pointer]:
+            - generic [ref=e93]: Logo
+            - generic [ref=e98]:
+              - generic [ref=e99]: Hamburger Menu
+              - generic [ref=e100]: ハンバーガーメニュー
+              - generic [ref=e101]: 三本線アイコンでメニューの開閉を制御する。モバイルで頻出。
+              - generic [ref=e102]:
+                - generic [ref=e103]: Mobile
+                - generic [ref=e104]: Responsive
+          - generic [ref=e105] [cursor=pointer]:
+            - generic [ref=e108]:
+              - generic [ref=e109]:
+                - generic [ref=e110]: home
+                - generic [ref=e111]: Home
+              - generic [ref=e112]:
+                - generic [ref=e113]: search
+                - generic [ref=e114]: Search
+              - generic [ref=e115]:
+                - generic [ref=e116]: notifications
+                - generic [ref=e117]: Alerts
+              - generic [ref=e118]:
+                - generic [ref=e119]: settings
+                - generic [ref=e120]: Settings
+            - generic [ref=e121]:
+              - generic [ref=e122]: Tab Bar
+              - generic [ref=e123]: タブバー
+              - generic [ref=e124]: 画面下部に固定配置される主要セクションの切替UI。iOS/Androidの標準パターン。
+              - generic [ref=e125]:
+                - generic [ref=e126]: Mobile
+                - generic [ref=e127]: iOS
+                - generic [ref=e128]: Android
+          - generic [ref=e129] [cursor=pointer]:
+            - generic [ref=e131]:
+              - generic [ref=e132]: Home
+              - generic [ref=e133]: /
+              - generic [ref=e134]: Category
+              - generic [ref=e135]: /
+              - generic [ref=e136]: Current Page
+            - generic [ref=e137]:
+              - generic [ref=e138]: Breadcrumb
+              - generic [ref=e139]: パンくずリスト
+              - generic [ref=e140]: 現在位置までの階層パスを表示し、上位ページへの導線を提供する。
+              - generic [ref=e141]:
+                - generic [ref=e142]: Web
+                - generic [ref=e143]: Hierarchy
+          - generic [ref=e153] [cursor=pointer]:
+            - generic [ref=e154]: Sidebar Navigation
+            - generic [ref=e155]: サイドバーナビ
+            - generic [ref=e156]: 画面左側に常時表示されるナビゲーション。デスクトップ管理画面の定番。
+            - generic [ref=e157]:
+              - generic [ref=e158]: Desktop
+              - generic [ref=e159]: Admin
+          - generic [ref=e160] [cursor=pointer]:
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - generic [ref=e164]: Products
+                - generic [ref=e165]: Services
+                - generic [ref=e166]: About
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Category A
+                  - generic [ref=e170]: Item 1
+                  - generic [ref=e171]: Item 2
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Category B
+                  - generic [ref=e174]: Item 3
+                  - generic [ref=e175]: Item 4
+                - generic [ref=e176]:
+                  - generic [ref=e177]: Category C
+                  - generic [ref=e178]: Item 5
+                  - generic [ref=e179]: Item 6
+            - generic [ref=e180]:
+              - generic [ref=e181]: Mega Menu
+              - generic [ref=e182]: メガメニュー
+              - generic [ref=e183]: ホバーで大きなパネルが展開され、多数のリンクをカテゴリごとに表示する。
+              - generic [ref=e184]:
+                - generic [ref=e185]: Web
+                - generic [ref=e186]: EC
+                - generic [ref=e187]: Large Site
+          - generic [ref=e188] [cursor=pointer]:
+            - generic [ref=e190]:
+              - generic [ref=e192]: chevron_left
+              - generic [ref=e193]: "1"
+              - generic [ref=e194]: "2"
+              - generic [ref=e195]: "3"
+              - generic [ref=e196]: ...
+              - generic [ref=e197]: "24"
+              - generic [ref=e199]: chevron_right
+            - generic [ref=e200]:
+              - generic [ref=e201]: Pagination
+              - generic [ref=e202]: ページネーション
+              - generic [ref=e203]: コンテンツを複数ページに分割し、番号付きリンクで移動する。
+              - generic [ref=e204]:
+                - generic [ref=e205]: Web
+                - generic [ref=e206]: List
+          - generic [ref=e207] [cursor=pointer]:
+            - generic [ref=e215]: Loading...
+            - generic [ref=e216]:
+              - generic [ref=e217]: Infinite Scroll
+              - generic [ref=e218]: 無限スクロール
+              - generic [ref=e219]: スクロール末尾到達時に自動的にコンテンツを追加読み込みする。
+              - generic [ref=e220]:
+                - generic [ref=e221]: Mobile
+                - generic [ref=e222]: SNS
+                - generic [ref=e223]: Feed
+          - generic [ref=e224] [cursor=pointer]:
+            - generic [ref=e226]:
+              - generic [ref=e227]: Sticky Header
+              - generic [ref=e228]: Content scrolls beneath the fixed header which stays pinned at the top of viewport...
+            - generic [ref=e229]:
+              - generic [ref=e230]: Sticky Header
+              - generic [ref=e231]: 固定ヘッダー
+              - generic [ref=e232]: スクロールしても画面上部に固定表示されるヘッダー。
+              - generic [ref=e233]:
+                - generic [ref=e234]: Web
+                - generic [ref=e235]: Mobile
+          - generic [ref=e236] [cursor=pointer]:
+            - generic [ref=e240]: Menu
+            - generic [ref=e245]:
+              - generic [ref=e246]: Drawer
+              - generic [ref=e247]: ドロワー
+              - generic [ref=e248]: 画面端からスライドインするパネル。ナビやフィルターに使用。
+              - generic [ref=e249]:
+                - generic [ref=e250]: Mobile
+                - generic [ref=e251]: Responsive
+          - generic [ref=e252] [cursor=pointer]:
+            - generic [ref=e255]:
+              - generic [ref=e256]:
+                - generic [ref=e257]: Cmd+K
+                - textbox [ref=e258]: Search files...
+              - generic [ref=e259]:
+                - generic [ref=e260]:
+                  - generic [ref=e261]: description
+                  - text: index.html
+                - generic [ref=e262]:
+                  - generic [ref=e263]: description
+                  - text: style.css
+            - generic [ref=e264]:
+              - generic [ref=e265]: Command Palette
+              - generic [ref=e266]: コマンドパレット
+              - generic [ref=e267]: キーボードショートカットで呼び出す検索+コマンド実行UI。パワーユーザー向け。
+              - generic [ref=e268]:
+                - generic [ref=e269]: Desktop
+                - generic [ref=e270]: Productivity
+          - generic [ref=e271] [cursor=pointer]:
+            - generic [ref=e273]:
+              - generic [ref=e274]: Day
+              - generic [ref=e275]: Week
+              - generic [ref=e276]: Month
+            - generic [ref=e277]:
+              - generic [ref=e278]: Segmented Control
+              - generic [ref=e279]: セグメンテッドコントロール
+              - generic [ref=e280]: 2〜5個の排他的選択肢を横並びボタンで切り替える。タブの軽量版。
+              - generic [ref=e281]:
+                - generic [ref=e282]: iOS
+                - generic [ref=e283]: Mobile
+                - generic [ref=e284]: Filter
+          - generic [ref=e285] [cursor=pointer]:
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - generic [ref=e289]: Overview
+                - generic [ref=e290]: Details
+                - generic [ref=e291]: Reviews
+              - generic [ref=e292]: Tab content area...
+            - generic [ref=e293]:
+              - generic [ref=e294]: Tabs
+              - generic [ref=e295]: タブ
+              - generic [ref=e296]: 同一画面内でコンテンツ領域を切り替える水平タブ。
+              - generic [ref=e297]:
+                - generic [ref=e298]: Web
+                - generic [ref=e299]: Desktop
+                - generic [ref=e300]: Mobile
+          - generic [ref=e301] [cursor=pointer]:
+            - generic [ref=e303]:
+              - generic [ref=e305]: check
+              - generic [ref=e307]: "2"
+              - generic [ref=e309]: "3"
+            - generic [ref=e310]:
+              - generic [ref=e311]: Stepper / Wizard
+              - generic [ref=e312]: ステッパー
+              - generic [ref=e313]: 複数ステップのプロセスを順番に案内するナビゲーション。
+              - generic [ref=e314]:
+                - generic [ref=e315]: Form
+                - generic [ref=e316]: EC
+                - generic [ref=e317]: Onboarding
+          - generic [ref=e318] [cursor=pointer]:
+            - generic [ref=e321]:
+              - generic [ref=e322]: Overview
+              - generic [ref=e323]: Features
+              - generic [ref=e324]: Pricing
+              - generic [ref=e325]: FAQ
+            - generic [ref=e326]:
+              - generic [ref=e327]: Anchor Navigation
+              - generic [ref=e328]: アンカーナビ
+              - generic [ref=e329]: ページ内の各セクションへスムーズスクロールで移動するリンク群。
+              - generic [ref=e330]:
+                - generic [ref=e331]: LP
+                - generic [ref=e332]: Web
+                - generic [ref=e333]: Long-form
+      - generic [ref=e334]:
+        - generic [ref=e335]:
+          - generic [ref=e336]: grid_view
+          - heading "Layout" [level=2] [ref=e337]
+          - generic [ref=e338]: 9 patterns
+        - generic [ref=e339]:
+          - generic [ref=e349] [cursor=pointer]:
+            - generic [ref=e350]: Grid Layout
+            - generic [ref=e351]: グリッドレイアウト
+            - generic [ref=e352]: コンテンツを均等なグリッドセルに配置する基本レイアウト。
+            - generic [ref=e353]:
+              - generic [ref=e354]: Web
+              - generic [ref=e355]: Basic
+              - generic [ref=e356]: Responsive
+          - generic [ref=e372] [cursor=pointer]:
+            - generic [ref=e373]: Masonry Layout
+            - generic [ref=e374]: メイソンリー
+            - generic [ref=e375]: 高さの異なるカードをレンガ積みのように隙間なく並べるレイアウト。
+            - generic [ref=e376]:
+              - generic [ref=e377]: Web
+              - generic [ref=e378]: Image
+              - generic [ref=e379]: Pinterest
+          - generic [ref=e391] [cursor=pointer]:
+            - generic [ref=e392]: Card Layout
+            - generic [ref=e393]: カードレイアウト
+            - generic [ref=e394]: 情報を独立したカード単位にまとめて並べるパターン。
+            - generic [ref=e395]:
+              - generic [ref=e396]: Web
+              - generic [ref=e397]: Mobile
+              - generic [ref=e398]: Basic
+          - generic [ref=e399] [cursor=pointer]:
+            - generic [ref=e401]:
+              - generic [ref=e402]: Left Pane
+              - generic [ref=e403]: Right Pane
+            - generic [ref=e404]:
+              - generic [ref=e405]: Split Screen
+              - generic [ref=e406]: スプリットスクリーン
+              - generic [ref=e407]: 画面を左右に2分割し、異なるコンテンツを並べるレイアウト。
+              - generic [ref=e408]:
+                - generic [ref=e409]: LP
+                - generic [ref=e410]: Web
+                - generic [ref=e411]: Desktop
+          - generic [ref=e412] [cursor=pointer]:
+            - generic [ref=e414]:
+              - generic [ref=e415]: Headline
+              - generic [ref=e416]: Subtext goes here for the hero section
+              - generic [ref=e417]: Get Started
+            - generic [ref=e418]:
+              - generic [ref=e419]: Hero Section
+              - generic [ref=e420]: ヒーローセクション
+              - generic [ref=e421]: ページ冒頭の大きなビジュアル+見出し+CTA。第一印象を決定する。
+              - generic [ref=e422]:
+                - generic [ref=e423]: LP
+                - generic [ref=e424]: Web
+                - generic [ref=e425]: Marketing
+          - generic [ref=e432] [cursor=pointer]:
+            - generic [ref=e433]: Bento Grid
+            - generic [ref=e434]: ベントグリッド
+            - generic [ref=e435]: 様々なサイズのカードをタイル状に配置するモダンレイアウト。
+            - generic [ref=e436]:
+              - generic [ref=e437]: Web
+              - generic [ref=e438]: Modern
+              - generic [ref=e439]: Dashboard
+          - generic [ref=e449] [cursor=pointer]:
+            - generic [ref=e450]: Holy Grail Layout
+            - generic [ref=e451]: ホーリーグレイル
+            - generic [ref=e452]: ヘッダー+フッター+3カラムの伝統的Webレイアウト。
+            - generic [ref=e453]:
+              - generic [ref=e454]: Web
+              - generic [ref=e455]: Classic
+              - generic [ref=e456]: Desktop
+          - generic [ref=e457] [cursor=pointer]:
+            - generic [ref=e460]: FULL BLEED
+            - generic [ref=e461]:
+              - generic [ref=e462]: Full Bleed
+              - generic [ref=e463]: フルブリード
+              - generic [ref=e464]: コンテンツを画面幅いっぱいに広げるレイアウト。没入感を演出。
+              - generic [ref=e465]:
+                - generic [ref=e466]: Web
+                - generic [ref=e467]: LP
+                - generic [ref=e468]: Photo
+          - generic [ref=e469] [cursor=pointer]:
+            - generic [ref=e471]:
+              - generic [ref=e473]: Long content area...
+              - generic [ref=e475]: Sticky
+            - generic [ref=e476]:
+              - generic [ref=e477]: Sticky Sidebar
+              - generic [ref=e478]: スティッキーサイドバー
+              - generic [ref=e479]: メインコンテンツのスクロールに追従するサイドバー。
+              - generic [ref=e480]:
+                - generic [ref=e481]: Web
+                - generic [ref=e482]: Blog
+                - generic [ref=e483]: EC
+      - generic [ref=e484]:
+        - generic [ref=e485]:
+          - generic [ref=e486]: edit_note
+          - heading "Forms & Input" [level=2] [ref=e487]
+          - generic [ref=e488]: 17 patterns
+        - generic [ref=e489]:
+          - generic [ref=e490] [cursor=pointer]:
+            - generic [ref=e492]:
+              - generic [ref=e493]: Email Address
+              - textbox [ref=e494]: user@example.com
+            - generic [ref=e495]:
+              - generic [ref=e496]: Text Field
+              - generic [ref=e497]: テキストフィールド
+              - generic [ref=e498]: 1行のテキスト入力。ラベル・プレースホルダー・バリデーション状態を持つ。
+              - generic [ref=e499]:
+                - generic [ref=e500]: Form
+                - generic [ref=e501]: Basic
+          - generic [ref=e502] [cursor=pointer]:
+            - generic [ref=e504]:
+              - generic [ref=e505]: Message
+              - generic [ref=e506]: Type here...
+            - generic [ref=e507]:
+              - generic [ref=e508]: Textarea
+              - generic [ref=e509]: テキストエリア
+              - generic [ref=e510]: 複数行のテキスト入力。リサイズ可能。
+              - generic [ref=e511]:
+                - generic [ref=e512]: Form
+                - generic [ref=e513]: Basic
+          - generic [ref=e514] [cursor=pointer]:
+            - generic [ref=e516]:
+              - generic [ref=e517]: Country
+              - generic [ref=e518]:
+                - text: Japan
+                - generic [ref=e519]: expand_more
+            - generic [ref=e520]:
+              - generic [ref=e521]: Select / Dropdown
+              - generic [ref=e522]: セレクト
+              - generic [ref=e523]: 選択肢のリストから1つを選ぶ。クリックでリストが展開する。
+              - generic [ref=e524]:
+                - generic [ref=e525]: Form
+                - generic [ref=e526]: Basic
+          - generic [ref=e527] [cursor=pointer]:
+            - generic [ref=e529]:
+              - generic [ref=e530]:
+                - generic [ref=e532]: check
+                - generic [ref=e533]: Option A
+              - generic [ref=e536]: Option B
+              - generic [ref=e539]: Option C
+            - generic [ref=e540]:
+              - generic [ref=e541]: Checkbox
+              - generic [ref=e542]: チェックボックス
+              - generic [ref=e543]: 複数の選択肢から任意の数を選択できるUI。
+              - generic [ref=e544]:
+                - generic [ref=e545]: Form
+                - generic [ref=e546]: Basic
+          - generic [ref=e547] [cursor=pointer]:
+            - generic [ref=e549]:
+              - generic [ref=e553]: Credit Card
+              - generic [ref=e556]: Bank Transfer
+            - generic [ref=e557]:
+              - generic [ref=e558]: Radio Button
+              - generic [ref=e559]: ラジオボタン
+              - generic [ref=e560]: 複数の選択肢から1つだけを選択するUI。排他的選択。
+              - generic [ref=e561]:
+                - generic [ref=e562]: Form
+                - generic [ref=e563]: Basic
+          - generic [ref=e564] [cursor=pointer]:
+            - generic [ref=e566]:
+              - generic [ref=e570]: Notifications
+              - generic [ref=e574]: Dark Mode
+            - generic [ref=e575]:
+              - generic [ref=e576]: Toggle Switch
+              - generic [ref=e577]: トグルスイッチ
+              - generic [ref=e578]: ON/OFFの2状態を切り替えるスイッチUI。即座に設定が反映される。
+              - generic [ref=e579]:
+                - generic [ref=e580]: Form
+                - generic [ref=e581]: Mobile
+                - generic [ref=e582]: Settings
+          - generic [ref=e583] [cursor=pointer]:
+            - generic [ref=e586]:
+              - generic [ref=e587]: Price Range
+              - generic [ref=e588]: $30 - $80
+            - generic [ref=e593]:
+              - generic [ref=e594]: Slider / Range
+              - generic [ref=e595]: スライダー
+              - generic [ref=e596]: ドラッグで数値を連続的に選択するUI。
+              - generic [ref=e597]:
+                - generic [ref=e598]: Form
+                - generic [ref=e599]: Filter
+          - generic [ref=e600] [cursor=pointer]:
+            - generic [ref=e602]:
+              - generic [ref=e603]:
+                - generic [ref=e604]: chevron_left
+                - text: March 2026
+                - generic [ref=e605]: chevron_right
+              - generic [ref=e606]:
+                - generic [ref=e607]: M
+                - generic [ref=e608]: T
+                - generic [ref=e609]: W
+                - generic [ref=e610]: T
+                - generic [ref=e611]: F
+                - generic [ref=e612]: S
+                - generic [ref=e613]: S
+                - generic [ref=e614]: "1"
+                - generic [ref=e615]: "2"
+                - generic [ref=e616]: "3"
+                - generic [ref=e617]: "4"
+                - generic [ref=e618]: "5"
+                - generic [ref=e619]: "6"
+                - generic [ref=e620]: "7"
+                - generic [ref=e621]: "8"
+                - generic [ref=e622]: "9"
+                - generic [ref=e623]: "10"
+                - generic [ref=e624]: "11"
+                - generic [ref=e625]: "12"
+                - generic [ref=e626]: "13"
+                - generic [ref=e627]: "14"
+                - generic [ref=e628]: "15"
+                - generic [ref=e629]: "16"
+                - generic [ref=e630]: "17"
+                - generic [ref=e631]: "18"
+                - generic [ref=e632]: "19"
+                - generic [ref=e633]: "20"
+                - generic [ref=e634]: "21"
+                - generic [ref=e635]: "22"
+                - generic [ref=e636]: "23"
+                - generic [ref=e637]: "24"
+                - generic [ref=e638]: "25"
+                - generic [ref=e639]: "26"
+                - generic [ref=e640]: "27"
+                - generic [ref=e641]: "28"
+            - generic [ref=e642]:
+              - generic [ref=e643]: Date Picker
+              - generic [ref=e644]: デートピッカー
+              - generic [ref=e645]: カレンダーUIから日付を選択する。
+              - generic [ref=e646]:
+                - generic [ref=e647]: Form
+                - generic [ref=e648]: Booking
+          - generic [ref=e649] [cursor=pointer]:
+            - generic [ref=e651]:
+              - generic [ref=e652]: cloud_upload
+              - generic [ref=e653]: Drag & Drop
+              - generic [ref=e654]: or click to browse
+            - generic [ref=e655]:
+              - generic [ref=e656]: File Upload
+              - generic [ref=e657]: ファイルアップロード
+              - generic [ref=e658]: ファイルを選択またはドラッグ&ドロップでアップロードするUI。
+              - generic [ref=e659]:
+                - generic [ref=e660]: Form
+                - generic [ref=e661]: Web
+          - generic [ref=e662] [cursor=pointer]:
+            - generic [ref=e664]:
+              - generic [ref=e665]: search
+              - generic [ref=e666]: Search...
+            - generic [ref=e667]:
+              - generic [ref=e668]: Search Bar
+              - generic [ref=e669]: 検索バー
+              - generic [ref=e670]: キーワードを入力してコンテンツを検索するUI。
+              - generic [ref=e671]:
+                - generic [ref=e672]: Basic
+                - generic [ref=e673]: Web
+                - generic [ref=e674]: Mobile
+          - generic [ref=e675] [cursor=pointer]:
+            - generic [ref=e677]:
+              - textbox [ref=e678]: reac
+              - generic [ref=e679]:
+                - generic [ref=e680]: React
+                - generic [ref=e681]: React Native
+                - generic [ref=e682]: React Router
+            - generic [ref=e683]:
+              - generic [ref=e684]: Autocomplete
+              - generic [ref=e685]: オートコンプリート
+              - generic [ref=e686]: 入力に応じて候補を自動表示し、選択を補助するUI。
+              - generic [ref=e687]:
+                - generic [ref=e688]: Form
+                - generic [ref=e689]: Search
+          - generic [ref=e690] [cursor=pointer]:
+            - generic [ref=e692]:
+              - generic [ref=e693]:
+                - text: React
+                - generic [ref=e695]: close
+              - generic [ref=e696]:
+                - text: TypeScript
+                - generic [ref=e698]: close
+              - generic [ref=e699]: Add...
+            - generic [ref=e700]:
+              - generic [ref=e701]: Tag Input
+              - generic [ref=e702]: タグ入力
+              - generic [ref=e703]: タグをチップとして追加・削除できるマルチ入力UI。
+              - generic [ref=e704]:
+                - generic [ref=e705]: Form
+                - generic [ref=e706]: Tag
+          - generic [ref=e707] [cursor=pointer]:
+            - generic [ref=e709]:
+              - generic [ref=e710]: "4"
+              - generic [ref=e711]: "7"
+              - generic [ref=e712]: "2"
+              - generic [ref=e713]: _
+            - generic [ref=e716]:
+              - generic [ref=e717]: OTP Input
+              - generic [ref=e718]: OTP入力
+              - generic [ref=e719]: ワンタイムパスワードを1文字ずつ個別入力するUI。
+              - generic [ref=e720]:
+                - generic [ref=e721]: Form
+                - generic [ref=e722]: Auth
+                - generic [ref=e723]: Security
+          - generic [ref=e724] [cursor=pointer]:
+            - generic [ref=e726]:
+              - textbox [ref=e727]: "********"
+              - generic [ref=e733]: Medium strength
+            - generic [ref=e734]:
+              - generic [ref=e735]: Password Strength Meter
+              - generic [ref=e736]: パスワード強度メーター
+              - generic [ref=e737]: パスワード入力時にリアルタイムで強度を表示するUI。
+              - generic [ref=e738]:
+                - generic [ref=e739]: Form
+                - generic [ref=e740]: Security
+          - generic [ref=e741] [cursor=pointer]:
+            - generic [ref=e749]: "#4F46E5"
+            - generic [ref=e750]:
+              - generic [ref=e751]: Color Picker
+              - generic [ref=e752]: カラーピッカー
+              - generic [ref=e753]: 色をビジュアルに選択するUI。
+              - generic [ref=e754]:
+                - generic [ref=e755]: Form
+                - generic [ref=e756]: Design Tool
+          - generic [ref=e757] [cursor=pointer]:
+            - generic [ref=e759]:
+              - generic [ref=e760]:
+                - generic [ref=e761]: Project Name
+                - generic [ref=e762]: edit
+              - generic [ref=e763]: Editing text
+            - generic [ref=e764]:
+              - generic [ref=e765]: Inline Edit
+              - generic [ref=e766]: インラインエディット
+              - generic [ref=e767]: 表示テキストを直接クリックして編集モードに切り替えるUI。
+              - generic [ref=e768]:
+                - generic [ref=e769]: Form
+                - generic [ref=e770]: Advanced
+          - generic [ref=e771] [cursor=pointer]:
+            - generic [ref=e773]:
+              - generic [ref=e774]:
+                - generic [ref=e776]: check
+                - generic [ref=e778]: "2"
+                - generic [ref=e780]: "3"
+              - generic [ref=e781]: Shipping Info
+              - textbox [ref=e782]: Tokyo, Shibuya...
+              - generic [ref=e784]:
+                - text: Next
+                - generic [ref=e785]: arrow_forward
+            - generic [ref=e786]:
+              - generic [ref=e787]: Multi-step Form
+              - generic [ref=e788]: マルチステップフォーム
+              - generic [ref=e789]: 長いフォームをステップに分割し段階的に入力させるUI。
+              - generic [ref=e790]:
+                - generic [ref=e791]: Form
+                - generic [ref=e792]: UX
+      - generic [ref=e793]:
+        - generic [ref=e794]:
+          - generic [ref=e795]: bar_chart
+          - heading "Data Display" [level=2] [ref=e796]
+          - generic [ref=e797]: 13 patterns
+        - generic [ref=e798]:
+          - generic [ref=e799] [cursor=pointer]:
+            - generic [ref=e801]:
+              - generic [ref=e802]:
+                - generic [ref=e803]: Name
+                - generic [ref=e804]: Status
+                - generic [ref=e805]: Date
+              - generic [ref=e806]:
+                - generic [ref=e807]:
+                  - generic [ref=e808]: Tanaka
+                  - generic [ref=e809]: ● Done
+                  - generic [ref=e810]: 3/24
+                - generic [ref=e811]:
+                  - generic [ref=e812]: Sato
+                  - generic [ref=e813]: ● In Progress
+                  - generic [ref=e814]: 3/23
+            - generic [ref=e815]:
+              - generic [ref=e816]: Table
+              - generic [ref=e817]: テーブル
+              - generic [ref=e818]: 行と列で構造化されたデータを表示する。ソート・フィルター機能を持つことが多い。
+              - generic [ref=e819]:
+                - generic [ref=e820]: Data
+                - generic [ref=e821]: Admin
+          - generic [ref=e822] [cursor=pointer]:
+            - generic [ref=e824]:
+              - generic [ref=e825]:
+                - generic [ref=e826]: A
+                - generic [ref=e827]:
+                  - generic [ref=e828]: Alice
+                  - generic [ref=e829]: Message preview...
+                - generic [ref=e830]: 10:30
+              - generic [ref=e831]:
+                - generic [ref=e832]: B
+                - generic [ref=e833]:
+                  - generic [ref=e834]: Bob
+                  - generic [ref=e835]: Hello there...
+                - generic [ref=e836]: 09:15
+            - generic [ref=e837]:
+              - generic [ref=e838]: List View
+              - generic [ref=e839]: リストビュー
+              - generic [ref=e840]: データを垂直リストで表示するシンプルなパターン。
+              - generic [ref=e841]:
+                - generic [ref=e842]: Data
+                - generic [ref=e843]: Basic
+                - generic [ref=e844]: Mobile
+          - generic [ref=e845] [cursor=pointer]:
+            - generic [ref=e847]:
+              - generic [ref=e848]:
+                - generic [ref=e849]: expand_more
+                - generic [ref=e850]: folder
+                - generic [ref=e851]: src
+              - generic [ref=e852]:
+                - generic [ref=e853]:
+                  - generic [ref=e854]: expand_more
+                  - generic [ref=e855]: folder
+                  - generic [ref=e856]: components
+                - generic [ref=e857]:
+                  - generic [ref=e858]:
+                    - generic [ref=e859]: description
+                    - text: Button.tsx
+                  - generic [ref=e860]:
+                    - generic [ref=e861]: description
+                    - text: Modal.tsx
+                - generic [ref=e862]:
+                  - generic [ref=e863]: chevron_right
+                  - generic [ref=e864]: folder
+                  - generic [ref=e865]: utils
+            - generic [ref=e866]:
+              - generic [ref=e867]: Tree View
+              - generic [ref=e868]: ツリービュー
+              - generic [ref=e869]: 階層的なデータを展開/折りたたみ可能なツリーで表示する。
+              - generic [ref=e870]:
+                - generic [ref=e871]: Data
+                - generic [ref=e872]: Hierarchy
+          - generic [ref=e873] [cursor=pointer]:
+            - generic [ref=e875]:
+              - generic [ref=e880]:
+                - generic [ref=e881]: Deploy complete
+                - generic [ref=e882]: 3 min ago
+              - generic [ref=e887]:
+                - generic [ref=e888]: PR merged
+                - generic [ref=e889]: 1 hour ago
+              - generic [ref=e893]:
+                - generic [ref=e894]: Issue created
+                - generic [ref=e895]: Yesterday
+            - generic [ref=e896]:
+              - generic [ref=e897]: Timeline
+              - generic [ref=e898]: タイムライン
+              - generic [ref=e899]: 時間軸に沿ってイベントを表示するUI。
+              - generic [ref=e900]:
+                - generic [ref=e901]: Data
+                - generic [ref=e902]: History
+          - generic [ref=e903] [cursor=pointer]:
+            - generic [ref=e905]:
+              - generic [ref=e906]:
+                - generic [ref=e907]: TODO
+                - generic [ref=e908]: Task A
+                - generic [ref=e909]: Task B
+              - generic [ref=e910]:
+                - generic [ref=e911]: IN PROGRESS
+                - generic [ref=e912]: Task C
+              - generic [ref=e913]:
+                - generic [ref=e914]: DONE
+                - generic [ref=e915]: Task D
+            - generic [ref=e916]:
+              - generic [ref=e917]: Kanban Board
+              - generic [ref=e918]: カンバンボード
+              - generic [ref=e919]: カードをカラム間でドラッグ移動するタスク管理UI。
+              - generic [ref=e920]:
+                - generic [ref=e921]: Task
+                - generic [ref=e922]: Project
+          - generic [ref=e923] [cursor=pointer]:
+            - generic [ref=e925]:
+              - generic [ref=e926]:
+                - generic [ref=e927]: Revenue
+                - generic [ref=e928]: $1.2M
+                - generic [ref=e929]:
+                  - generic [ref=e930]: trending_up
+                  - text: 12%
+              - generic [ref=e931]:
+                - generic [ref=e932]: Users
+                - generic [ref=e933]: 8,421
+                - generic [ref=e934]:
+                  - generic [ref=e935]: trending_up
+                  - text: 5%
+            - generic [ref=e936]:
+              - generic [ref=e937]: Stat Card
+              - generic [ref=e938]: 統計カード
+              - generic [ref=e939]: 数値指標を大きく目立たせるカード。ダッシュボードの定番。
+              - generic [ref=e940]:
+                - generic [ref=e941]: Dashboard
+                - generic [ref=e942]: Data
+          - generic [ref=e943] [cursor=pointer]:
+            - generic [ref=e945]:
+              - generic [ref=e946]:
+                - generic [ref=e948]: notifications
+                - generic [ref=e949]: "3"
+              - generic [ref=e952]: chat_bubble_outline
+            - generic [ref=e954]:
+              - generic [ref=e955]: Badge
+              - generic [ref=e956]: バッジ
+              - generic [ref=e957]: アイコンや要素の隅に付く小さな通知マーク。
+              - generic [ref=e958]:
+                - generic [ref=e959]: UI Part
+                - generic [ref=e960]: Notification
+          - generic [ref=e961] [cursor=pointer]:
+            - generic [ref=e963]:
+              - generic [ref=e964]: Published
+              - generic [ref=e965]: React
+              - generic [ref=e966]: Review
+              - generic [ref=e967]: Important
+              - generic [ref=e968]: v2.0
+            - generic [ref=e969]:
+              - generic [ref=e970]: Tag / Chip
+              - generic [ref=e971]: タグ / チップ
+              - generic [ref=e972]: カテゴリやステータスを小さなラベルで表現する。
+              - generic [ref=e973]:
+                - generic [ref=e974]: UI Part
+                - generic [ref=e975]: Category
+          - generic [ref=e976] [cursor=pointer]:
+            - generic [ref=e978]:
+              - generic [ref=e979]: K
+              - generic [ref=e980]: A
+              - generic [ref=e981]: T
+              - generic [ref=e982]: M
+              - generic [ref=e983]: "+3"
+            - generic [ref=e984]:
+              - generic [ref=e985]: Avatar
+              - generic [ref=e986]: アバター
+              - generic [ref=e987]: ユーザーのプロフィール画像やイニシャルを円形で表示する。
+              - generic [ref=e988]:
+                - generic [ref=e989]: UI Part
+                - generic [ref=e990]: User
+          - generic [ref=e991] [cursor=pointer]:
+            - generic [ref=e994]:
+              - generic [ref=e995]: Uploading
+              - generic [ref=e996]: 67%
+            - generic [ref=e999]:
+              - generic [ref=e1000]: Progress Bar
+              - generic [ref=e1001]: プログレスバー
+              - generic [ref=e1002]: タスクや処理の進捗率を横棒グラフで表示する。
+              - generic [ref=e1003]:
+                - generic [ref=e1004]: UI Part
+                - generic [ref=e1005]: Progress
+          - generic [ref=e1014] [cursor=pointer]:
+            - generic [ref=e1015]: Skeleton Screen
+            - generic [ref=e1016]: スケルトンスクリーン
+            - generic [ref=e1017]: コンテンツ読み込み中にレイアウトの骨格をプレースホルダーで表示する。
+            - generic [ref=e1018]:
+              - generic [ref=e1019]: Loading
+              - generic [ref=e1020]: UX
+          - generic [ref=e1021] [cursor=pointer]:
+            - generic [ref=e1023]:
+              - generic [ref=e1024]: inbox
+              - generic [ref=e1025]: No data yet
+              - generic [ref=e1026]: Add your first item
+              - generic [ref=e1027]:
+                - generic [ref=e1028]: add
+                - text: Create New
+            - generic [ref=e1029]:
+              - generic [ref=e1030]: Empty State
+              - generic [ref=e1031]: エンプティステート
+              - generic [ref=e1032]: データがない時のプレースホルダー表示。行動を促すCTAを含む。
+              - generic [ref=e1033]:
+                - generic [ref=e1034]: UX
+                - generic [ref=e1035]: State
+          - generic [ref=e1046] [cursor=pointer]:
+            - generic [ref=e1047]: Chart / Graph
+            - generic [ref=e1048]: チャート
+            - generic [ref=e1049]: データを折れ線・棒・円などのグラフで視覚化する。
+            - generic [ref=e1050]:
+              - generic [ref=e1051]: Data
+              - generic [ref=e1052]: Dashboard
+      - generic [ref=e1053]:
+        - generic [ref=e1054]:
+          - generic [ref=e1055]: chat_bubble_outline
+          - heading "Feedback" [level=2] [ref=e1056]
+          - generic [ref=e1057]: 8 patterns
+        - generic [ref=e1058]:
+          - generic [ref=e1059] [cursor=pointer]:
+            - generic [ref=e1062]:
+              - generic [ref=e1063]: check_circle
+              - generic [ref=e1065]: Saved successfully
+              - generic [ref=e1066]: close
+            - generic [ref=e1067]:
+              - generic [ref=e1068]: Toast / Snackbar
+              - generic [ref=e1069]: トースト
+              - generic [ref=e1070]: 一時的なメッセージを画面端に表示し自動で消えるUI。
+              - generic [ref=e1071]:
+                - generic [ref=e1072]: Notification
+                - generic [ref=e1073]: Lightweight
+          - generic [ref=e1074] [cursor=pointer]:
+            - generic [ref=e1077]:
+              - generic [ref=e1078]: Delete item?
+              - generic [ref=e1079]: This action cannot be undone.
+              - generic [ref=e1080]:
+                - generic [ref=e1081]: Cancel
+                - generic [ref=e1082]: Delete
+            - generic [ref=e1083]:
+              - generic [ref=e1084]: Modal / Dialog
+              - generic [ref=e1085]: モーダル
+              - generic [ref=e1086]: 背景を暗転させてコンテンツを前面に表示する。ユーザーの注目を強制する。
+              - generic [ref=e1087]:
+                - generic [ref=e1088]: Overlay
+                - generic [ref=e1089]: Critical
+          - generic [ref=e1090] [cursor=pointer]:
+            - generic [ref=e1092]:
+              - generic [ref=e1093]:
+                - generic [ref=e1094]: warning
+                - generic [ref=e1095]: An error occurred
+              - generic [ref=e1096]:
+                - generic [ref=e1097]: check_circle
+                - generic [ref=e1098]: Processed successfully
+            - generic [ref=e1099]:
+              - generic [ref=e1100]: Alert / Banner
+              - generic [ref=e1101]: アラート
+              - generic [ref=e1102]: 画面上部などに固定表示される重要な通知メッセージ。
+              - generic [ref=e1103]:
+                - generic [ref=e1104]: Notification
+                - generic [ref=e1105]: Important
+          - generic [ref=e1106] [cursor=pointer]:
+            - generic [ref=e1108]:
+              - generic [ref=e1109]: Save (Cmd+S)
+              - generic [ref=e1112]: save
+            - generic [ref=e1113]:
+              - generic [ref=e1114]: Tooltip
+              - generic [ref=e1115]: ツールチップ
+              - generic [ref=e1116]: ホバーやフォーカス時に補助情報を小さなポップアップで表示する。
+              - generic [ref=e1117]:
+                - generic [ref=e1118]: Help
+                - generic [ref=e1119]: Micro-interaction
+          - generic [ref=e1120] [cursor=pointer]:
+            - generic [ref=e1122]:
+              - generic [ref=e1123]: K
+              - generic [ref=e1124]:
+                - generic [ref=e1125]: Kawai
+                - generic [ref=e1126]: AI Consultant
+                - separator [ref=e1127]
+                - generic [ref=e1128]:
+                  - text: View profile
+                  - generic [ref=e1129]: arrow_forward
+            - generic [ref=e1130]:
+              - generic [ref=e1131]: Popover
+              - generic [ref=e1132]: ポップオーバー
+              - generic [ref=e1133]: クリックでトリガーされるリッチなフローティングUI。
+              - generic [ref=e1134]:
+                - generic [ref=e1135]: Overlay
+                - generic [ref=e1136]: Info
+          - generic [ref=e1145] [cursor=pointer]:
+            - generic [ref=e1146]: Loading Spinner
+            - generic [ref=e1147]: ローディングスピナー
+            - generic [ref=e1148]: 処理中であることを示す回転アニメーション。
+            - generic [ref=e1149]:
+              - generic [ref=e1150]: Loading
+              - generic [ref=e1151]: Basic
+          - generic [ref=e1152] [cursor=pointer]:
+            - generic [ref=e1154]:
+              - generic [ref=e1155]:
+                - generic [ref=e1156]: warning
+                - text: Confirm deletion?
+              - generic [ref=e1157]: Type "delete" to confirm
+              - textbox [ref=e1158]: delete
+              - generic [ref=e1159]: Delete permanently
+            - generic [ref=e1160]:
+              - generic [ref=e1161]: Confirmation Dialog
+              - generic [ref=e1162]: 確認ダイアログ
+              - generic [ref=e1163]: 破壊的操作の前にユーザーに確認を求めるダイアログ。
+              - generic [ref=e1164]:
+                - generic [ref=e1165]: Safety
+                - generic [ref=e1166]: Confirm
+          - generic [ref=e1167] [cursor=pointer]:
+            - generic [ref=e1169]:
+              - generic [ref=e1170]:
+                - generic [ref=e1171]: Notifications
+                - generic [ref=e1172]: Mark all read
+              - generic [ref=e1173]:
+                - generic [ref=e1174]: New comment
+                - generic [ref=e1175]: 2 min ago
+              - generic [ref=e1176]:
+                - generic [ref=e1177]: PR was merged
+                - generic [ref=e1178]: 1 hour ago
+            - generic [ref=e1179]:
+              - generic [ref=e1180]: Notification Panel
+              - generic [ref=e1181]: 通知パネル
+              - generic [ref=e1182]: 通知一覧をドロップダウンパネルで表示する。
+              - generic [ref=e1183]:
+                - generic [ref=e1184]: Notification
+                - generic [ref=e1185]: Overlay
+      - generic [ref=e1186]:
+        - generic [ref=e1187]:
+          - generic [ref=e1188]: article
+          - heading "Content" [level=2] [ref=e1189]
+          - generic [ref=e1190]: 9 patterns
+        - generic [ref=e1191]:
+          - generic [ref=e1192] [cursor=pointer]:
+            - generic [ref=e1194]:
+              - generic [ref=e1195]:
+                - generic [ref=e1196]: Question 1
+                - generic [ref=e1197]: expand_more
+              - generic [ref=e1198]: Answer content is displayed here with detailed explanation.
+              - generic [ref=e1199]:
+                - generic [ref=e1200]: Question 2
+                - generic [ref=e1201]: chevron_right
+            - generic [ref=e1202]:
+              - generic [ref=e1203]: Accordion
+              - generic [ref=e1204]: アコーディオン
+              - generic [ref=e1205]: 見出しクリックで内容の展開/折りたたみを切り替える。
+              - generic [ref=e1206]:
+                - generic [ref=e1207]: Content
+                - generic [ref=e1208]: FAQ
+          - generic [ref=e1209] [cursor=pointer]:
+            - generic [ref=e1212]:
+              - generic [ref=e1213]: Slide 1
+              - generic [ref=e1214]: Slide 2
+            - generic [ref=e1219]:
+              - generic [ref=e1220]: Carousel / Slider
+              - generic [ref=e1221]: カルーセル
+              - generic [ref=e1222]: 複数のコンテンツを左右にスワイプ/クリックで切り替える。
+              - generic [ref=e1223]:
+                - generic [ref=e1224]: Content
+                - generic [ref=e1225]: Image
+                - generic [ref=e1226]: Mobile
+          - generic [ref=e1227] [cursor=pointer]:
+            - generic [ref=e1229]:
+              - generic [ref=e1231]: image
+              - generic [ref=e1233]: close
+              - generic [ref=e1235]: chevron_left
+              - generic [ref=e1237]: chevron_right
+            - generic [ref=e1238]:
+              - generic [ref=e1239]: Lightbox
+              - generic [ref=e1240]: ライトボックス
+              - generic [ref=e1241]: 画像をフルスクリーンオーバーレイで拡大表示する。
+              - generic [ref=e1242]:
+                - generic [ref=e1243]: Image
+                - generic [ref=e1244]: Overlay
+          - generic [ref=e1245] [cursor=pointer]:
+            - generic [ref=e1247]:
+              - generic [ref=e1248]:
+                - generic [ref=e1249]: Free
+                - generic [ref=e1250]: $0
+                - generic [ref=e1251]: 5GB
+                - generic [ref=e1252]: Select
+              - generic [ref=e1253]:
+                - generic [ref=e1254]: Recommended
+                - generic [ref=e1255]: Pro
+                - generic [ref=e1256]: $9
+                - generic [ref=e1257]: 100GB
+                - generic [ref=e1258]: Select
+              - generic [ref=e1259]:
+                - generic [ref=e1260]: Team
+                - generic [ref=e1261]: $24
+                - generic [ref=e1262]: Unlimited
+                - generic [ref=e1263]: Select
+            - generic [ref=e1264]:
+              - generic [ref=e1265]: Pricing Table
+              - generic [ref=e1266]: 料金テーブル
+              - generic [ref=e1267]: 複数プランを横並びで比較表示する。おすすめプランを強調。
+              - generic [ref=e1268]:
+                - generic [ref=e1269]: Marketing
+                - generic [ref=e1270]: LP
+                - generic [ref=e1271]: SaaS
+          - generic [ref=e1272] [cursor=pointer]:
+            - generic [ref=e1274]:
+              - generic [ref=e1275]: "\"This tool tripled our productivity within a week.\""
+              - generic [ref=e1276]:
+                - generic [ref=e1277]: T
+                - generic [ref=e1278]:
+                  - generic [ref=e1279]: Taro Tanaka
+                  - generic [ref=e1280]: CTO, Example Inc.
+            - generic [ref=e1281]:
+              - generic [ref=e1282]: Testimonial
+              - generic [ref=e1283]: テスティモニアル
+              - generic [ref=e1284]: ユーザーの声・レビュー・推薦文を表示するUI。
+              - generic [ref=e1285]:
+                - generic [ref=e1286]: Marketing
+                - generic [ref=e1287]: LP
+                - generic [ref=e1288]: Trust
+          - generic [ref=e1289] [cursor=pointer]:
+            - generic [ref=e1291]:
+              - generic [ref=e1292]: Get Started Today
+              - generic [ref=e1293]: 14-day free trial. No credit card.
+              - generic [ref=e1294]:
+                - text: Start Free
+                - generic [ref=e1295]: arrow_forward
+            - generic [ref=e1296]:
+              - generic [ref=e1297]: CTA Section
+              - generic [ref=e1298]: CTAセクション
+              - generic [ref=e1299]: ユーザーの行動を促す大きなボタンとメッセージのセクション。
+              - generic [ref=e1300]:
+                - generic [ref=e1301]: Marketing
+                - generic [ref=e1302]: LP
+                - generic [ref=e1303]: Conversion
+          - generic [ref=e1304] [cursor=pointer]:
+            - generic [ref=e1306]:
+              - generic [ref=e1307]: FAQ
+              - generic [ref=e1308]:
+                - generic [ref=e1309]:
+                  - generic [ref=e1310]: How much does it cost?
+                  - generic [ref=e1311]: remove
+                - generic [ref=e1312]: Basic plan starts at $9/mo
+                - generic [ref=e1313]:
+                  - generic [ref=e1314]: Can I cancel?
+                  - generic [ref=e1315]: add
+            - generic [ref=e1316]:
+              - generic [ref=e1317]: FAQ Section
+              - generic [ref=e1318]: FAQセクション
+              - generic [ref=e1319]: よくある質問とその回答をまとめた専用セクション。
+              - generic [ref=e1320]:
+                - generic [ref=e1321]: Support
+                - generic [ref=e1322]: LP
+          - generic [ref=e1323] [cursor=pointer]:
+            - generic [ref=e1325]:
+              - generic [ref=e1326]:
+                - generic [ref=e1327]: bolt
+                - generic [ref=e1328]: Fast
+                - generic [ref=e1329]: 10ms response
+              - generic [ref=e1330]:
+                - generic [ref=e1331]: lock
+                - generic [ref=e1332]: Secure
+                - generic [ref=e1333]: E2E encrypted
+              - generic [ref=e1334]:
+                - generic [ref=e1335]: language
+                - generic [ref=e1336]: Global
+                - generic [ref=e1337]: 50+ regions
+              - generic [ref=e1338]:
+                - generic [ref=e1339]: extension
+                - generic [ref=e1340]: Plugins
+                - generic [ref=e1341]: 100+ integrations
+            - generic [ref=e1342]:
+              - generic [ref=e1343]: Feature Section
+              - generic [ref=e1344]: フィーチャーセクション
+              - generic [ref=e1345]: 製品の機能をアイコン+テキストでグリッド表示する。
+              - generic [ref=e1346]:
+                - generic [ref=e1347]: LP
+                - generic [ref=e1348]: Marketing
+          - generic [ref=e1349] [cursor=pointer]:
+            - generic [ref=e1351]:
+              - generic [ref=e1352]:
+                - generic [ref=e1354]: Free
+                - generic [ref=e1355]: Pro
+                - generic [ref=e1356]: Team
+              - generic [ref=e1357]:
+                - generic [ref=e1358]: Storage
+                - generic [ref=e1359]: 5GB
+                - generic [ref=e1360]: 100GB
+                - generic [ref=e1361]: Unlimited
+              - generic [ref=e1362]:
+                - generic [ref=e1363]: API
+                - generic [ref=e1365]: close
+                - generic [ref=e1367]: check
+                - generic [ref=e1369]: check
+            - generic [ref=e1370]:
+              - generic [ref=e1371]: Comparison Table
+              - generic [ref=e1372]: 比較テーブル
+              - generic [ref=e1373]: 複数のオプションを機能ごとに比較する表。
+              - generic [ref=e1374]:
+                - generic [ref=e1375]: Marketing
+                - generic [ref=e1376]: Decision
+      - generic [ref=e1377]:
+        - generic [ref=e1378]:
+          - generic [ref=e1379]: touch_app
+          - heading "Actions" [level=2] [ref=e1380]
+          - generic [ref=e1381]: 8 patterns
+        - generic [ref=e1382]:
+          - generic [ref=e1383] [cursor=pointer]:
+            - generic [ref=e1385]:
+              - generic [ref=e1386]: Primary
+              - generic [ref=e1387]: Secondary
+              - generic [ref=e1388]: Ghost
+              - generic [ref=e1389]: Danger
+              - generic [ref=e1390]: Pill
+            - generic [ref=e1391]:
+              - generic [ref=e1392]: Button
+              - generic [ref=e1393]: ボタン
+              - generic [ref=e1394]: クリックでアクションを実行するUI。Primary/Secondary/Ghostなど複数バリエーション。
+              - generic [ref=e1395]:
+                - generic [ref=e1396]: Basic
+                - generic [ref=e1397]: Form
+          - generic [ref=e1398] [cursor=pointer]:
+            - generic [ref=e1402]: add
+            - generic [ref=e1403]:
+              - generic [ref=e1404]: FAB
+              - generic [ref=e1405]: フローティングアクションボタン
+              - generic [ref=e1406]: 画面上に浮遊する円形のメインアクションボタン。
+              - generic [ref=e1407]:
+                - generic [ref=e1408]: Mobile
+                - generic [ref=e1409]: Material Design
+          - generic [ref=e1410] [cursor=pointer]:
+            - generic [ref=e1412]:
+              - generic [ref=e1413]:
+                - generic [ref=e1414]: Copy
+                - generic [ref=e1415]: Cmd+C
+              - generic [ref=e1416]:
+                - generic [ref=e1417]: Paste
+                - generic [ref=e1418]: Cmd+V
+              - separator [ref=e1419]
+              - generic [ref=e1420]: Rename
+              - generic [ref=e1421]: Delete
+            - generic [ref=e1422]:
+              - generic [ref=e1423]: Context Menu
+              - generic [ref=e1424]: コンテキストメニュー
+              - generic [ref=e1425]: 右クリックで表示されるアクションメニュー。
+              - generic [ref=e1426]:
+                - generic [ref=e1427]: Desktop
+                - generic [ref=e1428]: Operation
+          - generic [ref=e1429] [cursor=pointer]:
+            - generic [ref=e1431]:
+              - generic [ref=e1432]:
+                - generic [ref=e1433]: Take Photo
+                - generic [ref=e1434]: Choose from Library
+                - generic [ref=e1435]: Delete
+              - generic [ref=e1436]: Cancel
+            - generic [ref=e1437]:
+              - generic [ref=e1438]: Action Sheet
+              - generic [ref=e1439]: アクションシート
+              - generic [ref=e1440]: 画面下部からスライドアップするモバイル向けアクション選択UI。
+              - generic [ref=e1441]:
+                - generic [ref=e1442]: Mobile
+                - generic [ref=e1443]: iOS
+          - generic [ref=e1444] [cursor=pointer]:
+            - generic [ref=e1446]:
+              - generic [ref=e1447]: Save
+              - generic [ref=e1449]: expand_more
+            - generic [ref=e1450]:
+              - generic [ref=e1451]: Split Button
+              - generic [ref=e1452]: スプリットボタン
+              - generic [ref=e1453]: メインアクションとドロップダウンによる追加アクションを組み合わせたボタン。
+              - generic [ref=e1454]:
+                - generic [ref=e1455]: Desktop
+                - generic [ref=e1456]: Advanced
+          - generic [ref=e1457] [cursor=pointer]:
+            - generic [ref=e1459]:
+              - generic [ref=e1461]: format_bold
+              - generic [ref=e1463]: format_italic
+              - generic [ref=e1465]: format_underlined
+              - generic [ref=e1467]: format_strikethrough
+            - generic [ref=e1468]:
+              - generic [ref=e1469]: Button Group
+              - generic [ref=e1470]: ボタングループ
+              - generic [ref=e1471]: 関連するアクションボタンを横並びで結合表示する。
+              - generic [ref=e1472]:
+                - generic [ref=e1473]: UI Part
+                - generic [ref=e1474]: Basic
+          - generic [ref=e1475] [cursor=pointer]:
+            - generic [ref=e1477]:
+              - generic [ref=e1479]: check
+              - generic [ref=e1480]:
+                - generic [ref=e1481]: A
+                - generic [ref=e1482]:
+                  - generic [ref=e1483]: Email Subject
+                  - generic [ref=e1484]: Swipe left / right
+              - generic [ref=e1486]: delete
+            - generic [ref=e1487]:
+              - generic [ref=e1488]: Swipe Actions
+              - generic [ref=e1489]: スワイプアクション
+              - generic [ref=e1490]: リスト項目を左右にスワイプして操作するモバイルパターン。
+              - generic [ref=e1491]:
+                - generic [ref=e1492]: Mobile
+                - generic [ref=e1493]: Gesture
+          - generic [ref=e1494] [cursor=pointer]:
+            - generic [ref=e1499]: Refreshing...
+            - generic [ref=e1503]:
+              - generic [ref=e1504]: Pull to Refresh
+              - generic [ref=e1505]: プルトゥリフレッシュ
+              - generic [ref=e1506]: 画面を下に引いてコンテンツを更新するモバイルジェスチャー。
+              - generic [ref=e1507]:
+                - generic [ref=e1508]: Mobile
+                - generic [ref=e1509]: Gesture
+      - generic [ref=e1510]:
+        - generic [ref=e1511]:
+          - generic [ref=e1512]: smartphone
+          - heading "Mobile" [level=2] [ref=e1513]
+          - generic [ref=e1514]: 4 patterns
+        - generic [ref=e1515]:
+          - generic [ref=e1516] [cursor=pointer]:
+            - generic [ref=e1520]:
+              - generic [ref=e1522]: Details
+              - generic [ref=e1523]: Drag to adjust height
+            - generic [ref=e1524]:
+              - generic [ref=e1525]: Bottom Sheet
+              - generic [ref=e1526]: ボトムシート
+              - generic [ref=e1527]: 画面下部からスライドアップする半モーダルパネル。
+              - generic [ref=e1528]:
+                - generic [ref=e1529]: Mobile
+                - generic [ref=e1530]: Overlay
+          - generic [ref=e1531] [cursor=pointer]:
+            - generic [ref=e1533]:
+              - generic [ref=e1538]: user1
+              - generic [ref=e1543]: user2
+              - generic [ref=e1547]: user3
+            - generic [ref=e1548]:
+              - generic [ref=e1549]: Stories
+              - generic [ref=e1550]: ストーリーズ
+              - generic [ref=e1551]: 画面上部の円形アイコン行。タップで全画面コンテンツを表示する。
+              - generic [ref=e1552]:
+                - generic [ref=e1553]: SNS
+                - generic [ref=e1554]: Video
+          - generic [ref=e1555] [cursor=pointer]:
+            - generic [ref=e1557]:
+              - generic [ref=e1558]:
+                - generic [ref=e1559]: arrow_back
+                - text: Back
+              - generic [ref=e1560]: Title
+              - generic [ref=e1561]: more_horiz
+            - generic [ref=e1562]:
+              - generic [ref=e1563]: App Bar
+              - generic [ref=e1564]: アプリバー
+              - generic [ref=e1565]: アプリ画面上部のタイトルバー。戻るボタン・タイトル・アクションを含む。
+              - generic [ref=e1566]:
+                - generic [ref=e1567]: Mobile
+                - generic [ref=e1568]: Navigation
+          - generic [ref=e1569] [cursor=pointer]:
+            - generic [ref=e1571]:
+              - generic [ref=e1573]: add
+              - generic [ref=e1575]: photo_camera
+              - generic [ref=e1577]: attach_file
+              - generic [ref=e1579]: edit
+            - generic [ref=e1580]:
+              - generic [ref=e1581]: Speed Dial
+              - generic [ref=e1582]: スピードダイヤル
+              - generic [ref=e1583]: FABをタップすると複数のサブアクションが扇状に展開するUI。
+              - generic [ref=e1584]:
+                - generic [ref=e1585]: Mobile
+                - generic [ref=e1586]: Material Design
+      - generic [ref=e1587]:
+        - generic [ref=e1588]:
+          - generic [ref=e1589]: forum
+          - heading "Social & Communication" [level=2] [ref=e1590]
+          - generic [ref=e1591]: 5 patterns
+        - generic [ref=e1592]:
+          - generic [ref=e1593] [cursor=pointer]:
+            - generic [ref=e1595]:
+              - generic [ref=e1596]: Hello!
+              - generic [ref=e1597]: Good morning!
+              - generic [ref=e1598]: When is today's meeting?
+            - generic [ref=e1599]:
+              - generic [ref=e1600]: Chat UI
+              - generic [ref=e1601]: チャットUI
+              - generic [ref=e1602]: メッセージを左右に振り分けるチャット形式のUI。
+              - generic [ref=e1603]:
+                - generic [ref=e1604]: Message
+                - generic [ref=e1605]: Realtime
+          - generic [ref=e1606] [cursor=pointer]:
+            - generic [ref=e1608]:
+              - generic [ref=e1609]:
+                - generic [ref=e1610]: A
+                - generic [ref=e1611]:
+                  - generic [ref=e1612]: Alice 2h ago
+                  - generic [ref=e1613]: Great implementation!
+              - generic [ref=e1614]:
+                - generic [ref=e1615]: B
+                - generic [ref=e1616]:
+                  - generic [ref=e1617]: Bob 1h ago
+                  - generic [ref=e1618]: Thank you!
+            - generic [ref=e1619]:
+              - generic [ref=e1620]: Comment Thread
+              - generic [ref=e1621]: コメントスレッド
+              - generic [ref=e1622]: ネストされたコメントと返信のスレッド表示。
+              - generic [ref=e1623]:
+                - generic [ref=e1624]: Community
+                - generic [ref=e1625]: Comment
+          - generic [ref=e1626] [cursor=pointer]:
+            - generic [ref=e1628]:
+              - generic [ref=e1629]: Great release!
+              - generic [ref=e1630]:
+                - generic [ref=e1631]:
+                  - generic [ref=e1632]: thumb_up
+                  - generic [ref=e1633]: "12"
+                - generic [ref=e1634]:
+                  - generic [ref=e1635]: favorite
+                  - generic [ref=e1636]: "8"
+                - generic [ref=e1637]:
+                  - generic [ref=e1638]: celebration
+                  - generic [ref=e1639]: "5"
+                - generic [ref=e1641]: add
+            - generic [ref=e1642]:
+              - generic [ref=e1643]: Emoji Reactions
+              - generic [ref=e1644]: リアクション
+              - generic [ref=e1645]: メッセージやコンテンツに絵文字で反応するUI。
+              - generic [ref=e1646]:
+                - generic [ref=e1647]: Social
+                - generic [ref=e1648]: Micro-interaction
+          - generic [ref=e1649] [cursor=pointer]:
+            - generic [ref=e1651]:
+              - generic [ref=e1652]:
+                - generic [ref=e1653]: K
+                - generic [ref=e1655]: Kawai @kawai - 1h
+              - generic [ref=e1656]: Launched a new AI feature today!
+              - generic [ref=e1658]:
+                - generic [ref=e1659]: chat_bubble_outline
+                - generic [ref=e1660]: repeat
+                - generic [ref=e1661]: favorite_border
+                - generic [ref=e1662]: share
+            - generic [ref=e1663]:
+              - generic [ref=e1664]: Feed Card
+              - generic [ref=e1665]: フィードカード
+              - generic [ref=e1666]: SNSフィードの投稿カード。アバター・テキスト・画像・アクション行。
+              - generic [ref=e1667]:
+                - generic [ref=e1668]: SNS
+                - generic [ref=e1669]: Feed
+          - generic [ref=e1670] [cursor=pointer]:
+            - generic [ref=e1672]:
+              - generic [ref=e1673]: "@ka"
+              - generic [ref=e1674]:
+                - generic [ref=e1675]:
+                  - generic [ref=e1676]: K
+                  - generic [ref=e1677]: kawai
+                - generic [ref=e1678]:
+                  - generic [ref=e1679]: K
+                  - generic [ref=e1680]: karen
+            - generic [ref=e1681]:
+              - generic [ref=e1682]: "@Mention"
+              - generic [ref=e1683]: メンション
+              - generic [ref=e1684]: テキスト入力中に@で始まるユーザー候補をサジェストするUI。
+              - generic [ref=e1685]:
+                - generic [ref=e1686]: Social
+                - generic [ref=e1687]: Input Assist
+      - generic [ref=e1688]:
+        - generic [ref=e1689]:
+          - generic [ref=e1690]: school
+          - heading "Onboarding & Guidance" [level=2] [ref=e1691]
+          - generic [ref=e1692]: 3 patterns
+        - generic [ref=e1693]:
+          - generic [ref=e1694] [cursor=pointer]:
+            - generic [ref=e1697]:
+              - generic [ref=e1698]: Button
+              - generic [ref=e1699]: Click here!
+            - generic [ref=e1701]:
+              - generic [ref=e1702]: Walkthrough
+              - generic [ref=e1703]: ウォークスルー
+              - generic [ref=e1704]: UIの要素をハイライトし、ステップバイステップで使い方を案内するオーバーレイ。
+              - generic [ref=e1705]:
+                - generic [ref=e1706]: Onboarding
+                - generic [ref=e1707]: Tutorial
+          - generic [ref=e1708] [cursor=pointer]:
+            - generic [ref=e1710]:
+              - generic [ref=e1711]: celebration
+              - generic [ref=e1712]: Welcome!
+              - generic [ref=e1713]:
+                - text: Let us show you around
+                - text: in 3 easy steps
+              - generic [ref=e1718]: Next
+            - generic [ref=e1719]:
+              - generic [ref=e1720]: Welcome Screen
+              - generic [ref=e1721]: ウェルカム画面
+              - generic [ref=e1722]: アプリ初回起動時に表示されるスワイプ式のイントロダクション画面。
+              - generic [ref=e1723]:
+                - generic [ref=e1724]: Onboarding
+                - generic [ref=e1725]: Mobile
+          - generic [ref=e1726] [cursor=pointer]:
+            - generic [ref=e1728]:
+              - generic [ref=e1729]: Setup 2/4 complete
+              - generic [ref=e1732]:
+                - generic [ref=e1733]:
+                  - generic [ref=e1734]: check_circle
+                  - generic [ref=e1735]: Set up profile
+                - generic [ref=e1736]:
+                  - generic [ref=e1737]: check_circle
+                  - generic [ref=e1738]: Invite team
+                - generic [ref=e1739]:
+                  - generic [ref=e1740]: radio_button_unchecked
+                  - text: Create project
+                - generic [ref=e1741]:
+                  - generic [ref=e1742]: radio_button_unchecked
+                  - text: Connect integration
+            - generic [ref=e1743]:
+              - generic [ref=e1744]: Progress Checklist
+              - generic [ref=e1745]: プログレスチェックリスト
+              - generic [ref=e1746]: セットアップの完了度をチェックリストで表示し、次のアクションを促す。
+              - generic [ref=e1747]:
+                - generic [ref=e1748]: Onboarding
+                - generic [ref=e1749]: Gamification
+      - generic [ref=e1750]:
+        - generic [ref=e1751]:
+          - generic [ref=e1752]: play_circle_outline
+          - heading "Media" [level=2] [ref=e1753]
+          - generic [ref=e1754]: 3 patterns
+        - generic [ref=e1755]:
+          - generic [ref=e1756] [cursor=pointer]:
+            - generic [ref=e1758]:
+              - generic [ref=e1759]: play_circle
+              - generic [ref=e1764]:
+                - generic [ref=e1765]: 1:23 / 3:45
+                - generic [ref=e1766]: fullscreen
+            - generic [ref=e1767]:
+              - generic [ref=e1768]: Video Player
+              - generic [ref=e1769]: ビデオプレーヤー
+              - generic [ref=e1770]: 動画再生UI。再生/一時停止・シーク・音量・全画面のコントロールを含む。
+              - generic [ref=e1771]:
+                - generic [ref=e1772]: Media
+                - generic [ref=e1773]: Video
+          - generic [ref=e1774] [cursor=pointer]:
+            - generic [ref=e1776]:
+              - generic [ref=e1778]: play_arrow
+              - generic [ref=e1779]:
+                - generic [ref=e1780]: Episode 42
+                - generic [ref=e1783]:
+                  - generic [ref=e1784]: 12:30
+                  - generic [ref=e1785]: 31:45
+            - generic [ref=e1786]:
+              - generic [ref=e1787]: Audio Player
+              - generic [ref=e1788]: オーディオプレーヤー
+              - generic [ref=e1789]: 音声再生UI。再生ボタン・波形・プログレスバーを含む。
+              - generic [ref=e1790]:
+                - generic [ref=e1791]: Media
+                - generic [ref=e1792]: Audio
+          - generic [ref=e1793] [cursor=pointer]:
+            - generic [ref=e1795]:
+              - generic [ref=e1797]: image
+              - generic [ref=e1799]: "+12"
+            - generic [ref=e1800]:
+              - generic [ref=e1801]: Image Gallery
+              - generic [ref=e1802]: イメージギャラリー
+              - generic [ref=e1803]: 複数画像をグリッドやスライドで表示する。タップで拡大。
+              - generic [ref=e1804]:
+                - generic [ref=e1805]: Image
+                - generic [ref=e1806]: Media
+      - generic [ref=e1807]:
+        - generic [ref=e1808]:
+          - generic [ref=e1809]: shopping_cart
+          - heading "Commerce" [level=2] [ref=e1810]
+          - generic [ref=e1811]: 3 patterns
+        - generic [ref=e1812]:
+          - generic [ref=e1813] [cursor=pointer]:
+            - generic [ref=e1815]:
+              - generic [ref=e1817]: checkroom
+              - generic [ref=e1818]:
+                - generic [ref=e1819]: Premium Sneakers
+                - generic [ref=e1820]:
+                  - generic [ref=e1821]: star
+                  - generic [ref=e1822]: star
+                  - generic [ref=e1823]: star
+                  - generic [ref=e1824]: star
+                  - generic [ref=e1825]: star
+                  - generic [ref=e1826]: (128)
+                - generic [ref=e1827]:
+                  - generic [ref=e1828]: $128
+                  - generic [ref=e1830]: shopping_cart
+            - generic [ref=e1831]:
+              - generic [ref=e1832]: Product Card
+              - generic [ref=e1833]: 商品カード
+              - generic [ref=e1834]: 商品画像・名前・価格・レーティングを1枚にまとめたECカード。
+              - generic [ref=e1835]:
+                - generic [ref=e1836]: EC
+                - generic [ref=e1837]: Product
+          - generic [ref=e1838] [cursor=pointer]:
+            - generic [ref=e1840]:
+              - generic [ref=e1841]:
+                - generic [ref=e1842]: shopping_cart
+                - text: Cart (2)
+              - generic [ref=e1843]:
+                - generic [ref=e1845]:
+                  - generic [ref=e1846]: Item A
+                  - generic [ref=e1847]: x1
+                - generic [ref=e1848]: $30
+              - generic [ref=e1849]:
+                - generic [ref=e1850]: Total
+                - generic [ref=e1851]: $54
+              - generic [ref=e1852]: Checkout
+            - generic [ref=e1853]:
+              - generic [ref=e1854]: Shopping Cart
+              - generic [ref=e1855]: カート
+              - generic [ref=e1856]: 選択した商品と数量・小計を表示し、決済へ進むUI。
+              - generic [ref=e1857]:
+                - generic [ref=e1858]: EC
+                - generic [ref=e1859]: Checkout
+          - generic [ref=e1860] [cursor=pointer]:
+            - generic [ref=e1862]:
+              - generic [ref=e1863]:
+                - generic [ref=e1864]: "4.2"
+                - generic [ref=e1865]:
+                  - generic [ref=e1866]:
+                    - generic [ref=e1867]: star
+                    - generic [ref=e1868]: star
+                    - generic [ref=e1869]: star
+                    - generic [ref=e1870]: star
+                    - generic [ref=e1871]: star
+                  - generic [ref=e1872]: 1,284 reviews
+              - generic [ref=e1873]:
+                - generic [ref=e1874]: "5"
+                - generic [ref=e1877]: "756"
+              - generic [ref=e1878]:
+                - generic [ref=e1879]: "4"
+                - generic [ref=e1882]: "321"
+            - generic [ref=e1883]:
+              - generic [ref=e1884]: Rating / Review
+              - generic [ref=e1885]: レーティング
+              - generic [ref=e1886]: 星やスコアで評価を表示・入力するUI。
+              - generic [ref=e1887]:
+                - generic [ref=e1888]: EC
+                - generic [ref=e1889]: Feedback
+      - generic [ref=e1890]:
+        - generic [ref=e1891]:
+          - generic [ref=e1892]: settings
+          - heading "Advanced Patterns" [level=2] [ref=e1893]
+          - generic [ref=e1894]: 6 patterns
+        - generic [ref=e1895]:
+          - generic [ref=e1896] [cursor=pointer]:
+            - generic [ref=e1899]:
+              - generic [ref=e1900]: dark_mode
+              - generic [ref=e1903]: light_mode
+            - generic [ref=e1904]:
+              - generic [ref=e1905]: Dark Mode Toggle
+              - generic [ref=e1906]: ダークモード切替
+              - generic [ref=e1907]: ライト/ダークテーマをワンクリックで切り替えるUI。
+              - generic [ref=e1908]:
+                - generic [ref=e1909]: Accessibility
+                - generic [ref=e1910]: Settings
+          - generic [ref=e1911] [cursor=pointer]:
+            - generic [ref=e1913]:
+              - generic [ref=e1914]:
+                - generic [ref=e1915]: drag_indicator
+                - text: Item 1
+              - generic [ref=e1916]:
+                - generic [ref=e1917]: drag_indicator
+                - text: Item 2 (dragging)
+              - generic [ref=e1919]:
+                - generic [ref=e1920]: drag_indicator
+                - text: Item 3
+            - generic [ref=e1921]:
+              - generic [ref=e1922]: Drag & Drop
+              - generic [ref=e1923]: ドラッグ&ドロップ
+              - generic [ref=e1924]: 要素をドラッグして並べ替えや移動を行うインタラクション。
+              - generic [ref=e1925]:
+                - generic [ref=e1926]: Interaction
+                - generic [ref=e1927]: Advanced
+          - generic [ref=e1928] [cursor=pointer]:
+            - generic [ref=e1931]: 10,000 rows
+            - generic [ref=e1940]:
+              - generic [ref=e1941]: Virtual Scroll
+              - generic [ref=e1942]: 仮想スクロール
+              - generic [ref=e1943]: 大量データのうち画面に表示される分だけをDOMに描画する最適化パターン。
+              - generic [ref=e1944]:
+                - generic [ref=e1945]: Performance
+                - generic [ref=e1946]: Data
+          - generic [ref=e1947] [cursor=pointer]:
+            - generic [ref=e1949]:
+              - generic [ref=e1951]: smartphone
+              - generic [ref=e1953]: tablet
+              - generic [ref=e1955]: laptop
+              - generic [ref=e1957]: desktop_windows
+            - generic [ref=e1958]:
+              - generic [ref=e1959]: Responsive Breakpoints
+              - generic [ref=e1960]: レスポンシブブレークポイント
+              - generic [ref=e1961]: 画面幅に応じてレイアウトを変化させるパターン。
+              - generic [ref=e1962]:
+                - generic [ref=e1963]: Responsive
+                - generic [ref=e1964]: Basic
+                - generic [ref=e1965]: CSS
+          - generic [ref=e1966] [cursor=pointer]:
+            - generic [ref=e1968]:
+              - generic [ref=e1970]: favorite
+              - generic [ref=e1972]: check
+            - generic [ref=e1977]:
+              - generic [ref=e1978]: Micro-interactions
+              - generic [ref=e1979]: マイクロインタラクション
+              - generic [ref=e1980]: ホバー・クリック・遷移時の小さなアニメーションやフィードバック。
+              - generic [ref=e1981]:
+                - generic [ref=e1982]: Animation
+                - generic [ref=e1983]: UX
+          - generic [ref=e1984] [cursor=pointer]:
+            - generic [ref=e1986]:
+              - generic [ref=e1987]:
+                - generic [ref=e1988]: keyboard
+                - text: Shortcuts
+              - generic [ref=e1989]:
+                - generic [ref=e1990]: Save
+                - generic [ref=e1991]: Cmd+S
+              - generic [ref=e1992]:
+                - generic [ref=e1993]: Search
+                - generic [ref=e1994]: Cmd+K
+              - generic [ref=e1995]:
+                - generic [ref=e1996]: Undo
+                - generic [ref=e1997]: Cmd+Z
+            - generic [ref=e1998]:
+              - generic [ref=e1999]: Keyboard Shortcuts
+              - generic [ref=e2000]: キーボードショートカット一覧
+              - generic [ref=e2001]: 利用可能なキーボードショートカットをオーバーレイで一覧表示する。
+              - generic [ref=e2002]:
+                - generic [ref=e2003]: Accessibility
+                - generic [ref=e2004]: Power User
+      - generic [ref=e2005]:
+        - generic [ref=e2006]:
+          - generic [ref=e2007]: lock_outline
+          - heading "Authentication" [level=2] [ref=e2008]
+          - generic [ref=e2009]: 2 patterns
+        - generic [ref=e2010]:
+          - generic [ref=e2011] [cursor=pointer]:
+            - generic [ref=e2013]:
+              - generic [ref=e2014]: Log In
+              - textbox [ref=e2015]: email@example.com
+              - textbox [ref=e2016]: "********"
+              - generic [ref=e2017]: Log In
+              - generic [ref=e2018]: or continue with
+              - generic [ref=e2019]:
+                - generic [ref=e2020]: G
+                - generic [ref=e2022]: apple
+            - generic [ref=e2023]:
+              - generic [ref=e2024]: Login Form
+              - generic [ref=e2025]: ログインフォーム
+              - generic [ref=e2026]: メール/パスワードでサインインするフォーム。ソーシャルログインボタンを含むことが多い。
+              - generic [ref=e2027]:
+                - generic [ref=e2028]: Auth
+                - generic [ref=e2029]: Form
+          - generic [ref=e2030] [cursor=pointer]:
+            - generic [ref=e2032]:
+              - generic [ref=e2033]: Create Account
+              - generic [ref=e2034]: Name
+              - textbox [ref=e2035]: Kawai
+              - generic [ref=e2036]: Email
+              - textbox [ref=e2037]
+              - generic [ref=e2038]: Password
+              - textbox [ref=e2039]
+              - generic [ref=e2040]: Create
+            - generic [ref=e2041]:
+              - generic [ref=e2042]: Sign Up Form
+              - generic [ref=e2043]: 新規登録フォーム
+              - generic [ref=e2044]: アカウント作成のためのフォーム。
+              - generic [ref=e2045]:
+                - generic [ref=e2046]: Auth
+                - generic [ref=e2047]: Form
+      - generic [ref=e2048]:
+        - generic [ref=e2049]:
+          - generic [ref=e2050]: error_outline
+          - heading "Error & System" [level=2] [ref=e2051]
+          - generic [ref=e2052]: 4 patterns
+        - generic [ref=e2053]:
+          - generic [ref=e2054] [cursor=pointer]:
+            - generic [ref=e2056]:
+              - generic [ref=e2057]: "404"
+              - generic [ref=e2058]: Page Not Found
+              - generic [ref=e2059]: Please check the URL
+              - generic [ref=e2060]: Go Home
+            - generic [ref=e2061]:
+              - generic [ref=e2062]: 404 Page
+              - generic [ref=e2063]: 404ページ
+              - generic [ref=e2064]: ページが見つからない時のエラーページ。
+              - generic [ref=e2065]:
+                - generic [ref=e2066]: Error
+                - generic [ref=e2067]: Web
+          - generic [ref=e2068] [cursor=pointer]:
+            - generic [ref=e2070]:
+              - generic [ref=e2071]: error_outline
+              - generic [ref=e2072]: Something went wrong
+              - generic [ref=e2073]: Could not connect to server
+              - generic [ref=e2074]: Retry
+            - generic [ref=e2075]:
+              - generic [ref=e2076]: Error State
+              - generic [ref=e2077]: エラー状態
+              - generic [ref=e2078]: 操作失敗時の状態表示。エラー内容と復旧アクションを提示。
+              - generic [ref=e2079]:
+                - generic [ref=e2080]: Error
+                - generic [ref=e2081]: UX
+          - generic [ref=e2082] [cursor=pointer]:
+            - generic [ref=e2084]:
+              - generic [ref=e2085]: build
+              - generic [ref=e2086]: Under Maintenance
+              - generic [ref=e2087]: System update in progress
+              - generic [ref=e2088]: "ETA: 15:00 JST"
+            - generic [ref=e2089]:
+              - generic [ref=e2090]: Maintenance Page
+              - generic [ref=e2091]: メンテナンス画面
+              - generic [ref=e2092]: システムメンテナンス中に表示されるページ。
+              - generic [ref=e2093]:
+                - generic [ref=e2094]: System
+                - generic [ref=e2095]: Web
+          - generic [ref=e2096] [cursor=pointer]:
+            - generic [ref=e2098]:
+              - generic [ref=e2099]: cookie
+              - generic [ref=e2100]: This site uses cookies for analytics.
+              - generic [ref=e2101]:
+                - generic [ref=e2102]: Decline
+                - generic [ref=e2103]: Accept
+            - generic [ref=e2104]:
+              - generic [ref=e2105]: Cookie Banner
+              - generic [ref=e2106]: クッキーバナー
+              - generic [ref=e2107]: Cookie利用の同意を求めるGDPR対応バナー。
+              - generic [ref=e2108]:
+                - generic [ref=e2109]: Legal
+                - generic [ref=e2110]: Web

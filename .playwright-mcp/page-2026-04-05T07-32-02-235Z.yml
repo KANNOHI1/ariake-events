@@ -1,0 +1,1226 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "有明イベント" [level=1] [ref=e6]
+        - generic [ref=e7]: 4月5日(日)
+    - generic [ref=e9]:
+      - button "tune 絞り込み" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: tune
+        - text: 絞り込み
+      - button "グリッド表示に切り替え" [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: grid_view
+    - main [ref=e16]:
+      - generic [ref=e174]:
+        - generic [ref=e175]:
+          - button "前の月" [ref=e176] [cursor=pointer]:
+            - generic [ref=e177]: chevron_left
+          - heading "2026年4月" [level=2] [ref=e178]
+          - button "次の月" [ref=e179] [cursor=pointer]:
+            - generic [ref=e180]: chevron_right
+        - generic [ref=e181]:
+          - link [ref=e182] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2151/
+            - article [ref=e183]:
+              - generic [ref=e184]:
+                - img [ref=e185]
+                - img "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [ref=e186]
+                - generic [ref=e187]: 空いている
+              - generic [ref=e188]:
+                - generic [ref=e189]:
+                  - generic [ref=e190]: 有明ガーデン
+                  - generic [ref=e191]: フード
+                - heading "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [level=3] [ref=e192]
+                - paragraph [ref=e193]: 📅 2024-09-23 〜 2026-12-27
+          - link [ref=e194] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2876/
+            - article [ref=e195]:
+              - generic [ref=e196]:
+                - img [ref=e197]
+                - img "JACK IN THE DONUTS" [ref=e198]
+                - generic [ref=e199]: 空いている
+              - generic [ref=e200]:
+                - generic [ref=e201]:
+                  - generic [ref=e202]: 有明ガーデン
+                  - generic [ref=e203]: フード
+                - heading "JACK IN THE DONUTS" [level=3] [ref=e204]
+                - paragraph [ref=e205]: 📅 2026-02-05 〜 2027-01-20
+          - link [ref=e206] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2952/
+            - article [ref=e207]:
+              - generic [ref=e208]:
+                - img [ref=e209]
+                - img "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [ref=e210]
+                - generic [ref=e211]: 空いている
+              - generic [ref=e212]:
+                - generic [ref=e213]:
+                  - generic [ref=e214]: 有明ガーデン
+                  - generic [ref=e215]: フード
+                - heading "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [level=3] [ref=e216]
+                - paragraph [ref=e217]: 📅 2026-03-28 〜 2026-04-05
+          - link [ref=e218] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2950/
+            - article [ref=e219]:
+              - generic [ref=e220]:
+                - img [ref=e221]
+                - img "April Dream × 有明ガーデン「夢の桜プロジェクト」" [ref=e222]
+                - generic [ref=e223]: 空いている
+              - generic [ref=e224]:
+                - generic [ref=e225]:
+                  - generic [ref=e226]: 有明ガーデン
+                  - generic [ref=e227]: 展示・展覧
+                - heading "April Dream × 有明ガーデン「夢の桜プロジェクト」" [level=3] [ref=e228]
+                - paragraph [ref=e229]: 📅 2026-03-28 〜 2026-04-12
+          - link [ref=e230] [cursor=pointer]:
+            - /url: https://vs.bullettrain.live
+            - article [ref=e231]:
+              - generic [ref=e232]:
+                - img [ref=e233]
+                - img "VS.超特急 超特急の冠番組ならではの内容が盛りだくさん番組連動ライブ「ＶＳ.超特急」第３弾！" [ref=e234]
+                - generic [ref=e235]: 空いている
+              - generic [ref=e236]:
+                - generic [ref=e237]:
+                  - generic [ref=e238]: 有明アリーナ
+                  - generic [ref=e239]: ミュージック
+                - heading "VS.超特急 超特急の冠番組ならではの内容が盛りだくさん番組連動ライブ「ＶＳ.超特急」第３弾！" [level=3] [ref=e240]
+                - paragraph [ref=e241]: 📅 2026-03-31 〜 2026-04-01
+          - link [ref=e242] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/kqwlh5x9a3
+            - article [ref=e243]:
+              - generic [ref=e244]:
+                - img [ref=e245]
+                - img "2026年度 丹青社グループ入社式・社長賞表彰式『 TAKE THE BATON 』" [ref=e246]
+                - generic [ref=e247]: やや混雑
+              - generic [ref=e248]:
+                - generic [ref=e249]:
+                  - generic [ref=e250]: TOYOTA ARENA TOKYO
+                  - generic [ref=e251]: その他
+                - heading "2026年度 丹青社グループ入社式・社長賞表彰式『 TAKE THE BATON 』" [level=3] [ref=e252]
+                - paragraph [ref=e253]: 📅 2026-04-01
+          - link [ref=e254] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/o9_-45kvczq
+            - article [ref=e255]:
+              - generic [ref=e256]:
+                - img [ref=e257]
+                - img "春休み「無料体験クリニック」Ex.DAY2" [ref=e258]
+                - generic [ref=e259]: 空いている
+              - generic [ref=e260]:
+                - generic [ref=e261]:
+                  - generic [ref=e262]: TOYOTA ARENA TOKYO
+                  - generic [ref=e263]: その他
+                - heading "春休み「無料体験クリニック」Ex.DAY2" [level=3] [ref=e264]
+                - paragraph [ref=e265]: 📅 2026-04-02
+          - link [ref=e266] [cursor=pointer]:
+            - /url: https://interpets.jp.messefrankfurt.com/tokyo/ja.html
+            - article [ref=e267]:
+              - generic [ref=e268]:
+                - img [ref=e269]
+                - img "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [ref=e270]
+                - generic [ref=e271]: 空いている
+              - generic [ref=e272]:
+                - generic [ref=e273]:
+                  - generic [ref=e274]: 東京ビッグサイト
+                  - generic [ref=e275]: 展示・展覧
+                - heading "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [level=3] [ref=e276]
+                - paragraph [ref=e277]: 📅 2026-04-02 〜 2026-04-05
+          - link [ref=e278] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/rf77on3c2q2v
+            - article [ref=e279]:
+              - generic [ref=e280]:
+                - img [ref=e281]
+                - img "春休み「無料体験クリニック」Ex.DAY3" [ref=e282]
+                - generic [ref=e283]: 空いている
+              - generic [ref=e284]:
+                - generic [ref=e285]:
+                  - generic [ref=e286]: TOYOTA ARENA TOKYO
+                  - generic [ref=e287]: その他
+                - heading "春休み「無料体験クリニック」Ex.DAY3" [level=3] [ref=e288]
+                - paragraph [ref=e289]: 📅 2026-04-03
+          - link [ref=e290] [cursor=pointer]:
+            - /url: https://www.akglive.com/30th/
+            - article [ref=e291]:
+              - generic [ref=e292]:
+                - img [ref=e293]
+                - img "ASIAN KUNG-FU GENERATION ASIAN KUNG-FU GENERATION 30th Anniversary Special Concert \"Thirty Revolutions”" [ref=e294]
+                - generic [ref=e295]: やや混雑
+              - generic [ref=e296]:
+                - generic [ref=e297]:
+                  - generic [ref=e298]: 有明アリーナ
+                  - generic [ref=e299]: ミュージック
+                - heading "ASIAN KUNG-FU GENERATION ASIAN KUNG-FU GENERATION 30th Anniversary Special Concert \"Thirty Revolutions”" [level=3] [ref=e300]
+                - paragraph [ref=e301]: 📅 2026-04-04 〜 2026-04-05
+          - link [ref=e302] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e303]:
+              - generic [ref=e304]:
+                - img [ref=e305]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [ref=e306]
+                - generic [ref=e307]: やや混雑
+              - generic [ref=e308]:
+                - generic [ref=e309]:
+                  - generic [ref=e310]: TOYOTA ARENA TOKYO
+                  - generic [ref=e311]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [level=3] [ref=e312]
+                - paragraph [ref=e313]: 📅 2026-04-04
+          - link [ref=e314] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2966/
+            - article [ref=e315]:
+              - generic [ref=e316]:
+                - img [ref=e317]
+                - img "遊んで 食べて シリアル ハピモニ★ランド" [ref=e318]
+                - generic [ref=e319]: やや混雑
+              - generic [ref=e320]:
+                - generic [ref=e321]:
+                  - generic [ref=e322]: 有明ガーデン
+                  - generic [ref=e323]: キッズ
+                - heading "遊んで 食べて シリアル ハピモニ★ランド" [level=3] [ref=e324]
+                - paragraph [ref=e325]: 📅 2026-04-04 〜 2026-04-05
+          - link [ref=e326] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2259/
+            - article [ref=e327]:
+              - generic [ref=e328]:
+                - img [ref=e329]
+                - img "フードトラック出店｜吉野家" [ref=e330]
+                - generic [ref=e331]: やや混雑
+              - generic [ref=e332]:
+                - generic [ref=e333]:
+                  - generic [ref=e334]: 有明ガーデン
+                  - generic [ref=e335]: フード
+                - heading "フードトラック出店｜吉野家" [level=3] [ref=e336]
+                - paragraph [ref=e337]: 📅 2026-04-05 〜 2026-04-26
+          - link [ref=e338] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e339]:
+              - generic [ref=e340]:
+                - img [ref=e341]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [ref=e342]
+                - generic [ref=e343]: やや混雑
+              - generic [ref=e344]:
+                - generic [ref=e345]:
+                  - generic [ref=e346]: TOYOTA ARENA TOKYO
+                  - generic [ref=e347]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [level=3] [ref=e348]
+                - paragraph [ref=e349]: 📅 2026-04-05
+          - link [ref=e350] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2979/
+            - article [ref=e351]:
+              - generic [ref=e352]:
+                - img [ref=e353]
+                - img "東京湾岸交通安全の集い" [ref=e354]
+                - generic [ref=e355]: やや混雑
+              - generic [ref=e356]:
+                - generic [ref=e357]:
+                  - generic [ref=e358]: 有明ガーデン
+                  - generic [ref=e359]: その他
+                - heading "東京湾岸交通安全の集い" [level=3] [ref=e360]
+                - paragraph [ref=e361]: 📅 2026-04-05
+          - link [ref=e362] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2978/
+            - article [ref=e363]:
+              - generic [ref=e364]:
+                - img [ref=e365]
+                - img "ayumi hamasaki x MFC STORE POP-UP STORE" [ref=e366]
+                - generic [ref=e367]: 空いている
+              - generic [ref=e368]:
+                - generic [ref=e369]:
+                  - generic [ref=e370]: 有明ガーデン
+                  - generic [ref=e371]: その他
+                - heading "ayumi hamasaki x MFC STORE POP-UP STORE" [level=3] [ref=e372]
+                - paragraph [ref=e373]: 📅 2026-04-07 〜 2026-04-08
+          - link [ref=e374] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4600/
+            - article [ref=e375]:
+              - generic [ref=e376]:
+                - img [ref=e377]
+                - img "桜美林大学 2026年度春学期入学式" [ref=e378]
+                - generic [ref=e379]: 空いている
+              - generic [ref=e380]:
+                - generic [ref=e381]:
+                  - generic [ref=e382]: 東京ガーデンシアター
+                  - generic [ref=e383]: その他
+                - heading "桜美林大学 2026年度春学期入学式" [level=3] [ref=e384]
+                - paragraph [ref=e385]: 📅 2026-04-07
+          - link [ref=e386] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/designer.html
+            - article [ref=e387]:
+              - generic [ref=e388]:
+                - img [ref=e389]
+                - img "Designer’s Gate デザイナーズゲート" [ref=e390]
+                - generic [ref=e391]: 混雑
+              - generic [ref=e392]:
+                - generic [ref=e393]:
+                  - generic [ref=e394]: 東京ビッグサイト
+                  - generic [ref=e395]: その他
+                - heading "Designer’s Gate デザイナーズゲート" [level=3] [ref=e396]
+                - paragraph [ref=e397]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e398] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/about/ec-storeweek.html
+            - article [ref=e399]:
+              - generic [ref=e400]:
+                - img [ref=e401]
+                - img "EC・店舗 Week 春 2026" [ref=e402]
+                - generic [ref=e403]: 混雑
+              - generic [ref=e404]:
+                - generic [ref=e405]:
+                  - generic [ref=e406]: 東京ビッグサイト
+                  - generic [ref=e407]: 展示・展覧
+                - heading "EC・店舗 Week 春 2026" [level=3] [ref=e408]
+                - paragraph [ref=e409]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e410] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/about/dxweek.html
+            - article [ref=e411]:
+              - generic [ref=e412]:
+                - img [ref=e413]
+                - img "Japan DX Week 春 2026" [ref=e414]
+                - generic [ref=e415]: 混雑
+              - generic [ref=e416]:
+                - generic [ref=e417]:
+                  - generic [ref=e418]: 東京ビッグサイト
+                  - generic [ref=e419]: 展示・展覧
+                - heading "Japan DX Week 春 2026" [level=3] [ref=e420]
+                - paragraph [ref=e421]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e422] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/about/itweek.html
+            - article [ref=e423]:
+              - generic [ref=e424]:
+                - img [ref=e425]
+                - img "Japan IT Week 春 2026" [ref=e426]
+                - generic [ref=e427]: 混雑
+              - generic [ref=e428]:
+                - generic [ref=e429]:
+                  - generic [ref=e430]: 東京ビッグサイト
+                  - generic [ref=e431]: 展示・展覧
+                - heading "Japan IT Week 春 2026" [level=3] [ref=e432]
+                - paragraph [ref=e433]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e434] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e435]:
+              - generic [ref=e436]:
+                - img [ref=e437]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン サンロッカーズ渋谷 vs 川崎ブレイブサンダース" [ref=e438]
+                - generic [ref=e439]: 混雑
+              - generic [ref=e440]:
+                - generic [ref=e441]:
+                  - generic [ref=e442]: TOYOTA ARENA TOKYO
+                  - generic [ref=e443]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン サンロッカーズ渋谷 vs 川崎ブレイブサンダース" [level=3] [ref=e444]
+                - paragraph [ref=e445]: 📅 2026-04-08
+          - link [ref=e446] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/about/sales-marketingweek.html
+            - article [ref=e447]:
+              - generic [ref=e448]:
+                - img [ref=e449]
+                - img "営業・デジタルマーケティング Week 春 2026" [ref=e450]
+                - generic [ref=e451]: 混雑
+              - generic [ref=e452]:
+                - generic [ref=e453]:
+                  - generic [ref=e454]: 東京ビッグサイト
+                  - generic [ref=e455]: 展示・展覧
+                - heading "営業・デジタルマーケティング Week 春 2026" [level=3] [ref=e456]
+                - paragraph [ref=e457]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e458] [cursor=pointer]:
+            - /url: https://avex.jp/ayu/
+            - article [ref=e459]:
+              - generic [ref=e460]:
+                - img [ref=e461]
+                - img "浜崎あゆみ ayumi hamasaki JAPAN TOUR 2026 A -Scapegoat" [ref=e462]
+                - generic [ref=e463]: 混雑
+              - generic [ref=e464]:
+                - generic [ref=e465]:
+                  - generic [ref=e466]: 有明アリーナ
+                  - generic [ref=e467]: ミュージック
+                - heading "浜崎あゆみ ayumi hamasaki JAPAN TOUR 2026 A -Scapegoat" [level=3] [ref=e468]
+                - paragraph [ref=e469]: 📅 2026-04-08
+          - link [ref=e470] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/sus.html
+            - article [ref=e471]:
+              - generic [ref=e472]:
+                - img [ref=e473]
+                - img "第11回 サステナブル ファッション EXPO 春" [ref=e474]
+                - generic [ref=e475]: 混雑
+              - generic [ref=e476]:
+                - generic [ref=e477]:
+                  - generic [ref=e478]: 東京ビッグサイト
+                  - generic [ref=e479]: 展示・展覧
+                - heading "第11回 サステナブル ファッション EXPO 春" [level=3] [ref=e480]
+                - paragraph [ref=e481]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e482] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/office.html
+            - article [ref=e483]:
+              - generic [ref=e484]:
+                - img [ref=e485]
+                - img "第17回 社内業務 DX EXPO【春】（Japan DX Week 春 内）" [ref=e486]
+                - generic [ref=e487]: 混雑
+              - generic [ref=e488]:
+                - generic [ref=e489]:
+                  - generic [ref=e490]: 東京ビッグサイト
+                  - generic [ref=e491]: 展示・展覧
+                - heading "第17回 社内業務 DX EXPO【春】（Japan DX Week 春 内）" [level=3] [ref=e492]
+                - paragraph [ref=e493]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e494] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/sysad.html
+            - article [ref=e495]:
+              - generic [ref=e496]:
+                - img [ref=e497]
+                - img "第1回 情シス応援 EXPO【春】（Japan IT Week 春 内）" [ref=e498]
+                - generic [ref=e499]: 混雑
+              - generic [ref=e500]:
+                - generic [ref=e501]:
+                  - generic [ref=e502]: 東京ビッグサイト
+                  - generic [ref=e503]: 展示・展覧
+                - heading "第1回 情シス応援 EXPO【春】（Japan IT Week 春 内）" [level=3] [ref=e504]
+                - paragraph [ref=e505]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e506] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/web.html
+            - article [ref=e507]:
+              - generic [ref=e508]:
+                - img [ref=e509]
+                - img "第20回 デジタルマーケティング EXPO【春】（営業・デジタルマーケティング Week 春 内）" [ref=e510]
+                - generic [ref=e511]: 混雑
+              - generic [ref=e512]:
+                - generic [ref=e513]:
+                  - generic [ref=e514]: 東京ビッグサイト
+                  - generic [ref=e515]: 展示・展覧
+                - heading "第20回 デジタルマーケティング EXPO【春】（営業・デジタルマーケティング Week 春 内）" [level=3] [ref=e516]
+                - paragraph [ref=e517]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e518] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/oem.html
+            - article [ref=e519]:
+              - generic [ref=e520]:
+                - img [ref=e521]
+                - img "第22回 アジアの縫製・生産工場 EXPO 春" [ref=e522]
+                - generic [ref=e523]: 混雑
+              - generic [ref=e524]:
+                - generic [ref=e525]:
+                  - generic [ref=e526]: 東京ビッグサイト
+                  - generic [ref=e527]: 展示・展覧
+                - heading "第22回 アジアの縫製・生産工場 EXPO 春" [level=3] [ref=e528]
+                - paragraph [ref=e529]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e530] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/textile.html
+            - article [ref=e531]:
+              - generic [ref=e532]:
+                - img [ref=e533]
+                - img "第22回 生地・素材 EXPO 春" [ref=e534]
+                - generic [ref=e535]: 混雑
+              - generic [ref=e536]:
+                - generic [ref=e537]:
+                  - generic [ref=e538]: 東京ビッグサイト
+                  - generic [ref=e539]: 展示・展覧
+                - heading "第22回 生地・素材 EXPO 春" [level=3] [ref=e540]
+                - paragraph [ref=e541]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e542] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/ist.html
+            - article [ref=e543]:
+              - generic [ref=e544]:
+                - img [ref=e545]
+                - img "第23回 情報セキュリティ EXPO【春】（Japan IT Week 春 内）" [ref=e546]
+                - generic [ref=e547]: 混雑
+              - generic [ref=e548]:
+                - generic [ref=e549]:
+                  - generic [ref=e550]: 東京ビッグサイト
+                  - generic [ref=e551]: 展示・展覧
+                - heading "第23回 情報セキュリティ EXPO【春】（Japan IT Week 春 内）" [level=3] [ref=e552]
+                - paragraph [ref=e553]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e554] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/spring/ja-jp.html
+            - article [ref=e555]:
+              - generic [ref=e556]:
+                - img [ref=e557]
+                - img "第29回 FaW TOKYO-ファッションワールド春" [ref=e558]
+                - generic [ref=e559]: 混雑
+              - generic [ref=e560]:
+                - generic [ref=e561]:
+                  - generic [ref=e562]: 東京ビッグサイト
+                  - generic [ref=e563]: ファッション
+                - heading "第29回 FaW TOKYO-ファッションワールド春" [level=3] [ref=e564]
+                - paragraph [ref=e565]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e566] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/ifa.html
+            - article [ref=e567]:
+              - generic [ref=e568]:
+                - img [ref=e569]
+                - img "第29回 ブランド＆デザイナーEXPO 春" [ref=e570]
+                - generic [ref=e571]: 混雑
+              - generic [ref=e572]:
+                - generic [ref=e573]:
+                  - generic [ref=e574]: 東京ビッグサイト
+                  - generic [ref=e575]: 展示・展覧
+                - heading "第29回 ブランド＆デザイナーEXPO 春" [level=3] [ref=e576]
+                - paragraph [ref=e577]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e578] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/jfa.html
+            - article [ref=e579]:
+              - generic [ref=e580]:
+                - img [ref=e581]
+                - img "第29回 日本のファッション 輸出 EXPO 春" [ref=e582]
+                - generic [ref=e583]: 混雑
+              - generic [ref=e584]:
+                - generic [ref=e585]:
+                  - generic [ref=e586]: 東京ビッグサイト
+                  - generic [ref=e587]: 展示・展覧
+                - heading "第29回 日本のファッション 輸出 EXPO 春" [level=3] [ref=e588]
+                - paragraph [ref=e589]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e590] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/esec.html
+            - article [ref=e591]:
+              - generic [ref=e592]:
+                - img [ref=e593]
+                - img "第29回 組込み・エッジ・IoT 開発 EXPO【春】（Japan IT Week 春 内）" [ref=e594]
+                - generic [ref=e595]: 混雑
+              - generic [ref=e596]:
+                - generic [ref=e597]:
+                  - generic [ref=e598]: 東京ビッグサイト
+                  - generic [ref=e599]: 展示・展覧
+                - heading "第29回 組込み・エッジ・IoT 開発 EXPO【春】（Japan IT Week 春 内）" [level=3] [ref=e600]
+                - paragraph [ref=e601]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e602] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/ecui.html
+            - article [ref=e603]:
+              - generic [ref=e604]:
+                - img [ref=e605]
+                - img "第2回 ECサイトのUI/UX EXPO【春】（EC・店舗 Week 春 内）" [ref=e606]
+                - generic [ref=e607]: 混雑
+              - generic [ref=e608]:
+                - generic [ref=e609]:
+                  - generic [ref=e610]: 東京ビッグサイト
+                  - generic [ref=e611]: 展示・展覧
+                - heading "第2回 ECサイトのUI/UX EXPO【春】（EC・店舗 Week 春 内）" [level=3] [ref=e612]
+                - paragraph [ref=e613]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e614] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/ec.html
+            - article [ref=e615]:
+              - generic [ref=e616]:
+                - img [ref=e617]
+                - img "第2回 EC管理・物流 EXPO【春】（EC・店舗 Week 春 内）" [ref=e618]
+                - generic [ref=e619]: 混雑
+              - generic [ref=e620]:
+                - generic [ref=e621]:
+                  - generic [ref=e622]: 東京ビッグサイト
+                  - generic [ref=e623]: 展示・展覧
+                - heading "第2回 EC管理・物流 EXPO【春】（EC・店舗 Week 春 内）" [level=3] [ref=e624]
+                - paragraph [ref=e625]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e626] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/ith.html
+            - article [ref=e627]:
+              - generic [ref=e628]:
+                - img [ref=e629]
+                - img "第2回 IT人材不足 対策 EXPO【春】（Japan IT Week 春 内）" [ref=e630]
+                - generic [ref=e631]: 混雑
+              - generic [ref=e632]:
+                - generic [ref=e633]:
+                  - generic [ref=e634]: 東京ビッグサイト
+                  - generic [ref=e635]: 展示・展覧
+                - heading "第2回 IT人材不足 対策 EXPO【春】（Japan IT Week 春 内）" [level=3] [ref=e636]
+                - paragraph [ref=e637]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e638] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/dse.html
+            - article [ref=e639]:
+              - generic [ref=e640]:
+                - img [ref=e641]
+                - img "第2回 データセンター EXPO【春】（Japan IT Week 春 内）" [ref=e642]
+                - generic [ref=e643]: 混雑
+              - generic [ref=e644]:
+                - generic [ref=e645]:
+                  - generic [ref=e646]: 東京ビッグサイト
+                  - generic [ref=e647]: 展示・展覧
+                - heading "第2回 データセンター EXPO【春】（Japan IT Week 春 内）" [level=3] [ref=e648]
+                - paragraph [ref=e649]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e650] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/reuse.html
+            - article [ref=e651]:
+              - generic [ref=e652]:
+                - img [ref=e653]
+                - img "第2回 リユースビジネス EXPO 春" [ref=e654]
+                - generic [ref=e655]: 混雑
+              - generic [ref=e656]:
+                - generic [ref=e657]:
+                  - generic [ref=e658]: 東京ビッグサイト
+                  - generic [ref=e659]: 展示・展覧
+                - heading "第2回 リユースビジネス EXPO 春" [level=3] [ref=e660]
+                - paragraph [ref=e661]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e662] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/sth.html
+            - article [ref=e663]:
+              - generic [ref=e664]:
+                - img [ref=e665]
+                - img "第2回 店舗の人手不足対策 EXPO【春】（EC・店舗 Week 春 内）" [ref=e666]
+                - generic [ref=e667]: 混雑
+              - generic [ref=e668]:
+                - generic [ref=e669]:
+                  - generic [ref=e670]: 東京ビッグサイト
+                  - generic [ref=e671]: 展示・展覧
+                - heading "第2回 店舗の人手不足対策 EXPO【春】（EC・店舗 Week 春 内）" [level=3] [ref=e672]
+                - paragraph [ref=e673]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e674] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/storex.html
+            - article [ref=e675]:
+              - generic [ref=e676]:
+                - img [ref=e677]
+                - img "第2回 店舗管理・運営 EXPO【春】（EC・店舗 Week 春 内）" [ref=e678]
+                - generic [ref=e679]: 混雑
+              - generic [ref=e680]:
+                - generic [ref=e681]:
+                  - generic [ref=e682]: 東京ビッグサイト
+                  - generic [ref=e683]: 展示・展覧
+                - heading "第2回 店舗管理・運営 EXPO【春】（EC・店舗 Week 春 内）" [level=3] [ref=e684]
+                - paragraph [ref=e685]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e686] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/deskless.html
+            - article [ref=e687]:
+              - generic [ref=e688]:
+                - img [ref=e689]
+                - img "第2回 現場DX EXPO【春】（Japan DX Week 春 内）" [ref=e690]
+                - generic [ref=e691]: 混雑
+              - generic [ref=e692]:
+                - generic [ref=e693]:
+                  - generic [ref=e694]: 東京ビッグサイト
+                  - generic [ref=e695]: 展示・展覧
+                - heading "第2回 現場DX EXPO【春】（Japan DX Week 春 内）" [level=3] [ref=e696]
+                - paragraph [ref=e697]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e698] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/sdx.html
+            - article [ref=e699]:
+              - generic [ref=e700]:
+                - img [ref=e701]
+                - img "第31回 営業DX EXPO【春】（営業・デジタルマーケティング Week 春 内）" [ref=e702]
+                - generic [ref=e703]: 混雑
+              - generic [ref=e704]:
+                - generic [ref=e705]:
+                  - generic [ref=e706]: 東京ビッグサイト
+                  - generic [ref=e707]: 展示・展覧
+                - heading "第31回 営業DX EXPO【春】（営業・デジタルマーケティング Week 春 内）" [level=3] [ref=e708]
+                - paragraph [ref=e709]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e710] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/sodec.html
+            - article [ref=e711]:
+              - generic [ref=e712]:
+                - img [ref=e713]
+                - img "第35回 ソフトウェア受託開発・開発支援 展【春】（Japan IT Week 春 内）" [ref=e714]
+                - generic [ref=e715]: 混雑
+              - generic [ref=e716]:
+                - generic [ref=e717]:
+                  - generic [ref=e718]: 東京ビッグサイト
+                  - generic [ref=e719]: 展示・展覧
+                - heading "第35回 ソフトウェア受託開発・開発支援 展【春】（Japan IT Week 春 内）" [level=3] [ref=e720]
+                - paragraph [ref=e721]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e722] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/sports.html
+            - article [ref=e723]:
+              - generic [ref=e724]:
+                - img [ref=e725]
+                - img "第3回 スポーツファッション EXPO 春" [ref=e726]
+                - generic [ref=e727]: 混雑
+              - generic [ref=e728]:
+                - generic [ref=e729]:
+                  - generic [ref=e730]: 東京ビッグサイト
+                  - generic [ref=e731]: スポーツ
+                - heading "第3回 スポーツファッション EXPO 春" [level=3] [ref=e732]
+                - paragraph [ref=e733]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e734] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/data.html
+            - article [ref=e735]:
+              - generic [ref=e736]:
+                - img [ref=e737]
+                - img "第3回 データドリブン経営 EXPO【春】（Japan DX Week 春 内）" [ref=e738]
+                - generic [ref=e739]: 混雑
+              - generic [ref=e740]:
+                - generic [ref=e741]:
+                  - generic [ref=e742]: 東京ビッグサイト
+                  - generic [ref=e743]: 展示・展覧
+                - heading "第3回 データドリブン経営 EXPO【春】（Japan DX Week 春 内）" [level=3] [ref=e744]
+                - paragraph [ref=e745]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e746] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/wef.html
+            - article [ref=e747]:
+              - generic [ref=e748]:
+                - img [ref=e749]
+                - img "第6回 健康・美容・機能性ウェア EXPO 春" [ref=e750]
+                - generic [ref=e751]: 混雑
+              - generic [ref=e752]:
+                - generic [ref=e753]:
+                  - generic [ref=e754]: 東京ビッグサイト
+                  - generic [ref=e755]: 展示・展覧
+                - heading "第6回 健康・美容・機能性ウェア EXPO 春" [level=3] [ref=e756]
+                - paragraph [ref=e757]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e758] [cursor=pointer]:
+            - /url: https://www.japan-it.jp/hub/ja-jp/visit/ai.html
+            - article [ref=e759]:
+              - generic [ref=e760]:
+                - img [ref=e761]
+                - img "第9回 AI・業務自動化 展【春】（Japan DX Week 春 内）" [ref=e762]
+                - generic [ref=e763]: 混雑
+              - generic [ref=e764]:
+                - generic [ref=e765]:
+                  - generic [ref=e766]: 東京ビッグサイト
+                  - generic [ref=e767]: 展示・展覧
+                - heading "第9回 AI・業務自動化 展【春】（Japan DX Week 春 内）" [level=3] [ref=e768]
+                - paragraph [ref=e769]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e770] [cursor=pointer]:
+            - /url: https://www.fashion-tokyo.jp/hub/ja-jp/about/fdx.html
+            - article [ref=e771]:
+              - generic [ref=e772]:
+                - img [ref=e773]
+                - img "第9回 ファッションテック EXPO 春" [ref=e774]
+                - generic [ref=e775]: 混雑
+              - generic [ref=e776]:
+                - generic [ref=e777]:
+                  - generic [ref=e778]: 東京ビッグサイト
+                  - generic [ref=e779]: 展示・展覧
+                - heading "第9回 ファッションテック EXPO 春" [level=3] [ref=e780]
+                - paragraph [ref=e781]: 📅 2026-04-08 〜 2026-04-10
+          - link [ref=e782] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/gww_cli5lsve
+            - article [ref=e783]:
+              - generic [ref=e784]:
+                - img [ref=e785]
+                - img "¥ellow Bucks One Man Live 『Who I Am』" [ref=e786]
+                - generic [ref=e787]: やや混雑
+              - generic [ref=e788]:
+                - generic [ref=e789]:
+                  - generic [ref=e790]: TOYOTA ARENA TOKYO
+                  - generic [ref=e791]: ミュージック
+                - heading "¥ellow Bucks One Man Live 『Who I Am』" [level=3] [ref=e792]
+                - paragraph [ref=e793]: 📅 2026-04-10
+          - link [ref=e794] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4581/
+            - article [ref=e795]:
+              - generic [ref=e796]:
+                - img [ref=e797]
+                - img "Private" [ref=e798]
+                - generic [ref=e799]: やや混雑
+              - generic [ref=e800]:
+                - generic [ref=e801]:
+                  - generic [ref=e802]: 東京ガーデンシアター
+                  - generic [ref=e803]: その他
+                - heading "Private" [level=3] [ref=e804]
+                - paragraph [ref=e805]: 📅 2026-04-10
+          - link [ref=e806] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2949/
+            - article [ref=e807]:
+              - generic [ref=e808]:
+                - img [ref=e809]
+                - img "オモウマランド supported by こだわり酒場" [ref=e810]
+                - generic [ref=e811]: やや混雑
+              - generic [ref=e812]:
+                - generic [ref=e813]:
+                  - generic [ref=e814]: 有明ガーデン
+                  - generic [ref=e815]: 展示・展覧
+                - heading "オモウマランド supported by こだわり酒場" [level=3] [ref=e816]
+                - paragraph [ref=e817]: 📅 2026-04-10 〜 2026-04-12
+          - link [ref=e818] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2963/
+            - article [ref=e819]:
+              - generic [ref=e820]:
+                - img [ref=e821]
+                - img "めんそーれ！沖縄まつり" [ref=e822]
+                - generic [ref=e823]: やや混雑
+              - generic [ref=e824]:
+                - generic [ref=e825]:
+                  - generic [ref=e826]: 有明ガーデン
+                  - generic [ref=e827]: その他
+                - heading "めんそーれ！沖縄まつり" [level=3] [ref=e828]
+                - paragraph [ref=e829]: 📅 2026-04-10 〜 2026-04-20
+          - link [ref=e830] [cursor=pointer]:
+            - /url: https://www.gakujo.ne.jp/campus/events/evt_dtl?p1=evt1146&area=tokyo
+            - article [ref=e831]:
+              - generic [ref=e832]:
+                - img [ref=e833]
+                - img "Career Design Forum" [ref=e834]
+                - generic [ref=e835]: 混雑
+              - generic [ref=e836]:
+                - generic [ref=e837]:
+                  - generic [ref=e838]: 東京ビッグサイト
+                  - generic [ref=e839]: その他
+                - heading "Career Design Forum" [level=3] [ref=e840]
+                - paragraph [ref=e841]: 📅 2026-04-11 〜 2026-04-12
+          - link [ref=e842] [cursor=pointer]:
+            - /url: https://meychan.com/
+            - article [ref=e843]:
+              - generic [ref=e844]:
+                - img [ref=e845]
+                - img "めいちゃん Meychan Live Tour 2026『Number 0』" [ref=e846]
+                - generic [ref=e847]: 混雑
+              - generic [ref=e848]:
+                - generic [ref=e849]:
+                  - generic [ref=e850]: 有明アリーナ
+                  - generic [ref=e851]: ミュージック
+                - heading "めいちゃん Meychan Live Tour 2026『Number 0』" [level=3] [ref=e852]
+                - paragraph [ref=e853]: 📅 2026-04-11 〜 2026-04-12
+          - link [ref=e854] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e855]:
+              - generic [ref=e856]:
+                - img [ref=e857]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第31節 アルバルク東京 vs 島根スサノオマジック" [ref=e858]
+                - generic [ref=e859]: 混雑
+              - generic [ref=e860]:
+                - generic [ref=e861]:
+                  - generic [ref=e862]: TOYOTA ARENA TOKYO
+                  - generic [ref=e863]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第31節 アルバルク東京 vs 島根スサノオマジック" [level=3] [ref=e864]
+                - paragraph [ref=e865]: 📅 2026-04-11
+          - link [ref=e866] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4040/
+            - article [ref=e867]:
+              - generic [ref=e868]:
+                - img [ref=e869]
+                - img "上白石萌音 Mone Kamishiraishi “yattokosa” 26 《texte》" [ref=e870]
+                - generic [ref=e871]: 混雑
+              - generic [ref=e872]:
+                - generic [ref=e873]:
+                  - generic [ref=e874]: 東京ガーデンシアター
+                  - generic [ref=e875]: ミュージック
+                - heading "上白石萌音 Mone Kamishiraishi “yattokosa” 26 《texte》" [level=3] [ref=e876]
+                - paragraph [ref=e877]: 📅 2026-04-11
+          - link [ref=e878] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4449/
+            - article [ref=e879]:
+              - generic [ref=e880]:
+                - img [ref=e881]
+                - img "WATWING WATWING LIVE TOUR 2025 – 2026「honest」〜Special Edition〜The Final at 東京ガーデンシアター" [ref=e882]
+                - generic [ref=e883]: 混雑
+              - generic [ref=e884]:
+                - generic [ref=e885]:
+                  - generic [ref=e886]: 東京ガーデンシアター
+                  - generic [ref=e887]: ミュージック
+                - heading "WATWING WATWING LIVE TOUR 2025 – 2026「honest」〜Special Edition〜The Final at 東京ガーデンシアター" [level=3] [ref=e888]
+                - paragraph [ref=e889]: 📅 2026-04-12
+          - link [ref=e890] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e891]:
+              - generic [ref=e892]:
+                - img [ref=e893]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第31節 アルバルク東京 vs 島根スサノオマジック" [ref=e894]
+                - generic [ref=e895]: 混雑
+              - generic [ref=e896]:
+                - generic [ref=e897]:
+                  - generic [ref=e898]: TOYOTA ARENA TOKYO
+                  - generic [ref=e899]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第31節 アルバルク東京 vs 島根スサノオマジック" [level=3] [ref=e900]
+                - paragraph [ref=e901]: 📅 2026-04-12
+          - link [ref=e902] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4527/
+            - article [ref=e903]:
+              - generic [ref=e904]:
+                - img [ref=e905]
+                - img "Private Private" [ref=e906]
+                - generic [ref=e907]: 空いている
+              - generic [ref=e908]:
+                - generic [ref=e909]:
+                  - generic [ref=e910]: 東京ガーデンシアター
+                  - generic [ref=e911]: その他
+                - heading "Private Private" [level=3] [ref=e912]
+                - paragraph [ref=e913]: 📅 2026-04-14
+          - link [ref=e914] [cursor=pointer]:
+            - /url: https://www.fabex.jp/
+            - article [ref=e915]:
+              - generic [ref=e916]:
+                - img [ref=e917]
+                - img "FABEX東京2026（ファベックス/デザート・スイーツ＆ベーカリー展/お米未来展/食品＆飲料OEM Expo）" [ref=e918]
+                - generic [ref=e919]: やや混雑
+              - generic [ref=e920]:
+                - generic [ref=e921]:
+                  - generic [ref=e922]: 東京ビッグサイト
+                  - generic [ref=e923]: 展示・展覧
+                - heading "FABEX東京2026（ファベックス/デザート・スイーツ＆ベーカリー展/お米未来展/食品＆飲料OEM Expo）" [level=3] [ref=e924]
+                - paragraph [ref=e925]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e926] [cursor=pointer]:
+            - /url: https://www.ism-japan.jp/
+            - article [ref=e927]:
+              - generic [ref=e928]:
+                - img [ref=e929]
+                - img "ISM Japan 2026 国際菓子専門見本市" [ref=e930]
+                - generic [ref=e931]: やや混雑
+              - generic [ref=e932]:
+                - generic [ref=e933]:
+                  - generic [ref=e934]: 東京ビッグサイト
+                  - generic [ref=e935]: 展示・展覧
+                - heading "ISM Japan 2026 国際菓子専門見本市" [level=3] [ref=e936]
+                - paragraph [ref=e937]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e938] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp.html
+            - article [ref=e939]:
+              - generic [ref=e940]:
+                - img [ref=e941]
+                - img "NexTech Week 2026【春】" [ref=e942]
+                - generic [ref=e943]: やや混雑
+              - generic [ref=e944]:
+                - generic [ref=e945]:
+                  - generic [ref=e946]: 東京ビッグサイト
+                  - generic [ref=e947]: 展示・展覧
+                - heading "NexTech Week 2026【春】" [level=3] [ref=e948]
+                - paragraph [ref=e949]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e950] [cursor=pointer]:
+            - /url: https://www.prowine-tokyo.com/
+            - article [ref=e951]:
+              - generic [ref=e952]:
+                - img [ref=e953]
+                - img "ProWine Tokyo（国際ワイン・アルコール飲料展）" [ref=e954]
+                - generic [ref=e955]: やや混雑
+              - generic [ref=e956]:
+                - generic [ref=e957]:
+                  - generic [ref=e958]: 東京ビッグサイト
+                  - generic [ref=e959]: 展示・展覧
+                - heading "ProWine Tokyo（国際ワイン・アルコール飲料展）" [level=3] [ref=e960]
+                - paragraph [ref=e961]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e962] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3833/
+            - article [ref=e963]:
+              - generic [ref=e964]:
+                - img [ref=e965]
+                - img "THE ALFEE THE ALFEE Spring Celebration 2026 Moonlight Rhapsody" [ref=e966]
+                - generic [ref=e967]: やや混雑
+              - generic [ref=e968]:
+                - generic [ref=e969]:
+                  - generic [ref=e970]: 東京ガーデンシアター
+                  - generic [ref=e971]: ミュージック
+                - heading "THE ALFEE THE ALFEE Spring Celebration 2026 Moonlight Rhapsody" [level=3] [ref=e972]
+                - paragraph [ref=e973]: 📅 2026-04-15
+          - link [ref=e974] [cursor=pointer]:
+            - /url: https://www.anuga-japan.jp/
+            - article [ref=e975]:
+              - generic [ref=e976]:
+                - img [ref=e977]
+                - img "アヌーガ・セレクト・ジャパン 2026" [ref=e978]
+                - generic [ref=e979]: やや混雑
+              - generic [ref=e980]:
+                - generic [ref=e981]:
+                  - generic [ref=e982]: 東京ビッグサイト
+                  - generic [ref=e983]: その他
+                - heading "アヌーガ・セレクト・ジャパン 2026" [level=3] [ref=e984]
+                - paragraph [ref=e985]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e986] [cursor=pointer]:
+            - /url: https://www.sportsexpo.jp/ja-jp.html
+            - article [ref=e987]:
+              - generic [ref=e988]:
+                - img [ref=e989]
+                - img "スポーツチーム・アスリート向け 総合展 2026 - Japan Sports Week -" [ref=e990]
+                - generic [ref=e991]: やや混雑
+              - generic [ref=e992]:
+                - generic [ref=e993]:
+                  - generic [ref=e994]: 東京ビッグサイト
+                  - generic [ref=e995]: スポーツ
+                - heading "スポーツチーム・アスリート向け 総合展 2026 - Japan Sports Week -" [level=3] [ref=e996]
+                - paragraph [ref=e997]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e998] [cursor=pointer]:
+            - /url: https://premiumfoodshow.jp/
+            - article [ref=e999]:
+              - generic [ref=e1000]:
+                - img [ref=e1001]
+                - img "プレミアム・フードショー2026" [ref=e1002]
+                - generic [ref=e1003]: やや混雑
+              - generic [ref=e1004]:
+                - generic [ref=e1005]:
+                  - generic [ref=e1006]: 東京ビッグサイト
+                  - generic [ref=e1007]: フード
+                - heading "プレミアム・フードショー2026" [level=3] [ref=e1008]
+                - paragraph [ref=e1009]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1010] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp/visit/ai.html
+            - article [ref=e1011]:
+              - generic [ref=e1012]:
+                - img [ref=e1013]
+                - img "第10回 AI・人工知能 EXPO【春】" [ref=e1014]
+                - generic [ref=e1015]: やや混雑
+              - generic [ref=e1016]:
+                - generic [ref=e1017]:
+                  - generic [ref=e1018]: 東京ビッグサイト
+                  - generic [ref=e1019]: 展示・展覧
+                - heading "第10回 AI・人工知能 EXPO【春】" [level=3] [ref=e1020]
+                - paragraph [ref=e1021]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1022] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp/visit/hr.html
+            - article [ref=e1023]:
+              - generic [ref=e1024]:
+                - img [ref=e1025]
+                - img "第1回 ヒューマノイドロボット EXPO【春】" [ref=e1026]
+                - generic [ref=e1027]: やや混雑
+              - generic [ref=e1028]:
+                - generic [ref=e1029]:
+                  - generic [ref=e1030]: 東京ビッグサイト
+                  - generic [ref=e1031]: 展示・展覧
+                - heading "第1回 ヒューマノイドロボット EXPO【春】" [level=3] [ref=e1032]
+                - paragraph [ref=e1033]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1034] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp/visit/dxh.html
+            - article [ref=e1035]:
+              - generic [ref=e1036]:
+                - img [ref=e1037]
+                - img "第5回 AI時代の人材・組織改革EXPO【春】" [ref=e1038]
+                - generic [ref=e1039]: やや混雑
+              - generic [ref=e1040]:
+                - generic [ref=e1041]:
+                  - generic [ref=e1042]: 東京ビッグサイト
+                  - generic [ref=e1043]: 展示・展覧
+                - heading "第5回 AI時代の人材・組織改革EXPO【春】" [level=3] [ref=e1044]
+                - paragraph [ref=e1045]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1046] [cursor=pointer]:
+            - /url: https://www.sportsexpo.jp/ja-jp.html
+            - article [ref=e1047]:
+              - generic [ref=e1048]:
+                - img [ref=e1049]
+                - img "第5回 アスリートパフォーマンス EXPO" [ref=e1050]
+                - generic [ref=e1051]: やや混雑
+              - generic [ref=e1052]:
+                - generic [ref=e1053]:
+                  - generic [ref=e1054]: 東京ビッグサイト
+                  - generic [ref=e1055]: 展示・展覧
+                - heading "第5回 アスリートパフォーマンス EXPO" [level=3] [ref=e1056]
+                - paragraph [ref=e1057]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1058] [cursor=pointer]:
+            - /url: https://www.sportsexpo.jp/ja-jp.html
+            - article [ref=e1059]:
+              - generic [ref=e1060]:
+                - img [ref=e1061]
+                - img "第5回 スタジアム・アリーナ EXPO" [ref=e1062]
+                - generic [ref=e1063]: やや混雑
+              - generic [ref=e1064]:
+                - generic [ref=e1065]:
+                  - generic [ref=e1066]: 東京ビッグサイト
+                  - generic [ref=e1067]: 展示・展覧
+                - heading "第5回 スタジアム・アリーナ EXPO" [level=3] [ref=e1068]
+                - paragraph [ref=e1069]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1070] [cursor=pointer]:
+            - /url: https://www.sportsexpo.jp/ja-jp.html
+            - article [ref=e1071]:
+              - generic [ref=e1072]:
+                - img [ref=e1073]
+                - img "第5回 チーム運営支援 EXPO" [ref=e1074]
+                - generic [ref=e1075]: やや混雑
+              - generic [ref=e1076]:
+                - generic [ref=e1077]:
+                  - generic [ref=e1078]: 東京ビッグサイト
+                  - generic [ref=e1079]: 展示・展覧
+                - heading "第5回 チーム運営支援 EXPO" [level=3] [ref=e1080]
+                - paragraph [ref=e1081]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1082] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp/visit/qc.html
+            - article [ref=e1083]:
+              - generic [ref=e1084]:
+                - img [ref=e1085]
+                - img "第6回 量子コンピューティング EXPO【春】" [ref=e1086]
+                - generic [ref=e1087]: やや混雑
+              - generic [ref=e1088]:
+                - generic [ref=e1089]:
+                  - generic [ref=e1090]: 東京ビッグサイト
+                  - generic [ref=e1091]: 展示・展覧
+                - heading "第6回 量子コンピューティング EXPO【春】" [level=3] [ref=e1092]
+                - paragraph [ref=e1093]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1094] [cursor=pointer]:
+            - /url: https://www.nextech-week.jp/hub/ja-jp/visit/bc.html
+            - article [ref=e1095]:
+              - generic [ref=e1096]:
+                - img [ref=e1097]
+                - img "第7回 ブロックチェーン EXPO【春】" [ref=e1098]
+                - generic [ref=e1099]: やや混雑
+              - generic [ref=e1100]:
+                - generic [ref=e1101]:
+                  - generic [ref=e1102]: 東京ビッグサイト
+                  - generic [ref=e1103]: 展示・展覧
+                - heading "第7回 ブロックチェーン EXPO【春】" [level=3] [ref=e1104]
+                - paragraph [ref=e1105]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1106] [cursor=pointer]:
+            - /url: https://www.sportsexpo.jp/ja-jp.html
+            - article [ref=e1107]:
+              - generic [ref=e1108]:
+                - img [ref=e1109]
+                - img "第9回 ファンエンゲージメント＆マーケティング EXPO" [ref=e1110]
+                - generic [ref=e1111]: やや混雑
+              - generic [ref=e1112]:
+                - generic [ref=e1113]:
+                  - generic [ref=e1114]: 東京ビッグサイト
+                  - generic [ref=e1115]: 展示・展覧
+                - heading "第9回 ファンエンゲージメント＆マーケティング EXPO" [level=3] [ref=e1116]
+                - paragraph [ref=e1117]: 📅 2026-04-15 〜 2026-04-17
+          - link [ref=e1118] [cursor=pointer]:
+            - /url: https://www.jvcmusic.co.jp/maaya/
+            - article [ref=e1119]:
+              - generic [ref=e1120]:
+                - img [ref=e1121]
+                - img "坂本真綾 坂本真綾30周年記念LIVE“ M30～Your Best～”" [ref=e1122]
+                - generic [ref=e1123]: 空いている
+              - generic [ref=e1124]:
+                - generic [ref=e1125]:
+                  - generic [ref=e1126]: 有明アリーナ
+                  - generic [ref=e1127]: ミュージック
+                - heading "坂本真綾 坂本真綾30周年記念LIVE“ M30～Your Best～”" [level=3] [ref=e1128]
+                - paragraph [ref=e1129]: 📅 2026-04-18 〜 2026-04-19
+          - link [ref=e1130] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/1rg-f6xrndm
+            - article [ref=e1131]:
+              - generic [ref=e1132]:
+                - img [ref=e1133]
+                - img "go!go!vanillas SCARY MONSTERS TOUR 2025-2026" [ref=e1134]
+                - generic [ref=e1135]: やや混雑
+              - generic [ref=e1136]:
+                - generic [ref=e1137]:
+                  - generic [ref=e1138]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1139]: ミュージック
+                - heading "go!go!vanillas SCARY MONSTERS TOUR 2025-2026" [level=3] [ref=e1140]
+                - paragraph [ref=e1141]: 📅 2026-04-19
+          - link [ref=e1142] [cursor=pointer]:
+            - /url: https://medtecjapan.com/
+            - article [ref=e1143]:
+              - generic [ref=e1144]:
+                - img [ref=e1145]
+                - img "メドテックジャパン" [ref=e1146]
+                - generic [ref=e1147]: 空いている
+              - generic [ref=e1148]:
+                - generic [ref=e1149]:
+                  - generic [ref=e1150]: 東京ビッグサイト
+                  - generic [ref=e1151]: その他
+                - heading "メドテックジャパン" [level=3] [ref=e1152]
+                - paragraph [ref=e1153]: 📅 2026-04-21 〜 2026-04-23
+          - link [ref=e1154] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e1155]:
+              - generic [ref=e1156]:
+                - img [ref=e1157]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第34節 アルバルク東京 vs ファイティングイーグルス名古屋" [ref=e1158]
+                - generic [ref=e1159]: 空いている
+              - generic [ref=e1160]:
+                - generic [ref=e1161]:
+                  - generic [ref=e1162]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1163]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第34節 アルバルク東京 vs ファイティングイーグルス名古屋" [level=3] [ref=e1164]
+                - paragraph [ref=e1165]: 📅 2026-04-22
+          - link [ref=e1166] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/yngdbgcdpd
+            - article [ref=e1167]:
+              - generic [ref=e1168]:
+                - img [ref=e1169]
+                - img "第一生命 D.LEAGUE 25-26 SEASON ROUND8" [ref=e1170]
+                - generic [ref=e1171]: 空いている
+              - generic [ref=e1172]:
+                - generic [ref=e1173]:
+                  - generic [ref=e1174]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1175]: スポーツ
+                - heading "第一生命 D.LEAGUE 25-26 SEASON ROUND8" [level=3] [ref=e1176]
+                - paragraph [ref=e1177]: 📅 2026-04-23
+          - link [ref=e1178] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/4595/
+            - article [ref=e1179]:
+              - generic [ref=e1180]:
+                - img [ref=e1181]
+                - img "Private Private" [ref=e1182]
+                - generic [ref=e1183]: 空いている
+              - generic [ref=e1184]:
+                - generic [ref=e1185]:
+                  - generic [ref=e1186]: 東京ガーデンシアター
+                  - generic [ref=e1187]: その他
+                - heading "Private Private" [level=3] [ref=e1188]
+                - paragraph [ref=e1189]: 📅 2026-04-24
+          - link [ref=e1190] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/89t26ittp
+            - article [ref=e1191]:
+              - generic [ref=e1192]:
+                - img [ref=e1193]
+                - img "第一生命 D.LEAGUE 25-26 SEASON ROUND8" [ref=e1194]
+                - generic [ref=e1195]: 空いている
+              - generic [ref=e1196]:
+                - generic [ref=e1197]:
+                  - generic [ref=e1198]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1199]: スポーツ
+                - heading "第一生命 D.LEAGUE 25-26 SEASON ROUND8" [level=3] [ref=e1200]
+                - paragraph [ref=e1201]: 📅 2026-04-24
+          - link [ref=e1202] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2976/
+            - article [ref=e1203]:
+              - generic [ref=e1204]:
+                - img [ref=e1205]
+                - img "｜PRイベント｜食材宅配「Oisix」" [ref=e1206]
+                - generic [ref=e1207]: やや混雑
+              - generic [ref=e1208]:
+                - generic [ref=e1209]:
+                  - generic [ref=e1210]: 有明ガーデン
+                  - generic [ref=e1211]: フード
+                - heading "｜PRイベント｜食材宅配「Oisix」" [level=3] [ref=e1212]
+                - paragraph [ref=e1213]: 📅 2026-04-25 〜 2026-04-29
+          - link [ref=e1214] [cursor=pointer]:
+            - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2975/
+            - article [ref=e1215]:
+              - generic [ref=e1216]:
+                - img [ref=e1217]
+                - img "ソフトバンクPRイベント" [ref=e1218]
+                - generic [ref=e1219]: やや混雑
+              - generic [ref=e1220]:
+                - generic [ref=e1221]:
+                  - generic [ref=e1222]: 有明ガーデン
+                  - generic [ref=e1223]: その他
+                - heading "ソフトバンクPRイベント" [level=3] [ref=e1224]
+                - paragraph [ref=e1225]: 📅 2026-04-25 〜 2026-04-26
+          - link [ref=e1226] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e1227]:
+              - generic [ref=e1228]:
+                - img [ref=e1229]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第35節 アルバルク東京 vs 滋賀レイクス" [ref=e1230]
+                - generic [ref=e1231]: やや混雑
+              - generic [ref=e1232]:
+                - generic [ref=e1233]:
+                  - generic [ref=e1234]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1235]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第35節 アルバルク東京 vs 滋賀レイクス" [level=3] [ref=e1236]
+                - paragraph [ref=e1237]: 📅 2026-04-25
+          - link [ref=e1238] [cursor=pointer]:
+            - /url: https://urashimasakatasen.com/
+            - article [ref=e1239]:
+              - generic [ref=e1240]:
+                - img [ref=e1241]
+                - img "浦島坂田船 Spring Tour 2026 ～夜叉～" [ref=e1242]
+                - generic [ref=e1243]: やや混雑
+              - generic [ref=e1244]:
+                - generic [ref=e1245]:
+                  - generic [ref=e1246]: 有明アリーナ
+                  - generic [ref=e1247]: ミュージック
+                - heading "浦島坂田船 Spring Tour 2026 ～夜叉～" [level=3] [ref=e1248]
+                - paragraph [ref=e1249]: 📅 2026-04-25 〜 2026-04-26
+          - link [ref=e1250] [cursor=pointer]:
+            - /url: https://toyota-arena-tokyo.jp/events/
+            - article [ref=e1251]:
+              - generic [ref=e1252]:
+                - img [ref=e1253]
+                - img "りそなグループ B.LEAGUE 2025-26シーズン 第35節 アルバルク東京 vs 滋賀レイクス" [ref=e1254]
+                - generic [ref=e1255]: やや混雑
+              - generic [ref=e1256]:
+                - generic [ref=e1257]:
+                  - generic [ref=e1258]: TOYOTA ARENA TOKYO
+                  - generic [ref=e1259]: スポーツ
+                - heading "りそなグループ B.LEAGUE 2025-26シーズン 第35節 アルバルク東京 vs 滋賀レイクス" [level=3] [ref=e1260]
+                - paragraph [ref=e1261]: 📅 2026-04-26
+          - link [ref=e1262] [cursor=pointer]:
+            - /url: https://www.onefc.com/jp/events/one-samurai-1/
+            - article [ref=e1263]:
+              - generic [ref=e1264]:
+                - img [ref=e1265]
+                - img "ONE ONE SAMURAI 1" [ref=e1266]
+                - generic [ref=e1267]: 空いている
+              - generic [ref=e1268]:
+                - generic [ref=e1269]:
+                  - generic [ref=e1270]: 有明アリーナ
+                  - generic [ref=e1271]: その他
+                - heading "ONE ONE SAMURAI 1" [level=3] [ref=e1272]
+                - paragraph [ref=e1273]: 📅 2026-04-29
+    - navigation [ref=e150]:
+      - generic [ref=e151]:
+        - tab "calendar_today 日" [ref=e152] [cursor=pointer]:
+          - generic [ref=e153]: calendar_today
+          - generic [ref=e154]: 日
+        - tab "calendar_month 月" [active] [selected] [ref=e155] [cursor=pointer]:
+          - generic [ref=e156]: calendar_month
+          - generic [ref=e157]: 月
+        - tab "event_note カレンダー" [ref=e158] [cursor=pointer]:
+          - generic [ref=e159]: event_note
+          - generic [ref=e160]: カレンダー
+        - tab "directions_bus 交通" [ref=e161] [cursor=pointer]:
+          - generic [ref=e162]: directions_bus
+          - generic [ref=e163]: 交通
+  - status [ref=e164]:
+    - generic [ref=e165]:
+      - img [ref=e167]
+      - generic [ref=e169]:
+        - text: Static route
+        - button "Hide static indicator" [ref=e170] [cursor=pointer]:
+          - img [ref=e171]
+  - alert [ref=e3]

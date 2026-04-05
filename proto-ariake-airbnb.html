@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有明イベント — Airbnb style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;500;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Nunito', 'Helvetica Neue', sans-serif; background: #fff; color: #222222; }
+
+  /* Header */
+  .header { border-bottom: 1px solid #dddddd; padding: 0 24px; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+  .header-logo { font-size: 24px; font-weight: 700; color: #ff385c; letter-spacing: -0.3px; }
+  .header-sub { font-size: 13px; color: #6a6a6a; }
+  .header-btn { background: #ff385c; color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-size: 14px; font-weight: 600; cursor: pointer; }
+
+  /* Filter bar */
+  .filter-bar { padding: 12px 24px; border-bottom: 1px solid #ebebeb; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; overflow-x: auto; }
+  .chip { font-size: 14px; font-weight: 500; padding: 8px 18px; border-radius: 32px; border: 1.5px solid #dddddd; background: #fff; color: #222; cursor: pointer; white-space: nowrap; transition: border-color 0.15s, box-shadow 0.15s; }
+  .chip:hover { border-color: #222; box-shadow: rgba(0,0,0,0.08) 0px 4px 12px; }
+  .chip.active { border-color: #222; background: #fff; font-weight: 700; }
+
+  /* Main */
+  .main { padding: 28px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #222; letter-spacing: -0.3px; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: rgba(0,0,0,0.02) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 6px, rgba(0,0,0,0.1) 0px 4px 8px; transition: box-shadow 0.2s; }
+  .card:hover { box-shadow: rgba(0,0,0,0.04) 0px 0px 0px 1px, rgba(0,0,0,0.08) 0px 4px 12px, rgba(0,0,0,0.14) 0px 8px 20px; }
+  .card-image { height: 140px; background: linear-gradient(135deg, #ffd6df 0%, #ffb3c6 100%); display: flex; align-items: center; justify-content: center; font-size: 40px; }
+  .card-body { padding: 14px 16px 16px; }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .tag { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 14px; background: #f2f2f2; color: #222; }
+  .tag-facility { background: #ff385c; color: #fff; }
+  .tag-risk { background: #fff3e0; color: #c13515; border: 1px solid #ffcdd2; }
+  .card-title { font-size: 15px; font-weight: 600; line-height: 1.35; margin-bottom: 5px; color: #222; letter-spacing: -0.18px; }
+  .card-date { font-size: 13px; color: #6a6a6a; margin-bottom: 10px; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; }
+  .card-link { font-size: 13px; font-weight: 600; color: #ff385c; text-decoration: none; }
+  .card-link:hover { text-decoration: underline; }
+  .risk-pill { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 9999px; background: #ffebee; color: #e00b41; }
+
+  /* Image colors by category */
+  .img-music { background: linear-gradient(135deg, #ffd6df 0%, #ff9eb5 100%); }
+  .img-exhibition { background: linear-gradient(135deg, #e3f2fd 0%, #90caf9 100%); }
+  .img-food { background: linear-gradient(135deg, #fff8e1 0%, #ffe082 100%); }
+  .img-sports { background: linear-gradient(135deg, #e8f5e9 0%, #a5d6a7 100%); }
+
+  .design-label { text-align: center; font-size: 11px; color: #6a6a6a; padding: 32px 0 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="header-logo">有明イベント</div>
+    <div class="header-sub">有明エリア5施設のイベント情報</div>
+  </div>
+  <button class="header-btn">今日のイベント</button>
+</div>
+
+<div class="filter-bar">
+  <button class="chip active">すべて</button>
+  <button class="chip">🎵 音楽</button>
+  <button class="chip">🏆 スポーツ</button>
+  <button class="chip">🎨 展示会</button>
+  <button class="chip">🍜 グルメ</button>
+  <button class="chip">有明アリーナ</button>
+  <button class="chip">有明ガーデン</button>
+  <button class="chip">東京ガーデンシアター</button>
+  <button class="chip">東京ビッグサイト</button>
+</div>
+
+<div class="main">
+  <div class="section-title">今月のイベント</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-image img-music">🎤</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明アリーナ</span>
+          <span class="tag">音楽</span>
+        </div>
+        <div class="card-title">VS.超特急 番組連動ライブ「VS.超特急」第3弾</div>
+        <div class="card-date">2026-03-31 〜 2026-04-01</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+          <span class="risk-pill">混雑注意</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image img-exhibition">🌸</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明ガーデン</span>
+          <span class="tag">展示会</span>
+        </div>
+        <div class="card-title">April Dream × 有明ガーデン「夢の桜プロジェクト」</div>
+        <div class="card-date">2026-03-28 〜 2026-04-12</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image img-music">🎸</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">東京ガーデンシアター</span>
+          <span class="tag">音楽</span>
+        </div>
+        <div class="card-title">Hey! Say! JUMP LIVE TOUR 2025-2026</div>
+        <div class="card-date">2026-04-05 〜 2026-04-06</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+          <span class="risk-pill">混雑注意</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image img-exhibition">🏛️</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">東京ビッグサイト</span>
+          <span class="tag">展示会</span>
+        </div>
+        <div class="card-title">東京インターナショナル・ギフト・ショー</div>
+        <div class="card-date">2026-04-08 〜 2026-04-10</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image img-food">🍩</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明ガーデン</span>
+          <span class="tag">グルメ</span>
+        </div>
+        <div class="card-title">JACK IN THE DONUTS</div>
+        <div class="card-date">2026-02-05 〜 2027-01-20</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-image img-sports">🏀</div>
+      <div class="card-body">
+        <div class="card-tags">
+          <span class="tag tag-facility">TOYOTA ARENA</span>
+          <span class="tag">スポーツ</span>
+        </div>
+        <div class="card-title">バスケットボール Bリーグ 東京エクセレンス</div>
+        <div class="card-date">2026-04-12 〜 2026-04-13</div>
+        <div class="card-footer">
+          <a class="card-link" href="#">公式サイト →</a>
+          <span class="risk-pill">やや混雑</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="design-label">Design: Airbnb style — Rausch Red #ff385c, warm cards, photography-first</div>
+</body>
+</html>

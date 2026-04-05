@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有明イベント — Linear style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    font-feature-settings: "cv01", "ss03";
+  }
+  body { font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif; background: #08090a; color: #f7f8f8; }
+
+  /* Header */
+  .header { background: #0f1011; padding: 0 24px; height: 52px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .header-logo { font-size: 16px; font-weight: 510; color: #f7f8f8; letter-spacing: -0.2px; display: flex; align-items: center; gap: 8px; }
+  .header-logo-dot { width: 18px; height: 18px; border-radius: 5px; background: linear-gradient(135deg, #5e6ad2 0%, #7170ff 100%); }
+  .header-nav { display: flex; gap: 2px; }
+  .header-nav a { font-size: 13px; font-weight: 400; color: #8a8f98; text-decoration: none; padding: 6px 10px; border-radius: 5px; }
+  .header-nav a:hover { background: rgba(255,255,255,0.04); color: #d0d6e0; }
+  .header-cta { background: #5e6ad2; color: #fff; border: none; border-radius: 6px; padding: 7px 16px; font-size: 13px; font-weight: 510; cursor: pointer; transition: background 0.15s; }
+  .header-cta:hover { background: #7170ff; }
+
+  /* Filter bar */
+  .filter-bar { padding: 12px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; gap: 6px; flex-wrap: wrap; align-items: center; background: #0f1011; }
+  .chip { font-size: 12px; font-weight: 400; padding: 5px 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); color: #8a8f98; cursor: pointer; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+  .chip:hover { border-color: rgba(255,255,255,0.08); color: #d0d6e0; background: rgba(255,255,255,0.04); }
+  .chip.active { border-color: rgba(113,112,255,0.3); background: rgba(94,106,210,0.15); color: #7170ff; }
+
+  /* Main */
+  .main { padding: 28px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-heading { font-size: 22px; font-weight: 510; letter-spacing: -0.5px; margin-bottom: 6px; color: #f7f8f8; }
+  .section-sub { font-size: 13px; color: #62666d; margin-bottom: 24px; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+  .card {
+    background: #191a1b;
+    border-radius: 8px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: border-color 0.15s, background 0.15s;
+    cursor: pointer;
+  }
+  .card:hover { border-color: rgba(255,255,255,0.08); background: #1d1e1f; }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+  .card-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tag { font-size: 10px; font-weight: 400; padding: 2px 7px; border-radius: 4px; background: rgba(255,255,255,0.04); color: #8a8f98; border: 1px solid rgba(255,255,255,0.05); }
+  .tag-facility { background: rgba(94,106,210,0.12); color: #7170ff; border-color: rgba(113,112,255,0.2); }
+  .tag-music { background: rgba(255,100,200,0.08); color: #ff64c8; border-color: rgba(255,100,200,0.15); }
+  .tag-sports { background: rgba(39,166,68,0.1); color: #27a644; border-color: rgba(39,166,68,0.2); }
+  .tag-exhibition { background: rgba(83,157,245,0.1); color: #539df5; border-color: rgba(83,157,245,0.2); }
+  .tag-food { background: rgba(255,164,43,0.1); color: #ffa42b; border-color: rgba(255,164,43,0.2); }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #27a644; flex-shrink: 0; margin-top: 4px; }
+  .status-dot-warn { background: #ffa42b; }
+  .status-dot-high { background: #f3727f; }
+  .card-title { font-size: 13px; font-weight: 510; line-height: 1.4; margin-bottom: 6px; color: #d0d6e0; letter-spacing: -0.1px; }
+  .card-meta { display: flex; align-items: center; justify-content: space-between; }
+  .card-date { font-size: 11px; color: #62666d; }
+  .card-link { font-size: 11px; color: #7170ff; text-decoration: none; }
+  .card-link:hover { color: #828fff; text-decoration: underline; }
+
+  /* Divider in card */
+  .card-divider { height: 1px; background: rgba(255,255,255,0.04); margin: 10px 0; }
+
+  .design-label { text-align: center; font-size: 11px; color: #3e3e44; padding: 40px 0 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo">
+    <div class="header-logo-dot"></div>
+    有明イベント
+  </div>
+  <nav class="header-nav">
+    <a href="#">カレンダー</a>
+    <a href="#">今日</a>
+    <a href="#">交通</a>
+  </nav>
+  <button class="header-cta">今日のイベント</button>
+</div>
+
+<div class="filter-bar">
+  <button class="chip active">すべて</button>
+  <button class="chip">音楽</button>
+  <button class="chip">スポーツ</button>
+  <button class="chip">展示会</button>
+  <button class="chip">グルメ</button>
+  <button class="chip">有明アリーナ</button>
+  <button class="chip">有明ガーデン</button>
+  <button class="chip">ガーデンシアター</button>
+  <button class="chip">ビッグサイト</button>
+</div>
+
+<div class="main">
+  <div class="section-heading">今月のイベント</div>
+  <div class="section-sub">有明エリア5施設 — 2026年4月</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明アリーナ</span>
+          <span class="tag tag-music">音楽</span>
+        </div>
+        <div class="status-dot status-dot-high"></div>
+      </div>
+      <div class="card-title">VS.超特急 番組連動ライブ「VS.超特急」第3弾</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-03-31 〜 2026-04-01</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明ガーデン</span>
+          <span class="tag tag-exhibition">展示会</span>
+        </div>
+        <div class="status-dot"></div>
+      </div>
+      <div class="card-title">April Dream × 有明ガーデン「夢の桜プロジェクト」</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-03-28 〜 2026-04-12</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">東京ガーデンシアター</span>
+          <span class="tag tag-music">音楽</span>
+        </div>
+        <div class="status-dot status-dot-high"></div>
+      </div>
+      <div class="card-title">Hey! Say! JUMP LIVE TOUR 2025-2026</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-04-05 〜 2026-04-06</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">東京ビッグサイト</span>
+          <span class="tag tag-exhibition">展示会</span>
+        </div>
+        <div class="status-dot status-dot-warn"></div>
+      </div>
+      <div class="card-title">東京インターナショナル・ギフト・ショー</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-04-08 〜 2026-04-10</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">有明ガーデン</span>
+          <span class="tag tag-food">グルメ</span>
+        </div>
+        <div class="status-dot"></div>
+      </div>
+      <div class="card-title">JACK IN THE DONUTS</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-02-05 〜 2027-01-20</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tags">
+          <span class="tag tag-facility">TOYOTA ARENA</span>
+          <span class="tag tag-sports">スポーツ</span>
+        </div>
+        <div class="status-dot status-dot-warn"></div>
+      </div>
+      <div class="card-title">バスケットボール Bリーグ 東京エクセレンス</div>
+      <div class="card-divider"></div>
+      <div class="card-meta">
+        <span class="card-date">2026-04-12 〜 2026-04-13</span>
+        <a class="card-link" href="#">公式サイト →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="design-label">Design: Linear style — near-black #08090a, Indigo/Violet #5e6ad2/#7170ff, Inter Variable</div>
+</body>
+</html>

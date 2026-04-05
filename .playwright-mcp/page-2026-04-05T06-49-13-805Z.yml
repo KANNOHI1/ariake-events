@@ -1,0 +1,159 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "有明イベント" [level=1] [ref=e4]
+      - generic [ref=e5]: Filter Prototype
+    - generic [ref=e6]: 4月5日(日)
+  - generic [ref=e7]:
+    - 'button "案A: Popover ドロップダウン" [ref=e8] [cursor=pointer]'
+    - 'button "案B: インライン展開" [active] [ref=e9] [cursor=pointer]'
+  - generic [ref=e143]:
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: 施設
+        - generic [ref=e147]:
+          - button "すべての施設" [ref=e148] [cursor=pointer]
+          - button "有明ガーデン" [ref=e149] [cursor=pointer]
+          - button "東京ガーデンシアター" [ref=e150] [cursor=pointer]
+          - button "有明アリーナ" [ref=e151] [cursor=pointer]
+          - button "TOYOTA ARENA TOKYO" [ref=e152] [cursor=pointer]
+          - button "東京ビッグサイト" [ref=e153] [cursor=pointer]
+      - generic [ref=e154]:
+        - paragraph [ref=e155]: カテゴリ
+        - generic [ref=e156]:
+          - button "すべて" [ref=e157] [cursor=pointer]
+          - button "ミュージック" [ref=e158] [cursor=pointer]
+          - button "スポーツ" [ref=e159] [cursor=pointer]
+          - button "展示・展覧" [ref=e160] [cursor=pointer]
+          - button "キッズ" [ref=e161] [cursor=pointer]
+          - button "フード" [ref=e162] [cursor=pointer]
+          - button "ファッション" [ref=e163] [cursor=pointer]
+          - button "アニメ" [ref=e164] [cursor=pointer]
+          - button "その他" [ref=e165] [cursor=pointer]
+      - button "grid_view" [ref=e167] [cursor=pointer]:
+        - generic [ref=e168]: grid_view
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - generic [ref=e171]: 今日のイベント
+        - generic [ref=e172]: 2026年4月5日(日)
+      - generic [ref=e173]:
+        - generic [ref=e174]:
+          - generic [ref=e175]:
+            - generic [ref=e176]: 🎪
+            - generic [ref=e177]: 空いている
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]: 有明ガーデン
+              - generic [ref=e181]: フード
+            - paragraph [ref=e182]: 家庭料理のテイクアウトサービス「マチルダ」
+            - paragraph [ref=e183]: 📅 2026-04-05
+        - generic [ref=e184]:
+          - generic [ref=e185]:
+            - generic [ref=e186]: 🎪
+            - generic [ref=e187]: 空いている
+          - generic [ref=e188]:
+            - generic [ref=e189]:
+              - generic [ref=e190]: 有明ガーデン
+              - generic [ref=e191]: フード
+            - paragraph [ref=e192]: ｜POP-UP｜下町カヌレとキルギスはちみつ販売
+            - paragraph [ref=e193]: 📅 2026-04-05
+        - generic [ref=e194]:
+          - generic [ref=e195]:
+            - generic [ref=e196]: 🎪
+            - generic [ref=e197]: 空いている
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: 有明ガーデン
+              - generic [ref=e201]: 展示・展覧
+            - paragraph [ref=e202]: April Dream × 有明ガーデン「夢の桜プロジェクト」
+            - paragraph [ref=e203]: 📅 2026-04-05
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - generic [ref=e206]: 🎪
+            - generic [ref=e207]: 空いている
+          - generic [ref=e208]:
+            - generic [ref=e209]:
+              - generic [ref=e210]: 有明ガーデン
+              - generic [ref=e211]: フード
+            - paragraph [ref=e212]: JACK IN THE DONUTS
+            - paragraph [ref=e213]: 📅 2026-04-05
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - generic [ref=e216]: 🎪
+            - generic [ref=e217]: やや混雑
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - generic [ref=e220]: 有明ガーデン
+              - generic [ref=e221]: フード
+            - paragraph [ref=e222]: フードトラック出店｜吉野家
+            - paragraph [ref=e223]: 📅 2026-04-05
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - generic [ref=e226]: 🎪
+            - generic [ref=e227]: やや混雑
+          - generic [ref=e228]:
+            - generic [ref=e229]:
+              - generic [ref=e230]: 有明ガーデン
+              - generic [ref=e231]: キッズ
+            - paragraph [ref=e232]: 遊んで食べてシリアル ハピモニ★ランド
+            - paragraph [ref=e233]: 📅 2026-04-05
+        - generic [ref=e234]:
+          - generic [ref=e235]:
+            - generic [ref=e236]: 🎪
+            - generic [ref=e237]: やや混雑
+          - generic [ref=e238]:
+            - generic [ref=e239]:
+              - generic [ref=e240]: 有明アリーナ
+              - generic [ref=e241]: ミュージック
+            - paragraph [ref=e242]: ASIAN KUNG-FU GENERATION 30th Anniversary Concert
+            - paragraph [ref=e243]: 📅 2026-04-05
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]: 🎪
+            - generic [ref=e247]: やや混雑
+          - generic [ref=e248]:
+            - generic [ref=e249]:
+              - generic [ref=e250]: TOYOTA ARENA TOKYO
+              - generic [ref=e251]: スポーツ
+            - paragraph [ref=e252]: B.LEAGUE 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ
+            - paragraph [ref=e253]: 📅 2026-04-05
+        - generic [ref=e254]:
+          - generic [ref=e255]:
+            - generic [ref=e256]: 🎪
+            - generic [ref=e257]: 空いている
+          - generic [ref=e258]:
+            - generic [ref=e259]:
+              - generic [ref=e260]: 東京ビッグサイト
+              - generic [ref=e261]: 展示・展覧
+            - paragraph [ref=e262]: 第15回 インターペット東京～人とペットの豊かな暮らしフェア～
+            - paragraph [ref=e263]: 📅 2026-04-05
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - generic [ref=e266]: 🎪
+            - generic [ref=e267]: 混雑
+          - generic [ref=e268]:
+            - generic [ref=e269]:
+              - generic [ref=e270]: 東京ビッグサイト
+              - generic [ref=e271]: 展示・展覧
+            - paragraph [ref=e272]: Designer's Gate 2026
+            - paragraph [ref=e273]: 📅 2026-04-05
+        - generic [ref=e274]:
+          - generic [ref=e275]:
+            - generic [ref=e276]: 🎪
+            - generic [ref=e277]: 非常に混雑
+          - generic [ref=e278]:
+            - generic [ref=e279]:
+              - generic [ref=e280]: 東京ビッグサイト
+              - generic [ref=e281]: 展示・展覧
+            - paragraph [ref=e282]: Japan DX Week 春
+            - paragraph [ref=e283]: 📅 2026-04-05
+        - generic [ref=e284]:
+          - generic [ref=e285]:
+            - generic [ref=e286]: 🎪
+            - generic [ref=e287]: 混雑
+          - generic [ref=e288]:
+            - generic [ref=e289]:
+              - generic [ref=e290]: 東京ガーデンシアター
+              - generic [ref=e291]: ファッション
+            - paragraph [ref=e292]: K-POP ファッションフェスタ
+            - paragraph [ref=e293]: 📅 2026-04-05

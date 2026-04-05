@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有明イベント — Lovable style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; background: #f7f4ed; color: #1c1c1c; }
+
+  /* Header */
+  .header {
+    background: #f7f4ed;
+    border-bottom: 1px solid #eceae4;
+    padding: 0 28px; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .header-logo { font-family: 'Lora', serif; font-size: 20px; font-weight: 600; letter-spacing: -0.3px; color: #1c1c1c; }
+  .header-nav { display: flex; gap: 4px; }
+  .header-nav a { font-size: 14px; color: rgba(28,28,28,0.6); text-decoration: none; padding: 6px 12px; border-radius: 9999px; }
+  .header-nav a:hover { background: rgba(28,28,28,0.04); color: #1c1c1c; }
+  .header-cta {
+    background: #1c1c1c; color: #fcfbf8;
+    border: none; border-radius: 9999px;
+    padding: 9px 20px; font-size: 14px; font-weight: 500;
+    cursor: pointer;
+    box-shadow: rgba(255,255,255,0.2) 0px 0.5px 0px 0px inset, rgba(0,0,0,0.2) 0px 0px 0px 0.5px inset;
+    transition: opacity 0.15s;
+  }
+  .header-cta:hover { opacity: 0.85; }
+
+  /* Filter bar */
+  .filter-bar {
+    background: #f7f4ed; padding: 12px 28px;
+    border-bottom: 1px solid #eceae4;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .chip {
+    font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 9999px;
+    border: 1px solid #eceae4; background: rgba(28,28,28,0.03);
+    color: rgba(28,28,28,0.7); cursor: pointer;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .chip:hover { background: rgba(28,28,28,0.06); border-color: rgba(28,28,28,0.2); color: #1c1c1c; }
+  .chip.active { background: #1c1c1c; color: #fcfbf8; border-color: #1c1c1c; }
+
+  /* Main */
+  .main { padding: 36px 28px; max-width: 1100px; margin: 0 auto; }
+  .section-title { font-family: 'Lora', serif; font-size: 28px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 6px; }
+  .section-sub { font-size: 14px; color: rgba(28,28,28,0.5); margin-bottom: 28px; font-style: italic; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .card {
+    background: rgba(28,28,28,0.03);
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 1px solid #eceae4;
+    transition: box-shadow 0.15s, background 0.15s;
+  }
+  .card:hover {
+    background: #fff;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 12px;
+  }
+
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tag { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 9999px; background: rgba(28,28,28,0.06); color: rgba(28,28,28,0.7); }
+  .tag-facility { background: #1c1c1c; color: #fcfbf8; }
+
+  /* Congestion bar */
+  .risk-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .risk-bar { flex: 1; height: 4px; border-radius: 9999px; background: rgba(28,28,28,0.08); overflow: hidden; }
+  .risk-fill-low  { height: 4px; border-radius: 9999px; background: #6db57a; }
+  .risk-fill-mid  { height: 4px; border-radius: 9999px; background: #d4a043; }
+  .risk-fill-high { height: 4px; border-radius: 9999px; background: #c9564f; }
+  .risk-pct { font-size: 11px; color: rgba(28,28,28,0.4); white-space: nowrap; min-width: 32px; text-align: right; }
+
+  .card-title { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; line-height: 1.45; margin-bottom: 6px; color: #1c1c1c; }
+  .card-date  { font-size: 12px; color: rgba(28,28,28,0.45); margin-bottom: 14px; }
+  .card-footer { padding-top: 12px; border-top: 1px solid #eceae4; display: flex; align-items: center; justify-content: space-between; }
+  .card-link  { font-size: 13px; font-weight: 500; color: rgba(28,28,28,0.82); text-decoration: none; }
+  .card-link:hover { color: #1c1c1c; text-decoration: underline; }
+  .card-badge { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 9999px; background: rgba(28,28,28,0.06); color: rgba(28,28,28,0.6); }
+  .card-badge-warn { background: #fdf0e0; color: #9a6011; }
+  .card-badge-high { background: #fdecea; color: #8b3530; }
+
+  .design-label { text-align: center; font-size: 12px; color: rgba(28,28,28,0.35); padding: 40px 0 16px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-logo">有明イベント</div>
+  <nav class="header-nav">
+    <a href="#">カレンダー</a>
+    <a href="#">今日</a>
+    <a href="#">交通</a>
+  </nav>
+  <button class="header-cta">今日のイベント</button>
+</div>
+
+<div class="filter-bar">
+  <button class="chip active">すべて</button>
+  <button class="chip">音楽</button>
+  <button class="chip">スポーツ</button>
+  <button class="chip">展示会</button>
+  <button class="chip">グルメ</button>
+  <button class="chip">有明アリーナ</button>
+  <button class="chip">有明ガーデン</button>
+  <button class="chip">ガーデンシアター</button>
+  <button class="chip">ビッグサイト</button>
+</div>
+
+<div class="main">
+  <div class="section-title">今月のイベント</div>
+  <div class="section-sub">有明エリア5施設 — 2026年4月</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明アリーナ</span>
+        <span class="tag">音楽</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-high" style="width:75%"></div></div>
+        <span class="risk-pct">75%</span>
+      </div>
+      <div class="card-title">VS.超特急 番組連動ライブ「VS.超特急」第3弾</div>
+      <div class="card-date">2026-03-31 〜 2026-04-01</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge card-badge-high">混雑注意</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-low" style="width:15%"></div></div>
+        <span class="risk-pct">15%</span>
+      </div>
+      <div class="card-title">April Dream × 有明ガーデン「夢の桜プロジェクト」</div>
+      <div class="card-date">2026-03-28 〜 2026-04-12</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge">通常</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ガーデンシアター</span>
+        <span class="tag">音楽</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-high" style="width:80%"></div></div>
+        <span class="risk-pct">80%</span>
+      </div>
+      <div class="card-title">Hey! Say! JUMP LIVE TOUR 2025-2026</div>
+      <div class="card-date">2026-04-05 〜 2026-04-06</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge card-badge-high">混雑注意</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ビッグサイト</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-mid" style="width:40%"></div></div>
+        <span class="risk-pct">40%</span>
+      </div>
+      <div class="card-title">東京インターナショナル・ギフト・ショー</div>
+      <div class="card-date">2026-04-08 〜 2026-04-10</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge card-badge-warn">やや混雑</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">グルメ</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-low" style="width:5%"></div></div>
+        <span class="risk-pct">5%</span>
+      </div>
+      <div class="card-title">JACK IN THE DONUTS</div>
+      <div class="card-date">2026-02-05 〜 2027-01-20</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge">通常</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-tags">
+        <span class="tag tag-facility">TOYOTA ARENA</span>
+        <span class="tag">スポーツ</span>
+      </div>
+      <div class="risk-row">
+        <div class="risk-bar"><div class="risk-fill-mid" style="width:55%"></div></div>
+        <span class="risk-pct">55%</span>
+      </div>
+      <div class="card-title">バスケットボール Bリーグ 東京エクセレンス</div>
+      <div class="card-date">2026-04-12 〜 2026-04-13</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <span class="card-badge card-badge-warn">やや混雑</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="design-label">Design: Lovable style — parchment #f7f4ed, Lora serif, opacity-driven neutrals</div>
+</body>
+</html>

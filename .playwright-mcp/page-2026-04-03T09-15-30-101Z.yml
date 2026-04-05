@@ -1,0 +1,111 @@
+- generic [active] [ref=e1]:
+  - link "Jump to content" [ref=e2] [cursor=pointer]:
+    - /url: "#bodyContent"
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - navigation "Site" [ref=e6]:
+        - generic "Main menu" [ref=e7]:
+          - button "Main menu" [ref=e8] [cursor=pointer]
+          - generic [ref=e11]: Main menu
+      - link "Wikimedia Commons" [ref=e12] [cursor=pointer]:
+        - /url: /wiki/Main_Page
+        - img [ref=e13]
+        - img "Wikimedia Commons" [ref=e15]
+    - generic [ref=e16]:
+      - search [ref=e17]:
+        - link "Search" [ref=e18] [cursor=pointer]:
+          - /url: /wiki/Special:MediaSearch
+          - generic [ref=e20]: Search
+      - navigation "Personal tools" [ref=e21]:
+        - generic [ref=e22]:
+          - list [ref=e25]:
+            - listitem [ref=e26]:
+              - link "English" [ref=e27] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e29]: English
+          - navigation "Appearance" [ref=e30]:
+            - generic "Change the appearance of the page's font size, width, and color" [ref=e31]:
+              - button "Appearance" [ref=e32] [cursor=pointer]
+              - generic [ref=e35]: Appearance
+          - list [ref=e38]:
+            - listitem [ref=e39]:
+              - link "Donate" [ref=e40] [cursor=pointer]:
+                - /url: https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=commons.wikimedia.org&uselang=en
+            - listitem [ref=e41]:
+              - link "Create account" [ref=e42] [cursor=pointer]:
+                - /url: /w/index.php?title=Special:CreateAccount&returnto=File%3AAriake+Arena+20190914.jpg
+            - listitem [ref=e43]:
+              - link "Log in" [ref=e44] [cursor=pointer]:
+                - /url: /w/index.php?title=Special:UserLogin&returnto=File%3AAriake+Arena+20190914.jpg
+  - generic [ref=e46]:
+    - main [ref=e48]:
+      - heading "File:Ariake Arena 20190914.jpg" [level=1] [ref=e50]
+      - generic [ref=e52]:
+        - navigation "Namespaces" [ref=e54]:
+          - generic [ref=e55]:
+            - generic:
+              - list:
+                - listitem [ref=e56]:
+                  - link "File" [ref=e57] [cursor=pointer]:
+                    - /url: /w/index.php?title=File:Ariake_Arena_20190914.jpg&action=edit&redlink=1
+                    - generic [ref=e58]: File
+                - listitem [ref=e59]:
+                  - link "Discussion" [ref=e60] [cursor=pointer]:
+                    - /url: /w/index.php?title=File_talk:Ariake_Arena_20190914.jpg&action=edit&redlink=1
+                    - generic [ref=e61]: Discussion
+        - generic [ref=e62]:
+          - navigation "Views" [ref=e63]:
+            - generic [ref=e64]:
+              - generic:
+                - list:
+                  - listitem [ref=e65]:
+                    - link "Create" [ref=e66] [cursor=pointer]:
+                      - /url: /w/index.php?title=File:Ariake_Arena_20190914.jpg&action=edit
+                      - generic [ref=e67]: Create
+          - navigation "Page tools" [ref=e68]:
+            - generic [ref=e69]:
+              - button "Tools" [ref=e70] [cursor=pointer]
+              - generic [ref=e72] [cursor=pointer]: Tools
+      - generic "File:Ariake Arena 20190914.jpg" [ref=e73]:
+        - generic [ref=e74]:
+          - paragraph [ref=e76]: No file by this name exists.
+          - heading "File usage on Commons" [level=2] [ref=e77]
+          - paragraph [ref=e79]: There are no pages that use this file.
+    - contentinfo [ref=e81]:
+      - list
+      - list:
+        - listitem [ref=e82]:
+          - link "Privacy policy" [ref=e83] [cursor=pointer]:
+            - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
+        - listitem [ref=e84]:
+          - link "About Wikimedia Commons" [ref=e85] [cursor=pointer]:
+            - /url: /wiki/Commons:Welcome
+        - listitem [ref=e86]:
+          - link "Disclaimers" [ref=e87] [cursor=pointer]:
+            - /url: /wiki/Commons:General_disclaimer
+        - listitem [ref=e88]:
+          - link "Code of Conduct" [ref=e89] [cursor=pointer]:
+            - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct
+        - listitem [ref=e90]:
+          - link "Developers" [ref=e91] [cursor=pointer]:
+            - /url: https://developer.wikimedia.org
+        - listitem [ref=e92]:
+          - link "Statistics" [ref=e93] [cursor=pointer]:
+            - /url: https://stats.wikimedia.org/#/commons.wikimedia.org
+        - listitem [ref=e94]:
+          - link "Cookie statement" [ref=e95] [cursor=pointer]:
+            - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
+        - listitem [ref=e96]:
+          - link "Mobile view" [ref=e97] [cursor=pointer]:
+            - /url: //commons.wikimedia.org/w/index.php?title=File:Ariake_Arena_20190914.jpg&mobileaction=toggle_view_mobile
+      - list [ref=e98]:
+        - listitem [ref=e99]:
+          - link "Wikimedia Foundation" [ref=e100] [cursor=pointer]:
+            - /url: https://www.wikimedia.org/
+            - img "Wikimedia Foundation" [ref=e102]
+        - listitem [ref=e103]:
+          - link "Powered by MediaWiki" [ref=e104] [cursor=pointer]:
+            - /url: https://www.mediawiki.org/
+            - img "Powered by MediaWiki" [ref=e106]
+  - generic [ref=e107]:
+    - list

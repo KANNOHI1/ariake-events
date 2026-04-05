@@ -1,0 +1,136 @@
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "有明イベント" [level=1] [ref=e6]
+        - generic [ref=e7]: 4月4日(土)
+    - generic [ref=e9]:
+      - button "tune 絞り込み" [ref=e10] [cursor=pointer]:
+        - generic [ref=e11]: tune
+        - text: 絞り込み
+      - button "リスト表示に切り替え" [active] [ref=e130] [cursor=pointer]:
+        - generic [ref=e14]: view_list
+    - main [ref=e15]:
+      - generic [ref=e16]:
+        - generic [ref=e17]: 今日のイベント
+        - generic [ref=e18]: 2026年4月4日(土)
+      - generic [ref=e19]:
+        - link [ref=e20] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2151/
+          - article [ref=e21]:
+            - generic [ref=e22]:
+              - img [ref=e23]
+              - img "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [ref=e24]
+              - generic [ref=e25]: 空いている
+            - generic [ref=e26]:
+              - generic [ref=e27]:
+                - generic [ref=e28]: 有明ガーデン
+                - generic [ref=e29]: フード
+              - heading "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [level=3] [ref=e30]
+              - paragraph [ref=e31]: 📅 2024-09-23 〜 2026-12-27
+        - link [ref=e32] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2952/
+          - article [ref=e33]:
+            - generic [ref=e34]:
+              - img [ref=e35]
+              - img "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [ref=e36]
+              - generic [ref=e37]: 空いている
+            - generic [ref=e38]:
+              - generic [ref=e39]:
+                - generic [ref=e40]: 有明ガーデン
+                - generic [ref=e41]: フード
+              - heading "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [level=3] [ref=e42]
+              - paragraph [ref=e43]: 📅 2026-03-28 〜 2026-04-05
+        - link [ref=e44] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2950/
+          - article [ref=e45]:
+            - generic [ref=e46]:
+              - img [ref=e47]
+              - img "April Dream × 有明ガーデン「夢の桜プロジェクト」" [ref=e48]
+              - generic [ref=e49]: 空いている
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - generic [ref=e52]: 有明ガーデン
+                - generic [ref=e53]: 展示・展覧
+              - heading "April Dream × 有明ガーデン「夢の桜プロジェクト」" [level=3] [ref=e54]
+              - paragraph [ref=e55]: 📅 2026-03-28 〜 2026-04-12
+        - link [ref=e56] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2876/
+          - article [ref=e57]:
+            - generic [ref=e58]:
+              - img [ref=e59]
+              - img "JACK IN THE DONUTS" [ref=e60]
+              - generic [ref=e61]: 空いている
+            - generic [ref=e62]:
+              - generic [ref=e63]:
+                - generic [ref=e64]: 有明ガーデン
+                - generic [ref=e65]: フード
+              - heading "JACK IN THE DONUTS" [level=3] [ref=e66]
+              - paragraph [ref=e67]: 📅 2026-02-05 〜 2027-01-20
+        - link [ref=e68] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2966/
+          - article [ref=e69]:
+            - generic [ref=e70]:
+              - img [ref=e71]
+              - img "遊んで 食べて シリアル ハピモニ★ランド" [ref=e72]
+              - generic [ref=e73]: やや混雑
+            - generic [ref=e74]:
+              - generic [ref=e75]:
+                - generic [ref=e76]: 有明ガーデン
+                - generic [ref=e77]: キッズ
+              - heading "遊んで 食べて シリアル ハピモニ★ランド" [level=3] [ref=e78]
+              - paragraph [ref=e79]: 📅 2026-04-04 〜 2026-04-05
+        - link [ref=e80] [cursor=pointer]:
+          - /url: https://www.akglive.com/30th/
+          - article [ref=e81]:
+            - generic [ref=e82]:
+              - img [ref=e83]
+              - img "ASIAN KUNG-FU GENERATION ASIAN KUNG-FU GENERATION 30th Anniversary Special Concert \"Thirty Revolutions”" [ref=e84]
+              - generic [ref=e85]: やや混雑
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - generic [ref=e88]: 有明アリーナ
+                - generic [ref=e89]: ミュージック
+              - heading "ASIAN KUNG-FU GENERATION ASIAN KUNG-FU GENERATION 30th Anniversary Special Concert \"Thirty Revolutions”" [level=3] [ref=e90]
+              - paragraph [ref=e91]: 📅 2026-04-04 〜 2026-04-05
+        - link [ref=e92] [cursor=pointer]:
+          - /url: https://toyota-arena-tokyo.jp/events/
+          - article [ref=e93]:
+            - generic [ref=e94]:
+              - img [ref=e95]
+              - img "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [ref=e96]
+              - generic [ref=e97]: やや混雑
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - generic [ref=e100]: TOYOTA ARENA TOKYO
+                - generic [ref=e101]: スポーツ
+              - heading "りそなグループ B.LEAGUE 2025-26シーズン 第29節 アルバルク東京 vs 秋田ノーザンハピネッツ" [level=3] [ref=e102]
+              - paragraph [ref=e103]: 📅 2026-04-04
+        - link [ref=e104] [cursor=pointer]:
+          - /url: https://interpets.jp.messefrankfurt.com/tokyo/ja.html
+          - article [ref=e105]:
+            - generic [ref=e106]:
+              - img [ref=e107]
+              - img "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [ref=e108]
+              - generic [ref=e109]: 空いている
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - generic [ref=e112]: 東京ビッグサイト
+                - generic [ref=e113]: 展示・展覧
+              - heading "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [level=3] [ref=e114]
+              - paragraph [ref=e115]: 📅 2026-04-02 〜 2026-04-05
+    - navigation [ref=e116]:
+      - generic [ref=e117]:
+        - tab "calendar_today 今日" [selected] [ref=e118] [cursor=pointer]:
+          - generic [ref=e119]: calendar_today
+          - generic [ref=e120]: 今日
+        - tab "calendar_month 月" [ref=e121] [cursor=pointer]:
+          - generic [ref=e122]: calendar_month
+          - generic [ref=e123]: 月
+        - tab "event_note カレンダー" [ref=e124] [cursor=pointer]:
+          - generic [ref=e125]: event_note
+          - generic [ref=e126]: カレンダー
+        - tab "directions_bus 交通" [ref=e127] [cursor=pointer]:
+          - generic [ref=e128]: directions_bus
+          - generic [ref=e129]: 交通

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --filter web test --run)",
+      "Bash(pnpm --filter web test)",
+      "mcp__playwright__browser_navigate",
+      "Bash(python -m http.server 7788)",
+      "mcp__playwright__browser_resize",
+      "Bash(npx --yes playwright screenshot --browser chromium --viewport-size \"1280,900\" --full-page http://localhost:7788/proto-cal-a.html proto-cal-a-desktop.png)",
+      "Bash(npx playwright:*)",
+      "Bash(start chrome:*)",
+      "Bash(Start-Process python:*)",
+      "Bash(cmd /c \"start /min python -m http.server 7788\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:7788/proto-cal-a.html)"
+    ]
+  }
+}

@@ -1,0 +1,428 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "TOKYO ARIAKE ARENA" [ref=e5] [cursor=pointer]:
+        - /url: https://ariake-arena.tokyo/
+        - img "TOKYO ARIAKE ARENA" [ref=e6]
+      - img [ref=e8]
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - heading "ARIAKE ARENA EVENT" [level=1] [ref=e14]:
+        - text: ARIAKE ARENA
+        - generic [ref=e15]: EVENT
+      - generic [ref=e16]:
+        - navigation [ref=e17]:
+          - list [ref=e18]:
+            - listitem [ref=e19]:
+              - link "2026 4 APRIL" [ref=e20] [cursor=pointer]:
+                - /url: https://ariake-arena.tokyo/event/
+                - generic [ref=e21]: "2026"
+                - generic [ref=e22]: "4"
+                - generic [ref=e23]: APRIL
+            - listitem [ref=e24]:
+              - link "2026 5 MAY" [ref=e25] [cursor=pointer]:
+                - /url: https://ariake-arena.tokyo/event/next/
+                - generic [ref=e26]: "2026"
+                - generic [ref=e27]: "5"
+                - generic [ref=e28]: MAY
+            - listitem [ref=e29]:
+              - link "2026 6 JUNE" [ref=e30] [cursor=pointer]:
+                - /url: https://ariake-arena.tokyo/event/two/
+                - generic [ref=e31]: "2026"
+                - generic [ref=e32]: "6"
+                - generic [ref=e33]: JUNE
+            - listitem [ref=e34]:
+              - link "2026 7 JULY" [ref=e35] [cursor=pointer]:
+                - /url: https://ariake-arena.tokyo/event/three/
+                - generic [ref=e36]: "2026"
+                - generic [ref=e37]: "7"
+                - generic [ref=e38]: JULY
+            - listitem [ref=e39]:
+              - link "2026 8 AUGUST" [ref=e40] [cursor=pointer]:
+                - /url: https://ariake-arena.tokyo/event/last/
+                - generic [ref=e41]: "2026"
+                - generic [ref=e42]: "8"
+                - generic [ref=e43]: AUGUST
+        - link "ARCHIVE" [ref=e45] [cursor=pointer]:
+          - /url: https://ariake-arena.tokyo/event-archive/
+      - list [ref=e47]:
+        - listitem [ref=e48]:
+          - generic [ref=e49]:
+            - paragraph [ref=e51]:
+              - generic [ref=e52]: 3.31 TUE
+              - generic [ref=e53]: 4.1 WED
+            - paragraph [ref=e55]: VS.超特急
+          - figure [ref=e56]
+          - generic [ref=e57]:
+            - paragraph [ref=e58]: 超特急の冠番組ならではの内容が盛りだくさん番組連動ライブ「ＶＳ.超特急」第３弾！
+            - table [ref=e59]:
+              - rowgroup [ref=e60]:
+                - row "公演時間 3.31 Tue 開場 17:30／開演 18:30 4.1 Wed 開場 17:30／開演 18:30" [ref=e61]:
+                  - rowheader "公演時間" [ref=e62]:
+                    - img [ref=e63]
+                    - text: 公演時間
+                  - cell "3.31 Tue 開場 17:30／開演 18:30 4.1 Wed 開場 17:30／開演 18:30" [ref=e64]:
+                    - text: 3.31 Tue 開場 17:30／開演 18:30
+                    - text: 4.1 Wed 開場 17:30／開演 18:30
+                - row "料金 全席指定：11,500円 (税込) アップグレード：アリーナ席確約＋6,600円(税込) ※詳細は公式サイトをご覧ください" [ref=e65]:
+                  - rowheader "料金" [ref=e66]:
+                    - img [ref=e67]
+                    - text: 料金
+                  - cell "全席指定：11,500円 (税込) アップグレード：アリーナ席確約＋6,600円(税込) ※詳細は公式サイトをご覧ください" [ref=e68]:
+                    - text: 全席指定：11,500円 (税込)
+                    - text: アップグレード：アリーナ席確約＋6,600円(税込)
+                    - text: ※詳細は公式サイトをご覧ください
+                - row "公式サイト https://vs.bullettrain.live" [ref=e69]:
+                  - rowheader "公式サイト" [ref=e70]
+                  - cell "https://vs.bullettrain.live" [ref=e71]:
+                    - link "https://vs.bullettrain.live" [ref=e72] [cursor=pointer]:
+                      - /url: https://vs.bullettrain.live
+                - row "お問合せ先 SOGO TOKYO 03-3405-9999 （月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く） http://www.sogotokyo.com/" [ref=e73]:
+                  - rowheader "お問合せ先" [ref=e74]
+                  - cell "SOGO TOKYO 03-3405-9999 （月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く） http://www.sogotokyo.com/" [ref=e75]:
+                    - text: SOGO TOKYO 03-3405-9999
+                    - text: （月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く）
+                    - text: http://www.sogotokyo.com/
+            - generic [ref=e76]:
+              - paragraph [ref=e77]: 備考
+              - paragraph [ref=e78]:
+                - text: 出演者
+                - text: ■3.31 TUE
+                - text: 超特急 / TAGRIGHT / BALLISTIK BOYZ / MAZZEL
+                - text: SP GUEST：DJ KOO
+                - text: ■4.1 WED
+                - text: 超特急／ももいろクローバーZ
+                - text: Opening Act：Straight Angeli
+        - listitem [ref=e79]:
+          - generic [ref=e80]:
+            - paragraph [ref=e82]:
+              - generic [ref=e83]: 4.4 SAT
+              - generic [ref=e84]: 4.5 SUN
+            - paragraph [ref=e86]: ASIAN KUNG-FU GENERATION
+          - figure [ref=e87]
+          - generic [ref=e88]:
+            - paragraph [ref=e89]: ASIAN KUNG-FU GENERATION 30th Anniversary Special Concert "Thirty Revolutions”
+            - table [ref=e90]:
+              - rowgroup [ref=e91]:
+                - row "公演時間 4.4 Sat 開場 17:00 / 開演 18:00 4.5 Sun 開場 16:00 / 開演 17:00" [ref=e92]:
+                  - rowheader "公演時間" [ref=e93]:
+                    - img [ref=e94]
+                    - text: 公演時間
+                  - cell "4.4 Sat 開場 17:00 / 開演 18:00 4.5 Sun 開場 16:00 / 開演 17:00" [ref=e95]:
+                    - text: 4.4 Sat 開場 17:00 / 開演 18:00
+                    - text: 4.5 Sun 開場 16:00 / 開演 17:00
+                - row "料金 公式サイトをご覧ください" [ref=e96]:
+                  - rowheader "料金" [ref=e97]:
+                    - img [ref=e98]
+                    - text: 料金
+                  - cell "公式サイトをご覧ください" [ref=e99]
+                - row "公式サイト https://www.akglive.com/30th/" [ref=e100]:
+                  - rowheader "公式サイト" [ref=e101]
+                  - cell "https://www.akglive.com/30th/" [ref=e102]:
+                    - link "https://www.akglive.com/30th/" [ref=e103] [cursor=pointer]:
+                      - /url: https://www.akglive.com/30th/
+                - row "お問合せ先 DISK GARAGE https://info.diskgarage.com" [ref=e104]:
+                  - rowheader "お問合せ先" [ref=e105]
+                  - cell "DISK GARAGE https://info.diskgarage.com" [ref=e106]:
+                    - text: DISK GARAGE
+                    - text: https://info.diskgarage.com
+            - generic [ref=e107]:
+              - paragraph [ref=e108]: 備考
+              - paragraph [ref=e109]:
+                - text: 【U-23チケットキャッシュバック】
+                - text: 公演当日、23歳以下でチケットをご購入されている方に現金2,000円をキャッシュバックします。
+                - text: "--------"
+                - text: 【ウエルフェアサービス】
+                - text: 障がい者手帳をお持ちの方は当日会場にてご購入チケットより2,000円をキャッシュバックさせていただきます。
+                - text: (身体障がい者手帳・療育手帳・精神障がい者保健福祉手帳をお持ちのご本人のみ)
+                - text: "--------"
+                - text: ※いずれも詳細は公式サイトをご覧ください。
+        - listitem [ref=e110]:
+          - generic [ref=e111]:
+            - paragraph [ref=e113]:
+              - generic [ref=e114]: 4.8 WED
+            - paragraph [ref=e116]: 浜崎あゆみ
+          - figure [ref=e117]
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: ayumi hamasaki JAPAN TOUR 2026 A -Scapegoat
+            - table [ref=e120]:
+              - rowgroup [ref=e121]:
+                - row "公演時間 4.8 Wed 開場 18:00／ 開演 19:00" [ref=e122]:
+                  - rowheader "公演時間" [ref=e123]:
+                    - img [ref=e124]
+                    - text: 公演時間
+                  - cell "4.8 Wed 開場 18:00／ 開演 19:00" [ref=e125]
+                - row "料金 VIP席(特典付き)：28,000円(税込) SS席(特典付き)： 20,000円(税込) S席 (特典付き) ：14,000円(税込) S席：12,000(税込) ファミリーシート 全席着席指定 (特典付き)： 14,000円(税込) ファミリーシート 全席着席指定：12,000円(税込) ※詳細は公式サイトをご覧ください" [ref=e126]:
+                  - rowheader "料金" [ref=e127]:
+                    - img [ref=e128]
+                    - text: 料金
+                  - cell "VIP席(特典付き)：28,000円(税込) SS席(特典付き)： 20,000円(税込) S席 (特典付き) ：14,000円(税込) S席：12,000(税込) ファミリーシート 全席着席指定 (特典付き)： 14,000円(税込) ファミリーシート 全席着席指定：12,000円(税込) ※詳細は公式サイトをご覧ください" [ref=e129]:
+                    - text: VIP席(特典付き)：28,000円(税込)
+                    - text: SS席(特典付き)： 20,000円(税込)
+                    - text: S席 (特典付き) ：14,000円(税込)
+                    - text: S席：12,000(税込)
+                    - text: ファミリーシート 全席着席指定 (特典付き)： 14,000円(税込)
+                    - text: ファミリーシート 全席着席指定：12,000円(税込)
+                    - text: ※詳細は公式サイトをご覧ください
+                - row "公式サイト https://avex.jp/ayu/" [ref=e130]:
+                  - rowheader "公式サイト" [ref=e131]
+                  - cell "https://avex.jp/ayu/" [ref=e132]:
+                    - link "https://avex.jp/ayu/" [ref=e133] [cursor=pointer]:
+                      - /url: https://avex.jp/ayu/
+                - row "お問合せ先 キョードー東京 TEL：0570-550-799 (平日11:00～18:00 土日祝10:00～18:00)" [ref=e134]:
+                  - rowheader "お問合せ先" [ref=e135]
+                  - cell "キョードー東京 TEL：0570-550-799 (平日11:00～18:00 土日祝10:00～18:00)" [ref=e136]:
+                    - text: キョードー東京
+                    - text: TEL：0570-550-799
+                    - text: (平日11:00～18:00
+                    - text: 土日祝10:00～18:00)
+            - generic [ref=e137]:
+              - paragraph [ref=e138]: 備考
+              - paragraph
+        - listitem [ref=e139]:
+          - generic [ref=e140]:
+            - paragraph [ref=e142]:
+              - generic [ref=e143]: 4.11 SAT
+              - generic [ref=e144]: 4.12 SUN
+            - paragraph [ref=e146]: めいちゃん
+          - figure [ref=e147]
+          - generic [ref=e148]:
+            - paragraph [ref=e149]: Meychan Live Tour 2026『Number 0』
+            - table [ref=e150]:
+              - rowgroup [ref=e151]:
+                - row "公演時間 4.11 Sat 開場 17:00 / 開演18:00 4.12 Sun 開場 16:00 / 開演17:00" [ref=e152]:
+                  - rowheader "公演時間" [ref=e153]:
+                    - img [ref=e154]
+                    - text: 公演時間
+                  - cell "4.11 Sat 開場 17:00 / 開演18:00 4.12 Sun 開場 16:00 / 開演17:00" [ref=e155]:
+                    - text: 4.11 Sat 開場 17:00 / 開演18:00
+                    - text: 4.12 Sun 開場 16:00 / 開演17:00
+                - row "料金 指定席 10,000円(税込) ファミリーチケット 9,500円(税込) 2日間通し券 20,000円(税込)" [ref=e156]:
+                  - rowheader "料金" [ref=e157]:
+                    - img [ref=e158]
+                    - text: 料金
+                  - cell "指定席 10,000円(税込) ファミリーチケット 9,500円(税込) 2日間通し券 20,000円(税込)" [ref=e159]:
+                    - text: 指定席 10,000円(税込)
+                    - text: ファミリーチケット 9,500円(税込)
+                    - text: 2日間通し券 20,000円(税込)
+                - row "公式サイト https://meychan.com/" [ref=e160]:
+                  - rowheader "公式サイト" [ref=e161]
+                  - cell "https://meychan.com/" [ref=e162]:
+                    - link "https://meychan.com/" [ref=e163] [cursor=pointer]:
+                      - /url: https://meychan.com/
+                - row "お問合せ先 SOGO TOKYO 03-3405-9999 （月〜土12:00〜13:00/16:00〜19:00※日曜・祝日を除く） http://www.sogotokyo.com/" [ref=e164]:
+                  - rowheader "お問合せ先" [ref=e165]
+                  - cell "SOGO TOKYO 03-3405-9999 （月〜土12:00〜13:00/16:00〜19:00※日曜・祝日を除く） http://www.sogotokyo.com/" [ref=e166]:
+                    - text: SOGO TOKYO
+                    - text: 03-3405-9999
+                    - text: （月〜土12:00〜13:00/16:00〜19:00※日曜・祝日を除く）
+                    - text: http://www.sogotokyo.com/
+            - generic [ref=e167]:
+              - paragraph [ref=e168]: 備考
+              - paragraph
+        - listitem [ref=e169]:
+          - generic [ref=e170]:
+            - paragraph [ref=e172]:
+              - generic [ref=e173]: 4.18 SAT
+              - generic [ref=e174]: 4.19 SUN
+            - paragraph [ref=e176]: 坂本真綾
+          - figure [ref=e177]
+          - generic [ref=e178]:
+            - paragraph [ref=e179]: 坂本真綾30周年記念LIVE“ M30～Your Best～”
+            - table [ref=e180]:
+              - rowgroup [ref=e181]:
+                - row "公演時間 4.18 Sat 開場 16:00 / 開演 17:00 4.19 Sun 開場 16:00 / 開演 17:00" [ref=e182]:
+                  - rowheader "公演時間" [ref=e183]:
+                    - img [ref=e184]
+                    - text: 公演時間
+                  - cell "4.18 Sat 開場 16:00 / 開演 17:00 4.19 Sun 開場 16:00 / 開演 17:00" [ref=e185]:
+                    - text: 4.18 Sat 開場 16:00 / 開演 17:00
+                    - text: 4.19 Sun 開場 16:00 / 開演 17:00
+                - row "料金 全席指定：¥11,000(税込) 【FC IDS!&Mobile会員向け】2daysチケット¥21,000(税込)" [ref=e186]:
+                  - rowheader "料金" [ref=e187]:
+                    - img [ref=e188]
+                    - text: 料金
+                  - cell "全席指定：¥11,000(税込) 【FC IDS!&Mobile会員向け】2daysチケット¥21,000(税込)" [ref=e189]:
+                    - text: 全席指定：¥11,000(税込)
+                    - text: 【FC IDS!&Mobile会員向け】2daysチケット¥21,000(税込)
+                - row "公式サイト https://www.jvcmusic.co.jp/maaya/" [ref=e190]:
+                  - rowheader "公式サイト" [ref=e191]
+                  - cell "https://www.jvcmusic.co.jp/maaya/" [ref=e192]:
+                    - link "https://www.jvcmusic.co.jp/maaya/" [ref=e193] [cursor=pointer]:
+                      - /url: https://www.jvcmusic.co.jp/maaya/
+                - row "お問合せ先 キョードー東京チケットセンター 0570-550-799 平日11:00-18:00/ 土日祝10:00-18:00" [ref=e194]:
+                  - rowheader "お問合せ先" [ref=e195]
+                  - cell "キョードー東京チケットセンター 0570-550-799 平日11:00-18:00/ 土日祝10:00-18:00" [ref=e196]:
+                    - text: キョードー東京チケットセンター 0570-550-799
+                    - text: 平日11:00-18:00/ 土日祝10:00-18:00
+            - generic [ref=e197]:
+              - paragraph [ref=e198]: 備考
+              - paragraph [ref=e199]:
+                - text: 4月18日（土）Route A＜北川勝利バンド＞
+                - text: 4月19日（日）Route B＜河野 伸バンド＞
+        - listitem [ref=e200]:
+          - generic [ref=e201]:
+            - paragraph [ref=e203]:
+              - generic [ref=e204]: 4.25 SAT
+              - generic [ref=e205]: 4.26 SUN
+            - paragraph [ref=e207]: 浦島坂田船
+          - figure [ref=e208]
+          - generic [ref=e209]:
+            - paragraph [ref=e210]: Spring Tour 2026 ～夜叉～
+            - table [ref=e211]:
+              - rowgroup [ref=e212]:
+                - row "公演時間 4.25 Sat 開場 16:00 / 開演 17:00 4.26 Sun 開場 14:00 / 開演 15:00" [ref=e213]:
+                  - rowheader "公演時間" [ref=e214]:
+                    - img [ref=e215]
+                    - text: 公演時間
+                  - cell "4.25 Sat 開場 16:00 / 開演 17:00 4.26 Sun 開場 14:00 / 開演 15:00" [ref=e216]:
+                    - text: 4.25 Sat 開場 16:00 / 開演 17:00
+                    - text: 4.26 Sun 開場 14:00 / 開演 15:00
+                - row "料金 指定席：8,500円（税込）" [ref=e217]:
+                  - rowheader "料金" [ref=e218]:
+                    - img [ref=e219]
+                    - text: 料金
+                  - cell "指定席：8,500円（税込）" [ref=e220]
+                - row "公式サイト https://urashimasakatasen.com/" [ref=e221]:
+                  - rowheader "公式サイト" [ref=e222]
+                  - cell "https://urashimasakatasen.com/" [ref=e223]:
+                    - link "https://urashimasakatasen.com/" [ref=e224] [cursor=pointer]:
+                      - /url: https://urashimasakatasen.com/
+                - row "お問合せ先 DISK GARAGE https://info.diskgarage.com/" [ref=e225]:
+                  - rowheader "お問合せ先" [ref=e226]
+                  - cell "DISK GARAGE https://info.diskgarage.com/" [ref=e227]:
+                    - text: DISK GARAGE
+                    - text: https://info.diskgarage.com/
+            - generic [ref=e228]:
+              - paragraph [ref=e229]: 備考
+              - paragraph
+        - listitem [ref=e230]:
+          - generic [ref=e231]:
+            - paragraph [ref=e233]:
+              - generic [ref=e234]: 4.29 WED
+            - paragraph [ref=e236]: ONE
+          - figure [ref=e237]
+          - generic [ref=e238]:
+            - paragraph [ref=e239]: ONE SAMURAI 1
+            - table [ref=e240]:
+              - rowgroup [ref=e241]:
+                - row "公演時間 4.29 Wed 開場 11:30 / 開始 13:00" [ref=e242]:
+                  - rowheader "公演時間" [ref=e243]:
+                    - img [ref=e244]
+                    - text: 公演時間
+                  - cell "4.29 Wed 開場 11:30 / 開始 13:00" [ref=e245]
+                - row "料金 公式サイトをご覧ください" [ref=e246]:
+                  - rowheader "料金" [ref=e247]:
+                    - img [ref=e248]
+                    - text: 料金
+                  - cell "公式サイトをご覧ください" [ref=e249]
+                - row "公式サイト https://www.onefc.com/jp/events/one-samurai-1/" [ref=e250]:
+                  - rowheader "公式サイト" [ref=e251]
+                  - cell "https://www.onefc.com/jp/events/one-samurai-1/" [ref=e252]:
+                    - link "https://www.onefc.com/jp/events/one-samurai-1/" [ref=e253] [cursor=pointer]:
+                      - /url: https://www.onefc.com/jp/events/one-samurai-1/
+                - row "お問合せ先 Info@onefc.com" [ref=e254]:
+                  - rowheader "お問合せ先" [ref=e255]
+                  - cell "Info@onefc.com" [ref=e256]
+            - generic [ref=e257]:
+              - paragraph [ref=e258]: 備考
+              - paragraph
+  - contentinfo [ref=e259]:
+    - paragraph [ref=e260]:
+      - link "ページトップへ" [ref=e261] [cursor=pointer]:
+        - /url: "#"
+        - text: ページトップへ
+    - heading "TOKYO ARIAKE ARENA" [level=3] [ref=e262]:
+      - img "TOKYO ARIAKE ARENA" [ref=e263]
+    - navigation [ref=e264]:
+      - list [ref=e265]:
+        - listitem [ref=e266]:
+          - link "HOME" [ref=e267] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/
+        - listitem [ref=e268]:
+          - link "NEWS" [ref=e269] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/news/
+        - listitem [ref=e270]:
+          - link "EVENT" [ref=e271] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/event/
+        - listitem [ref=e272]:
+          - link "FLOOR" [ref=e273] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/floor/
+        - listitem [ref=e274]:
+          - link "ACCESS" [ref=e275] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/access/
+        - listitem [ref=e276]:
+          - link "ABOUT" [ref=e277] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/about/
+        - listitem [ref=e278]:
+          - link "SURVEY" [ref=e279] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo#survey
+        - listitem [ref=e280]:
+          - link "FAQ" [ref=e281] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/faq/
+    - navigation [ref=e282]:
+      - generic [ref=e283]:
+        - paragraph [ref=e284] [cursor=pointer]: 主催者の方へ
+        - list [ref=e285]:
+          - listitem [ref=e286]:
+            - link "主催者の方へTOP" [ref=e287] [cursor=pointer]:
+              - /url: https://ariake-arena.tokyo/organizer/
+          - listitem [ref=e288]:
+            - link "施設案内" [ref=e289] [cursor=pointer]:
+              - /url: https://ariake-arena.tokyo/organizer/facilities/
+          - listitem [ref=e290]:
+            - link "メインアリーナ" [ref=e291] [cursor=pointer]:
+              - /url: https://ariake-arena.tokyo/organizer/main-arena/
+          - listitem [ref=e292]:
+            - link "サブアリーナ" [ref=e293] [cursor=pointer]:
+              - /url: https://ariake-arena.tokyo/organizer/sub-arena/
+          - listitem [ref=e294]:
+            - link "施設利用のお問い合わせ" [ref=e295] [cursor=pointer]:
+              - /url: https://ariake-arena.tokyo/organizer/contact/
+    - text: Copyright © TOKYO ARIAKE ARENA INC. All RIghts Reserved.
+  - generic [ref=e296]:
+    - paragraph [ref=e297]:
+      - img [ref=e299]
+    - navigation [ref=e304]:
+      - list [ref=e305]:
+        - listitem [ref=e306]:
+          - link "HOME" [ref=e307] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/
+        - listitem [ref=e308]:
+          - link "NEWS" [ref=e309] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/news/
+        - listitem [ref=e310]:
+          - link "EVENT" [ref=e311] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/event/
+        - listitem [ref=e312]:
+          - link "FLOOR" [ref=e313] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/floor/
+        - listitem [ref=e314]:
+          - link "ACCESS" [ref=e315] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/access/
+        - listitem [ref=e316]:
+          - link "ABOUT" [ref=e317] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/about/
+        - listitem [ref=e318]:
+          - link "SURVEY" [ref=e319] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo#survey
+        - listitem [ref=e320]:
+          - link "FAQ" [ref=e321] [cursor=pointer]:
+            - /url: https://ariake-arena.tokyo/faq/
+    - heading "主催者の方へ" [level=2] [ref=e322]
+    - paragraph [ref=e323]:
+      - link "Wi-Fiを利用する方へ" [ref=e324] [cursor=pointer]:
+        - /url: https://ariake-arena.tokyo/wifi/
+        - img [ref=e325]
+        - text: Wi-Fiを利用する方へ
+    - paragraph [ref=e326]:
+      - link "サブアリーナを利用する方へ" [ref=e327] [cursor=pointer]:
+        - /url: https://reserve.ariake-arena.tokyo
+        - img [ref=e328]
+        - text: サブアリーナを利用する方へ
+    - paragraph [ref=e330]:
+      - generic [ref=e331]: Language
+  - iframe [ref=e334]:
+    - generic [ref=f1e6]:
+      - strong [ref=f1e7]: reCAPTCHA
+      - text: で保護されています

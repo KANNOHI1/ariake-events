@@ -1,0 +1,139 @@
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - heading "有明イベント" [level=1] [ref=e6]
+        - paragraph [ref=e7]: 4月3日(金)
+    - generic [ref=e8]:
+      - button "tune 絞り込み" [active] [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: tune
+        - text: 絞り込み
+      - button "グリッド表示に切り替え" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]: grid_view
+    - main [ref=e14]:
+      - generic [ref=e15]:
+        - link [ref=e16] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2151/
+          - article [ref=e17]:
+            - generic [ref=e18]:
+              - img "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [ref=e19]
+              - generic [ref=e20]: 空いている
+            - generic [ref=e21]:
+              - generic [ref=e22]:
+                - generic [ref=e23]: 有明ガーデン
+                - generic [ref=e24]: フード
+              - heading "＜11/29更新＞家庭料理のテイクアウトサービス「マチルダ」" [level=3] [ref=e25]
+              - paragraph [ref=e26]: 📅 2024-09-23 〜 2026-12-27
+        - link [ref=e27] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2952/
+          - article [ref=e28]:
+            - generic [ref=e29]:
+              - img "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [ref=e30]
+              - generic [ref=e31]: 空いている
+            - generic [ref=e32]:
+              - generic [ref=e33]:
+                - generic [ref=e34]: 有明ガーデン
+                - generic [ref=e35]: フード
+              - heading "｜POP-UP｜下町カヌレとキルギスはちみつ販売" [level=3] [ref=e36]
+              - paragraph [ref=e37]: 📅 2026-03-28 〜 2026-04-05
+        - link [ref=e38] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2950/
+          - article [ref=e39]:
+            - generic [ref=e40]:
+              - img "April Dream × 有明ガーデン「夢の桜プロジェクト」" [ref=e41]
+              - generic [ref=e42]: 空いている
+            - generic [ref=e43]:
+              - generic [ref=e44]:
+                - generic [ref=e45]: 有明ガーデン
+                - generic [ref=e46]: 展示・展覧
+              - heading "April Dream × 有明ガーデン「夢の桜プロジェクト」" [level=3] [ref=e47]
+              - paragraph [ref=e48]: 📅 2026-03-28 〜 2026-04-12
+        - link [ref=e49] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/ariake/event/detail/2876/
+          - article [ref=e50]:
+            - generic [ref=e51]:
+              - img "JACK IN THE DONUTS" [ref=e52]
+              - generic [ref=e53]: 空いている
+            - generic [ref=e54]:
+              - generic [ref=e55]:
+                - generic [ref=e56]: 有明ガーデン
+                - generic [ref=e57]: フード
+              - heading "JACK IN THE DONUTS" [level=3] [ref=e58]
+              - paragraph [ref=e59]: 📅 2026-02-05 〜 2027-01-20
+        - link [ref=e60] [cursor=pointer]:
+          - /url: https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/3977/
+          - article [ref=e61]:
+            - generic [ref=e62]:
+              - img "YOSHIKI YOSHIKI CLASSICAL 2026 覚醒前夜 ー Tokyo 3 Nights世界への第一章" [ref=e63]
+              - generic [ref=e64]: やや混雑
+            - generic [ref=e65]:
+              - generic [ref=e66]:
+                - generic [ref=e67]: 東京ガーデンシアター
+                - generic [ref=e68]: ミュージック
+              - heading "YOSHIKI YOSHIKI CLASSICAL 2026 覚醒前夜 ー Tokyo 3 Nights世界への第一章" [level=3] [ref=e69]
+              - paragraph [ref=e70]: 📅 2026-04-03
+        - link [ref=e71] [cursor=pointer]:
+          - /url: https://toyota-arena-tokyo.jp/events/rf77on3c2q2v
+          - article [ref=e72]:
+            - generic [ref=e73]:
+              - img "春休み「無料体験クリニック」Ex.DAY3" [ref=e74]
+              - generic [ref=e75]: やや混雑
+            - generic [ref=e76]:
+              - generic [ref=e77]:
+                - generic [ref=e78]: TOYOTA ARENA TOKYO
+                - generic [ref=e79]: その他
+              - heading "春休み「無料体験クリニック」Ex.DAY3" [level=3] [ref=e80]
+              - paragraph [ref=e81]: 📅 2026-04-03
+        - link [ref=e82] [cursor=pointer]:
+          - /url: https://interpets.jp.messefrankfurt.com/tokyo/ja.html
+          - article [ref=e83]:
+            - generic [ref=e84]:
+              - img "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [ref=e85]
+              - generic [ref=e86]: 空いている
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - generic [ref=e89]: 東京ビッグサイト
+                - generic [ref=e90]: 展示・展覧
+              - heading "第15回 インターペット東京～人とペットの豊かな暮らしフェア～" [level=3] [ref=e91]
+              - paragraph [ref=e92]: 📅 2026-04-02 〜 2026-04-05
+    - navigation [ref=e93]:
+      - generic [ref=e94]:
+        - tab "calendar_today 今日" [selected] [ref=e95] [cursor=pointer]:
+          - generic [ref=e96]: calendar_today
+          - generic [ref=e97]: 今日
+        - tab "calendar_month 月" [ref=e98] [cursor=pointer]:
+          - generic [ref=e99]: calendar_month
+          - generic [ref=e100]: 月
+        - tab "event_note カレンダー" [ref=e101] [cursor=pointer]:
+          - generic [ref=e102]: event_note
+          - generic [ref=e103]: カレンダー
+        - tab "directions_bus 交通" [ref=e104] [cursor=pointer]:
+          - generic [ref=e105]: directions_bus
+          - generic [ref=e106]: 交通
+  - generic [ref=e109]:
+    - generic [ref=e110]:
+      - heading "絞り込み" [level=2] [ref=e111]
+      - button "シートを閉じる" [ref=e112] [cursor=pointer]:
+        - generic [ref=e113]: ×
+    - generic [ref=e114]:
+      - paragraph [ref=e115]: 施設
+      - generic [ref=e116]:
+        - button "すべての施設" [ref=e117] [cursor=pointer]
+        - button "有明ガーデン" [ref=e118] [cursor=pointer]
+        - button "東京ガーデンシアター" [ref=e119] [cursor=pointer]
+        - button "有明アリーナ" [ref=e120] [cursor=pointer]
+        - button "TOYOTA ARENA TOKYO" [ref=e121] [cursor=pointer]
+        - button "東京ビッグサイト" [ref=e122] [cursor=pointer]
+    - generic [ref=e123]:
+      - paragraph [ref=e124]: カテゴリ
+      - generic [ref=e125]:
+        - button "すべて" [ref=e126] [cursor=pointer]
+        - button "ミュージック" [ref=e127] [cursor=pointer]
+        - button "スポーツ" [ref=e128] [cursor=pointer]
+        - button "展示・展覧" [ref=e129] [cursor=pointer]
+        - button "キッズ" [ref=e130] [cursor=pointer]
+        - button "フード" [ref=e131] [cursor=pointer]
+        - button "ファッション" [ref=e132] [cursor=pointer]
+        - button "アニメ" [ref=e133] [cursor=pointer]
+        - button "その他" [ref=e134] [cursor=pointer]

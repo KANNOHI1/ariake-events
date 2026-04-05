@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>有明イベント — Spotify style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Circular+Std:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', 'Helvetica Neue', sans-serif; background: #121212; color: #ffffff; }
+
+  /* Header */
+  .header { background: #000000; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #282828; }
+  .header-logo { font-size: 20px; font-weight: 700; color: #1ed760; letter-spacing: 0.5px; }
+  .header-sub { font-size: 12px; color: #b3b3b3; margin-top: 2px; }
+  .header-btn { background: #1ed760; color: #000; border: none; border-radius: 9999px; padding: 10px 22px; font-size: 14px; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  /* Filter bar */
+  .filter-bar { padding: 16px 24px; background: #181818; border-bottom: 1px solid #282828; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .chip { font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 9999px; border: 1px solid #4d4d4d; background: #1f1f1f; color: #fff; cursor: pointer; transition: background 0.15s, border-color 0.15s; text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
+  .chip:hover { background: #282828; border-color: #7c7c7c; }
+  .chip.active { background: #1ed760; color: #000; border-color: #1ed760; }
+
+  /* Main */
+  .main { padding: 28px 24px; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #fff; }
+
+  /* Cards */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .card { background: #181818; border-radius: 8px; overflow: hidden; padding: 16px; box-shadow: rgba(0,0,0,0.3) 0px 8px 8px; transition: background 0.15s, transform 0.15s; cursor: pointer; }
+  .card:hover { background: #252525; transform: translateY(-2px); }
+  .card-icon { font-size: 44px; text-align: center; margin-bottom: 12px; height: 56px; display: flex; align-items: center; justify-content: center; }
+  .card-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 8px; }
+  .tag { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 9999px; background: #282828; color: #b3b3b3; text-transform: uppercase; letter-spacing: 0.8px; }
+  .tag-facility { background: #1a3320; color: #1ed760; }
+  .tag-active { background: #1ed760; color: #000; }
+  .tag-risk { background: #3a1a1a; color: #f3727f; }
+  .card-title { font-size: 15px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; color: #fff; }
+  .card-date { font-size: 12px; color: #b3b3b3; margin-bottom: 12px; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid #282828; }
+  .card-link { font-size: 12px; font-weight: 600; color: #1ed760; text-decoration: none; letter-spacing: 0.5px; }
+  .card-link:hover { color: #3de87a; }
+
+  /* Play button */
+  .play-btn { width: 32px; height: 32px; border-radius: 50%; background: #1ed760; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #000; }
+
+  /* Risk badge */
+  .risk-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 9999px; background: #3a1a1a; color: #f3727f; text-transform: uppercase; letter-spacing: 0.8px; }
+
+  .design-label { text-align: center; font-size: 11px; color: #4d4d4d; padding: 32px 0 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="header-logo">有明イベント</div>
+    <div class="header-sub">有明エリア5施設</div>
+  </div>
+  <button class="header-btn">今日</button>
+</div>
+
+<div class="filter-bar">
+  <button class="chip active">All</button>
+  <button class="chip">音楽</button>
+  <button class="chip">スポーツ</button>
+  <button class="chip">展示会</button>
+  <button class="chip">グルメ</button>
+  <button class="chip">有明アリーナ</button>
+  <button class="chip">有明ガーデン</button>
+  <button class="chip">ガーデンシアター</button>
+  <button class="chip">ビッグサイト</button>
+</div>
+
+<div class="main">
+  <div class="section-title">今月のイベント</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-icon">🎤</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">有明アリーナ</span>
+        <span class="tag">音楽</span>
+        <span class="tag tag-risk">混雑</span>
+      </div>
+      <div class="card-title">VS.超特急 番組連動ライブ「VS.超特急」第3弾</div>
+      <div class="card-date">2026-03-31 〜 2026-04-01</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🌸</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="card-title">April Dream × 有明ガーデン「夢の桜プロジェクト」</div>
+      <div class="card-date">2026-03-28 〜 2026-04-12</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🎸</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ガーデンシアター</span>
+        <span class="tag">音楽</span>
+        <span class="tag tag-risk">混雑</span>
+      </div>
+      <div class="card-title">Hey! Say! JUMP LIVE TOUR 2025-2026</div>
+      <div class="card-date">2026-04-05 〜 2026-04-06</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏛️</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">東京ビッグサイト</span>
+        <span class="tag">展示会</span>
+      </div>
+      <div class="card-title">東京インターナショナル・ギフト・ショー</div>
+      <div class="card-date">2026-04-08 〜 2026-04-10</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🍩</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">有明ガーデン</span>
+        <span class="tag">グルメ</span>
+      </div>
+      <div class="card-title">JACK IN THE DONUTS</div>
+      <div class="card-date">2026-02-05 〜 2027-01-20</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🏀</div>
+      <div class="card-tags">
+        <span class="tag tag-facility">TOYOTA ARENA</span>
+        <span class="tag">スポーツ</span>
+      </div>
+      <div class="card-title">バスケットボール Bリーグ 東京エクセレンス</div>
+      <div class="card-date">2026-04-12 〜 2026-04-13</div>
+      <div class="card-footer">
+        <a class="card-link" href="#">公式サイト →</a>
+        <button class="play-btn">▶</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="design-label">Design: Spotify style — dark #121212, Spotify Green #1ed760, pill buttons</div>
+</body>
+</html>

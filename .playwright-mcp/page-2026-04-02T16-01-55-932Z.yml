@@ -1,0 +1,51 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - heading "Superpowers Brainstorming" [level=1] [ref=e3]:
+      - link "Superpowers Brainstorming" [ref=e4] [cursor=pointer]:
+        - /url: https://github.com/obra/superpowers
+    - generic [ref=e5]: Connected
+  - generic [ref=e7]:
+    - heading "ヘッダーデザイン比較" [level=2] [ref=e8]
+    - paragraph [ref=e9]: 気に入ったものをクリック（複数選択可）
+    - generic [ref=e10]:
+      - generic [ref=e11] [cursor=pointer]:
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - generic [ref=e15]: 有明イベント
+            - generic [ref=e16]: 4月3日(金)
+          - generic [ref=e18]: ≡ 絞り込み
+        - generic [ref=e19]:
+          - 'heading "A: バイカラー + 日付pill" [level=3] [ref=e20]'
+          - paragraph [ref=e21]: 「有明」をオレンジに。日付をpill化。最小変更で引き締まる。
+      - generic [ref=e22] [cursor=pointer]:
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e28]: 有明 イベント
+            - generic [ref=e29]: 4月3日(金)
+          - generic [ref=e31]: ≡ 絞り込み
+        - generic [ref=e32]:
+          - 'heading "B: アクセントバー + 大小タイトル" [level=3] [ref=e33]'
+          - paragraph [ref=e34]: 縦棒アクセント。「有明」大・「イベント」小でニュースアプリ風。
+      - generic [ref=e35] [cursor=pointer]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - generic [ref=e39]:
+              - generic [ref=e41]: 有明イベント
+              - generic [ref=e42]: 東京・有明
+            - generic [ref=e43]: 4月3日(金)
+          - generic [ref=e45]: ≡ 絞り込み
+        - generic [ref=e46]:
+          - 'heading "C: ドット + 地名チップ" [level=3] [ref=e47]'
+          - paragraph [ref=e48]: オレンジ丸点でブランドを示す。地名チップで「どこのサービス」かが一目瞭然。
+      - generic [ref=e49] [cursor=pointer]:
+        - generic [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - generic [ref=e54]: 有明イベント
+              - generic [ref=e55]: 東京・有明
+            - generic [ref=e56]: 4月3日(金)
+          - generic [ref=e58]: ≡ 絞り込み
+        - generic [ref=e59]:
+          - 'heading "D: A+C 組み合わせ（推奨）" [level=3] [ref=e60]'
+          - paragraph [ref=e61]: バイカラー + 地名チップ + 日付pill。3要素で最もポータルらしい。
+  - generic [ref=e62]: Click an option above, then return to the terminal
