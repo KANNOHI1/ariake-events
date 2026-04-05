@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import FilterBar from '../components/FilterBar'
 import type { ViewMode } from '../components/FilterBar'
 import BottomNav from '../components/BottomNav'
-import TodayView from '../components/TodayView'
+import DayView from '../components/DayView'
 import MonthView from '../components/MonthView'
 import CalendarView from '../components/CalendarView'
 import dynamic from 'next/dynamic'
@@ -20,7 +20,6 @@ import {
   filtersToParams,
 } from '../lib/filter'
 import { fetchEvents } from '../lib/events'
-import { getTodayString } from '../lib/dateUtils'
 
 export default function HomeContent() {
   const searchParams = useSearchParams()
@@ -70,13 +69,6 @@ export default function HomeContent() {
     setFilters(getDefaultFilters())
   }, [])
 
-  const today = getTodayString()
-
-  const todayEvents = useMemo(
-    () => filterEvents(events, filters, today, today),
-    [events, filters, today]
-  )
-
   const calendarEvents = useMemo(
     () => filterEvents(events, filters, '1900-01-01', '2999-12-31'),
     [events, filters]
@@ -125,7 +117,7 @@ export default function HomeContent() {
 
       <main className="max-w-5xl mx-auto">
         {activeView === 'today' && (
-          <TodayView events={todayEvents} onResetFilters={resetFilters} viewMode={viewMode} />
+          <DayView events={calendarEvents} onResetFilters={resetFilters} viewMode={viewMode} />
         )}
         {activeView === 'month' && (
           <MonthView events={calendarEvents} onResetFilters={resetFilters} viewMode={viewMode} />

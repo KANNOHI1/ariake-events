@@ -5,7 +5,7 @@ import ViewTabs from './ViewTabs'
 describe('ViewTabs', () => {
   it('renders 4 tabs', () => {
     render(<ViewTabs activeView="today" onChangeView={vi.fn()} />)
-    expect(screen.getByText('今日')).toBeInTheDocument()
+    expect(screen.getByText('日')).toBeInTheDocument()
     expect(screen.getByText('月')).toBeInTheDocument()
     expect(screen.getByText('カレンダー')).toBeInTheDocument()
     expect(screen.getByText('交通')).toBeInTheDocument()
@@ -15,7 +15,7 @@ describe('ViewTabs', () => {
     render(<ViewTabs activeView="month" onChangeView={vi.fn()} />)
     const weekTab = screen.getByText('月').closest('button')
     expect(weekTab).toHaveAttribute('aria-selected', 'true')
-    const todayTab = screen.getByText('今日').closest('button')
+    const todayTab = screen.getByText('日').closest('button')
     expect(todayTab).toHaveAttribute('aria-selected', 'false')
   })
 

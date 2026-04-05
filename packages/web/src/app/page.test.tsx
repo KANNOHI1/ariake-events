@@ -74,7 +74,8 @@ describe('Home page', () => {
     expect(within(heading).getByText('有明')).toHaveClass('text-primary-500')
     expect(within(heading).getByText('イベント')).toHaveClass('text-slate-900')
 
-    const datePill = screen.getByText('3月18日(水)')
+    const header = container.querySelector('header')!
+    const datePill = within(header).getByText('3月18日(水)')
     expect(datePill.tagName).toBe('SPAN')
     expect(datePill).toHaveClass('font-semibold', 'bg-[#fff3ed]', 'rounded-full')
 

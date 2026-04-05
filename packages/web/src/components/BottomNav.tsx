@@ -6,7 +6,7 @@ interface Props {
 }
 
 const NAV_ITEMS: { id: ViewType; label: string; icon: string }[] = [
-  { id: 'today', label: '今日', icon: 'calendar_today' },
+  { id: 'today', label: '日', icon: 'calendar_today' },
   { id: 'month', label: '月', icon: 'calendar_month' },
   { id: 'calendar', label: 'カレンダー', icon: 'event_note' },
   { id: 'transport', label: '交通', icon: 'directions_bus' },

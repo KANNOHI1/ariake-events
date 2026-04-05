@@ -6,7 +6,7 @@ interface Props {
 }
 
 const TABS: { id: ViewType; label: string }[] = [
-  { id: 'today', label: '今日' },
+  { id: 'today', label: '日' },
   { id: 'month', label: '月' },
   { id: 'calendar', label: 'カレンダー' },
   { id: 'transport', label: '交通' },

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
-import { getTodayString, toDateStr, getWeekRange, isInRange } from './dateUtils'
+import { getTodayString, toDateStr, getWeekRange, isInRange, addDays, formatDateLabel } from './dateUtils'
 
 afterEach(() => {
   vi.restoreAllMocks()
@@ -72,5 +72,38 @@ describe('isInRange', () => {
   it('returns true for single-day event on range boundary', () => {
     expect(isInRange('2026-03-18', '2026-03-18', '2026-03-18', '2026-03-24')).toBe(true)
     expect(isInRange('2026-03-24', '2026-03-24', '2026-03-18', '2026-03-24')).toBe(true)
+  })
+})
+
+describe('addDays', () => {
+  it('+1 day', () => {
+    expect(addDays('2026-04-05', 1)).toBe('2026-04-06')
+  })
+
+  it('-1 day', () => {
+    expect(addDays('2026-04-05', -1)).toBe('2026-04-04')
+  })
+
+  it('handles month boundary (Mar 31 + 1 = Apr 1)', () => {
+    expect(addDays('2026-03-31', 1)).toBe('2026-04-01')
+  })
+
+  it('handles year boundary (Dec 31 + 1 = Jan 1)', () => {
+    expect(addDays('2026-12-31', 1)).toBe('2027-01-01')
+  })
+
+  it('zero offset returns same date', () => {
+    expect(addDays('2026-04-05', 0)).toBe('2026-04-05')
+  })
+})
+
+describe('formatDateLabel', () => {
+  it('returns a Japanese date string with year, month, day and weekday', () => {
+    const result = formatDateLabel('2026-04-05')
+    expect(result).toMatch(/2026/)
+    expect(result).toMatch(/4/)
+    expect(result).toMatch(/5/)
+    // weekday in parentheses (Japanese short weekday)
+    expect(result).toMatch(/[日月火水木金土]/)
   })
 })
