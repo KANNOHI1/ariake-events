@@ -17,7 +17,7 @@ export interface FilterSheetProps {
 const CHIP_BASE =
   'shrink-0 rounded-full px-4 py-1.5 text-sm font-medium transition-colors cursor-pointer'
 const CHIP_ACTIVE = 'bg-primary-500 text-white'
-const CHIP_INACTIVE = 'bg-white border border-slate-200 text-slate-600'
+const CHIP_INACTIVE = 'bg-white border border-slate-200 text-slate-600 hover:border-slate-400'
 
 function getChipClassName(isActive: boolean) {
   return `${CHIP_BASE} ${isActive ? CHIP_ACTIVE : CHIP_INACTIVE}`
@@ -50,7 +50,7 @@ export default function FilterSheet({
 
       <div
         className={[
-          'fixed inset-x-0 bottom-0 z-50 rounded-t-3xl bg-[#f8f6f6] shadow-[0_-12px_40px_rgba(15,23,42,0.16)]',
+          'fixed inset-x-0 bottom-0 z-50 rounded-t-3xl bg-white shadow-[0_-12px_40px_rgba(15,23,42,0.16)]',
           'transition-transform duration-300 ease-out',
           'translate-y-0',
           'lg:hidden',
