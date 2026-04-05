@@ -14,7 +14,7 @@ const NAV_ITEMS: { id: ViewType; label: string; icon: string }[] = [
 
 export default function BottomNav({ activeView, onChangeView }: Props) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-slate-200">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-slate-100">
       <div className="flex justify-around items-center px-2 py-2 max-w-6xl mx-auto">
         {NAV_ITEMS.map((item) => {
           const active = activeView === item.id
