@@ -169,7 +169,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
   return (
     <div>
       {/* Month navigation header — same pattern as MonthView/DayView */}
-      <div className="flex items-center justify-between px-4 py-3 bg-[#f8f6f6]">
+      <div className="flex items-center justify-between border-b border-slate-100 bg-white px-4 py-3">
         <button
           onClick={prevMonth}
           className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100 text-slate-600 transition-colors cursor-pointer"
@@ -260,7 +260,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           )}
         </div>
 
-        <div className="hidden lg:flex lg:flex-col min-h-[400px] bg-[#f8f6f6]">
+        <div className="hidden min-h-[400px] bg-slate-50 lg:flex lg:flex-col">
           {selectedDate ? (
             <div className="flex flex-col h-full">
               <div className="px-4 py-3 border-b border-slate-200 bg-slate-50">
