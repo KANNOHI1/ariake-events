@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "vitest run",
-    "test:watch": "vitest"
+    "test": "node --require ./scripts/vite-safe-realpath.cjs ./node_modules/vitest/vitest.mjs run --configLoader runner",
+    "test:watch": "node --require ./scripts/vite-safe-realpath.cjs ./node_modules/vitest/vitest.mjs --configLoader runner"
   },
   "dependencies": {
     "next": "15.1.6",
