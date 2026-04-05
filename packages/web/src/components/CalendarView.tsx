@@ -197,7 +197,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           <div className="grid grid-cols-7 gap-px bg-slate-200">
             {cells.map((day, i) => {
               if (day === null) {
-                return <div key={`empty-${i}`} className="bg-white min-h-[60px]" />
+                return <div key={`empty-${i}`} className="bg-white min-h-[60px] lg:min-h-[90px]" />
               }
 
               const d = new Date(year, month, day)
@@ -212,7 +212,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
                 <button
                   key={dateStr}
                   onClick={() => hasEvents ? setSelectedDate(dateStr) : undefined}
-                  className={`bg-white min-h-[60px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
+                  className={`bg-white min-h-[60px] lg:min-h-[90px] p-1 text-left w-full ${isToday ? 'bg-primary-50' : ''} ${hasEvents ? 'cursor-pointer hover:bg-gray-50' : 'cursor-default'}`}
                   data-today={isToday || undefined}
                   data-date={hasEvents ? dateStr : undefined}
                 >
@@ -255,7 +255,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
           )}
         </div>
 
-        <div className="hidden lg:flex lg:flex-col min-h-[400px]">
+        <div className="hidden lg:flex lg:flex-col min-h-[400px] bg-[#f8f6f6]">
           {selectedDate ? (
             <div className="flex flex-col h-full">
               <div className="px-4 py-3 border-b border-slate-200 bg-slate-50">
