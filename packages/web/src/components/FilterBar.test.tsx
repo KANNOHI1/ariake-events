@@ -54,7 +54,7 @@ describe('FilterBar', () => {
     expect(screen.getByTestId('filter-badge')).toHaveTextContent('2')
   })
 
-  it('「絞り込み」ボタンクリックでシートが開く', () => {
+  it('「絞り込み」ボタンクリックでフィルターパネルが開く（施設・カテゴリが表示される）', () => {
     render(
       <FilterBar
         filters={defaultFilters}
@@ -64,8 +64,21 @@ describe('FilterBar', () => {
       />
     )
     fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
-    expect(screen.getByText('施設')).toBeInTheDocument()
-    expect(screen.getByText('カテゴリ')).toBeInTheDocument()
+    expect(screen.getAllByText('施設').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('カテゴリ').length).toBeGreaterThan(0)
+  })
+
+  it('「絞り込み」ボタンクリックでデスクトップPopoverが表示される', () => {
+    render(
+      <FilterBar
+        filters={defaultFilters}
+        onSetFacility={vi.fn()}
+        onSetCategory={vi.fn()}
+        {...defaultViewProps}
+      />
+    )
+    fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
+    expect(screen.getByTestId('filter-popover')).toBeInTheDocument()
   })
 
   it('グリッドトグルボタンが表示される', () => {
@@ -95,7 +108,7 @@ describe('FilterBar', () => {
     expect(onToggleViewMode).toHaveBeenCalledOnce()
   })
 
-  it('シート内で施設チップクリック → onSetFacility が呼ばれる', () => {
+  it('フィルタ内で施設チップクリック → onSetFacility が呼ばれる', () => {
     const onSetFacility = vi.fn()
     render(
       <FilterBar
@@ -106,11 +119,11 @@ describe('FilterBar', () => {
       />
     )
     fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
-    fireEvent.click(screen.getByRole('button', { name: '有明ガーデン' }))
+    fireEvent.click(screen.getAllByRole('button', { name: '有明ガーデン' })[0])
     expect(onSetFacility).toHaveBeenCalledWith('有明ガーデン')
   })
 
-  it('シート内でカテゴリチップクリック → onSetCategory が呼ばれる', () => {
+  it('フィルタ内でカテゴリチップクリック → onSetCategory が呼ばれる', () => {
     const onSetCategory = vi.fn()
     render(
       <FilterBar
@@ -121,7 +134,7 @@ describe('FilterBar', () => {
       />
     )
     fireEvent.click(screen.getByRole('button', { name: /絞り込み/ }))
-    fireEvent.click(screen.getByRole('button', { name: 'ミュージック' }))
+    fireEvent.click(screen.getAllByRole('button', { name: 'ミュージック' })[0])
     expect(onSetCategory).toHaveBeenCalledWith('music')
   })
 })

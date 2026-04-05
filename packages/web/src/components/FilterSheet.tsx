@@ -45,7 +45,7 @@ export default function FilterSheet({
       <div
         data-testid="filter-sheet-backdrop"
         onClick={onClose}
-        className="fixed inset-0 z-40 bg-black/40"
+        className="fixed inset-0 z-40 bg-black/40 lg:hidden"
       />
 
       <div
@@ -53,6 +53,7 @@ export default function FilterSheet({
           'fixed inset-x-0 bottom-0 z-50 rounded-t-3xl bg-[#f8f6f6] shadow-[0_-12px_40px_rgba(15,23,42,0.16)]',
           'transition-transform duration-300 ease-out',
           'translate-y-0',
+          'lg:hidden',
         ].join(' ')}
       >
         <div className="max-h-[80vh] overflow-y-auto px-5 pb-8 pt-5">
