@@ -29,16 +29,16 @@ afterEach(() => {
 })
 
 describe('DayView', () => {
-  it('renders events sorted by facility order', () => {
+  it('renders events sorted by category priority (sortEvents)', () => {
     const events: EventItem[] = [
-      makeEvent({ id: '1', facility: FACILITIES[4], eventName: 'Event A' }),
-      makeEvent({ id: '2', facility: FACILITIES[0], eventName: 'Event B' }),
+      makeEvent({ id: '1', category: 'sports', eventName: 'Event A' }),
+      makeEvent({ id: '2', category: 'music',  eventName: 'Event B' }),
     ]
 
     render(<DayView events={events} onResetFilters={vi.fn()} viewMode="list" />)
 
     const cards = screen.getAllByRole('article')
-    expect(cards[0]).toHaveTextContent('Event B')
+    expect(cards[0]).toHaveTextContent('Event B') // music (priority 0) before sports (priority 1)
     expect(cards[1]).toHaveTextContent('Event A')
   })
 

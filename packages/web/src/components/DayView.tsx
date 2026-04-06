@@ -3,25 +3,14 @@
 import { useState } from 'react'
 import EventCard from './EventCard'
 import type { EventItem } from '../types'
-import { FACILITIES } from '../types'
 import { getTodayString, addDays } from '../lib/dateUtils'
 import type { ViewMode } from './FilterBar'
+import { sortEvents } from '../lib/sortEvents'
 
 interface Props {
   events: EventItem[]
   onResetFilters: () => void
   viewMode: ViewMode
-}
-
-const FACILITY_ORDER = Object.fromEntries(FACILITIES.map((f, i) => [f, i]))
-
-function sortByFacility(events: EventItem[]): EventItem[] {
-  return [...events].sort((a, b) => {
-    const fa = FACILITY_ORDER[a.facility] ?? 999
-    const fb = FACILITY_ORDER[b.facility] ?? 999
-    if (fa !== fb) return fa - fb
-    return a.eventName.localeCompare(b.eventName, 'ja')
-  })
 }
 
 export default function DayView({ events, onResetFilters, viewMode }: Props) {
@@ -34,7 +23,7 @@ export default function DayView({ events, onResetFilters, viewMode }: Props) {
   const nextDay = () => setSelectedDate(d => addDays(d, 1))
   const goToToday = () => setSelectedDate(today)
 
-  const dayEvents = sortByFacility(
+  const dayEvents = sortEvents(
     events.filter(e => e.startDate <= selectedDate && e.endDate >= selectedDate)
   )
 
