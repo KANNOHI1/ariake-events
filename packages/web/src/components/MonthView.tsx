@@ -2,6 +2,7 @@ import { useState } from 'react'
 import EventCard from './EventCard'
 import type { EventItem } from '../types'
 import { getTodayString } from '../lib/dateUtils'
+import { sortEvents } from '../lib/sortEvents'
 import type { ViewMode } from './FilterBar'
 
 interface Props {
@@ -36,9 +37,9 @@ export default function MonthView({ events, onResetFilters, viewMode }: Props) {
   const monthStart = `${year}-${pad(month + 1)}-01`
   const monthEnd = `${year}-${pad(month + 1)}-${pad(getDaysInMonth(year, month))}`
 
-  const monthEvents = events
-    .filter(e => e.startDate <= monthEnd && e.endDate >= monthStart)
-    .sort((a, b) => a.startDate.localeCompare(b.startDate))
+  const monthEvents = sortEvents(
+    events.filter(e => e.startDate <= monthEnd && e.endDate >= monthStart)
+  )
 
   const gridClass = viewMode === 'grid'
     ? 'grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-4'
