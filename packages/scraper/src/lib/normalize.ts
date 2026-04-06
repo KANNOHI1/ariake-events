@@ -19,6 +19,9 @@ export const mapCategory = (raw: string | null | undefined): EventCategory => {
   if (!raw) return "other";
   const s = raw.toLowerCase();
 
+  if (/ディズニー|disney/.test(s)) return "kids";
+  if (/アイドル|idol/.test(s)) return "anime";
+
   // Music: concerts, live shows, tours
   // Note: フェス(?!タ) excludes フェスタ (which is a festival/event suffix, not a music fest)
   if (/ライブ|コンサート|フェス(?!タ)|live|music|concert/.test(s))
@@ -38,7 +41,8 @@ export const mapCategory = (raw: string | null | undefined): EventCategory => {
   if (/\bweek\b/.test(s)) return "exhibition"; // Japan IT Week, SMART ENERGY WEEK
 
   // Kids: children's events (data-eventlabel "kids" + Japanese keywords)
-  if (/\bkids\b|キッズ|こども|子ども|子供|乗り物/.test(s)) return "kids";
+  if (/\bkids\b|キッズ|こども|子ども|子供|乗り物|ディズニー|disney/.test(s))
+    return "kids";
 
   // Food: food/beverage events (data-eventlabel "food" + Japanese keywords)
   if (/\bfood\b|フード|食材|グルメ/.test(s)) return "food";
@@ -47,7 +51,8 @@ export const mapCategory = (raw: string | null | undefined): EventCategory => {
   if (/\bfashion\b|ファッション|アパレル/.test(s)) return "fashion";
 
   // Anime/Comic: otaku culture events (comic markets, doll shows)
-  if (/\bcomic\b|\bdoll\b|コミック|アニメ|同人|コスプレ/.test(s)) return "anime";
+  if (/\bcomic\b|\bdoll\b|コミック|アニメ|同人|コスプレ|アイドル|idol/.test(s))
+    return "anime";
 
   return "other";
 };

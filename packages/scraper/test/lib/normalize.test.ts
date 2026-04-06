@@ -89,6 +89,11 @@ describe("mapCategory", () => {
     expect(mapCategory("こども向けイベント")).toBe("kids");
   });
 
+  it("maps Disney events to kids", () => {
+    expect(mapCategory("ディズニー・オン・アイス")).toBe("kids");
+    expect(mapCategory("Disney on Ice")).toBe("kids");
+  });
+
   // --- food ---
   it("maps data-eventlabel food", () => {
     expect(mapCategory("food")).toBe("food");
@@ -122,6 +127,11 @@ describe("mapCategory", () => {
     expect(mapCategory("同人誌即売会")).toBe("anime");
     expect(mapCategory("アニメジャパン2026")).toBe("anime");
     expect(mapCategory("コスプレイベント")).toBe("anime");
+  });
+
+  it("maps idol events to anime", () => {
+    expect(mapCategory("アイドルフェスタ2026")).toBe("anime");
+    expect(mapCategory("K-POP IDOL Concert")).toBe("anime");
   });
 
   // --- other ---
