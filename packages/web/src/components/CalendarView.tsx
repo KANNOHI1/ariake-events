@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import type { EventItem } from '../types'
 import { CATEGORY_DOT_COLORS, CATEGORY_LABELS, FACILITY_COLORS, getCongestionInfo } from '../lib/colorMap'
 import { getTodayString, toDateStr } from '../lib/dateUtils'
+import { sortEvents } from '../lib/sortEvents'
 
 interface Props {
   events: EventItem[]
@@ -161,7 +162,7 @@ export default function CalendarView({ events, onResetFilters }: Props) {
     ...Array.from({ length: daysInMonth }, (_, i) => i + 1),
   ]
 
-  const selectedEvents = selectedDate ? getEventsForDate(events, selectedDate) : []
+  const selectedEvents = selectedDate ? sortEvents(getEventsForDate(events, selectedDate)) : []
   const selectedLabel = selectedDate
     ? `${parseInt(selectedDate.slice(5, 7))}月${parseInt(selectedDate.slice(8, 10))}日`
     : ''
