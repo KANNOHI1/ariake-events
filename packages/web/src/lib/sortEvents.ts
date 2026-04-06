@@ -15,9 +15,11 @@ const LONG_RUN_DAYS = 4
 const LONG_RUN_PENALTY = 10
 
 function getDurationDays(startDate: string, endDate: string): number {
-  const start = new Date(startDate).getTime()
-  const end = new Date(endDate).getTime()
-  return Math.round((end - start) / (1000 * 60 * 60 * 24)) + 1
+  const [sy, sm, sd] = startDate.split('-').map(Number)
+  const [ey, em, ed] = endDate.split('-').map(Number)
+  const start = Date.UTC(sy, sm - 1, sd)
+  const end   = Date.UTC(ey, em - 1, ed)
+  return (end - start) / (1000 * 60 * 60 * 24) + 1
 }
 
 function eventSortScore(event: EventItem): number {

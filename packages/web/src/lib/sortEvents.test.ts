@@ -71,7 +71,8 @@ describe('sortEvents', () => {
       makeEvent({ id: 'a', category: 'music' }),
     ]
     const original = [...events]
-    sortEvents(events)
+    const result = sortEvents(events)
+    expect(result).not.toBe(events)
     expect(events[0].id).toBe(original[0].id)
   })
 
