@@ -1,5 +1,7 @@
+'use client'
+
 import { useEffect, useMemo, useState } from 'react'
-import { timetable } from '../data/timetable'
+import { timetable, type RouteData, type TabGroup } from '../data/timetable'
 import { filterUpcoming, getDayType, getSchedule } from '../lib/timetableUtils'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
@@ -14,139 +16,163 @@ const ROUTE_LOGOS: Record<string, string> = {
   BRT: `${basePath}/transport/brt.png`,
 }
 
-function routeKey(name: string, station: string): string {
-  return `${name}-${station}`
+const TABS: Array<{ key: TabGroup; label: string }> = [
+  { key: 'rail', label: '鉄道' },
+  { key: 'brt', label: 'BRT' },
+  { key: 'bus', label: 'バス' },
+]
+
+type DecoratedDirection = RouteData['directions'][number] & { upcoming: string[] }
+
+type DecoratedRoute = {
+  name: RouteData['name']
+  station: RouteData['station']
+  walkMinutes: RouteData['walkMinutes']
+  tabGroup: RouteData['tabGroup']
+  directions: DecoratedDirection[]
 }
 
 function getNowString(): string {
   const now = new Date()
-  const h = String(now.getHours()).padStart(2, '0')
-  const m = String(now.getMinutes()).padStart(2, '0')
-  return `${h}:${m}`
+  return `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`
+}
+
+function getDayLabel(dayType: ReturnType<typeof getDayType>): string {
+  if (dayType === 'saturday') return '土曜ダイヤ'
+  if (dayType === 'holiday') return '休日ダイヤ'
+  return '平日ダイヤ'
+}
+
+function RouteCard({ route }: { route: DecoratedRoute }) {
+  const logo = ROUTE_LOGOS[route.name]
+  const maxRows = Math.max(0, ...route.directions.map((direction) => direction.upcoming.length))
+  const visibleRows = Math.min(maxRows, 6)
+  const hasDepartures = maxRows > 0
+
+  return (
+    <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <header className="flex items-center gap-3 border-b border-slate-200 bg-slate-50 px-4 py-3">
+        {logo ? (
+          <img src={logo} alt={route.name} className="h-7 w-7 flex-none object-contain" />
+        ) : null}
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-slate-900">{route.name}</p>
+          <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500">
+            <span>{route.station}</span>
+            <span aria-hidden="true">・</span>
+            <span>{`徒歩${route.walkMinutes}分`}</span>
+          </div>
+        </div>
+      </header>
+
+      {!hasDepartures ? (
+        <p className="px-4 py-5 text-center text-sm text-slate-400">本日の終電は終了しました</p>
+      ) : (
+        <div>
+          <div
+            className="grid border-b border-slate-100 bg-slate-50"
+            style={{ gridTemplateColumns: `repeat(${route.directions.length}, minmax(0, 1fr))` }}
+          >
+            {route.directions.map((direction, index) => (
+              <div
+                key={direction.label}
+                className={`px-3 py-2 text-center text-xs font-medium text-slate-600 ${
+                  index > 0 ? 'border-l border-slate-200' : ''
+                }`}
+              >
+                {direction.label}
+              </div>
+            ))}
+          </div>
+
+          {Array.from({ length: visibleRows }, (_, rowIndex) => (
+            <div
+              key={rowIndex}
+              className={`grid ${rowIndex % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}`}
+              style={{ gridTemplateColumns: `repeat(${route.directions.length}, minmax(0, 1fr))` }}
+            >
+              {route.directions.map((direction, index) => (
+                <div
+                  key={`${direction.label}-${rowIndex}`}
+                  className={`px-3 py-2 text-center text-sm tabular-nums text-slate-700 ${
+                    index > 0 ? 'border-l border-slate-100' : ''
+                  }`}
+                >
+                  {direction.upcoming[rowIndex] ?? ''}
+                </div>
+              ))}
+            </div>
+          ))}
+
+          {maxRows > visibleRows ? (
+            <p className="border-t border-slate-100 px-4 py-2 text-center text-xs text-slate-400">
+              {`ほか ${maxRows - visibleRows} 本`}
+            </p>
+          ) : null}
+        </div>
+      )}
+    </article>
+  )
 }
 
 export default function TransportView() {
+  const [activeTab, setActiveTab] = useState<TabGroup>('rail')
   const [now, setNow] = useState(getNowString)
   const dayType = getDayType()
 
   useEffect(() => {
-    const timer = setInterval(() => setNow(getNowString()), 60_000)
-    return () => clearInterval(timer)
+    const timer = window.setInterval(() => {
+      setNow(getNowString())
+    }, 60_000)
+
+    return () => window.clearInterval(timer)
   }, [])
 
-  const routes = useMemo(
+  const routes = useMemo<DecoratedRoute[]>(
     () =>
-      timetable.map((route) => ({
-        ...route,
-        directions: route.directions.map((dir) => ({
-          ...dir,
-          upcoming: filterUpcoming(getSchedule(dir, dayType), now),
+      timetable
+        .filter((route) => route.tabGroup === activeTab)
+        .map<DecoratedRoute>((route) => ({
+          ...route,
+          directions: route.directions.map<DecoratedDirection>((direction) => ({
+            ...direction,
+            upcoming: filterUpcoming(getSchedule(direction, dayType), now),
+          })),
         })),
-      })),
-    [now, dayType]
+    [activeTab, dayType, now]
   )
 
   return (
-    <div className="p-4">
-      <p className="mb-3 text-xs text-slate-500">
-        {now} {'\u73fe\u5728\u30fb\u6b21\u767a\u76ee\u5b89'} {dayType === 'weekday' ? '\u5e73\u65e5' : dayType === 'saturday' ? '\u571f\u66dc\u65e5' : '\u795d\u4f11\u65e5'}
-        {'\u30c0\u30a4\u30e4'}
-      </p>
+    <div className="flex h-full flex-col">
+      <p className="px-4 pb-2 pt-3 text-xs text-slate-400">{`${now} 現在・${getDayLabel(dayType)}`}</p>
 
-      <div className="overflow-auto -mx-4 px-4 max-h-[calc(100dvh-220px)]">
-        <table className="w-full border-collapse text-sm whitespace-nowrap">
-          <thead className="sticky top-0 z-10">
-            <tr>
-              {routes.map((route) => (
-                <th
-                  key={routeKey(route.name, route.station)}
-                  colSpan={route.directions.length}
-                  className="border border-slate-200 bg-slate-50 px-3 py-3 text-center"
-                >
-                  <div className="flex flex-col items-center gap-1">
-                    <img
-                      src={ROUTE_LOGOS[route.name]}
-                      alt={route.name}
-                      className="h-7 object-contain"
-                    />
-                    <span className="text-xs font-bold text-slate-800">{route.name}</span>
-                  </div>
-                </th>
-              ))}
-            </tr>
+      <div className="flex border-b border-slate-200 px-4" role="tablist" aria-label="交通手段">
+        {TABS.map((tab) => {
+          const isActive = activeTab === tab.key
 
-            <tr>
-              {routes.map((route) => (
-                <td
-                  key={routeKey(route.name, route.station)}
-                  colSpan={route.directions.length}
-                  className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-500"
-                >
-                  {route.station}
-                </td>
-              ))}
-            </tr>
+          return (
+            <button
+              key={tab.key}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActiveTab(tab.key)}
+              className={`border-b-2 px-5 py-2.5 text-sm font-medium transition-colors ${
+                isActive
+                  ? 'border-blue-500 text-blue-600'
+                  : 'border-transparent text-slate-500 hover:text-slate-700'
+              }`}
+            >
+              {tab.label}
+            </button>
+          )
+        })}
+      </div>
 
-            <tr>
-              {routes.map((route) => (
-                <td
-                  key={routeKey(route.name, route.station)}
-                  colSpan={route.directions.length}
-                  className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-400"
-                >
-                  {'\u5f92\u6b69'}
-                  {route.walkMinutes}
-                  {'\u5206'}
-                </td>
-              ))}
-            </tr>
-
-            <tr>
-              {routes.flatMap((route) =>
-                route.directions.map((dir) => (
-                  <th
-                    key={`${route.name}-${route.station}-${dir.label}`}
-                    className="border border-slate-300 bg-slate-200 px-3 py-1.5 text-center text-xs font-medium text-slate-700"
-                  >
-                    {dir.label}
-                  </th>
-                ))
-              )}
-            </tr>
-          </thead>
-
-          <tbody>
-            {Array.from({
-              length: Math.max(0, ...routes.flatMap((route) => route.directions.map((dir) => dir.upcoming.length))),
-            }).map((_, rowIndex) => (
-              <tr
-                key={rowIndex}
-                className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-slate-50'}
-              >
-                {routes.flatMap((route) =>
-                  route.directions.map((dir) => (
-                    <td
-                      key={`${route.name}-${route.station}-${dir.label}-${rowIndex}`}
-                      className="border border-slate-200 px-4 py-1.5 text-center tabular-nums text-slate-700"
-                    >
-                      {dir.upcoming[rowIndex] ?? ''}
-                    </td>
-                  ))
-                )}
-              </tr>
-            ))}
-            {routes.every((route) => route.directions.every((dir) => dir.upcoming.length === 0)) && (
-              <tr>
-                <td
-                  colSpan={routes.reduce((sum, route) => sum + route.directions.length, 0)}
-                  className="px-4 py-8 text-center text-sm text-slate-400"
-                >
-                  {'\u672c\u65e5\u306e\u7d42\u96fb\u306f\u7d42\u4e86\u3057\u307e\u3057\u305f'}
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+      <div className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
+        {routes.map((route) => (
+          <RouteCard key={`${route.name}-${route.station}`} route={route} />
+        ))}
       </div>
     </div>
   )

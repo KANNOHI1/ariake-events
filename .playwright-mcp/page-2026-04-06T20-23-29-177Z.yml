@@ -1,0 +1,151 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - link "東京都交通局" [ref=e6] [cursor=pointer]:
+      - /url: http://www.kotsu.metro.tokyo.jp
+      - img "東京都交通局" [ref=e7]
+    - link "都バス運行情報サービス":
+      - /url: https://tobus.jp/blsys/navi
+      - img "都バス運行情報サービス" [ref=e8] [cursor=pointer]
+    - generic [ref=e9]:
+      - list [ref=e11]:
+        - listitem [ref=e12] [cursor=pointer]:
+          - img "フォント小" [ref=e13]
+        - listitem [ref=e14] [cursor=pointer]:
+          - img "フォント中" [ref=e15]
+        - listitem [ref=e16] [cursor=pointer]:
+          - img "フォント大" [ref=e17]
+      - list [ref=e18]:
+        - listitem [ref=e19]:
+          - link "English" [ref=e20] [cursor=pointer]:
+            - /url: https://tobus.jp/blsys/navi?LCD=e
+        - listitem [ref=e21]:
+          - link "その他" [ref=e22] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=otherlinks
+        - listitem [ref=e23]:
+          - link "東京都交通局" [ref=e24] [cursor=pointer]:
+            - /url: http://www.kotsu.metro.tokyo.jp/
+        - listitem [ref=e25]:
+          - link "東京都公式ホームページ" [ref=e26] [cursor=pointer]:
+            - /url: http://www.metro.tokyo.lg.jp/
+      - list [ref=e27]:
+        - listitem [ref=e28]:
+          - link "サイトマップ" [ref=e29] [cursor=pointer]:
+            - /url: javascript:void(0);
+        - listitem [ref=e30]:
+          - link "ご利用方法" [ref=e31] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=ug
+        - listitem [ref=e32]:
+          - link "音声読み上げ対応" [ref=e33] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=txtrd
+        - listitem [ref=e34]: 時刻表
+    - list [ref=e35]:
+      - listitem [ref=e36]:
+        - link "ホーム" [ref=e37] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e38]:
+        - link "系統運行状況" [ref=e39] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e40]:
+        - generic "車両接近情報" [ref=e41] [cursor=pointer]
+      - listitem [ref=e42]:
+        - generic "都営交通経路検索" [ref=e43] [cursor=pointer]
+      - listitem [ref=e44]:
+        - generic "車両検索" [ref=e45] [cursor=pointer]
+      - listitem [ref=e46]:
+        - link "停留所地図検索" [ref=e47] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e48]:
+        - link "都電荒川線情報" [ref=e49] [cursor=pointer]:
+          - /url: https://tobus.jp/tlsys/navi
+  - generic [ref=e50]:
+    - generic [ref=e51]:
+      - heading "都バスのリアルタイムの運行情報をお知らせします" [level=1] [ref=e52]:
+        - img "都バスのリアルタイムの運行情報をお知らせします" [ref=e53]
+      - generic [ref=e54]:
+        - term [ref=e55]:
+          - img "お知らせ" [ref=e56]
+        - definition [ref=e57]:
+          - generic [ref=e58]: 都営バスをご利用いただきありがとうございます。 都営バス停留所の情報表示装置はメンテナン スのため「調整中」とさせていただきます。
+      - generic [ref=e59]:
+        - link "系統運行状況 系統を指定して、運行状況を調べることができます。" [ref=e61] [cursor=pointer]:
+          - /url: javascript:void(0);
+          - generic [ref=e62]:
+            - term: 系統運行状況
+            - definition [ref=e63]: 系統を指定して、運行状況を調べることができます。
+        - generic "車両接近情報" [ref=e65] [cursor=pointer]:
+          - generic [ref=e66]:
+            - term: 車両接近情報
+            - definition [ref=e67]: 停留所・駅を指定して車両接近情報を調べることができます。
+        - generic "都営交通経路検索" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]:
+            - term: 都営交通経路検索
+            - definition [ref=e71]: 乗車停留所・駅と降車停留所・駅を指定して、都営交通経路を調べることができます。
+        - generic "車両検索" [ref=e73] [cursor=pointer]:
+          - generic [ref=e74]:
+            - term: 車両検索
+            - definition [ref=e75]: 指定した車両の情報を調べることができます。
+        - link "停留所地図検索 地図上で停留所位置および系統の運行経路を検索・確認することができます。" [ref=e77] [cursor=pointer]:
+          - /url: javascript:void(0);
+          - generic [ref=e78]:
+            - term: 停留所地図検索
+            - definition [ref=e79]: 地図上で停留所位置および系統の運行経路を検索・確認することができます。
+        - link "都電荒川線情報 簡易路線図マップ上で電車の位置を確認することができます。" [ref=e81] [cursor=pointer]:
+          - /url: https://tobus.jp/tlsys/navi
+          - generic [ref=e82]:
+            - term: 都電荒川線情報
+            - definition [ref=e83]: 簡易路線図マップ上で電車の位置を確認することができます。
+    - generic [ref=e84]:
+      - list [ref=e85]:
+        - listitem [ref=e86]:
+          - generic "時刻表" [ref=e87] [cursor=pointer]:
+            - img "バスの時刻表はこちら" [ref=e88]
+        - listitem [ref=e89]:
+          - link "音声読み上げソフト対応ページです" [ref=e90] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=txtrd
+            - img "音声読み上げソフト対応ページです" [ref=e91]
+        - listitem [ref=e92]:
+          - link "アンケートを実施しています" [ref=e93] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=qtnre
+            - img "アンケートを実施しています" [ref=e94]
+      - generic [ref=e95]:
+        - term [ref=e96]:
+          - link "ご利用方法" [ref=e97] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=ug
+            - img "ご利用方法" [ref=e98]
+        - definition [ref=e99]: 当サイトの操作説明
+        - term [ref=e100]:
+          - link "免責事項" [ref=e101] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=ctop&ECD=nc
+            - img "免責事項" [ref=e102]
+        - definition [ref=e103]: 当サイトご利用時のご注意点
+        - term [ref=e104]:
+          - link "お問合せ" [ref=e105] [cursor=pointer]:
+            - /url: http://www.kotsu.metro.tokyo.jp/enq/index.html
+            - img "お問合せ" [ref=e106]
+        - definition [ref=e107]: 各種お問合せ先
+      - generic [ref=e108]:
+        - heading "モバイルサイトのご案内" [level=2] [ref=e109]:
+          - img "モバイルサイトのご案内" [ref=e110]
+        - paragraph [ref=e111]: スマートフォンにアドレスを送っていつでもどこでもバス情報を確認しよう！
+        - paragraph [ref=e112]:
+          - link "携帯電話にアドレスを送信する" [ref=e113] [cursor=pointer]:
+            - /url: mailto:?subject=Toei Bus Navi URL&Body=https://tobus.jp
+            - img "携帯電話にアドレスを送信する" [ref=e114]
+        - paragraph [ref=e115]:
+          - img "都バス運行情報サービスMOBILE-QRコード" [ref=e116]
+        - paragraph [ref=e117] [cursor=pointer]:
+          - link "スマートフォン画面へ" [ref=e118]:
+            - /url: https://tobus.jp/sp/blsys
+            - img "スマートフォン画面へ" [ref=e119]
+  - generic [ref=e120]:
+    - list [ref=e121]:
+      - listitem [ref=e122]:
+        - link "アクセシビリティ方針" [ref=e123] [cursor=pointer]:
+          - /url: navi?LCD=&VCD=ctop&ECD=acpo
+      - listitem [ref=e124]:
+        - link "免責事項" [ref=e125] [cursor=pointer]:
+          - /url: navi?LCD=&VCD=ctop&ECD=nc
+      - listitem [ref=e126]:
+        - link "お問合せ" [ref=e127] [cursor=pointer]:
+          - /url: http://www.kotsu.metro.tokyo.jp/enq/index.html
+    - paragraph [ref=e128]: Copyright© 2011 Bureau of Transportation. Tokyo Metropolitan Government. All Rights Reserved.

@@ -1,0 +1,159 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - link "東京都交通局" [ref=e5] [cursor=pointer]:
+      - /url: http://www.kotsu.metro.tokyo.jp
+      - img "東京都交通局" [ref=e6]
+    - link "都バス運行情報サービス":
+      - /url: https://tobus.jp/blsys/navi
+      - img "都バス運行情報サービス" [ref=e7] [cursor=pointer]
+    - generic [ref=e8]:
+      - list [ref=e10]:
+        - listitem [ref=e11] [cursor=pointer]:
+          - img "フォント小" [ref=e12]
+        - listitem [ref=e13] [cursor=pointer]:
+          - img "フォント中" [ref=e14]
+        - listitem [ref=e15] [cursor=pointer]:
+          - img "フォント大" [ref=e16]
+      - list [ref=e17]:
+        - listitem [ref=e18]:
+          - link "English" [ref=e19] [cursor=pointer]:
+            - /url: https://tobus.jp/blsys/navi?LCD=e
+        - listitem [ref=e20]:
+          - link "その他" [ref=e21] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=csrst&ECD=otherlinks
+        - listitem [ref=e22]:
+          - link "東京都交通局" [ref=e23] [cursor=pointer]:
+            - /url: http://www.kotsu.metro.tokyo.jp/
+        - listitem [ref=e24]:
+          - link "東京都公式ホームページ" [ref=e25] [cursor=pointer]:
+            - /url: http://www.metro.tokyo.lg.jp/
+      - list [ref=e26]:
+        - listitem [ref=e27]:
+          - link "サイトマップ" [ref=e28] [cursor=pointer]:
+            - /url: javascript:void(0);
+        - listitem [ref=e29]:
+          - link "ご利用方法" [ref=e30] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=csrst&ECD=ug
+        - listitem [ref=e31]:
+          - link "音声読み上げ対応" [ref=e32] [cursor=pointer]:
+            - /url: navi?LCD=&VCD=csrst&ECD=txtrd
+        - listitem [ref=e33]: 時刻表
+    - list [ref=e34]:
+      - listitem [ref=e35]:
+        - link "ホーム" [ref=e36] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e37]:
+        - link "系統運行状況" [ref=e38] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e39]:
+        - generic "車両接近情報" [ref=e40] [cursor=pointer]
+      - listitem [ref=e41]:
+        - generic "都営交通経路検索" [ref=e42] [cursor=pointer]
+      - listitem [ref=e43]:
+        - generic "車両検索" [ref=e44] [cursor=pointer]
+      - listitem [ref=e45]:
+        - link "停留所地図検索" [ref=e46] [cursor=pointer]:
+          - /url: javascript:void(0);
+      - listitem [ref=e47]:
+        - link "都電荒川線情報" [ref=e48] [cursor=pointer]:
+          - /url: https://tobus.jp/tlsys/navi
+  - generic [ref=e49]:
+    - generic [ref=e50]:
+      - heading "時刻表停留所名称検索" [level=1] [ref=e51]:
+        - img "時刻表" [ref=e52]
+        - img "停留所名称検索" [ref=e53]
+      - paragraph [ref=e54]: 停留所名を指定して時刻表一覧を調べることができます。
+    - generic [ref=e55]:
+      - generic [ref=e56]:
+        - table "停留所名称検索" [ref=e57]:
+          - rowgroup [ref=e58]:
+            - row "停留所名 有明小中学校前 ※ひらがな又はカタカナで検索する場合は、２文字以上を入力して下さい！ （漢字の場合は１文字でも検索可能です）" [ref=e59]:
+              - rowheader "停留所名" [ref=e60]
+              - cell "有明小中学校前 ※ひらがな又はカタカナで検索する場合は、２文字以上を入力して下さい！ （漢字の場合は１文字でも検索可能です）" [ref=e61]:
+                - textbox [ref=e62]: 有明小中学校前
+                - generic [ref=e63]:
+                  - text: ※ひらがな又はカタカナで検索する場合は、２文字以上を入力して下さい！
+                  - text: （漢字の場合は１文字でも検索可能です）
+        - list [ref=e64]:
+          - listitem [ref=e65]:
+            - link "検索" [ref=e66] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - img "検索" [ref=e67]
+      - paragraph [ref=e69]:
+        - text: 「有明小中学校前」に一致した停留所です。
+        - text: 行き先をクリックすると、時刻表画面が表示されます。
+      - table "停留所名称結果List" [ref=e70]:
+        - rowgroup [ref=e71]:
+          - row "停留所 系統 行き先 備考" [ref=e72]:
+            - columnheader "停留所" [ref=e73]
+            - columnheader "系統" [ref=e74]
+            - columnheader "行き先" [ref=e75]
+            - columnheader "備考" [ref=e76]
+          - row "有明小中学校前 海０１（ＫＭ０１） 門前仲町行 東京テレポート駅前行" [ref=e77]:
+            - cell "有明小中学校前" [ref=e78]
+            - cell "海０１（ＫＭ０１）" [ref=e79]
+            - cell "門前仲町行 東京テレポート駅前行" [ref=e80]:
+              - list [ref=e81]:
+                - listitem [ref=e82]:
+                  - link "門前仲町行" [ref=e83] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                - listitem [ref=e84]:
+                  - link "東京テレポート駅前行" [ref=e85] [cursor=pointer]:
+                    - /url: javascript:void(0);
+            - cell [ref=e86]
+          - row "都０４ 勝どき駅前行 有明一丁目行" [ref=e87]:
+            - cell "都０４" [ref=e88]
+            - cell "勝どき駅前行 有明一丁目行" [ref=e89]:
+              - list [ref=e90]:
+                - listitem [ref=e91]:
+                  - link "勝どき駅前行" [ref=e92] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                - listitem [ref=e93]:
+                  - link "有明一丁目行" [ref=e94] [cursor=pointer]:
+                    - /url: javascript:void(0);
+            - cell [ref=e95]
+          - row "都０５－２ 東京駅丸の内南口行 東京ビッグサイト行" [ref=e96]:
+            - cell "都０５－２" [ref=e97]
+            - cell "東京駅丸の内南口行 東京ビッグサイト行" [ref=e98]:
+              - list [ref=e99]:
+                - listitem [ref=e100]:
+                  - link "東京駅丸の内南口行" [ref=e101] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                - listitem [ref=e102]:
+                  - link "東京ビッグサイト行" [ref=e103] [cursor=pointer]:
+                    - /url: javascript:void(0);
+            - cell [ref=e104]
+          - row "東１６ 東京駅八重洲口行 東京ビッグサイト行" [ref=e105]:
+            - cell "東１６" [ref=e106]
+            - cell "東京駅八重洲口行 東京ビッグサイト行" [ref=e107]:
+              - list [ref=e108]:
+                - listitem [ref=e109]:
+                  - link "東京駅八重洲口行" [ref=e110] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                - listitem [ref=e111]:
+                  - link "東京ビッグサイト行" [ref=e112] [cursor=pointer]:
+                    - /url: javascript:void(0);
+            - cell [ref=e113]
+      - generic [ref=e114]:
+        - heading "使い方" [level=2] [ref=e115]:
+          - img "使い方" [ref=e116]
+        - list [ref=e117]:
+          - listitem [ref=e118]: 停留所名を入力し、検索ボタンを押してください。条件に該当する停留所一覧を表示します。
+          - listitem [ref=e119]: 停留所名の検索は部分一致検索で行います。入力された文字が含まれる停留所を全て表示します。
+          - listitem [ref=e120]: 停留所名はよみがなでも検索可能です。
+  - generic [ref=e121]:
+    - paragraph [ref=e122]:
+      - link "ページTOP" [ref=e123] [cursor=pointer]:
+        - /url: "#top"
+        - img "ページTOP" [ref=e124]
+    - list [ref=e125]:
+      - listitem [ref=e126]:
+        - link "アクセシビリティ方針" [ref=e127] [cursor=pointer]:
+          - /url: navi?LCD=&VCD=csrst&ECD=acpo
+      - listitem [ref=e128]:
+        - link "免責事項" [ref=e129] [cursor=pointer]:
+          - /url: navi?LCD=&VCD=csrst&ECD=nc
+      - listitem [ref=e130]:
+        - link "お問合せ" [ref=e131] [cursor=pointer]:
+          - /url: http://www.kotsu.metro.tokyo.jp/enq/index.html
+    - paragraph [ref=e132]: Copyright© Bureau of Transportation. Tokyo Metropolitan Government. All Rights Reserved.
