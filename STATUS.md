@@ -2,11 +2,10 @@
 
 ## 現在地
 
-**2026-04-07: 交通ページ全面刷新 完了 — push済み（b00d1f8）**
-- タブUI（鉄道/BRT/バス）導入、横スクロール廃止
-- 土曜ダイヤ対応（getDayType: weekday/saturday/holiday 3分岐）
-- バス停3件追加（有明小中学校前・有明二丁目・都橋住宅前、計8路線）
-- テスト: scraper 82/82 + web 157/157 = 239 PASS
+**2026-04-07: UI不具合2件修正 完了 — push済み（51e7f7d）**
+- EventCard: `h-28` → `min-h-28`（バッジ折り返し時の文字潰れ解消）
+- DayView: 今日=spanラベル、今日以外=「↩ 今日に戻る」ボタンに分離
+- テスト: web 157/157 PASS
 
 ## 次にやること
 
@@ -36,7 +35,7 @@
 
 | 日付 | 内容 |
 |---|---|
-| 2026-04-07 | agent-browser調査→断念、sortEvents完了、未解決問題整理、交通ページ全面刷新（タブUI・土曜ダイヤ・バス停3件追加） |
+| 2026-04-07 | UI不具合2件修正（カード文字潰れ・今日ラベル/ボタン分離）、agent-browser調査→断念、sortEvents完了、交通ページ全面刷新 |
 | 2026-04-06 | Airbnb全面リデザイン完了（push: 5269a89） |
 | 2026-04-05 | Phase 8 M7-M8: FilterBar Popover・CalendarView 2カラム・月曜始まり |
 | 2026-04-04 | Phase 8 M5-M6: EventCard画像改善・Blurred Backdrop |
