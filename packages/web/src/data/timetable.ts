@@ -1,25 +1,26 @@
 // packages/web/src/data/timetable.ts
 
-export type Departure = string // "HH:MM"
-
+export type Departure = string
+export type TabGroup = 'rail' | 'brt' | 'bus'
 export type DirectionSchedule = {
-  label: string       // 方面名（例: "大崎方面"）
+  label: string
   weekday: Departure[]
+  saturday?: Departure[]
   holiday: Departure[]
 }
-
 export type RouteData = {
-  name: string         // 路線名
-  station: string      // 最寄り駅・停留所名
-  walkMinutes: number  // 徒歩分数
+  name: string
+  station: string
+  walkMinutes: number
+  tabGroup: TabGroup
   directions: DirectionSchedule[]
 }
-
 export const timetable: RouteData[] = [
   {
     name: 'りんかい線',
     station: '有明テニスの森駅',
     walkMinutes: 3,
+    tabGroup: 'rail',
     directions: [
       {
         label: '大崎方面',
@@ -77,6 +78,7 @@ export const timetable: RouteData[] = [
     name: 'ゆりかもめ',
     station: '有明駅',
     walkMinutes: 2,
+    tabGroup: 'rail',
     directions: [
       {
         label: '新橋方面',
@@ -154,6 +156,7 @@ export const timetable: RouteData[] = [
     name: '都バス',
     station: '有明テニスの森停留所',
     walkMinutes: 2,
+    tabGroup: 'bus',
     directions: [
       {
         label: '門前仲町方面（都05-2）',
@@ -191,6 +194,7 @@ export const timetable: RouteData[] = [
     name: 'BRT',
     station: '有明BRT停留所',
     walkMinutes: 2,
+    tabGroup: 'brt',
     directions: [
       {
         label: '新橋方面',
@@ -233,3 +237,4 @@ export const timetable: RouteData[] = [
     ],
   },
 ]
+

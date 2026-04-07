@@ -1,6 +1,7 @@
 // packages/web/src/lib/timetableUtils.test.ts
 import { describe, it, expect } from 'vitest'
-import { isHoliday, filterUpcoming, toMinutes } from './timetableUtils'
+import type { DirectionSchedule } from '../data/timetable'
+import { getDayType, getSchedule, isHoliday, filterUpcoming, toMinutes } from './timetableUtils'
 
 describe('toMinutes', () => {
   it('converts HH:MM to minutes since midnight', () => {
@@ -41,5 +42,50 @@ describe('filterUpcoming', () => {
   it('returns all times when current time is before first departure', () => {
     const times = ['10:00', '10:30']
     expect(filterUpcoming(times, '06:00')).toEqual(['10:00', '10:30'])
+  })
+})
+
+describe('getDayType', () => {
+  it('returns weekday on Monday', () => {
+    expect(getDayType(new Date('2026-04-06'))).toBe('weekday')
+  })
+
+  it('returns saturday on Saturday', () => {
+    expect(getDayType(new Date('2026-04-11'))).toBe('saturday')
+  })
+
+  it('returns holiday on Sunday', () => {
+    expect(getDayType(new Date('2026-04-12'))).toBe('holiday')
+  })
+})
+
+describe('getSchedule', () => {
+  const dir: DirectionSchedule = {
+    label: 'test',
+    weekday: ['09:00', '10:00'],
+    saturday: ['09:30', '10:30'],
+    holiday: ['10:00', '11:00'],
+  }
+
+  it('returns weekday schedule on weekday', () => {
+    expect(getSchedule(dir, 'weekday')).toEqual(['09:00', '10:00'])
+  })
+
+  it('returns saturday schedule on saturday', () => {
+    expect(getSchedule(dir, 'saturday')).toEqual(['09:30', '10:30'])
+  })
+
+  it('returns holiday schedule on holiday', () => {
+    expect(getSchedule(dir, 'holiday')).toEqual(['10:00', '11:00'])
+  })
+
+  it('falls back to holiday when saturday field is absent', () => {
+    const noSat: DirectionSchedule = {
+      label: 'test',
+      weekday: ['09:00'],
+      holiday: ['10:00'],
+    }
+
+    expect(getSchedule(noSat, 'saturday')).toEqual(['10:00'])
   })
 })

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { timetable } from '../data/timetable'
-import { filterUpcoming, isHoliday } from '../lib/timetableUtils'
+import { filterUpcoming, getDayType, getSchedule } from '../lib/timetableUtils'
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
@@ -20,7 +20,7 @@ function getNowString(): string {
 
 export default function TransportView() {
   const [now, setNow] = useState(getNowString)
-  const holiday = isHoliday()
+  const dayType = getDayType()
 
   useEffect(() => {
     const timer = setInterval(() => setNow(getNowString()), 60_000)
@@ -33,16 +33,16 @@ export default function TransportView() {
         ...route,
         directions: route.directions.map((dir) => ({
           ...dir,
-          upcoming: filterUpcoming(holiday ? dir.holiday : dir.weekday, now),
+          upcoming: filterUpcoming(getSchedule(dir, dayType), now),
         })),
       })),
-    [now, holiday]
+    [now, dayType]
   )
 
   return (
     <div className="p-4">
       <p className="mb-3 text-xs text-slate-500">
-        {now} {'\u73fe\u5728\u30fb\u6b21\u767a\u76ee\u5b89'} {holiday ? '\u795d\u4f11\u65e5' : '\u5e73\u65e5'}
+        {now} {'\u73fe\u5728\u30fb\u6b21\u767a\u76ee\u5b89'} {dayType === 'weekday' ? '\u5e73\u65e5' : dayType === 'saturday' ? '\u571f\u66dc\u65e5' : '\u795d\u4f11\u65e5'}
         {'\u30c0\u30a4\u30e4'}
       </p>
 
