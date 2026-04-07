@@ -13,23 +13,32 @@ afterEach(() => {
 })
 
 describe('TransportView', () => {
-  it('renders all 4 route names', () => {
+  it('renders each route name the expected number of times', () => {
     render(<TransportView />)
 
-    for (const route of timetable) {
-      expect(screen.getByText(route.name)).toBeInTheDocument()
+    const routeNameCounts = timetable.reduce<Record<string, number>>((counts, route) => {
+      counts[route.name] = (counts[route.name] ?? 0) + 1
+      return counts
+    }, {})
+
+    for (const [routeName, count] of Object.entries(routeNameCounts)) {
+      expect(screen.getAllByText(routeName)).toHaveLength(count)
     }
   })
 
-  it('renders direction labels', () => {
+  it('renders each direction label the expected number of times', () => {
     render(<TransportView />)
 
-    expect(screen.getByText(timetable[0].directions[0].label)).toBeInTheDocument()
-    expect(screen.getByText(timetable[0].directions[1].label)).toBeInTheDocument()
-    expect(screen.getAllByText(timetable[1].directions[0].label).length).toBeGreaterThan(0)
-    expect(screen.getByText(timetable[1].directions[1].label)).toBeInTheDocument()
-    expect(screen.getByText(timetable[3].directions[1].label)).toBeInTheDocument()
-    expect(screen.getByText(timetable[2].directions[0].label)).toBeInTheDocument()
+    const labelCounts = timetable
+      .flatMap((route) => route.directions.map((direction) => direction.label))
+      .reduce<Record<string, number>>((counts, label) => {
+        counts[label] = (counts[label] ?? 0) + 1
+        return counts
+      }, {})
+
+    for (const [label, count] of Object.entries(labelCounts)) {
+      expect(screen.getAllByText(label)).toHaveLength(count)
+    }
   })
 
   it('renders station name and walk time', () => {
@@ -37,8 +46,8 @@ describe('TransportView', () => {
 
     expect(screen.getByText(timetable[0].station)).toBeInTheDocument()
     expect(
-      screen.getByText(`\u5f92\u6b69${timetable[0].walkMinutes}\u5206`)
-    ).toBeInTheDocument()
+      screen.getAllByText(`\u5f92\u6b69${timetable[0].walkMinutes}\u5206`).length
+    ).toBeGreaterThan(0)
   })
 
   it('shows only departures at or after current time', () => {
@@ -54,11 +63,16 @@ describe('TransportView', () => {
     expect(screen.getAllByText('14:34').length).toBeGreaterThan(0)
   })
 
-  it('renders logo images for all 4 routes', () => {
+  it('renders logo images for all routes', () => {
     render(<TransportView />)
 
-    for (const route of timetable) {
-      expect(screen.getByRole('img', { name: route.name })).toBeInTheDocument()
+    const routeNameCounts = timetable.reduce<Record<string, number>>((counts, route) => {
+      counts[route.name] = (counts[route.name] ?? 0) + 1
+      return counts
+    }, {})
+
+    for (const [routeName, count] of Object.entries(routeNameCounts)) {
+      expect(screen.getAllByRole('img', { name: routeName })).toHaveLength(count)
     }
   })
 
@@ -98,7 +112,7 @@ describe('TransportView', () => {
       th.classList.contains('bg-slate-50')
     )
 
-    expect(routeHeaders.length).toBe(4)
+    expect(routeHeaders.length).toBe(timetable.length)
   })
 
   it('table has w-full class', () => {

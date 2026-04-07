@@ -5,10 +5,17 @@ import { filterUpcoming, getDayType, getSchedule } from '../lib/timetableUtils'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 const ROUTE_LOGOS: Record<string, string> = {
-  [timetable[0].name]: `${basePath}/transport/rinkai.svg`,
-  [timetable[1].name]: `${basePath}/transport/yurikamome.svg`,
-  [timetable[2].name]: `${basePath}/transport/toei.svg`,
-  [timetable[3].name]: `${basePath}/transport/brt.png`,
+  りんかい線: `${basePath}/transport/rinkai.svg`,
+  ゆりかもめ: `${basePath}/transport/yurikamome.svg`,
+  都バス: `${basePath}/transport/toei.svg`,
+  海01: `${basePath}/transport/toei.svg`,
+  '都05-2': `${basePath}/transport/toei.svg`,
+  東16: `${basePath}/transport/toei.svg`,
+  BRT: `${basePath}/transport/brt.png`,
+}
+
+function routeKey(name: string, station: string): string {
+  return `${name}-${station}`
 }
 
 function getNowString(): string {
@@ -52,7 +59,7 @@ export default function TransportView() {
             <tr>
               {routes.map((route) => (
                 <th
-                  key={route.name}
+                  key={routeKey(route.name, route.station)}
                   colSpan={route.directions.length}
                   className="border border-slate-200 bg-slate-50 px-3 py-3 text-center"
                 >
@@ -71,7 +78,7 @@ export default function TransportView() {
             <tr>
               {routes.map((route) => (
                 <td
-                  key={route.name}
+                  key={routeKey(route.name, route.station)}
                   colSpan={route.directions.length}
                   className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-500"
                 >
@@ -83,7 +90,7 @@ export default function TransportView() {
             <tr>
               {routes.map((route) => (
                 <td
-                  key={route.name}
+                  key={routeKey(route.name, route.station)}
                   colSpan={route.directions.length}
                   className="border border-slate-200 bg-slate-100 px-3 py-1 text-center text-xs text-slate-400"
                 >
@@ -98,7 +105,7 @@ export default function TransportView() {
               {routes.flatMap((route) =>
                 route.directions.map((dir) => (
                   <th
-                    key={`${route.name}-${dir.label}`}
+                    key={`${route.name}-${route.station}-${dir.label}`}
                     className="border border-slate-300 bg-slate-200 px-3 py-1.5 text-center text-xs font-medium text-slate-700"
                   >
                     {dir.label}
@@ -119,7 +126,7 @@ export default function TransportView() {
                 {routes.flatMap((route) =>
                   route.directions.map((dir) => (
                     <td
-                      key={`${route.name}-${dir.label}-${rowIndex}`}
+                      key={`${route.name}-${route.station}-${dir.label}-${rowIndex}`}
                       className="border border-slate-200 px-4 py-1.5 text-center tabular-nums text-slate-700"
                     >
                       {dir.upcoming[rowIndex] ?? ''}

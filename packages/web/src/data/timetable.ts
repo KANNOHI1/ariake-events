@@ -1,3 +1,5 @@
+import { additionalBusRoutes20260401 } from './busStops20260401'
+
 // packages/web/src/data/timetable.ts
 
 export type Departure = string
@@ -190,6 +192,7 @@ export const timetable: RouteData[] = [
       },
     ],
   },
+  ...additionalBusRoutes20260401,
   {
     name: 'BRT',
     station: '有明BRT停留所',
