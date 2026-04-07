@@ -32,7 +32,7 @@ describe('DayView', () => {
   it('renders events sorted by category priority (sortEvents)', () => {
     const events: EventItem[] = [
       makeEvent({ id: '1', category: 'sports', eventName: 'Event A' }),
-      makeEvent({ id: '2', category: 'music',  eventName: 'Event B' }),
+      makeEvent({ id: '2', category: 'music', eventName: 'Event B' }),
     ]
 
     render(<DayView events={events} onResetFilters={vi.fn()} viewMode="list" />)
@@ -93,23 +93,28 @@ describe('DayView', () => {
     expect(screen.getByText('Yesterday Event')).toBeInTheDocument()
   })
 
-  it('hides 今日 button when on today', () => {
+  it('shows 今日 label and no 今日に戻る button when on today', () => {
     render(<DayView events={[makeEvent({ id: '1' })]} onResetFilters={vi.fn()} viewMode="list" />)
-    expect(screen.queryByRole('button', { name: '今日' })).not.toBeInTheDocument()
+
+    expect(screen.getByText('今日')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '今日に戻る' })).not.toBeInTheDocument()
   })
 
-  it('shows 今日 button when navigated away from today', () => {
+  it('shows 今日に戻る button when navigated away from today', () => {
     render(<DayView events={[]} onResetFilters={vi.fn()} viewMode="list" />)
+
     fireEvent.click(screen.getByRole('button', { name: '次の日' }))
-    expect(screen.getByRole('button', { name: '今日' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '今日に戻る' })).toBeInTheDocument()
   })
 
-  it('clicking 今日 button returns to today', () => {
+  it('clicking 今日に戻る button returns to 今日 label', () => {
     render(<DayView events={[makeEvent({ id: '1' })]} onResetFilters={vi.fn()} viewMode="list" />)
-    fireEvent.click(screen.getByRole('button', { name: '次の日' }))
-    expect(screen.queryByRole('button', { name: '今日' })).toBeInTheDocument()
 
-    fireEvent.click(screen.getByRole('button', { name: '今日' }))
-    expect(screen.queryByRole('button', { name: '今日' })).not.toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: '次の日' }))
+    expect(screen.getByRole('button', { name: '今日に戻る' })).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('button', { name: '今日に戻る' }))
+    expect(screen.getByText('今日')).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: '今日に戻る' })).not.toBeInTheDocument()
   })
 })

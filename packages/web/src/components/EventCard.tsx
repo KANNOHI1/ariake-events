@@ -79,7 +79,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
     <a href={event.sourceURL} target="_blank" rel="noopener noreferrer" className="block">
       <article
         className={`overflow-hidden rounded-2xl bg-white shadow-airbnb-card transition-shadow hover:shadow-airbnb-card-hover ${
-          viewMode === 'grid' ? 'flex flex-col' : 'flex h-28'
+          viewMode === 'grid' ? 'flex flex-col' : 'flex min-h-28'
         }`}
       >
         {imageArea}
