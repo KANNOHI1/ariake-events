@@ -42,5 +42,8 @@ Thumbs.db
 # Brainstorm visual companion (temp data)
 .superpowers/
 
+# Playwright MCP temp data
+.playwright-mcp/
+
 # Temporary output buffer
 output/
