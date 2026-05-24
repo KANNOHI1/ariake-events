@@ -2,6 +2,14 @@ import { fireEvent, render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import TransportView from './TransportView'
 
+vi.mock('next/dynamic', () => ({
+  default: () => () => <div data-testid="map-view" />,
+}))
+
+vi.mock('./MapView', () => ({
+  default: () => <div data-testid="map-view" />,
+}))
+
 beforeEach(() => {
   vi.useFakeTimers()
   vi.setSystemTime(new Date('2026-04-06T14:30:00+09:00'))
@@ -89,5 +97,51 @@ describe('TransportView 路線情報', () => {
     render(<TransportView />)
 
     expect(screen.getAllByText('本日の終電は終了しました').length).toBeGreaterThan(0)
+  })
+})
+
+describe('TransportView A案切り替え', () => {
+  it('マップボタンでマップモードに切り替わる', () => {
+    render(<TransportView />)
+
+    fireEvent.click(screen.getByRole('button', { name: '📍 マップ' }))
+
+    expect(screen.getByTestId('map-view')).toBeInTheDocument()
+  })
+
+  it('マップモードではフィルターボタンが表示される', () => {
+    render(<TransportView />)
+
+    fireEvent.click(screen.getByRole('button', { name: '📍 マップ' }))
+
+    expect(screen.getByRole('button', { name: '全て' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '鉄道' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'BRT' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'バス' })).toBeInTheDocument()
+  })
+
+  it('時刻表ボタンで時刻表モードに戻る', () => {
+    render(<TransportView />)
+
+    fireEvent.click(screen.getByRole('button', { name: '📍 マップ' }))
+    fireEvent.click(screen.getByRole('button', { name: '🕐 時刻表' }))
+
+    expect(screen.queryByTestId('map-view')).not.toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: '鉄道' })).toBeInTheDocument()
+  })
+
+  it('時刻表モードで停留所一覧を見るボタンが表示される', () => {
+    render(<TransportView />)
+
+    expect(screen.getAllByRole('button', { name: '停留所一覧を見る ▼' }).length).toBeGreaterThan(0)
+  })
+
+  it('停留所一覧を見るをクリックすると停留所チップが展開される', () => {
+    render(<TransportView />)
+
+    fireEvent.click(screen.getAllByRole('button', { name: '停留所一覧を見る ▼' })[0])
+
+    expect(screen.getByText('国際展示場★')).toBeInTheDocument()
+    expect(screen.getByText('新木場')).toBeInTheDocument()
   })
 })

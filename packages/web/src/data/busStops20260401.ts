@@ -1,22 +1,21 @@
-import type { DirectionSchedule, RouteData } from './timetable'
+import type { RouteData } from './timetable'
 
-function cloneDirection(direction: DirectionSchedule): DirectionSchedule {
-  return {
-    label: direction.label,
-    weekday: [...direction.weekday],
-    ...(direction.saturday ? { saturday: [...direction.saturday] } : {}),
-    holiday: [...direction.holiday],
-  }
-}
+const ARIAKE_SHOUCHUGAKKO_MAE_STOPS = [
+  '門前仲町',
+  '木場駅前',
+  '東陽四丁目',
+  '潮見駅前',
+  '新木場駅前',
+  '東雲一丁目',
+  '有明二丁目★',
+  '有明小中学校前★',
+  '都橋住宅前★',
+  '有明北ふ頭',
+]
 
-function cloneRouteForStop(route: RouteData, station: string, walkMinutes: number): RouteData {
-  return {
-    ...route,
-    station,
-    walkMinutes,
-    directions: route.directions.map(cloneDirection),
-  }
-}
+const ARIAKE_SHOUCHUGAKKO_MAE_COORDS = { lat: 35.6385, lng: 139.7965 }
+const ARIAKE_NICHOME_COORDS = { lat: 35.637, lng: 139.7975 }
+const TOHASHI_JUTAKU_MAE_COORDS = { lat: 35.6355, lng: 139.798 }
 
 const ariakeShouchugakkoMaeBusRoutes: RouteData[] = [
   {
@@ -24,6 +23,8 @@ const ariakeShouchugakkoMaeBusRoutes: RouteData[] = [
     station: '有明小中学校前',
     walkMinutes: 5,
     tabGroup: 'bus',
+    stops: ARIAKE_SHOUCHUGAKKO_MAE_STOPS,
+    coords: ARIAKE_SHOUCHUGAKKO_MAE_COORDS,
     directions: [
       {
         label: '門前仲町行',
@@ -116,6 +117,8 @@ const ariakeShouchugakkoMaeBusRoutes: RouteData[] = [
     station: '有明小中学校前',
     walkMinutes: 5,
     tabGroup: 'bus',
+    stops: ['門前仲町', '木場駅前', '東陽四丁目', '東京テレポート駅前', '有明テニスの森★', '有明小中学校前★', '有明北ふ頭'],
+    coords: ARIAKE_SHOUCHUGAKKO_MAE_COORDS,
     directions: [
       {
         label: '東京駅丸の内南口行',
@@ -222,6 +225,8 @@ const ariakeShouchugakkoMaeBusRoutes: RouteData[] = [
     station: '有明小中学校前',
     walkMinutes: 5,
     tabGroup: 'bus',
+    stops: ['東京駅八重洲口', '銀座四丁目', '勝どき', '晴海三丁目', '有明小中学校前★', '有明北ふ頭'],
+    coords: ARIAKE_SHOUCHUGAKKO_MAE_COORDS,
     directions: [
       {
         label: '東京駅八重洲口行',
@@ -300,6 +305,8 @@ const ariakeNichomeBusRoutes: RouteData[] = [
     station: '有明二丁目',
     walkMinutes: 4,
     tabGroup: 'bus',
+    stops: ARIAKE_SHOUCHUGAKKO_MAE_STOPS,
+    coords: ARIAKE_NICHOME_COORDS,
     directions: [
       {
         label: '門前仲町行',
@@ -387,8 +394,20 @@ const ariakeNichomeBusRoutes: RouteData[] = [
       },
     ],
   },
-  cloneRouteForStop(ariakeShouchugakkoMaeBusRoutes[1], '有明二丁目', 4),
-  cloneRouteForStop(ariakeShouchugakkoMaeBusRoutes[2], '有明二丁目', 4),
+  {
+    ...ariakeShouchugakkoMaeBusRoutes[1],
+    station: '有明二丁目',
+    walkMinutes: 4,
+    stops: ['門前仲町', '木場駅前', '東陽四丁目', '東京テレポート駅前', '有明テニスの森★', '有明小中学校前★', '有明北ふ頭'],
+    coords: ARIAKE_NICHOME_COORDS,
+  },
+  {
+    ...ariakeShouchugakkoMaeBusRoutes[2],
+    station: '有明二丁目',
+    walkMinutes: 4,
+    stops: ['東京駅八重洲口', '銀座四丁目', '勝どき', '晴海三丁目', '有明小中学校前★', '有明北ふ頭'],
+    coords: ARIAKE_NICHOME_COORDS,
+  },
 ]
 
 const tohashiJutakuMaeBusRoutes: RouteData[] = [
@@ -397,6 +416,8 @@ const tohashiJutakuMaeBusRoutes: RouteData[] = [
     station: '都橋住宅前',
     walkMinutes: 3,
     tabGroup: 'bus',
+    stops: ARIAKE_SHOUCHUGAKKO_MAE_STOPS,
+    coords: TOHASHI_JUTAKU_MAE_COORDS,
     directions: [
       {
         label: '門前仲町行',
@@ -484,7 +505,13 @@ const tohashiJutakuMaeBusRoutes: RouteData[] = [
       },
     ],
   },
-  cloneRouteForStop(ariakeShouchugakkoMaeBusRoutes[2], '都橋住宅前', 3),
+  {
+    ...ariakeShouchugakkoMaeBusRoutes[2],
+    station: '都橋住宅前',
+    walkMinutes: 3,
+    stops: ['東京駅八重洲口', '銀座四丁目', '勝どき', '晴海三丁目', '有明小中学校前★', '有明北ふ頭'],
+    coords: TOHASHI_JUTAKU_MAE_COORDS,
+  },
 ]
 
 export const additionalBusRoutes20260401: RouteData[] = [

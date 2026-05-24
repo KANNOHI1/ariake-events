@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>交通マッププロトタイプ A</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#f97316',
+            ink: '#1a1a2e',
+          },
+          boxShadow: {
+            card: '0 2px 12px rgba(0,0,0,0.08)',
+          },
+          borderRadius: {
+            card: '16px',
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    :root {
+      --primary: #f97316;
+      --near-black: #1a1a2e;
+      --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --rail: #1e3a5f;
+      --brt: #16a34a;
+      --bus: #f97316;
+      --chip: #fff7ed;
+      --surface: #f7f7fb;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(249,115,22,0.18), transparent 32%),
+        linear-gradient(180deg, #f4f5f9 0%, #eceef4 100%);
+      color: var(--near-black);
+    }
+
+    .shell {
+      width: min(100%, 375px);
+      min-height: 100vh;
+      margin: 0 auto;
+      background: rgba(247,247,251,0.92);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 30px 80px rgba(26,26,46,0.18);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .shell {
+        min-height: calc(100vh - 32px);
+        margin: 16px auto;
+        border-radius: 30px;
+        border: 1px solid rgba(255,255,255,0.7);
+      }
+    }
+
+    .brand-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background:
+        linear-gradient(135deg, rgba(26,26,46,0.98), rgba(39,40,66,0.94)),
+        var(--near-black);
+      color: #fff;
+      padding: 18px 18px 14px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
+      box-shadow: 0 14px 30px rgba(26,26,46,0.22);
+    }
+
+    .segmented-control,
+    .type-tabs,
+    .floating-filter {
+      display: flex;
+      gap: 8px;
+    }
+
+    .seg-btn,
+    .type-btn,
+    .floating-btn,
+    .ghost-btn {
+      border: 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .seg-btn {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .seg-btn.active {
+      background: #fff;
+      color: var(--near-black);
+      box-shadow: var(--card-shadow);
+    }
+
+    .type-btn {
+      flex: 1;
+      padding: 11px 12px;
+      border-radius: 999px;
+      background: #fff;
+      color: #6b7280;
+      border: 1px solid rgba(148,163,184,0.22);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .type-btn.active {
+      background: var(--near-black);
+      color: #fff;
+      border-color: var(--near-black);
+    }
+
+    .status-card,
+    .route-card,
+    .map-overlay-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .status-card {
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.8);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,247,237,0.96));
+    }
+
+    .route-card {
+      padding: 16px;
+      border: 1px solid rgba(15,23,42,0.05);
+    }
+
+    .route-head {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .line-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+      box-shadow: 0 0 0 3px rgba(255,255,255,0.26);
+    }
+
+    .time-pill {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 56px;
+      text-align: center;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+
+    .chip-row::-webkit-scrollbar { display: none; }
+
+    .stop-chip {
+      white-space: nowrap;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: #7c2d12;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(249,115,22,0.16);
+    }
+
+    .stop-chip.star {
+      background: var(--primary);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 24px rgba(249,115,22,0.24);
+    }
+
+    .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(249,115,22,0.08);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .ghost-btn:hover { background: rgba(249,115,22,0.14); }
+
+    .map-screen {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .map-frame {
+      position: relative;
+      flex: 1;
+      min-height: calc(100vh - 220px);
+      overflow: hidden;
+      border-radius: 24px 24px 0 0;
+    }
+
+    #mapA {
+      position: absolute;
+      inset: 0;
+    }
+
+    .map-overlay-card {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      z-index: 10;
+      padding: 14px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .floating-filter {
+      position: absolute;
+      right: 12px;
+      bottom: 18px;
+      z-index: 10;
+      flex-direction: column;
+      background: rgba(255,255,255,0.92);
+      padding: 10px;
+      border-radius: 18px;
+      box-shadow: 0 12px 32px rgba(26,26,46,0.14);
+      backdrop-filter: blur(12px);
+    }
+
+    .floating-btn {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #fff;
+      color: #52525b;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(148,163,184,0.22);
+    }
+
+    .floating-btn.active {
+      background: var(--near-black);
+      color: #fff;
+      border-color: var(--near-black);
+    }
+
+    .custom-stop-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      border: 3px solid rgba(255,255,255,0.95);
+      box-shadow: 0 6px 18px rgba(26,26,46,0.22);
+    }
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px;
+      padding: 2px;
+      box-shadow: 0 18px 40px rgba(26,26,46,0.18);
+    }
+
+    .leaflet-popup-content {
+      margin: 10px 12px;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="brand-header">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-white/45">Transport Prototype A</p>
+          <h1 class="mt-1 text-[26px] font-extrabold tracking-tight">
+            <span class="text-primary">有明</span>イベント
+          </h1>
+        </div>
+        <div class="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] font-semibold text-white/72">交通タブ</div>
+      </div>
+
+      <div class="mt-4 rounded-full bg-white/10 p-1 segmented-control">
+        <button id="modeTimetable" class="seg-btn active" type="button">時刻表</button>
+        <button id="modeMap" class="seg-btn" type="button">マップ</button>
+      </div>
+    </header>
+
+    <main class="flex min-h-0 flex-1 flex-col">
+      <section id="timetableView" class="flex min-h-0 flex-1 flex-col px-4 pb-6 pt-4">
+        <div class="status-card">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Ariake Access</p>
+              <p class="mt-1 text-lg font-bold text-ink">会場までの乗り継ぎを確認</p>
+              <p class="mt-1 text-sm text-slate-500">タブで路線タイプを切り替え、各路線の停留所一覧を展開できます。</p>
+            </div>
+            <div class="rounded-2xl bg-ink px-3 py-2 text-right text-white">
+              <p class="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">Now</p>
+              <p id="clockA" class="text-xl font-extrabold">--:--</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="routeTabsA" class="mt-4 type-tabs"></div>
+        <div id="routeListA" class="mt-4 flex-1 space-y-4 overflow-y-auto pb-6"></div>
+      </section>
+
+      <section id="mapView" class="map-screen hidden">
+        <div class="map-frame">
+          <div class="map-overlay-card">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Map Mode</p>
+                <p class="mt-1 text-base font-bold text-ink">有明エリアの停留所マップ</p>
+                <p class="mt-1 text-xs text-slate-500">右下のフィルターで鉄道・BRT・バスを切り替えます。</p>
+              </div>
+              <div class="rounded-full bg-orange-50 px-3 py-1 text-[11px] font-bold text-primary">zoom 15</div>
+            </div>
+          </div>
+          <div id="mapA"></div>
+          <div id="mapFiltersA" class="floating-filter"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const stops = [
+      { name: 'りんかい線 国際展示場駅', lat: 35.62952, lng: 139.79486, type: 'rail', routes: ['りんかい線'] },
+      { name: 'ゆりかもめ 有明駅', lat: 35.63468, lng: 139.79353, type: 'rail', routes: ['ゆりかもめ'] },
+      { name: 'ゆりかもめ 有明テニスの森駅', lat: 35.62933, lng: 139.7921, type: 'rail', routes: ['ゆりかもめ'] },
+      { name: '有明BRT停留所', lat: 35.636, lng: 139.794, type: 'brt', routes: ['BRT'] },
+      { name: '有明テニスの森 バス停留所', lat: 35.6295, lng: 139.7915, type: 'bus', routes: ['都バス(都05-1)', '都バス(都05-2)'] },
+      { name: '有明小中学校前', lat: 35.6385, lng: 139.7965, type: 'bus', routes: ['海01', '都05-2', '東16'] },
+      { name: '有明二丁目', lat: 35.637, lng: 139.7975, type: 'bus', routes: ['海01'] },
+      { name: '都橋住宅前', lat: 35.6355, lng: 139.798, type: 'bus', routes: ['海01'] },
+    ]
+
+    const routeStops = {
+      'りんかい線': ['大崎', '大井町', '品川シーサイド', '天王洲アイル', '東京テレポート', '国際展示場 ★', '東雲', '新木場'],
+      'ゆりかもめ': ['新橋', '汐留', '竹芝', '日の出', '芝浦ふ頭', 'お台場海浜公園', '台場', '東京国際クルーズターミナル', 'テレコムセンター', '青海', '国際展示場正門', '有明 ★', '有明テニスの森 ★', '市場前', '新豊洲', '豊洲'],
+      'BRT': ['新橋', '虎ノ門ヒルズ', '勝どきBRT', '晴海フラッグBRT', '有明BRT ★'],
+      '都バス 都05-1': ['錦糸町駅前', '住吉駅前', '東陽町駅前', '東京テレポート駅前', '有明テニスの森 ★', '有明北ふ頭'],
+      '都バス 都05-2': ['門前仲町', '木場駅前', '東陽四丁目', '東京テレポート駅前', '有明テニスの森 ★', '有明北ふ頭'],
+      '海01': ['門前仲町', '木場駅前', '東陽四丁目', '潮見駅前', '新木場駅前', '東雲一丁目', '有明二丁目 ★', '有明小中学校前 ★', '都橋住宅前 ★', '有明北ふ頭'],
+      '東16': ['東京駅八重洲口', '銀座四丁目', '勝どき', '晴海三丁目', '有明小中学校前 ★', '有明北ふ頭'],
+    }
+
+    const routeMeta = [
+      { name: 'りんかい線', shortName: 'りんかい線', group: 'rail', stopName: 'りんかい線 国際展示場駅', walk: '徒歩6分', destination: '大崎・新木場方面', note: 'イベント会場への定番アクセス', nextTimes: ['19:08', '19:19', '19:32', '19:48'] },
+      { name: 'ゆりかもめ', shortName: 'ゆりかもめ', group: 'rail', stopName: 'ゆりかもめ 有明駅', walk: '徒歩4分', destination: '新橋・豊洲方面', note: '有明駅と有明テニスの森駅の両方が徒歩圏', nextTimes: ['19:05', '19:12', '19:20', '19:28'] },
+      { name: 'BRT', shortName: 'BRT', group: 'brt', stopName: '有明BRT停留所', walk: '徒歩5分', destination: '新橋方面', note: '都心直結の速達アクセス', nextTimes: ['19:03', '19:15', '19:30', '19:45'] },
+      { name: '都バス 都05-1', shortName: '都05-1', group: 'bus', stopName: '有明テニスの森 バス停留所', walk: '徒歩8分', destination: '錦糸町駅前方面', note: '有明テニスの森から乗車', nextTimes: ['19:10', '19:22', '19:35', '19:52'] },
+      { name: '都バス 都05-2', shortName: '都05-2', group: 'bus', stopName: '有明テニスの森 バス停留所', walk: '徒歩8分', destination: '門前仲町方面', note: '木場・門前仲町方面へ接続', nextTimes: ['19:06', '19:18', '19:33', '19:47'] },
+      { name: '海01', shortName: '海01', group: 'bus', stopName: '有明二丁目', walk: '徒歩4分', destination: '門前仲町方面', note: '住宅エリア沿いの停留所を結ぶ系統', nextTimes: ['19:01', '19:16', '19:31', '19:49'] },
+      { name: '東16', shortName: '東16', group: 'bus', stopName: '有明小中学校前', walk: '徒歩5分', destination: '東京駅八重洲口方面', note: '晴海・銀座経由で東京駅へ', nextTimes: ['19:11', '19:27', '19:44', '20:02'] },
+    ]
+
+    const lineColors = { rail: '#1e3a5f', brt: '#16a34a', bus: '#f97316' }
+    const typeLabels = { rail: '鉄道', brt: 'BRT', bus: 'バス' }
+
+    let activeGroupA = 'rail'
+    let currentMode = 'timetable'
+    let mapA
+    let markersA = []
+    let visibleMapFilterA = 'all'
+
+    function normalizeRouteName(name) {
+      return name.replace('都バス ', '').replace('都バス(', '').replace(')', '').trim()
+    }
+
+    function escapeHtml(text) {
+      return text
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;')
+    }
+
+    function formatTime() {
+      const now = new Date()
+      return new Intl.DateTimeFormat('ja-JP', { hour: '2-digit', minute: '2-digit', hour12: false }).format(now)
+    }
+
+    function renderClockA() {
+      document.getElementById('clockA').textContent = formatTime()
+    }
+
+    function renderRouteTabsA() {
+      const container = document.getElementById('routeTabsA')
+      container.innerHTML = ['rail', 'brt', 'bus'].map((group) => `
+        <button type="button" class="type-btn ${activeGroupA === group ? 'active' : ''}" data-group="${group}">
+          ${typeLabels[group]}
+        </button>
+      `).join('')
+
+      container.querySelectorAll('[data-group]').forEach((button) => {
+        button.addEventListener('click', () => {
+          activeGroupA = button.getAttribute('data-group')
+          renderRouteTabsA()
+          renderRouteListA()
+        })
+      })
+    }
+
+    function renderStopChip(stop) {
+      const isStar = stop.includes('★')
+      const label = stop.replace(' ★', '').replace('★', '').trim()
+      return `<span class="stop-chip ${isStar ? 'star' : ''}">${escapeHtml(label)}${isStar ? ' ★' : ''}</span>`
+    }
+
+    function renderRouteListA() {
+      const list = document.getElementById('routeListA')
+      const routes = routeMeta.filter((route) => route.group === activeGroupA)
+
+      list.innerHTML = routes.map((route, index) => {
+        const color = lineColors[route.group]
+        const stopsHtml = routeStops[route.name].map(renderStopChip).join('')
+        return `
+          <article class="route-card">
+            <div class="route-head">
+              <div>
+                <div class="line-pill" style="background:${color}">
+                  <span class="dot" style="background:${color}"></span>
+                  ${escapeHtml(route.shortName)}
+                </div>
+                <h2 class="mt-3 text-[18px] font-bold text-ink">${escapeHtml(route.destination)}</h2>
+                <p class="mt-1 text-sm text-slate-500">${escapeHtml(route.stopName)} / ${route.walk}</p>
+                <p class="mt-2 text-sm text-slate-600">${escapeHtml(route.note)}</p>
+              </div>
+              <div class="rounded-2xl bg-slate-50 px-3 py-2 text-right">
+                <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-slate-400">Type</p>
+                <p class="text-sm font-bold text-slate-700">${typeLabels[route.group]}</p>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-400">Next departures</p>
+              <div class="mt-2 flex flex-wrap gap-2">
+                ${route.nextTimes.map((time) => `<span class="time-pill">${time}</span>`).join('')}
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <button type="button" class="ghost-btn" data-toggle-route="${index}">
+                停留所一覧を見る
+              </button>
+            </div>
+
+            <div class="mt-4 hidden" data-stop-panel="${index}">
+              <div class="chip-row">${stopsHtml}</div>
+            </div>
+          </article>
+        `
+      }).join('')
+
+      list.querySelectorAll('[data-toggle-route]').forEach((button) => {
+        button.addEventListener('click', () => {
+          const id = button.getAttribute('data-toggle-route')
+          const panel = list.querySelector(`[data-stop-panel="${id}"]`)
+          const open = !panel.classList.contains('hidden')
+          panel.classList.toggle('hidden', open)
+          button.textContent = open ? '停留所一覧を見る' : '停留所一覧を閉じる'
+        })
+      })
+    }
+
+    function createDivIcon(type) {
+      return L.divIcon({
+        className: '',
+        html: `<div class="custom-stop-icon" style="background:${lineColors[type]}"></div>`,
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      })
+    }
+
+    function initMapA() {
+      mapA = L.map('mapA', { zoomControl: false }).setView([35.6345, 139.7930], 15)
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+      }).addTo(mapA)
+      L.control.zoom({ position: 'bottomleft' }).addTo(mapA)
+
+      markersA = stops.map((stop) => {
+        const marker = L.marker([stop.lat, stop.lng], { icon: createDivIcon(stop.type) })
+        const routes = stop.routes.map((route) => `<span style="display:inline-block;margin:4px 4px 0 0;padding:4px 8px;border-radius:999px;background:#fff7ed;color:#9a3412;font-size:11px;font-weight:700;">${escapeHtml(route)}</span>`).join('')
+        marker.bindPopup(`
+          <div style="min-width:180px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#94a3b8;text-transform:uppercase;">${typeLabels[stop.type]}</div>
+            <div style="margin-top:6px;font-size:15px;font-weight:700;color:#1a1a2e;">${escapeHtml(stop.name)}</div>
+            <div style="margin-top:8px">${routes}</div>
+          </div>
+        `)
+        marker.addTo(mapA)
+        return { stop, marker }
+      })
+
+      renderMapFiltersA()
+    }
+
+    function renderMapFiltersA() {
+      const container = document.getElementById('mapFiltersA')
+      const options = [
+        { id: 'all', label: 'すべて' },
+        { id: 'rail', label: '鉄道' },
+        { id: 'brt', label: 'BRT' },
+        { id: 'bus', label: 'バス' },
+      ]
+      container.innerHTML = options.map((option) => `
+        <button type="button" class="floating-btn ${visibleMapFilterA === option.id ? 'active' : ''}" data-filter="${option.id}">
+          ${option.label}
+        </button>
+      `).join('')
+
+      container.querySelectorAll('[data-filter]').forEach((button) => {
+        button.addEventListener('click', () => {
+          visibleMapFilterA = button.getAttribute('data-filter')
+          markersA.forEach(({ stop, marker }) => {
+            const shouldShow = visibleMapFilterA === 'all' || stop.type === visibleMapFilterA
+            if (shouldShow) {
+              marker.addTo(mapA)
+            } else {
+              marker.remove()
+            }
+          })
+          renderMapFiltersA()
+        })
+      })
+    }
+
+    function switchMode(nextMode) {
+      currentMode = nextMode
+      document.getElementById('modeTimetable').classList.toggle('active', nextMode === 'timetable')
+      document.getElementById('modeMap').classList.toggle('active', nextMode === 'map')
+      document.getElementById('timetableView').classList.toggle('hidden', nextMode !== 'timetable')
+      document.getElementById('mapView').classList.toggle('hidden', nextMode !== 'map')
+
+      if (nextMode === 'map') {
+        window.setTimeout(() => mapA.invalidateSize(), 100)
+      }
+    }
+
+    document.getElementById('modeTimetable').addEventListener('click', () => switchMode('timetable'))
+    document.getElementById('modeMap').addEventListener('click', () => switchMode('map'))
+
+    renderClockA()
+    renderRouteTabsA()
+    renderRouteListA()
+    initMapA()
+    window.setInterval(renderClockA, 60000)
+  </script>
+</body>
+</html>

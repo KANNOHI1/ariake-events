@@ -15,6 +15,11 @@ export type RouteData = {
   station: string
   walkMinutes: number
   tabGroup: TabGroup
+  stops: string[]
+  coords: {
+    lat: number
+    lng: number
+  }
   directions: DirectionSchedule[]
 }
 export const timetable: RouteData[] = [
@@ -23,6 +28,8 @@ export const timetable: RouteData[] = [
     station: '有明テニスの森駅',
     walkMinutes: 3,
     tabGroup: 'rail',
+    stops: ['大崎', '大井町', '品川シーサイド', '天王洲アイル', '東京テレポート', '国際展示場★', '東雲', '新木場'],
+    coords: { lat: 35.62952, lng: 139.79486 },
     directions: [
       {
         label: '大崎方面',
@@ -81,6 +88,25 @@ export const timetable: RouteData[] = [
     station: '有明駅',
     walkMinutes: 2,
     tabGroup: 'rail',
+    stops: [
+      '新橋',
+      '汐留',
+      '竹芝',
+      '日の出',
+      '芝浦ふ頭',
+      'お台場海浜公園',
+      '台場',
+      '東京国際クルーズターミナル',
+      'テレコムセンター',
+      '青海',
+      '国際展示場正門',
+      '有明★',
+      '有明テニスの森★',
+      '市場前',
+      '新豊洲',
+      '豊洲',
+    ],
+    coords: { lat: 35.63468, lng: 139.79353 },
     directions: [
       {
         label: '新橋方面',
@@ -159,6 +185,8 @@ export const timetable: RouteData[] = [
     station: '有明テニスの森停留所',
     walkMinutes: 2,
     tabGroup: 'bus',
+    stops: ['錦糸町/門前仲町', '住吉/木場', '東陽町', '東京テレポート駅前', '有明テニスの森★', '有明北ふ頭'],
+    coords: { lat: 35.6295, lng: 139.7915 },
     directions: [
       {
         label: '門前仲町方面（都05-2）',
@@ -198,6 +226,8 @@ export const timetable: RouteData[] = [
     station: '有明BRT停留所',
     walkMinutes: 2,
     tabGroup: 'brt',
+    stops: ['新橋', '虎ノ門ヒルズ', '勝どきBRT', '晴海フラッグBRT', '有明BRT★'],
+    coords: { lat: 35.636, lng: 139.794 },
     directions: [
       {
         label: '新橋方面',
