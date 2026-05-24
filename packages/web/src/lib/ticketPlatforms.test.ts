@@ -28,3 +28,54 @@ describe('buildSearchQuery', () => {
     )
   })
 })
+
+describe('enhanced query patterns', () => {
+  it.each([
+    ['TM NETWORK TM NETWORK TOUR 2026 QUANTUM', '有明アリーナ', 'TM NETWORK 有明アリーナ'],
+    ['Paradox Live Paradox Live Dope Show 2026', '有明アリーナ', 'Paradox Live 有明アリーナ'],
+    [
+      'Saucy Dog Saucy Dog ONEMAN LIVE 2026「NOW LOADING…」',
+      '東京ガーデンシアター',
+      'Saucy Dog 東京ガーデンシアター',
+    ],
+    ['桑田佳祐 LIVE TOUR 2026', 'TOYOTA ARENA TOKYO', '桑田佳祐 TOYOTA ARENA TOKYO'],
+    [
+      'MAZZEL 1st Arena Tour 2026 "Shall we hit the Banquet?"',
+      'TOYOTA ARENA TOKYO',
+      'MAZZEL TOYOTA ARENA TOKYO',
+    ],
+    [
+      '中島健人 "IDOL1ST 中島健人" LIVE TOUR 2026',
+      '東京ガーデンシアター',
+      '中島健人 東京ガーデンシアター',
+    ],
+    [
+      'iKON(JAY, BOBBY, SONG, CHAN) iKON FOUREVER TOUR IN JAPAN',
+      '東京ガーデンシアター',
+      'iKON 東京ガーデンシアター',
+    ],
+    [
+      'ねぽっくす！ 〜ねぽらぼ×秘密結社holoX〜 ホロライブ5期生',
+      '有明アリーナ',
+      'ねぽっくす！ 有明アリーナ',
+    ],
+    [
+      'THE YELLOW MONKEY FAN CLUB 10th Anniversary THE YELLOW MONKEY TOUR 2026',
+      '有明アリーナ',
+      'THE YELLOW MONKEY FAN CLUB 有明アリーナ',
+    ],
+    ['桃鈴ねね 桃鈴ねね 1st Live', '東京ガーデンシアター', '桃鈴ねね 東京ガーデンシアター'],
+    [
+      'マルシィ マルシィ one man live 2026 Hall Tour',
+      '東京ガーデンシアター',
+      'マルシィ 東京ガーデンシアター',
+    ],
+    [
+      "FUNKY MONKEY BΛBY'S×いきものがかり FUNKY MONKEY BΛBY'S × いきものがかり LIVE",
+      '東京ガーデンシアター',
+      "FUNKY MONKEY BΛBY'S × いきものがかり 東京ガーデンシアター",
+    ],
+  ])('builds a focused ticket search query for %s', (eventName, facility, expected) => {
+    expect(buildSearchQuery(eventName, facility)).toBe(expected)
+  })
+})
