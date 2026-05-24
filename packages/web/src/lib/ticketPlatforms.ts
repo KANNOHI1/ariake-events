@@ -23,7 +23,7 @@ export const TICKET_PLATFORMS = [
     id: 'rakuten',
     name: '楽天チケット',
     color: 'bg-rose-600',
-    buildUrl: (q: string) => `https://ticket.rakuten.co.jp/?q=${encodeURIComponent(q)}`,
+    buildUrl: (q: string) => `https://ticket.rakuten.co.jp/?s=&q=${encodeURIComponent(q)}`,
   },
 ] as const
 

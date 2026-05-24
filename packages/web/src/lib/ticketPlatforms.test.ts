@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest'
-import { buildSearchQuery } from './ticketPlatforms'
+import { buildSearchQuery, TICKET_PLATFORMS } from './ticketPlatforms'
+
+describe('TICKET_PLATFORMS', () => {
+  it('builds Rakuten Ticket search URLs with required s and q parameters', () => {
+    const rakuten = TICKET_PLATFORMS.find((platform) => platform.id === 'rakuten')
+
+    expect(rakuten?.buildUrl('有明 ライブ')).toBe(
+      `https://ticket.rakuten.co.jp/?s=&q=${encodeURIComponent('有明 ライブ')}`,
+    )
+  })
+})
 
 describe('buildSearchQuery', () => {
   it('removes a duplicated leading phrase and appends the facility', () => {
