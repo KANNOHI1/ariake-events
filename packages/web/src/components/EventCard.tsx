@@ -96,7 +96,14 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
           </button>
         )}
       </article>
-      {showTicket && <TicketModal open={modalOpen} onClose={() => setModalOpen(false)} eventName={event.eventName} />}
+      {showTicket && (
+        <TicketModal
+          open={modalOpen}
+          onClose={() => setModalOpen(false)}
+          eventName={event.eventName}
+          facility={event.facility}
+        />
+      )}
     </div>
   )
 }

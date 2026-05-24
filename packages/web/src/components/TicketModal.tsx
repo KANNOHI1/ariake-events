@@ -1,15 +1,16 @@
 'use client'
 
 import { useEffect } from 'react'
-import { TICKET_PLATFORMS } from '../lib/ticketPlatforms'
+import { buildSearchQuery, TICKET_PLATFORMS } from '../lib/ticketPlatforms'
 
 interface Props {
   open: boolean
   onClose: () => void
   eventName: string
+  facility: string
 }
 
-export default function TicketModal({ open, onClose, eventName }: Props) {
+export default function TicketModal({ open, onClose, eventName, facility }: Props) {
   useEffect(() => {
     if (!open) {
       return
@@ -28,6 +29,8 @@ export default function TicketModal({ open, onClose, eventName }: Props) {
   if (!open) {
     return null
   }
+
+  const query = buildSearchQuery(eventName, facility)
 
   return (
     <div
@@ -57,7 +60,7 @@ export default function TicketModal({ open, onClose, eventName }: Props) {
           {TICKET_PLATFORMS.map((platform) => (
             <a
               key={platform.id}
-              href={platform.buildUrl(eventName)}
+              href={platform.buildUrl(query)}
               target="_blank"
               rel="noopener noreferrer"
               className={`rounded-xl p-3 text-center font-bold text-white transition-opacity hover:opacity-90 ${platform.color}`}

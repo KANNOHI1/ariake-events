@@ -1,14 +1,14 @@
-import { render, screen } from '@testing-library/react'
-import { fireEvent, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import EventCard from './EventCard'
-import { getCongestionInfo } from '../lib/colorMap'
-import type { EventItem } from '../types'
+import { CATEGORY_LABELS, getCongestionInfo } from '../lib/colorMap'
+import { buildSearchQuery, TICKET_PLATFORMS } from '../lib/ticketPlatforms'
+import { FACILITIES, type EventItem } from '../types'
 
 const musicEvent: EventItem = {
   id: 'test-001',
   eventName: 'テストコンサート',
-  facility: '有明アリーナ',
+  facility: FACILITIES[2],
   category: 'music',
   startDate: '2026-03-20',
   endDate: '2026-03-21',
@@ -26,8 +26,8 @@ describe('EventCard', () => {
 
   it('renders facility and category badges', () => {
     render(<EventCard event={musicEvent} />)
-    expect(screen.getByText('有明アリーナ')).toBeInTheDocument()
-    expect(screen.getByText('ミュージック')).toBeInTheDocument()
+    expect(screen.getByText(FACILITIES[2])).toBeInTheDocument()
+    expect(screen.getByText(CATEGORY_LABELS.music)).toBeInTheDocument()
   })
 
   it('renders the congestion badge without a bottom progress bar when congestionRisk is positive', () => {
@@ -97,34 +97,22 @@ describe('EventCard ticket links', () => {
     fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
 
     const dialog = screen.getByRole('dialog')
-    expect(within(dialog).getByRole('link', { name: 'チケットぴあ' })).toBeInTheDocument()
-    expect(within(dialog).getByRole('link', { name: 'ローチケ' })).toBeInTheDocument()
-    expect(within(dialog).getByRole('link', { name: 'イープラス' })).toBeInTheDocument()
-    expect(within(dialog).getByRole('link', { name: '楽天チケット' })).toBeInTheDocument()
+    for (const platform of TICKET_PLATFORMS) {
+      expect(within(dialog).getByRole('link', { name: platform.name })).toBeInTheDocument()
+    }
   })
 
-  it('uses encoded event names in each ticket platform href', () => {
-    const eventName = '有明 ライブ 2026'
-    render(<EventCard event={{ ...eventWithCategory('music'), eventName }} />)
+  it('uses encoded search queries in each ticket platform href', () => {
+    const eventName = 'DIR EN GREY DIR EN GREY MORTAL DOWNER'
+    const event = { ...eventWithCategory('music'), eventName }
+    const query = buildSearchQuery(eventName, event.facility)
+    render(<EventCard event={event} />)
 
     fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
 
-    expect(screen.getByRole('link', { name: 'チケットぴあ' })).toHaveAttribute(
-      'href',
-      `https://t.pia.jp/pia/search_all.do?kw=${encodeURIComponent(eventName)}`,
-    )
-    expect(screen.getByRole('link', { name: 'ローチケ' })).toHaveAttribute(
-      'href',
-      `https://l-tike.com/search/?keyword=${encodeURIComponent(eventName)}`,
-    )
-    expect(screen.getByRole('link', { name: 'イープラス' })).toHaveAttribute(
-      'href',
-      `https://eplus.jp/sf/search?keyword=${encodeURIComponent(eventName)}`,
-    )
-    expect(screen.getByRole('link', { name: '楽天チケット' })).toHaveAttribute(
-      'href',
-      `https://ticket.rakuten.co.jp/?q=${encodeURIComponent(eventName)}`,
-    )
+    for (const platform of TICKET_PLATFORMS) {
+      expect(screen.getByRole('link', { name: platform.name })).toHaveAttribute('href', platform.buildUrl(query))
+    }
   })
 
   it('closes the modal when the backdrop is clicked', () => {

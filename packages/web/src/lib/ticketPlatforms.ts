@@ -30,3 +30,33 @@ export const TICKET_PLATFORMS = [
 const TICKET_CATEGORIES: ReadonlySet<EventCategory> = new Set(['music', 'sports', 'anime'])
 
 export const shouldShowTicketLinks = (category: EventCategory): boolean => TICKET_CATEGORIES.has(category)
+
+/**
+ * チケット検索用のクエリを整形する。
+ * - 連続する重複フレーズを除去（例: 'DIR EN GREY DIR EN GREY MORTAL' → 'DIR EN GREY'）
+ * - 括弧（「『（［【＜<）以降を切り捨て
+ * - 末尾に施設名を付与
+ */
+export const buildSearchQuery = (eventName: string, facility: string): string => {
+  let query = eventName.trim()
+
+  // Step 1: 連続する重複フレーズ検出 — 'X X Y' → 'X'
+  const dupMatch = query.match(/^(.+?)\s+\1(\s+.*)?$/)
+  if (dupMatch) {
+    query = dupMatch[1]
+  }
+
+  // Step 2: 括弧以降を切り捨て
+  const bracketMatch = query.match(/^(.+?)\s*[「『（［【＜<\(\[]/)
+  if (bracketMatch) {
+    query = bracketMatch[1]
+  }
+
+  query = query.trim()
+
+  // Step 3: 施設名を付与（既に含まれていればスキップ）
+  if (facility && !query.includes(facility)) {
+    return `${query} ${facility}`
+  }
+  return query
+}
