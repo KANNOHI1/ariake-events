@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
+import { fireEvent, within } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import EventCard from './EventCard'
+import { getCongestionInfo } from '../lib/colorMap'
 import type { EventItem } from '../types'
 
 const musicEvent: EventItem = {
@@ -28,16 +30,12 @@ describe('EventCard', () => {
     expect(screen.getByText('ミュージック')).toBeInTheDocument()
   })
 
-  it('renders a progress bar when congestionRisk is positive', () => {
+  it('renders the congestion badge without a bottom progress bar when congestionRisk is positive', () => {
     const { container } = render(<EventCard event={{ ...musicEvent, congestionRisk: 0.7 }} />)
-    const bar = container.querySelector('[data-testid="congestion-bar"]')
-    expect(bar).not.toBeNull()
-  })
+    const info = getCongestionInfo(0.7)
 
-  it('does not render a progress bar when congestionRisk is zero', () => {
-    const { container } = render(<EventCard event={{ ...musicEvent, congestionRisk: 0 }} />)
-    const bar = container.querySelector('[data-testid="congestion-bar"]')
-    expect(bar).toBeNull()
+    expect(screen.getByText(info?.label ?? '')).toBeInTheDocument()
+    expect(container.querySelector('[data-testid="congestion-bar"]')).toBeNull()
   })
 
   it('uses a rounded-2xl card shell', () => {
@@ -66,5 +64,75 @@ describe('EventCard', () => {
 
     render(<EventCard event={musicEvent} viewMode="grid" />)
     expect(screen.getByRole('heading', { name: musicEvent.eventName }).className).not.toContain('line-clamp-2')
+  })
+})
+
+describe('EventCard ticket links', () => {
+  const eventWithCategory = (category: EventItem['category']): EventItem => ({
+    ...musicEvent,
+    id: `test-${category}`,
+    category,
+    eventName: 'Ariake Live 2026',
+  })
+
+  it.each(['music', 'sports', 'anime'] as const)(
+    'renders the ticket search button for %s events',
+    (category) => {
+      render(<EventCard event={eventWithCategory(category)} />)
+      expect(screen.getByRole('button', { name: '🎫 チケットを探す' })).toBeInTheDocument()
+    },
+  )
+
+  it.each(['food', 'exhibition', 'other'] as const)(
+    'does not render the ticket search button for %s events',
+    (category) => {
+      render(<EventCard event={eventWithCategory(category)} />)
+      expect(screen.queryByRole('button', { name: '🎫 チケットを探す' })).not.toBeInTheDocument()
+    },
+  )
+
+  it('opens a modal with all ticket platform links when the ticket button is clicked', () => {
+    render(<EventCard event={eventWithCategory('music')} />)
+
+    fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
+
+    const dialog = screen.getByRole('dialog')
+    expect(within(dialog).getByRole('link', { name: 'チケットぴあ' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('link', { name: 'ローチケ' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('link', { name: 'イープラス' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('link', { name: '楽天チケット' })).toBeInTheDocument()
+  })
+
+  it('uses encoded event names in each ticket platform href', () => {
+    const eventName = '有明 ライブ 2026'
+    render(<EventCard event={{ ...eventWithCategory('music'), eventName }} />)
+
+    fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
+
+    expect(screen.getByRole('link', { name: 'チケットぴあ' })).toHaveAttribute(
+      'href',
+      `https://t.pia.jp/pia/search_all.do?kw=${encodeURIComponent(eventName)}`,
+    )
+    expect(screen.getByRole('link', { name: 'ローチケ' })).toHaveAttribute(
+      'href',
+      `https://l-tike.com/search/?keyword=${encodeURIComponent(eventName)}`,
+    )
+    expect(screen.getByRole('link', { name: 'イープラス' })).toHaveAttribute(
+      'href',
+      `https://eplus.jp/sf/search?keyword=${encodeURIComponent(eventName)}`,
+    )
+    expect(screen.getByRole('link', { name: '楽天チケット' })).toHaveAttribute(
+      'href',
+      `https://ticket.rakuten.co.jp/?q=${encodeURIComponent(eventName)}`,
+    )
+  })
+
+  it('closes the modal when the backdrop is clicked', () => {
+    render(<EventCard event={eventWithCategory('music')} />)
+
+    fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
+    fireEvent.click(screen.getByTestId('ticket-modal-backdrop'))
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 })

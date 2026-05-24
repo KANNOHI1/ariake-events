@@ -3,8 +3,10 @@
 import { useState } from 'react'
 import { CATEGORY_COLORS, CATEGORY_LABELS, FACILITY_COLORS, getCongestionInfo } from '../lib/colorMap'
 import { getFacilityPhoto, getImageUrl } from '../lib/imageMap'
+import { shouldShowTicketLinks } from '../lib/ticketPlatforms'
 import type { EventItem } from '../types'
 import type { ViewMode } from './FilterBar'
+import TicketModal from './TicketModal'
 
 interface Props {
   event: EventItem
@@ -13,6 +15,7 @@ interface Props {
 
 export default function EventCard({ event, viewMode = 'list' }: Props) {
   const [imgError, setImgError] = useState(false)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const facilityBadgeClass = FACILITY_COLORS[event.facility] ?? 'bg-slate-100 text-slate-700'
   const categoryClass = CATEGORY_COLORS[event.category] ?? 'bg-slate-100 text-slate-600'
@@ -21,14 +24,10 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   const imageUrl = getImageUrl(event)
   const displaySrc = imgError ? getFacilityPhoto(event.facility) : imageUrl
   const isFacilityPhoto = !event.imageUrl || imgError
+  const showTicket = shouldShowTicketLinks(event.category)
 
   const dateRange =
     event.startDate === event.endDate ? event.startDate : `${event.startDate} - ${event.endDate}`
-
-  const barPercent =
-    event.congestionRisk != null && event.congestionRisk > 0
-      ? Math.round(event.congestionRisk * 100)
-      : null
 
   const imageArea = (
     <div
@@ -76,25 +75,28 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   )
 
   return (
-    <a href={event.sourceURL} target="_blank" rel="noopener noreferrer" className="block">
-      <article
-        className={`overflow-hidden rounded-2xl bg-white shadow-airbnb-card transition-shadow hover:shadow-airbnb-card-hover ${
-          viewMode === 'grid' ? 'flex flex-col' : 'flex min-h-28'
-        }`}
-      >
-        {imageArea}
-        {textArea}
+    <div>
+      <article className="overflow-hidden rounded-2xl bg-white shadow-airbnb-card transition-shadow hover:shadow-airbnb-card-hover">
+        <a
+          href={event.sourceURL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={viewMode === 'grid' ? 'flex flex-col' : 'flex min-h-28'}
+        >
+          {imageArea}
+          {textArea}
+        </a>
+        {showTicket && (
+          <button
+            type="button"
+            onClick={() => setModalOpen(true)}
+            className="w-full border-t border-slate-100 px-3 py-2 text-sm font-bold text-rose-600 transition-colors hover:bg-rose-50"
+          >
+            🎫 チケットを探す
+          </button>
+        )}
       </article>
-      {congestionInfo && barPercent !== null && (
-        <div className="mt-1 px-1" data-testid="congestion-bar">
-          <div className="h-1.5 overflow-hidden rounded-full bg-slate-100">
-            <div
-              className={`h-1.5 rounded-full ${congestionInfo.barColorClass}`}
-              style={{ width: `${barPercent}%` }}
-            />
-          </div>
-        </div>
-      )}
-    </a>
+      {showTicket && <TicketModal open={modalOpen} onClose={() => setModalOpen(false)} eventName={event.eventName} />}
+    </div>
   )
 }

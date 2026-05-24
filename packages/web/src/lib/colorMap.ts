@@ -46,7 +46,6 @@ export interface CongestionInfo {
   imageBadgeClass: string
   badgeClass: string
   barClass: string
-  barColorClass: string
 }
 
 export const getCongestionInfo = (score: number | null | undefined): CongestionInfo | null => {
@@ -58,7 +57,6 @@ export const getCongestionInfo = (score: number | null | undefined): CongestionI
       imageBadgeClass: 'bg-emerald-500/90 text-white',
       badgeClass: 'bg-emerald-50 text-emerald-700',
       barClass: 'bg-emerald-400',
-      barColorClass: 'bg-emerald-400',
     }
   }
 
@@ -68,7 +66,6 @@ export const getCongestionInfo = (score: number | null | undefined): CongestionI
       imageBadgeClass: 'bg-amber-500/90 text-white',
       badgeClass: 'bg-amber-50 text-amber-700',
       barClass: 'bg-amber-400',
-      barColorClass: 'bg-amber-400',
     }
   }
 
@@ -78,7 +75,6 @@ export const getCongestionInfo = (score: number | null | undefined): CongestionI
       imageBadgeClass: 'bg-orange-600/90 text-white',
       badgeClass: 'bg-orange-50 text-orange-700',
       barClass: 'bg-orange-400',
-      barColorClass: 'bg-orange-400',
     }
   }
 
@@ -87,6 +83,5 @@ export const getCongestionInfo = (score: number | null | undefined): CongestionI
     imageBadgeClass: 'bg-rose-600/90 text-white',
     badgeClass: 'bg-rose-50 text-rose-700',
     barClass: 'bg-rose-500',
-    barColorClass: 'bg-rose-500',
   }
 }

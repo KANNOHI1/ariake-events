@@ -163,6 +163,8 @@
 | M2 | Masonry グリッドレイアウト | ✅ 完了 (2026-04-03) |
 | M3 | UI Polish（余白・ヘッダー・セクションヘッダー） | ✅ 完了 (2026-04-03) |
 | M4 | 交通ページリデザイン（ロゴ・薄グレー・w-full） | ✅ 完了 (2026-04-03) |
+| M5 | 交通マップ（A案: 時刻表/マップ切替トグル） | ✅ 完了 (2026-05-24) |
+| M6 | チケット購入導線（4社モーダル）+ 混雑バー削除 | ✅ 完了 (2026-05-24) |
 
 **M1 成果物 (2026-04-02):**
 - FilterSheet.tsx 新規作成（createPortal + SSR対応 + CSS transition）
@@ -188,6 +190,24 @@
 - `<table>` に `w-full` 追加でコンテナ幅統一
 - ヘッダー・FilterBar内コンテンツも max-w-5xl mx-auto に揃える
 - テスト: 17スイート 131/131 PASS
+
+**M5 成果物 (2026-05-24):**
+- Leaflet + react-leaflet + OpenStreetMap（APIキー不要）
+- `MapView.tsx` 新規: CircleMarker でバス停・駅プロット、フィルター対応
+- `TransportView.tsx`: 時刻表/マップの切替トグル + RouteCard 停留所展開
+- `timetable.ts` / `busStops20260401.ts`: stops[] + coords (lat/lng) 追加
+- HTMLプロトタイプ 3 案比較 → A案採用（HK 選択）
+- テスト: 21スイート 165/165 PASS
+
+**M6 成果物 (2026-05-24):**
+- 4社のチケット検索リンク（チケットぴあ / ローチケ / イープラス / 楽天）
+- `ticketPlatforms.ts` 新規: 各社 URL ビルダー + 表示対象カテゴリ判定
+- `TicketModal.tsx` 新規: バックドロップ blur + ESC/×/外側クリックで close
+- `EventCard.tsx`: music/sports/anime カテゴリのみ「🎫 チケットを探す」ボタン
+- カード下部の混雑度プログレスバー削除（画像右上バッジと重複していたため）
+- `colorMap.ts`: 未使用となった `barColorClass` を削除
+- ZAIKO は keyword URL 非対応のため除外（Vue SPA で URL params なし）
+- テスト: 21スイート 179/179 PASS
 
 ---
 
