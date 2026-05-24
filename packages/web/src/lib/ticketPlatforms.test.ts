@@ -2,12 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { buildSearchQuery, TICKET_PLATFORMS } from './ticketPlatforms'
 
 describe('TICKET_PLATFORMS', () => {
-  it('builds Rakuten Ticket search URLs with required s and q parameters', () => {
-    const rakuten = TICKET_PLATFORMS.find((platform) => platform.id === 'rakuten')
-
-    expect(rakuten?.buildUrl('有明 ライブ')).toBe(
-      `https://ticket.rakuten.co.jp/?s=&q=${encodeURIComponent('有明 ライブ')}`,
-    )
+  it('contains only the supported primary ticket platform ids', () => {
+    expect(TICKET_PLATFORMS.map((platform) => platform.id)).toEqual(['pia', 'lawson', 'eplus'])
   })
 })
 

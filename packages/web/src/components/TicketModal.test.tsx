@@ -7,6 +7,7 @@ describe('TicketModal', () => {
   it('renders all ticket platform names when open', () => {
     render(<TicketModal open={true} onClose={() => {}} eventName="Ariake Live 2026" facility="有明アリーナ" />)
 
+    expect(screen.getAllByRole('link')).toHaveLength(3)
     for (const platform of TICKET_PLATFORMS) {
       expect(screen.getByRole('link', { name: platform.name })).toBeInTheDocument()
     }

@@ -19,12 +19,6 @@ export const TICKET_PLATFORMS = [
     color: 'bg-orange-500',
     buildUrl: (q: string) => `https://eplus.jp/sf/search?keyword=${encodeURIComponent(q)}`,
   },
-  {
-    id: 'rakuten',
-    name: '楽天チケット',
-    color: 'bg-rose-600',
-    buildUrl: (q: string) => `https://ticket.rakuten.co.jp/?s=&q=${encodeURIComponent(q)}`,
-  },
 ] as const
 
 const TICKET_CATEGORIES: ReadonlySet<EventCategory> = new Set(['music', 'sports', 'anime'])

@@ -97,6 +97,7 @@ describe('EventCard ticket links', () => {
     fireEvent.click(screen.getByRole('button', { name: '🎫 チケットを探す' }))
 
     const dialog = screen.getByRole('dialog')
+    expect(within(dialog).getAllByRole('link')).toHaveLength(3)
     for (const platform of TICKET_PLATFORMS) {
       expect(within(dialog).getByRole('link', { name: platform.name })).toBeInTheDocument()
     }
