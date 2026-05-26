@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>X Profile Image Generator (400x400)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 400px; height: 400px; overflow: hidden; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      position: relative;
+      background: #000;
+    }
+    /* Big Sight 写真背景。円形クロップで Big Sight が中央付近に来るよう調整 */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../packages/web/public/facilities/tokyo-bigsight-2.jpg');
+      background-size: cover;
+      background-position: center 45%;
+    }
+    /* 下半分を暗くして「有明」テキストの可読性を確保 */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.15) 0%,
+        rgba(0,0,0,0.35) 45%,
+        rgba(0,0,0,0.78) 75%,
+        rgba(0,0,0,0.88) 100%
+      );
+    }
+    .content {
+      position: absolute;
+      inset: 0;
+      padding: 28px 28px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #fff;
+    }
+    /* 上部: 既存OG画像と同じ ARIAKE EVENTS ロゴ。円の縁付近なので小さめに */
+    .top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;  /* 中央寄せで円形クロップ耐性UP */
+    }
+    .accent {
+      width: 32px;
+      height: 5px;
+      background: #ff6b35;
+      border-radius: 3px;
+    }
+    .site {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      opacity: 0.95;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+    /* 下半分: メインタイトル */
+    .bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .title {
+      font-size: 112px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      text-shadow: 0 4px 18px rgba(0,0,0,0.7);
+    }
+    .subtitle {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      padding-left: 0.32em;
+      opacity: 0.92;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="top">
+      <div class="accent"></div>
+      <div class="site">ARIAKE EVENTS</div>
+    </div>
+    <div class="bottom">
+      <div class="title">有明</div>
+      <div class="subtitle">EVENTS</div>
+    </div>
+  </div>
+</body>
+</html>
