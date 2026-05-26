@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>X Header Image Generator (1500x500)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1500px; height: 500px; overflow: hidden; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      position: relative;
+      background: #0a1620;
+    }
+    /* Big Sight 写真を全面に */
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../packages/web/public/facilities/tokyo-bigsight.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.7);
+    }
+    /* 右側に強いダーク帯。テキストを完全に可読化 */
+    .overlay-right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 58%;
+      background: linear-gradient(
+        90deg,
+        rgba(8,12,20,0.0) 0%,
+        rgba(8,12,20,0.55) 25%,
+        rgba(8,12,20,0.85) 60%,
+        rgba(8,12,20,0.92) 100%
+      );
+    }
+    /* 上部ロゴ */
+    .top {
+      position: absolute;
+      top: 38px;
+      left: 70px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      z-index: 2;
+    }
+    .accent {
+      width: 48px;
+      height: 6px;
+      background: #ff6b35;
+      border-radius: 3px;
+    }
+    .site {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+    }
+    /* 右側のメインメッセージ */
+    .main {
+      position: absolute;
+      right: 80px;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
+      max-width: 760px;
+      color: #fff;
+    }
+    .title {
+      font-size: 96px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin-bottom: 22px;
+    }
+    .subtitle {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.4;
+      opacity: 0.95;
+      white-space: nowrap;
+    }
+    /* 下部の施設名 */
+    .facilities {
+      position: absolute;
+      right: 80px;
+      bottom: 38px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      opacity: 0.92;
+      text-align: right;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="overlay-right"></div>
+  <div class="top">
+    <div class="accent"></div>
+    <div class="site">ARIAKE EVENTS</div>
+  </div>
+  <div class="main">
+    <div class="title">有明イベント情報</div>
+    <div class="subtitle">5 施設のライブ・展示・スポーツを毎朝まとめてお届け</div>
+  </div>
+  <div class="facilities">
+    有明ガーデン ・ 有明アリーナ ・ 東京ガーデンシアター<br>
+    TOYOTA ARENA TOKYO ・ 東京ビッグサイト
+  </div>
+</body>
+</html>
