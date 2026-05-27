@@ -6,7 +6,7 @@ describe('ShareButton', () => {
   const props = {
     title: 'テストイベント',
     text: '有明アリーナ | 2026-03-20',
-    url: 'https://kannohi1.github.io/ariake-events?event=test-1',
+    url: 'https://ariake-events.pages.dev?event=test-1',
   }
 
   beforeEach(() => {
