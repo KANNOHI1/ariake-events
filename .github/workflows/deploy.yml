@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Cloudflare Pages
 
 on:
   push:
@@ -6,10 +6,16 @@ on:
       - main
     paths:
       - 'packages/web/**'
+      - 'packages/scraper/src/**'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'pnpm-workspace.yaml'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  deployments: write
 
 jobs:
   deploy:
@@ -31,13 +37,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build Next.js
+      - name: Build Next.js (no basePath, Cloudflare Pages root delivery)
         run: pnpm --filter web build
-        env:
-          NEXT_PUBLIC_BASE_PATH: /ariake-events
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: packages/web/out
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy packages/web/out --project-name=ariake-events --branch=main --commit-dirty=true
