@@ -32,7 +32,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
   const imageArea = (
     <div
       className={`relative shrink-0 overflow-hidden bg-black ${
-        viewMode === 'grid' ? 'aspect-video w-full' : 'w-[40%]'
+        viewMode === 'grid' ? 'aspect-video w-full max-h-[200px]' : 'w-[40%] max-h-[160px]'
       }`}
     >
       <img
