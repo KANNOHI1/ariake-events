@@ -81,7 +81,7 @@ export default function EventCard({ event, viewMode = 'list' }: Props) {
           href={event.sourceURL}
           target="_blank"
           rel="noopener noreferrer"
-          className={viewMode === 'grid' ? 'flex flex-col' : 'flex min-h-28'}
+          className={viewMode === 'grid' ? 'flex flex-col' : 'flex h-[140px]'}
         >
           {imageArea}
           {textArea}
