@@ -38,32 +38,37 @@ describe('EventCard', () => {
     expect(container.querySelector('[data-testid="congestion-bar"]')).toBeNull()
   })
 
-  it('uses a rounded-2xl card shell', () => {
+  it('uses a Pinterest-style rounded card shell (rounded-xl)', () => {
     const { container } = render(<EventCard event={musicEvent} />)
     const article = container.querySelector('article')
-    expect(article?.className).toContain('rounded-2xl')
+    expect(article?.className).toContain('rounded-xl')
   })
 
-  it('uses Airbnb card shadows', () => {
+  it('uses a subtle shadow (shadow-sm) that lifts on hover', () => {
     const { container } = render(<EventCard event={musicEvent} />)
     const article = container.querySelector('article')
-    expect(article?.className).toContain('shadow-airbnb-card')
-    expect(article?.className).toContain('hover:shadow-airbnb-card-hover')
+    expect(article?.className).toContain('shadow-sm')
+    expect(article?.className).toContain('hover:shadow-md')
   })
 
-  it('uses a video aspect ratio image area in grid mode', () => {
-    const { container } = render(<EventCard event={musicEvent} viewMode="grid" />)
-    const imageArea = container.querySelector('.aspect-video')
-    expect(imageArea).not.toBeNull()
+  it('renders image with natural aspect ratio (no forced aspect-video / max-h)', () => {
+    const { container } = render(<EventCard event={musicEvent} />)
+    const img = container.querySelector('img')
+    expect(img?.className).toContain('h-auto')
+    expect(img?.className).toContain('w-full')
+    expect(container.querySelector('.aspect-video')).toBeNull()
   })
 
-  it('applies line clamp only in list mode', () => {
-    const listView = render(<EventCard event={musicEvent} viewMode="list" />)
+  it('stacks image above text in flex-col regardless of viewMode', () => {
+    const { container: listContainer } = render(<EventCard event={musicEvent} viewMode="list" />)
+    const { container: gridContainer } = render(<EventCard event={musicEvent} viewMode="grid" />)
+    expect(listContainer.querySelector('a.flex-col')).not.toBeNull()
+    expect(gridContainer.querySelector('a.flex-col')).not.toBeNull()
+  })
+
+  it('always applies line-clamp-2 to the title (Pinterest-style)', () => {
+    render(<EventCard event={musicEvent} />)
     expect(screen.getByRole('heading', { name: musicEvent.eventName }).className).toContain('line-clamp-2')
-    listView.unmount()
-
-    render(<EventCard event={musicEvent} viewMode="grid" />)
-    expect(screen.getByRole('heading', { name: musicEvent.eventName }).className).not.toContain('line-clamp-2')
   })
 })
 
