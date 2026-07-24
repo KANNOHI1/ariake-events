@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ディズニー映えフォトガイド 📸</title>
+<style>
+  :root {
+    --pink: #f9c5d5;
+    --pink-deep: #e8749a;
+    --lavender: #cdb4f0;
+    --mint: #b8e8d8;
+    --sky: #bcdcf5;
+    --cream: #fff9f2;
+    --ink: #4a3f52;
+    --ink-soft: #7a6f85;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+    background: linear-gradient(180deg, #fde8ef 0%, var(--cream) 220px);
+    color: var(--ink);
+    line-height: 1.75;
+    padding-bottom: 48px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 18px; }
+
+  header { text-align: center; padding: 40px 16px 24px; }
+  header .castle { font-size: 44px; }
+  header h1 {
+    font-size: 24px; font-weight: 800; letter-spacing: .04em;
+    background: linear-gradient(90deg, var(--pink-deep), #9a6fd8);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin: 8px 0 6px;
+  }
+  header p { font-size: 13px; color: var(--ink-soft); }
+
+  section { margin-top: 28px; }
+  h2 {
+    font-size: 17px; font-weight: 800; display: flex; align-items: center; gap: 8px;
+    margin-bottom: 12px;
+  }
+  h2 .badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 10px; font-size: 16px; flex: none;
+  }
+  .b-pink { background: var(--pink); }
+  .b-lav  { background: var(--lavender); }
+  .b-mint { background: var(--mint); }
+  .b-sky  { background: var(--sky); }
+
+  .card {
+    background: var(--card); border-radius: 16px; padding: 16px;
+    box-shadow: 0 2px 10px rgba(180, 140, 180, .12);
+    margin-bottom: 12px;
+  }
+  .card h3 { font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+  .card .tag {
+    display: inline-block; font-size: 11px; font-weight: 700; border-radius: 999px;
+    padding: 2px 10px; margin: 0 4px 6px 0; color: var(--ink);
+  }
+  .card p { font-size: 13.5px; color: var(--ink-soft); }
+  .card .shot {
+    margin-top: 8px; font-size: 12.5px; background: var(--cream);
+    border-radius: 10px; padding: 8px 12px; color: var(--ink);
+  }
+  .shot b { color: var(--pink-deep); }
+
+  .notice {
+    background: linear-gradient(135deg, #fff3f7, #f3ecff);
+    border: 1.5px dashed var(--pink-deep); border-radius: 16px;
+    padding: 14px 16px; font-size: 13.5px; margin-bottom: 12px;
+  }
+  .notice b { color: var(--pink-deep); }
+
+  .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .vs .card { margin: 0; text-align: center; padding: 14px 10px; }
+  .vs .card .big { font-size: 26px; }
+  .vs .card h3 { font-size: 14px; margin: 4px 0; }
+  .vs .card p { font-size: 12px; }
+
+  ul.tips { list-style: none; }
+  ul.tips li {
+    background: var(--card); border-radius: 14px; padding: 12px 14px 12px 44px;
+    margin-bottom: 8px; font-size: 13.5px; position: relative;
+    box-shadow: 0 2px 10px rgba(180, 140, 180, .10);
+  }
+  ul.tips li::before {
+    position: absolute; left: 12px; top: 11px; font-size: 18px;
+    content: attr(data-icon);
+  }
+  ul.tips b { color: var(--pink-deep); }
+
+  footer { text-align: center; margin-top: 36px; font-size: 11px; color: #b5a8bf; }
+</style>
+</head>
+<body>
+<header>
+  <div class="castle">🏰✨</div>
+  <h1>ディズニー映えフォトガイド</h1>
+  <p>アトラクションより写真派さんのための<br>スポット＆撮影テクまとめ 📸</p>
+</header>
+
+<div class="wrap">
+
+<section>
+  <h2><span class="badge b-pink">🎀</span>まずどっちのパーク？</h2>
+  <div class="vs">
+    <div class="card">
+      <div class="big">🌊</div>
+      <h3>ディズニーシー</h3>
+      <p>海外旅行風・シック系ならこっち。背景のバリエーションが圧倒的で、通路が広く人が写り込みにくい。<b style="color:var(--pink-deep)">写真メインなら推し！</b></p>
+    </div>
+    <div class="card">
+      <div class="big">🎡</div>
+      <h3>ディズニーランド</h3>
+      <p>Y2K・ポップ・カラフル系ならこっち。トゥーンタウンとシンデレラ城が強い。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="badge b-lav">🧜‍♀️</span>ディズニーシーの映えスポット</h2>
+
+  <div class="notice">
+    ⭐ <b>ファンタジースプリングスは今は誰でも入れる！</b><br>
+    2025年4月からエリア入場制限が廃止。パークチケットだけで散策OK（並ぶのはアトラクションに乗る時だけ）。古い記事の「パス必須」情報は無視してOK🙆‍♀️
+  </div>
+
+  <div class="card">
+    <h3>🪄 ファンタジースプリングス</h3>
+    <span class="tag" style="background:var(--lavender)">最優先</span><span class="tag" style="background:var(--pink)">世界観◎</span>
+    <p>アナ雪の氷の城、ラプンツェルの塔とランタン、ピーターパンの渓谷。今いちばん新しくて強いエリア。</p>
+    <div class="shot">📷 <b>ラプンツェルの森は夕方〜夜</b>のランタン点灯後が最強。アナ雪エリアは日中の順光で。</div>
+  </div>
+
+  <div class="card">
+    <h3>🕌 アラビアンコースト</h3>
+    <span class="tag" style="background:var(--mint)">海外風</span>
+    <p>パステルの壁と幾何学模様のドア。海外旅行みたいな引きの全身写真が撮れる。</p>
+    <div class="shot">📷 引き（全身）／<b>夕方の西日</b>で色が鮮やかに。</div>
+  </div>
+
+  <div class="card">
+    <h3>🛶 ヴェネツィア・サイド（運河）</h3>
+    <span class="tag" style="background:var(--sky)">大人っぽ</span>
+    <p>ゴンドラ乗り場付近の橋と街並み。シックで大人っぽい雰囲気。</p>
+    <div class="shot">📷 寄り〜中景／<b>夕方〜街灯が点く時間帯</b>がエモい。</div>
+  </div>
+
+  <div class="card">
+    <h3>🚢 S.S.コロンビア号（デッキ）</h3>
+    <span class="tag" style="background:var(--sky)">爽やか</span>
+    <p>船上からの絶景＆レトロな船体バック。青空との相性抜群。</p>
+    <div class="shot">📷 引き（全身/半身）／<b>青空の日中</b>に。</div>
+  </div>
+
+  <div class="card">
+    <h3>🍝 メディテレーニアンハーバーの路地</h3>
+    <span class="tag" style="background:var(--pink)">フード映え</span>
+    <p>ザンビーニ裏手の洋風の小道とカラフルな壁。カチューシャや食べ物を撮るのに最適。</p>
+    <div class="shot">📷 寄り（バストアップ/手元）でフード＆小物を主役に。</div>
+  </div>
+
+  <div class="card">
+    <h3>🐚 マーメイドラグーン</h3>
+    <span class="tag" style="background:var(--lavender)">雨の日OK</span>
+    <p>屋内でピンク×紫の世界。<b>雨でもむしろ映える</b>救済スポット。</p>
+    <div class="shot">📷 天候・時間帯を問わず安定。雨プランに組み込んで◎</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="badge b-mint">🏰</span>ディズニーランドの映えスポット</h2>
+
+  <div class="card">
+    <h3>👑 シンデレラ城（裏側）</h3>
+    <span class="tag" style="background:var(--mint)">穴場画角</span>
+    <p>フェアリーテイル・ホール前。表より人が少なく、青い屋根と細部がきれいに入る。</p>
+    <div class="shot">📷 <b>下から見上げる煽り</b>で。日中 or ライトアップ後。</div>
+  </div>
+
+  <div class="card">
+    <h3>🚗 トゥーンタウン</h3>
+    <span class="tag" style="background:var(--pink)">ポップ</span>
+    <p>カラフルな扉と車。Y2Kテイストや元気ポーズにぴったり。</p>
+    <div class="shot">📷 中景（膝上〜全身）／日中の明るい時間に。</div>
+  </div>
+
+  <div class="card">
+    <h3>🌍 イッツ・ア・スモールワールド（外観）</h3>
+    <span class="tag" style="background:var(--lavender)">パステル</span>
+    <p>パステルピンク＆ブルーの幾何学背景。コーデとカチューシャが映える。</p>
+    <div class="shot">📷 寄り〜中景／直射日光を避けた<b>順光</b>で。</div>
+  </div>
+
+  <div class="card">
+    <h3>🧱 イーストサイド・カフェ横の小道</h3>
+    <span class="tag" style="background:var(--sky)">穴場</span>
+    <p>ワールドバザールのレンガ調レトロ空間。人通り少なめで撮りやすい。雨の日も屋根があって安心。</p>
+    <div class="shot">📷 全身/後ろ姿。時間帯を問わず安定。</div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="badge b-sky">📸</span>映え度が上がる撮影テク</h2>
+  <ul class="tips">
+    <li data-icon="🤳"><b>広角0.5倍＋スマホ逆さ持ち</b>で低い位置から見上げて撮る → 脚長効果◎</li>
+    <li data-icon="🍿">カチューシャや限定フードを<b>手前にかざしてポートレートモード</b> → 背景ボケで主役感UP</li>
+    <li data-icon="🌤️">逆光は避けて、<b>建物の日陰のやわらかい光</b>で撮ると肌がきれいに写る</li>
+    <li data-icon="🎠"><b>開園直後＆パレード中</b>は人気スポットがスカスカ。撮影のゴールデンタイム</li>
+    <li data-icon="👒">人気の限定フード＆カチューシャは<b>午前中に確保</b>（昼過ぎ売り切れあり）</li>
+    <li data-icon="📷">キャストさんに頼めば引きの全身もきれいに撮ってもらえる（遠慮しなくてOK！）</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="badge b-pink">🗓️</span>1日のざっくり作戦</h2>
+  <ul class="tips">
+    <li data-icon="🌅"><b>開園〜1時間</b>：いちばん撮りたいスポットへ直行（人少なめ＆朝のやわらかい光）</li>
+    <li data-icon="🥐"><b>午前</b>：カチューシャ＆フード確保 → フード映え写真</li>
+    <li data-icon="☀️"><b>昼</b>：パレード/ショーの時間帯に空いたスポットを回収</li>
+    <li data-icon="🌇"><b>夕方〜夜</b>：西日タイム→ランタン/街灯点灯タイムがラストスパート</li>
+    <li data-icon="☔"><b>雨の日</b>：シーはマーメイドラグーン、ランドはワールドバザールへ避難でOK</li>
+  </ul>
+</section>
+
+<footer>
+  すてきな1日になりますように 🎀✨<br>
+  ※2026年6月時点の情報です。最新の運営状況は公式アプリでご確認ください。
+</footer>
+
+</div>
+</body>
+</html>
